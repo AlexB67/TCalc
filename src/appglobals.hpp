@@ -5,6 +5,7 @@
 #include <gtkmm/frame.h>
 #include <glibmm/keyfile.h>
 #include <glibmm/miscutils.h>
+#include <filesystem>
 
 namespace AppGlobals
 {
@@ -13,16 +14,19 @@ namespace AppGlobals
     inline int  resultsset = 1;  // the first results column is the default
 
     // paths used throughout
-    inline const Glib::ustring dsolistfilename = Glib::get_home_dir() + "/Documents/TCalc/skyobjects.TCalc"; //dsos
-    inline const Glib::ustring configpath = Glib::get_home_dir() + "/Documents/TCalc/tcalc.conf";
-    inline const Glib::ustring telescopesfilename = Glib::get_home_dir() + "/Documents/TCalc/telescopes.TCalc";
-    inline const Glib::ustring telescopesfilenameuser = Glib::get_home_dir() + "/Documents/TCalc/telescopesuser.TCalc";
-    inline const Glib::ustring eyepiecesfilename = Glib::get_home_dir() + "/Documents/TCalc/eyepieces.TCalc";  
-    inline const Glib::ustring eyepiecesfilenameuser = Glib::get_home_dir() + "/Documents/TCalc/eyepiecesuser.TCalc";
+    inline const Glib::ustring dsolistfilename = "/usr/local/share/gnome-tcalc/skyobjects.TCalc"; //dsos
+    inline const Glib::ustring configpath = Glib::get_home_dir() + "/.config/gnome-tcalc/tcalc.conf";
+    inline const Glib::ustring telescopesfilename = "/usr/local/share/gnome-tcalc/telescopes.TCalc";
+    inline const Glib::ustring telescopesfilenameuser = Glib::get_home_dir() + "/.config/gnome-tcalc/telescopesuser.TCalc";
+    inline const Glib::ustring eyepiecesfilename = "/usr/local/share/gnome-tcalc/eyepieces.TCalc";  
+    inline const Glib::ustring eyepiecesfilenameuser = Glib::get_home_dir() + "/.config/gnome-tcalc/eyepiecesuser.TCalc";
 
     inline void get_keyfile_config(Gtk::Frame &frame)
     {
         // we can add more when needed, just for frame style for now
+
+        if (false == std::filesystem::exists(AppGlobals::configpath.c_str())) return;
+
         Glib::KeyFile keyfile;
         keyfile.load_from_file(AppGlobals::configpath); 
         std::vector<bool> appearance = keyfile.get_boolean_list("Appearance", "settings");

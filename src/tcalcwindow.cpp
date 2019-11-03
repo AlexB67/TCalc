@@ -14,6 +14,7 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    set_border_width(Uidefs::BORDER_WIDTH);
    set_headerbar();
    create_menu_and_shortcuts();
+   get_app_data();
 
    // Create separate grids to avoid expansion / layout issues
    windowgrid.set_column_spacing(Uidefs::COLUMN_PADDING);
@@ -55,6 +56,16 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    logbox->setlogtext(AppGlobals::LOGFLAG, LogView::tINFO, "TCalc ready.");
    AppGlobals::app_notify(_("TCalc ready."), app);
 
+}
+void TcalcWindow::get_app_data()
+{
+   auto path = Glib::get_user_config_dir() + "/gnome-tcalc";
+
+   if (true == std::filesystem::exists(path.c_str())) return;
+
+   Glib::RefPtr<Gio::File> file;
+   file = Gio::File::create_for_path(path);
+   file->make_directory();
 }
 
 void TcalcWindow::create_menu_and_shortcuts()
