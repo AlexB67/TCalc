@@ -1,4 +1,4 @@
-TCalc - An astronomy tool for telescopes and eyepieces.
+GNOME TCalc - An astronomy tool for telescopes and eyepieces written in gtkmm.
 
 Warning: very much work in progress, some things don't work fully as intended
 
