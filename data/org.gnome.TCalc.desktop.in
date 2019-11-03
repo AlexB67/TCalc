@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=GNOME Tcalc
+Name=GNOME TCalc
 Exec=tcalc
 Icon=tcalc.png
 Terminal=false

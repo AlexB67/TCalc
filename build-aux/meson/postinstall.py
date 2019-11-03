@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-from os import environ, path
+from os import environ, makedirs, path
+from pathlib import Path
+from shutil import copy
 from subprocess import call
 
 prefix = environ.get('MESON_INSTALL_PREFIX', '/usr/local')
@@ -18,4 +20,12 @@ if not destdir:
     print('Compiling GSettings schemas...')
     call(['glib-compile-schemas', path.join(datadir, 'glib-2.0', 'schemas')])
 
+print('Installing user data ...')
+srcdir=('../../appdata')
+destdir=(str(Path.home()) + '/Documents/TCalc')
 
+if not os.path.exists(destdir): 
+    os.mkdir(destdir)
+
+for filename in os.listdir(srcdir):
+    shutil.copy( srcdir + filename, destdir)

@@ -1,18 +1,11 @@
-<<<<<<< HEAD
 TCalc - An astronomy tool for telescopes and eyepieces.
 
-Warnig: very much work in progress, hence the cumbersome installation steps
+Warning: very much work in progress, some things don't work fully as intended
 
-clone the repo
+build gtkmm-plplot and install 
+from https://github.com/tschoonj/gtkmm-plplotvrsion, version 2.3 or later is required.
 
-build gtkmm-plplot from https://github.com/tschoonj/gtkmm-plplot
-
-
-Copy the contents of Documents as follows
-
-create a folder TCalc in /home/yourusername/Documents/TCalc
-
-copy contents of the Documents in the repo folder to /home/yourusername/Documents/TCalc
+clone the Tcalc repo
 
 From the command line 
 $cd TCalc
@@ -20,23 +13,12 @@ $mkdir build
 $meson build/
 $cd build
 $ninja
+$sudo ninja install
 
-you can now run the app from the build folder with the command /src/tcalc
+This will add the application to /user/local and appear in the applications list as GNOME TCalc.
 
-optionally 
+Note: this is a vscode project but works equally well in gnome-builder, just point builder to the TCalc folder and open it
+Neither are required to build/install the project
 
-$ninja install
+To be build as flatpak and/or with rpm in future. 
 
-This will add the application to user/local and appear in the applications list.
-
-Note: this is a vscode project but works equaly well in gnome-builder, just point builder to the TCalc folder and open it
-
-to be build as flatpak or with rpm in future.
-
-
-
-=======
-# TCalc
-An astronomy tool for telescopes and eyepieces.
-Instructions to add here.
->>>>>>> f2e031981a5080c5a2a83d753412b0224291416a

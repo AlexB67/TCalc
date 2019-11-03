@@ -1,0 +1,172 @@
+# Format: model name, fov, focal length, field stop, eye relief, transmission, barrel size, type,
+#number of groups, number of elements, weight, coatings, material
+# delimiter is the |  character.
+Baader BGO ortho 5mm 1.25"|40|5|3.40|4.05|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader BGO ortho 6mm 1.25"|40|6|4.20|4.91|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader BGO ortho 7mm 1.25"|40|7|4.87|6.07|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader BGO ortho 9mm 1.25"|40|9|6.30|7.61|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader BGO ortho 12.5mm 1.25"|40|12.5|9.20|10.41|98|1.25|Ortho|2|4|0|Phantom MC||
+Baader BGO ortho 18mm 1.25"|40|18|12.5|15.21|98|1.25|Ortho|2|4|0|Phantom MC||
+Baader Morpheus 76 4.5mm 1.25"|76|4.5|6.1|17.5|0|1.25|Multi other|0|0|0|||
+Baader Morpheus 76 6.5mm 1.25"|76|6.5|8.75|18.5|0|1.25|Multi other|0|0|0|||
+Baader Morpheus 76 9mm 1.25"|76|9.0|12.1|21.0|0|1.25|Multi other|0|0|0|||
+Baader Morpheus 76 12.5mm 1.25"|76|12.5|16.8|20.0|0|1.25|Multi other|0|0|0|||
+Baader Morpheus 76 14mm 1.25"|76|14.0|18.85|18.5|0|1.25|Multi other|0|0|0|||
+Baader Morpheus 76 17.5mm 1.25"|76|17.5|23.55|19.0|0|1.25|Multi other|0|0|0|||
+Baader Pl Hyperion 3.5mm 2"|68|3.5|4.3|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 5mm 2"|68|5|6.5|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 8mm 2"|68|8|10.7|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 13mm 2"|68|13|17.7|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 17mm 2"|68|17|20.9|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 21mm 2"|68|21|22.5|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 24mm 2"|68|24|28.5|0|0|2.0|Multi other|0|0|0|||
+BST Explorer ED Starguider 5mm 1.25"|60|5|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
+BST Explorer ED Starguider 8mm 1.25"|60|8|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
+BST Explorer ED Starguider 12mm 1.25"|60|12|0|13|0|1.25|Multi other|0|0|0|||
+BST Explorer ED Starguider 15mm 1.25"|60|15|0|13|0|1.25|Multi other|0|0|0|||
+BST Explorer ED Starguider 18mm 1.25"|60|18|0|13|0|1.25|Multi other|0|0|0|||
+BST Explorer ED Starguider 25mm 1.25"|60|25|0|13|0|1.25|Multi other|0|0|0|||
+Celestron Luminos 7mm 1.25"|82|7|0|12|0|1.25|Multi other|0|0|0|||
+Celestron Luminos 10mm 1.25"|82|10|0|12|0|1.25|Multi other|0|0|0|||
+Celestron Luminos 15mm 1.25"|82|15|0|17|0|1.25|Multi other|0|0|0|||
+Celestron Luminos 19mm 2"|82|19|0|20|0|2.0|Multi other|0|0|0|||
+Celestron Luminos 23mm 2"|82|23|0|20|0|2.0|Multi other|0|0|0|||
+Celestron Luminos 31mm 2"|82|31|0|27|0|2.0|Multi other|0|0|0|||
+Celestron NexStar 3.6mm 1.25"|52|3.6|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 6mm 1.25"|52|6|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 8mm 1.25"|52|8|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 10mm 1.25"|52|10|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 13mm 1.25"|52|13|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 17mm 1.25"|52|17|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 25mm 1.25"|52|25|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 32mm 1.25"|52|32|0|0|0|1.25|Multi other|0|0|0|||
+Celestron NexStar 40mm 1.25"|52|40|0|0|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP6816 16mm 1.25"|68|16|18.2|11.6|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP6820 20mm 1.25"|68|20|22.8|15.3|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP6824 24mm 1.25"|68|24|27.2|18.4|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP6828 28mm 2"|68|28|31.8|21.6|0|2.0|Multi other|0|0|0|||
+Explore Scientific WP6834 34mm 2"|68|34|38.6|26.4|0|2.0|Multi other|0|0|0|||
+Explore Scientific WP6840 40mm 2"|68|40|52.2|31|0|2.0|Multi other|0|0|0|||
+Explore Scientific WP8247 4.7mm 1.25"|82|4.7|6.9|13.6|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP8267 6.7mm 1.25"|82|6.7|9.5|15.7|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP8288 8.8mm 1.25"|82|8.8|12.4|15.6|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP8211 11mm 1.25"|82|11|15.9|15.6|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP8214 14mm 1.25"|82|14|18.9|15.6|0|1.25|Multi other|0|0|0|||
+Explore Scientific WP8218 18mm 2"|82|18|25.3|13|0|2.0|Multi other|0|0|0|||
+Explore Scientific WP8224 24mm 2"|82|24|33.5|17.5|0|2.0|Multi other|0|0|0|||
+Explore Scientific WP8230 30mm 2"|82|30|43|22.0|0|2.0|Multi other|0|0|0|||
+Explore Scientific EP1009 9mm 2"|100|9|15.7|12.5|0|2.0|Multi other|0|0|0|||
+Explore Scientific EP10014 14mm 2"|100|14|24.4|14.5|0|2.0|Multi other|0|0|0|||
+Explore Scientific EP10020 20mm 2"|100|20|34.8|14.5|0|2.0|Multi other|0|0|0|||
+Explore Scientific EP10025 25mm 2"|100|25|41|14.5|0|2.0|Multi other|0|0|0|||
+Explore Scientific EP10030 30mm 2"|100|30|52.2|19|0|3.0|Multi other|0|0|0|||
+GSO Super Plossl 32mm 1.25"|52|32|0|15|96.40|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 4mm 1.25"|42|4|2.6|3.4|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 5mm 1.25"|42|5|3.4|4.0|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 6mm 1.25"|42|6|4.2|4.9|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 7mm 1.25"|42|7|4.8|6.1|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 9mm 1.25"|42|9|6.3|7.6|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 18mm 1.25"|42|18|12.5|15.2|0|1.25|Ortho|0|0|0|||
+Fujiyama HD ortho 25mm 1.25"|42|25|17.4|22.2|0|1.25|Ortho|0|0|0|||
+GSWA 30mm 2"|68|30|42|20|0|2.0|Multi other|0|0|0|||
+Pentax XL 10.5mm 1.25"|65|10.5|0|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 3.5mm 1.25"|70|3.5|4.3|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 5mm 1.25"|70|5|6.2|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 7mm 1.25"|70|7|8.8|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 10mm 1.25"|70|10|12.4|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 14mm 1.25"|70|14|17.6|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 20mm 1.25"|70|20|24|20|96|1.25|Multi other|0|0|0|||
+Pentax XW 30mm 2"|70|30|36.2|20|98|2.0|Multi other|0|0|0|||
+Sky-watcher LET 28mm 2"|56|28|31|20|0|2.0|Multi other|0|0|0|||
+Sky-watcher Nirvana 4mm 1.25"|82|4|0|12|0|1.25|Multi other|0|0|0|||
+Sky-watcher Nirvana 7mm 1.25"|82|7|0|12|0|1.25|Multi other|0|0|0|||
+Sky-watcher Nirvana 16mm 1.25"|82|16|0|12|0|1.25|Multi other|0|0|0|||
+Sky-watcher Nirvana 28mm 2"|82|28|0|18|0|2.0|Multi other|0|0|0|||
+Sky-Watcher Super MA 3.6mm 1.25"|40|3.6|0|0|0|1.25|Plossl|0|0|0|||
+Sky-Watcher Super MA 10mm 1.25"|52|10|0|0|0|1.25|Plossl|0|0|0|||
+Sky-Watcher Super MA 25mm 1.25"|52|25|0|0|0|1.25|Plossl|0|0|0|||
+Sky-Watcher UWA 6mm 1.25"|66|6|0|14.8|0|1.25|Multi other|0|0|0|||
+Sky-Watcher UWA 9mm 1.25"|66|9|0|15.0|0|1.25|Multi other|0|0|0|||
+Sky-Watcher UWA 15mm 1.25"|66|15|0|13.0|0|1.25|Multi other|0|0|0|||
+Sky-Watcher SWA 70 3.5mm 1.25"|70|3.5|0|20.6|0|1.25|Multi other|0|0|0|||
+Sky-Watcher SWA 70 5mm 1.25"|70|5|0|20.6|0|1.25|Multi other|0|0|0|||
+Sky-Watcher SWA 70 8mm 1.25"|70|8|0|20.6|0|1.25|Multi other|0|0|0|||
+Sky-Watcher SWA 70 13mm 1.25"|70|13|0|20.6|0|1.25|Multi other|0|0|0|||
+Sky-Watcher SWA 70 17mm 1.25"|70|17|0|20.6|0|1.25|Multi other|0|0|0|||
+Sky-Watcher SWA 70 22mm 2"|70|22|0|20.6|0|2.0|Multi other|0|0|0|||
+Sky-Watcher SWA 70 32mm 2"|70|32|0|20.6|0|2.0|Multi other|0|0|0|||
+Takahashi Abbe Ortho 6mm 1.25"|44|6|0|4.8|98.0|1.25|Ortho|0|0|0|||
+Takahashi Abbe Ortho 9mm 1.25"|44|9|0|7.5|98.0|1.25|Ortho|0|0|0|||
+Takahashi Abbe Ortho 12.5mm 1.25"|44|6|0|10.0|98.0|1.25|Ortho|0|0|0|||
+Takahashi Abbe Ortho 18mm 1.25"|44|18|0|15.0|98.0|1.25|Ortho|0|0|0|||
+Takahashi Abbe Ortho 25mm 1.25"|44|25|0|22.0|98.0|1.25|Ortho|0|0|0|||
+Takahashi Abbe Ortho 32mm 1.25"|44|32|0|28.0|98.0|1.25|Ortho|0|0|0|||
+TeleVue Delos EDL-3.5 3.5mm 1.25"|72|3.5|4.4|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-4.5 4.5mm 1.25"|72|4.5|5.6|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-6.0 6mm 1.25"|72|6|7.6|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-8.0 8mm 1.25"|72|8|9.9|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-10.0 10mm 1.25"|72|10|12.7|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-12.0 12mm 1.25"|72|12|15|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-14.0 14mm 1.25"|72|14|17.3|20|0|1.25|Multi other|0|0|0|||
+TeleVue Delos EDL-17.3 17.3mm 1.25"|72|17.3|21.2|20|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler 6 EN6-02.5 2.5mm 1.25"|82|2.5|3.4|12|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler 6 EN6-03.5 3.5mm 1.25"|82|3.5|4.8|12|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler 6 EN6-05.0 5mm 1.25"|82|5.0|7.0|12|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler 6 EN6-07.0 7mm 1.25"|82|7.0|9.7|12|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler 6 EN6-09.0 9mm 1.25"|82|9.0|12.4|12|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler 6 EN6-11.0 11mm 1.25"|82|11.0|14.9|12|0|1.25|Multi other|0|0|0|||
+TeleVue Nagler T5 16mm  1.25"|82|16|22.1|10|94.32|1.25|Multi other|0|0|0|||
+TeleVue Plossl EAP 8mm 1.25"|50|8|6.5|6|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EAP 11mm 1.25"|50|11|9.1|8|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EAP 15mm 1.25"|50|15|12.6|10|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EAP 20mm 1.25"|50|20|17.1|14|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EAP 25mm 1.25"|50|25|21.2|17|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EPL 32mm 1.25"|50|32|27|22|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EPL 40mm 1.25"|43|40|27|28|98.02|1.25|Plossl|0|0|0|||
+TeleVue Plossl EPL 55mm 1.25"|50|55|46|38|98.02|1.25|Plossl|0|0|0|||
+TeleVue Radian ERD-3.0 3mm 1.25"|60|3|3.3|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-4.0 4mm 1.25"|60|4|4.2|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-5.0 5mm 1.25"|60|5|5.3|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-6.0 6mm 1.25"|60|6|6.3|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-8.0 8mm 1.25"|60|8|8.3|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-10.0 10mm 1.25"|60|8|10.5|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-12.0 12mm 1.25"|60|12|12.6|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-14.0 12mm 1.25"|60|14|14.4|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Radian ERD-18.0 12mm 1.25"|60|18|18.3|20|91.06|1.25|Multi other|0|0|0|||
+TeleVue Panoptic EPO 19mm 1.25"|68|19|21.3|13.0|0|1.25|Multi other|0|0|0|||
+TeleVue Panoptic EPO 24mm 1.25"|68|24|27|15|0|1.25|Multi other|0|0|0|||
+TeleVue Panoptic EPO 27mm 2"|68|27|30.5|19|0|2.0|Multi other|0|0|0|||
+TeleVue Panoptic EPO 35mm 2"|68|35|38.7|24|0|2.0|Multi other|0|0|0|||
+TeleVue Panoptic EPO 41mm 2"|68|41|46|27|0|2.0|Multi other|0|0|0|||
+Vixen NLV 2.5mm 1.25"|45|2.5|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 4mm 1.25"|45|4|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 5mm 1.25"|45|5|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 6mm 1.25"|45|6|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 9mm 1.25"|50|9|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 10mm 1.25"|50|10|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 12mm 1.25"|50|12|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 15mm 1.25"|50|15|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 20mm 1.25"|50|20|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 25mm 1.25"|50|25|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 30mm 1.25"|50|30|0|20|0|1.25|Multi other|0|0|0|||
+Vixen NLV 40mm 1.25"|42|40|0|32|0|1.25|Multi other|0|0|0|||
+Vixen NPL 4mm 1.25"|50|4|0|2.3|0|1.25|Plossl|0|0|0|||
+Vixen NPL 6mm 1.25"|50|6|0|3|0|1.25|Plossl|0|0|0|||
+Vixen NPL 8mm 1.25"|50|8|0|4.5|0|1.25|Plossl|0|0|0|||
+Vixen NPL 10mm 1.25"|50|10|0|6.5|0|1.25|Plossl|0|0|0|||
+Vixen NPL 15mm 1.25"|50|15|0|11|0|1.25|Plossl|0|0|0|||
+Vixen NPL 20mm 1.25"|50|20|0|15|0|1.25|Plossl|0|0|0|||
+Vixen NPL 25mm 1.25"|50|25|0|19.5|0|1.25|Plossl|0|0|0|||
+Vixen NPL 30mm 1.25"|50|30|0|24|0|1.25|Plossl|0|0|0|||
+Vixen NPL 40mm 1.25"|40|40|0|36|0|1.25|Plossl|0|0|0|||
+William optics SPL 3mm 1.25"|55|3.5|0|20|0|1.25|Multi other|0|0|0|||
+William optics SPL 6mm 1.25"|55|6|0|20|0|1.25|Multi other|0|0|0|||
+William optics SPL 12.5mm 1.25"|55|12.5|0|20|0|1.25|Multi other|0|0|0|||
+William optics SWAN 72 9mm 1.25"|72|9|0|12|0|1.25|Multi other|0|0|0|||
+William optics SWAN 72 15mm 1.25"|72|15|0|14|0|1.25|Multi other|0|0|0|||
+William optics SWAN 72 20mm 1.25"|72|20|0|21|0|1.25|Multi other|0|0|0|||
+William optics UWAN 82 4mm 1.25"|82|4|0|12|0|1.25|Multi other|4|7|200|FMC||
+William optics UWAN 82 7mm 1.25"|82|7|12|12|0|1.25|Multi other|4|7|200|FMC||
+William optics UWAN 82 16mm 1.25"|82|16|0|12|0|1.25|Multi other|0|0|0|FMC||
+William optics UWAN 82 28mm 2"|82|28|0|18|0|2.0|Multi other|0|0|0|FMC||
