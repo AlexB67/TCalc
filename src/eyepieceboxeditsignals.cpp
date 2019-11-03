@@ -139,13 +139,13 @@ void EpBox::EditEyepieces::set_signal_handlers()
 
         if (false == updatemode) // it's a new eyepiece
         {
-            AppGlobals::new_ep_data.emit();
             m_ecombomodel.append_ep_to_model(AppGlobals::epdata);
+            AppGlobals::new_ep_data.emit();
         }
         else // it's an existing  eyepiece update
         {
-            AppGlobals::update_ep_data.emit();
             m_ecombomodel.update_ep_model(AppGlobals::epdata);
+            AppGlobals::update_ep_data.emit();
         }
 
         fileIO::dbfileIO db;

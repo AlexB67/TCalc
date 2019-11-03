@@ -157,13 +157,13 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
         if (false == updatemode) // it's a new telescope
         {
-            AppGlobals::new_scope_data.emit();
             m_scombomodel.append_scope_to_model(AppGlobals::scopedata);
+            AppGlobals::new_scope_data.emit();
         }
         else // it's an existing telescope update
         {
-            AppGlobals::update_scope_data.emit();
             m_scombomodel.update_scope_model(AppGlobals::scopedata);
+            AppGlobals::update_scope_data.emit();
         }
 
         fileIO::dbfileIO db;
