@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="tcalc">
+	<schema id="org.gnome.TCalc" path="/org/gnome/TCalc/">
+	</schema>
+</schemalist>

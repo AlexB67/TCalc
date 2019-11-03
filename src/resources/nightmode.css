@@ -1,0 +1,194 @@
+/* tcalc-nightmode */
+
+
+
+@define-color theme_selected_bg_color #000000;
+@define-color theme_selected_fg_color #600000;
+
+* {
+ border-color: rgba(0, 0, 0, 1);
+ border-width: 0.7px;
+ color: black;
+ text-shadow: none;
+ border-color:#000;
+ background-color: #500;
+}
+
+window {
+  background: #500;
+}
+
+*:hover {
+    background-color: @theme_selected_fg_color;
+    color: @theme_selected_bg_color;
+    opacity: 1.0;
+}
+
+switch:hover {
+    background-color: @theme_selected_fg_color;
+    color: @theme_selected_bg_color;
+    opacity: 1.0;
+    border-radius: 2px;
+    
+}
+
+scale trough {
+    background-color: #400;
+    color: black;
+}
+
+
+*:selected {
+    background-color: @theme_selected_fg_color;
+    color:black;
+}
+
+*:disabled {
+  opacity: 0.60;
+}
+
+slider {
+   background: #400;
+   color: black;
+}
+
+progressbar {
+background: #500;
+   color: black;
+}
+
+expander {
+ background: #500;
+   color: black;
+}
+entry {
+   background: rgba(75, 0, 0, 1);
+   color: black;
+}
+
+header {
+   background: #400;
+   color: black;
+}
+
+headerbar {
+   background: #500;
+   color: black;
+}
+
+button {
+   background: #500;
+   color: black;
+}
+
+combobox {
+   background: #500;
+   color: black;
+}
+
+text {
+   background: #500;
+   color: black;
+}
+
+spinbutton {
+   background: #600;
+   color: black;
+}
+
+tooltip {
+ background: #500;
+   color: black;
+}
+
+switch {
+ background: #600;
+   color: #100;
+   border: 1.0px;
+}
+
+switch:active{
+   background-color: #200;
+}
+
+switch:checked {
+  background: #600;
+   color: black;
+
+}
+
+check {
+ background: #400;
+ color: black;
+}
+
+toggle { 
+background: #400;
+   color: black;
+}
+
+radio {
+background: #500;
+   color: black;	
+}
+
+spinner {
+background: #500;
+   color: black;	
+}
+
+list {
+background: #500;
+   color: black;	
+}
+
+menubar {
+background: #500;
+   color: black;	
+}
+
+toolbar {
+background: #500;
+   color: black;	
+}
+
+stack {
+ background: #500;
+   color: black;
+}
+
+sidebar {
+   background: #500;
+   color: black;	
+}
+
+separator {
+background: #200;
+   color: black;	
+}
+
+label {
+background: rgba(0, 0, 0, 0);
+   color: black;
+}
+
+menu {
+  background: rgba(90, 0, 0, 1);
+   color: black;
+}
+
+treeview {
+ background: rgba(75, 0, 0, 1);
+   color: black;
+}
+
+grid {
+   background: #500;
+   color: black;
+}
+
+frame:backdrop, .frame:backdrop { border-color: #000000; }
+frame, .frame { border-color: #000000; }
+
+
+
