@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 TCalc - An astronomy tool for telescopes and eyepieces.
 
 Warnig: very much work in progress, hence the cumbersome installation steps
@@ -34,3 +35,8 @@ to be build as flatpak or with rpm in future.
 
 
 
+=======
+# TCalc
+An astronomy tool for telescopes and eyepieces.
+Instructions to add here.
+>>>>>>> f2e031981a5080c5a2a83d753412b0224291416a
