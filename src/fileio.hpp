@@ -32,4 +32,6 @@ namespace fileIO
                          const Glib::ustring &path,
                          const ScopeCombo::ScopeCombomodel &scopecombomodel);
   };
+
+  void get_app_data();
 } // namespace fileIO

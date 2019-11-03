@@ -153,7 +153,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify("Eyepiece update succesful.", m_app, "tcalc-edit");
+        AppGlobals::app_notify("User eyepieces updated.", m_app, "tcalc-edit");
     });
 
     m_button_del.signal_clicked().connect([this]() {
@@ -185,7 +185,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify(_("Eyepiece deletion succesful."), m_app, "tcalc_edit");
+        AppGlobals::app_notify(_("User eyepieces updated."), m_app, "tcalc_edit");
     });
 }
 
@@ -201,4 +201,5 @@ void EpBox::EditEyepieces::swap_rows(const bool movedown)
 
     fileIO::dbfileIO db;
     db.write_ep_user_data(m_emodel, m_ecombomodel);
+    AppGlobals::app_notify(_("User eyepieces updated."), m_app, "tcalc_edit");
 };

@@ -171,7 +171,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify("Telescope update succesful.", m_app, "tcalc-edit");
+        AppGlobals::app_notify("User telescopes updated.", m_app, "tcalc-edit");
     });
 
     m_button_del.signal_clicked().connect([this]() {
@@ -201,7 +201,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify(_("Telescope deletion succesful."), m_app, "tcalc_edit");
+        AppGlobals::app_notify(_("User telescopes updated."), m_app, "tcalc_edit");
     });
 }
 
@@ -216,4 +216,5 @@ void ScopeBox::EditTelescopes::swap_rows(const bool movedown)
     
     fileIO::dbfileIO db;
     db.write_scope_user_data(m_smodel, m_scombomodel);
+    AppGlobals::app_notify(_("User telescopes updated."), m_app, "tcalc_edit");
 };

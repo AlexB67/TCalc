@@ -35,5 +35,3 @@ appsrcdir=(os.curdir)
 
 for filename in os.listdir(appsrcdir):
     shutil.copy(filename, appdatadest)
-
-

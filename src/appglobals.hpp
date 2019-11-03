@@ -14,12 +14,15 @@ namespace AppGlobals
     inline int  resultsset = 1;  // the first results column is the default
 
     // paths used throughout
-    inline const Glib::ustring dsolistfilename = "/usr/local/share/gnome-tcalc/skyobjects.TCalc"; //dsos
-    inline const Glib::ustring configpath = Glib::get_home_dir() + "/.config/gnome-tcalc/tcalc.conf";
-    inline const Glib::ustring telescopesfilename = "/usr/local/share/gnome-tcalc/telescopes.TCalc";
-    inline const Glib::ustring telescopesfilenameuser = Glib::get_home_dir() + "/.config/gnome-tcalc/telescopesuser.TCalc";
-    inline const Glib::ustring eyepiecesfilename = "/usr/local/share/gnome-tcalc/eyepieces.TCalc";  
-    inline const Glib::ustring eyepiecesfilenameuser = Glib::get_home_dir() + "/.config/gnome-tcalc/eyepiecesuser.TCalc";
+    inline Glib::ustring datadir = "/usr/local/share/";  // default, but searched for later
+    inline Glib::ustring userconfigdir = Glib::get_user_config_dir() + "/gnome-tcalc/";
+
+    inline Glib::ustring dsolistfilename = datadir + "gnome-tcalc/skyobjects.TCalc"; //dsos
+    inline Glib::ustring configpath = userconfigdir + "tcalc.conf";
+    inline Glib::ustring telescopesfilename = datadir + "gnome-tcalc/telescopes.TCalc";
+    inline Glib::ustring telescopesfilenameuser = userconfigdir + "telescopesuser.TCalc";
+    inline Glib::ustring eyepiecesfilename = datadir + "gnome-tcalc/eyepieces.TCalc";  
+    inline Glib::ustring eyepiecesfilenameuser = userconfigdir + "eyepiecesuser.TCalc";
 
     inline void get_keyfile_config(Gtk::Frame &frame)
     {

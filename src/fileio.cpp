@@ -7,6 +7,30 @@
 #include "fileio.hpp"
 #include "appglobals.hpp"
 
+void fileIO::get_app_data()
+{
+   auto listdirs = Glib::get_system_data_dirs();
+
+   for(auto &i: listdirs)
+   {
+      auto path = i + "/gnome-tcalc";
+      if (true == std::filesystem::exists(path.c_str()))
+      {
+         AppGlobals::datadir = path;
+         break;
+      }
+   }
+
+   // folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
+   // the installer will create this now anyway
+
+   if (true == std::filesystem::exists(AppGlobals::userconfigdir.c_str())) return;
+
+   Glib::RefPtr<Gio::File> file;
+   file = Gio::File::create_for_path(AppGlobals::userconfigdir);
+   file->make_directory();
+}
+
 void fileIO::dbfileIO::load_scope_data(	Gtk::ComboBox& scopecombobox, 
 										ScopeCombo::ScopeCombomodel &scopecombomodel,
 										const bool userdataonly)

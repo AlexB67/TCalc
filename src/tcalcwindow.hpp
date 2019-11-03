@@ -60,7 +60,6 @@ private:
   Glib::RefPtr<Gio::Menu> winmenusection;
   Gtk::Settings *settheme;
 
-  void get_app_data();
   void set_signal_handlers();
   void create_menu_and_shortcuts();
   void set_headerbar();
