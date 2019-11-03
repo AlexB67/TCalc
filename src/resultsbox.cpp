@@ -109,7 +109,6 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
     view.get_column(2)->set_expand(true);
 
     m_renderertext.set_padding(10, 5);
-    m_renderertext2.set_padding(10, 5);
     m_renderertext2.property_ellipsize() = Pango::ELLIPSIZE_END;
 }
 
