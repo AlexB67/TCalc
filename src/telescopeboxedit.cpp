@@ -28,6 +28,14 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_button_del.set_tooltip_text(_("Remove telescope model information for the current selection."));
     m_button_new.set_tooltip_text(_("Add a new telescope."));
     m_button_cancel.set_tooltip_text(_("Cancel editing or adding a new telescope."));
+    m_smirrorcoating.set_tooltip_text(_("The coating used on mirrors."));
+    m_smirrormaterial.set_tooltip_text(_("The material used for mirror construction."));
+    m_slenscoating.set_tooltip_text(_("The type of lens coating."));
+    m_slensmaterial.set_tooltip_text(_("The material (or glass) used for construction of lenses."));
+    m_sstrehl.set_tooltip_text(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
+                              "typically 0.80 - 0.98"));
+    m_sweight.set_tooltip_text(_("The weight of the telescope in kilograms (including mount)."));
+
 
     sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
     sizegroup->add_widget(m_smodel);
@@ -164,52 +172,52 @@ void ScopeBox::EditTelescopes::set_default_values()
 bool ScopeBox::EditTelescopes::validate_scope_data() const
 {
     bool flag = true;
-    Glib::ustring message = "The following errors were encountered.\n";
-    message += "Update the following fields:\n\n";
+    Glib::ustring message = _("The following errors were encountered.") + '\n';
+    message += _("Update the following fields:" + '\n' + '\n') ;
 
     if (m_smodelentry.get_text_length() > (guint16)40)
     {
-        message += "Error: Description too long\n";
+        message += _("Error: Description too long") + '\n';
         flag = false;
     }
 
-    if(Glib::ustring::npos != m_smodelentry.get_text().find("|"))
+    if (Glib::ustring::npos != m_smodelentry.get_text().find("|"))
     {
-        message += "Error: the \"|\" character is not allowed\n";
+        message += _("Error: the \"|\" character is not allowed" + '\n');
         flag = false;
     }
 
     if (m_smodelentry.get_text_length() < (guint16)2)
     {
-        message += _("Error: Description empty or too short.\n\n");
-        message += _("Hint: Model name, model identifier, Aperture");
+        message += _("Error: Description empty or too short.") + '\n' + '\n';
+        message += _("Hint: Model name, model identifier, focal length, barrel size") + '\n';
         message += _("Example: ");
-        message += _("Orion US 10\" Dob\"\n\n");
+        message += _("Orion US 10\" Dob\"") + '\n' + '\n';
         flag = false;
     }
 
     if (m_sflen.get_value() != std::clamp<double>(m_sflen.get_value(), 10.0, 4000.0))
     {
-        message += "Focal length out of range, allowed range 2mm to a 100mm\n";
+        message += _("Focal length out of range, allowed range 2mm to a 100mm") + '\n';
         flag = false;
     }
 
     if (m_saperture.get_value() != std::clamp<double>(m_saperture.get_value(), 10.0, 1000.0))
     {
-        message += "Aperture out of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n";
+        message += _("Aperture out of range, allowed range: 0mm to 100mm. Set 0 if unknown.") + '\n';
         flag = false;
     }
 
     if (m_sreflect.get_value() != std::clamp<double>(m_sreflect.get_value(), 0.0, 100.0))
     {
-        message += "Reflectivity and/or transmssion out of range\n",
-            message += "allowed range: 0% to 100%. Set 0% if unknown.\n";
+        message += _("Reflectivity and/or transmssion out of range, ") + '\n';
+        message += _("allowed range: 0% to 100%. Set 0% if unknown.")  + '\n';
         flag = false;
     }
 
     if (m_sobstruct.get_value() != std::clamp<double>(m_sobstruct.get_value(), 0.0, 100.0))
     {
-        message += "Transmission out of range: allowed range: 0% to 100%. Set to 0 if unknown.\n";
+        message += _("Transmission out of range: allowed range: 0% to 100%. Set to 0 if unknown") + '\n';
         flag = false;
     }
 

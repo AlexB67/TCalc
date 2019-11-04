@@ -158,57 +158,57 @@ void EpBox::EditEyepieces::init()
 bool EpBox::EditEyepieces::validate_ep_data() const
 {
     bool flag = true;
-    Glib::ustring message = "The following errors were encountered.\n";
-    message += "Update the following fields:\n\n";
+    Glib::ustring message = _("The following errors were encountered.") + '\n';
+    message += _("Update the following fields:" + '\n' + '\n') ;
 
     if (m_emodelentry.get_text_length() > (guint16)40)
     {
-        message += "Error: Description too long\n";
+        message += _("Error: Description too long") + '\n';
         flag = false;
     }
 
     if (Glib::ustring::npos != m_emodelentry.get_text().find("|"))
     {
-        message += "Error: the \"|\" character is not allowed\n";
+        message += _("Error: the \"|\" character is not allowed" + '\n');
         flag = false;
     }
 
     if (m_emodelentry.get_text_length() < (guint16)2)
     {
-        message += _("Error: Description empty or too short.\n\n");
-        message += _("Hint: Model name, model identifier, focal length, barrel size\n");
+        message += _("Error: Description empty or too short.") + '\n' + '\n';
+        message += _("Hint: Model name, model identifier, focal length, barrel size") + '\n';
         message += _("Example: ");
-        message += _("Pentax XF XF12 12mm 1.25\"\n\n");
+        message += _("Pentax XF XF12 12mm 1.25\"") + '\n';
         flag = false;
     }
 
     if (m_eflen.get_value() != std::clamp<double>(m_eflen.get_value(), 2.0, 100.0))
     {
-        message += "Focal length out of range, allowed range 2mm to a 100mm\n";
+        message += _("Focal length out of range, allowed range 2mm to a 100mm") + '\n';
         flag = false;
     }
 
     if (m_efstop.get_value() != std::clamp<double>(m_efstop.get_value(), 0.0, 100.0))
     {
-        message += "Field stop out of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n";
+        message += _("Field stop out of range, allowed range: 0mm to 100mm. Set 0 if unknown.") + '\n';
         flag = false;
     }
 
     if (m_erelief.get_value() != std::clamp<double>(m_erelief.get_value(), 0.0, 100.0))
     {
-        message += "Eye relief of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n";
+        message += _("Eye relief of range, allowed range: 0mm to 100mm. Set 0 if unknown.") + '\n';
         flag = false;
     }
 
     if (m_etrans.get_value() != std::clamp<double>(m_etrans.get_value(), 50.0, 100.0))
     {
-        message += "Transmission out of range: allowed range: 50% to 100%. Set to 0 if unknown.\n";
+        message += _("Transmission out of range: allowed range: 50% to 100%. Set to 0 if unknown") + '\n';
         flag = false;
     }
 
     else if (m_ebarrelsize.get_value() != std::clamp<double>(m_ebarrelsize.get_value(), 0.96, 3.0))
     {
-        message += "Barrel size out of range: allowed range: 0.96 inches to 3 inches.\n";
+        message += _("Barrel size out of range: allowed range: 0.96 inches to 3 inches." + '\n');
         flag = false;
     }
 

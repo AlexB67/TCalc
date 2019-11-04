@@ -152,7 +152,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_t
         tooltip->set_markup(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
                               "typically 0.80 - 0.98"));
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[11])
-        tooltip->set_markup(_("The weight of the telescope (including mount)."));
+        tooltip->set_markup(_("The weight of the telescope in kilograms (including mount)."));
     else
         tooltip->set_markup(_("No tooltip available."));
     
