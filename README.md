@@ -7,13 +7,14 @@ from https://github.com/tschoonj/gtkmm-plplot, version 2.3 or later is required.
 
 clone the Tcalc repo
 
-From the command line\ 
+From the command line
+
 $cd TCalc\
 $mkdir build\
 $meson build/\
 $cd build\
 $ninja\
-$sudo ninja install\
+$sudo ninja install
 
 This will add the application to /user/local and appear in the applications list as GNOME TCalc.
 
