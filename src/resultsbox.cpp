@@ -219,6 +219,9 @@ void Resultsbox::init_property_names()
 void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset)
 {
     const auto iter = epbox->m_emodel.get_active();
+    
+    if(!iter) return;
+
     const auto row = *iter;
 
     auto set_row = [this](const Glib::ustring& str, const Glib::ustring& unit, const int row, const int resultsset)
@@ -279,6 +282,9 @@ void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, c
 void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &scopebox, const int resultsset)
 {
     const auto iter = scopebox->m_smodel.get_active();
+
+    if(!iter) return;
+    
     const auto row = *iter;
 
     auto set_row = [this](const Glib::ustring& str, const Glib::ustring& unit, const int row, const int resultsset)

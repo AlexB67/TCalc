@@ -7,31 +7,15 @@
 #include "fileio.hpp"
 #include "appglobals.hpp"
 
-void fileIO::get_app_data()
+void fileIO::set_app_data()
 {
-   auto listdirs = Glib::get_system_data_dirs();
+	// folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
 
-   for(auto &i: listdirs)
-   {
-      auto path = i + "gnome-tcalc";
-      if (true == std::filesystem::exists(path.c_str()))
-      {
-		 auto checkforfile = path + "/eyepieces.TCalc";
-         if (true == std::filesystem::exists(checkforfile.c_str())) 
-		 {
-			 AppGlobals::datadir = path;
-			 break;
-		 }
-      }
-   }
+	if (true == std::filesystem::exists(AppGlobals::userconfigdir.c_str())) return;
 
-   // folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
-
-   if (true == std::filesystem::exists(AppGlobals::userconfigdir.c_str())) return;
-
-   Glib::RefPtr<Gio::File> file;
-   file = Gio::File::create_for_path(AppGlobals::userconfigdir);
-   file->make_directory();
+	Glib::RefPtr<Gio::File> file;
+	file = Gio::File::create_for_path(AppGlobals::userconfigdir);
+	file->make_directory();
 }
 
 void fileIO::dbfileIO::load_scope_data(	Gtk::ComboBox& scopecombobox, 

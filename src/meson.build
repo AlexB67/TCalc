@@ -1,3 +1,11 @@
+conf_data = configuration_data()
+conf_data.set_quoted('PACKAGE_DATADIR', join_paths(get_option('prefix')))
+configure_file(
+output: 'tcalcconfig.h',
+configuration: conf_data)
+
+configuration_inc = include_directories('.')
+
 tcalc_sources = [
   'main.cpp',
   'tcalcwindow.cpp',
@@ -50,8 +58,10 @@ tcalc_sources += gnome.compile_resources(
 )
 
 executable('tcalc', tcalc_sources,
-  dependencies: tcalc_deps,
-  install: true, 
+  dependencies: tcalc_deps, include_directories : configuration_inc,
   override_options : ['cpp_std=c++17'],
-  cpp_args : '-Wl, -Wall, -Wextra -Wshadow'
+  cpp_args : '-Wl, -Wall, -Wextra -Wshadow',
+  install: true,
 )
+
+

@@ -15,9 +15,10 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    set_border_width(Uidefs::BORDER_WIDTH);
    set_headerbar();
    create_menu_and_shortcuts();
-   fileIO::get_app_data();
+   fileIO::set_app_data();
 
    // Create separate grids to avoid expansion / layout issues
+
    windowgrid.set_column_spacing(Uidefs::COLUMN_PADDING);
    windowgrid.set_row_spacing(Uidefs::ROW_PADDING);
    gridleft.set_column_spacing(Uidefs::COLUMN_PADDING);

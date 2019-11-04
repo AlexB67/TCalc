@@ -6,6 +6,7 @@
 #include <glibmm/keyfile.h>
 #include <glibmm/miscutils.h>
 #include <filesystem>
+#include  <tcalcconfig.h>
 
 namespace AppGlobals
 {
@@ -14,7 +15,9 @@ namespace AppGlobals
     inline int  resultsset = 1;  // the first results column is the default
 
     // paths used throughout
-    inline Glib::ustring datadir = "/usr/local/share/gnome-tcalc/";  // default, but searched for later, need something better ....
+
+    inline Glib::ustring prefix = PACKAGE_DATADIR;
+    inline Glib::ustring datadir = prefix + "/share/gnome-tcalc/";
     inline Glib::ustring userconfigdir = Glib::get_user_config_dir() + "/gnome-tcalc/";
 
     inline Glib::ustring dsolistfilename        = datadir + "skyobjects.TCalc"; //dsos
@@ -23,7 +26,7 @@ namespace AppGlobals
     inline Glib::ustring telescopesfilenameuser = userconfigdir + "telescopesuser.TCalc";
     inline Glib::ustring eyepiecesfilename      = datadir + "eyepieces.TCalc";  
     inline Glib::ustring eyepiecesfilenameuser  = userconfigdir + "eyepiecesuser.TCalc";
-
+    
     inline void get_keyfile_config(Gtk::Frame &frame)
     {
         // we can add more when needed, just for frame style for now

@@ -33,5 +33,5 @@ namespace fileIO
                          const ScopeCombo::ScopeCombomodel &scopecombomodel);
   };
 
-  void get_app_data();
+  void set_app_data();
 } // namespace fileIO
