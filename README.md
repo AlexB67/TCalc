@@ -16,6 +16,10 @@ $cd build\
 $ninja\
 $sudo ninja install
 
+To uninstall
+
+$sudo ninja uninstall
+
 This will add the application to /user/local and appear in the applications list as GNOME TCalc.
 
 Note: this is a vscode project but works equally well in gnome-builder, just point builder to the TCalc folder and open it.
