@@ -14,15 +14,15 @@ namespace AppGlobals
     inline int  resultsset = 1;  // the first results column is the default
 
     // paths used throughout
-    inline Glib::ustring datadir = "/usr/local/share/";  // default, but searched for later
+    inline Glib::ustring datadir = "/usr/local/share/gnome-tcalc/";  // default, but searched for later, need something better ....
     inline Glib::ustring userconfigdir = Glib::get_user_config_dir() + "/gnome-tcalc/";
 
-    inline Glib::ustring dsolistfilename = datadir + "gnome-tcalc/skyobjects.TCalc"; //dsos
-    inline Glib::ustring configpath = userconfigdir + "tcalc.conf";
-    inline Glib::ustring telescopesfilename = datadir + "gnome-tcalc/telescopes.TCalc";
+    inline Glib::ustring dsolistfilename        = datadir + "skyobjects.TCalc"; //dsos
+    inline Glib::ustring configpath             = userconfigdir + "tcalc.conf";
+    inline Glib::ustring telescopesfilename     = datadir + "telescopes.TCalc";
     inline Glib::ustring telescopesfilenameuser = userconfigdir + "telescopesuser.TCalc";
-    inline Glib::ustring eyepiecesfilename = datadir + "gnome-tcalc/eyepieces.TCalc";  
-    inline Glib::ustring eyepiecesfilenameuser = userconfigdir + "eyepiecesuser.TCalc";
+    inline Glib::ustring eyepiecesfilename      = datadir + "eyepieces.TCalc";  
+    inline Glib::ustring eyepiecesfilenameuser  = userconfigdir + "eyepiecesuser.TCalc";
 
     inline void get_keyfile_config(Gtk::Frame &frame)
     {

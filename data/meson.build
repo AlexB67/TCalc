@@ -46,3 +46,50 @@ foreach s: ['48', '256', '512']
   icon_destdir = join_paths(get_option('datadir'), 'icons', 'hicolor', '@0@x@0@'.format(s), 'apps')
   install_data('tcalc.png', install_dir: icon_destdir)
 endforeach
+
+# essential files needed by tcalc 
+
+install_data('tcalcdata/eyepieces.TCalc',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/telescopes.TCalc',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/skyobjects.TCalc',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/m13sq1.png',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/m51.png',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/m57.png',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/m101.png',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+install_data('tcalcdata/NGC6116.png',
+  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
+)
+
+
+
+
+
+
+
+
+
+
+
+
+

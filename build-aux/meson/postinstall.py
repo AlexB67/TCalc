@@ -21,17 +21,3 @@ if not destdir:
 
     print('Compiling GSettings schemas...')
     call(['glib-compile-schemas', path.join(datadir, 'glib-2.0', 'schemas')])
-
-
-print('Installing application data ...')
-
-appdatadest = datadir + '/gnome-tcalc/'
-
-if not os.path.exists(appdatadest):
-    os.mkdir(appdatadest)
-
-os.chdir('../appdata/')
-appsrcdir=(os.curdir)
-
-for filename in os.listdir(appsrcdir):
-    shutil.copy(filename, appdatadest)

@@ -13,16 +13,19 @@ void fileIO::get_app_data()
 
    for(auto &i: listdirs)
    {
-      auto path = i + "/gnome-tcalc";
+      auto path = i + "gnome-tcalc";
       if (true == std::filesystem::exists(path.c_str()))
       {
-         AppGlobals::datadir = path;
-         break;
+		 auto checkforfile = path + "/eyepieces.TCalc";
+         if (true == std::filesystem::exists(checkforfile.c_str())) 
+		 {
+			 AppGlobals::datadir = path;
+			 break;
+		 }
       }
    }
 
    // folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
-   // the installer will create this now anyway
 
    if (true == std::filesystem::exists(AppGlobals::userconfigdir.c_str())) return;
 
@@ -109,7 +112,7 @@ void fileIO::dbfileIO::load_dso_data(Gtk::ComboBox &dsocombobox, DSOCombomodel &
 
 			dso_name = static_cast<Glib::ustring>(tmp);
 			getline(tokens, tmp, '|');
-			dso_imagefile = Glib::get_home_dir() + "/Documents/TCalc/" + tmp;
+			dso_imagefile = AppGlobals::datadir + '/' + tmp;
 			getline(tokens, tmp, '|');
 			dso_mag = std::stod(tmp);
 			getline(tokens, tmp, '|');
