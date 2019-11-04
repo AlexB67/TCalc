@@ -3,7 +3,7 @@
 
 using namespace Astrocalc;
 
-double astrocalc::calc_tFOV(double flen_s, double fstop) const noexcept
+double astrocalc::calc_tFOV(const double flen_s, const double fstop) const noexcept
 {
 
     // returns tFOV in arc minutes using either small angle approximation
@@ -14,7 +14,7 @@ double astrocalc::calc_tFOV(double flen_s, double fstop) const noexcept
     return fabs(flen_s) < tSMALL ? 0.0 : DEGTOARCMIN * RADTODEG * 2.0 * atan(fstop / (2.0 * flen_s));
 }
 
-double astrocalc::calc_tFOV(double aFOV, double flen_s, double flen_e, short method) const noexcept
+double astrocalc::calc_tFOV(const double aFOV, const double flen_s, const double flen_e, const short method) const noexcept
 {
 
     // return tFOV in arc minutes
@@ -50,7 +50,7 @@ double astrocalc::calc_MagL(const double flen_s, const double flen_e) const noex
     return flen_s / flen_e;
 }
 
-double astrocalc::calc_MagA(double aFOV, double dtFOV) const noexcept
+double astrocalc::calc_MagA(const double aFOV, const double dtFOV) const noexcept
 {
 
     // calculate mag using angle definition.
@@ -67,7 +67,7 @@ double astrocalc::calc_MagA(double aFOV, double dtFOV) const noexcept
     return tan(aFOV/(2 * RADTODEG ))/tan(dtFOV/(2 * RADTODEG ));
 }
 
-double astrocalc::calc_kfactor(double aFOV) const noexcept
+double astrocalc::calc_kfactor(const double aFOV) const noexcept
 {
     // as defined in Journal of the British Astronomical Association, vol.105, no.5, p.242-245
     // returns the k factor for a given FOV
@@ -78,7 +78,7 @@ double astrocalc::calc_kfactor(double aFOV) const noexcept
     return 2 * RADTODEG * tan(aFOV/(2.0 * RADTODEG));
 }
 
-double astrocalc::calc_fratio(double aperture, double flen_s) const noexcept
+double astrocalc::calc_fratio(const double aperture, const double flen_s) const noexcept
 {
     // return the  fratio (speed) of a telescope
     // INPUTS: telescope aperture and focla length
@@ -90,7 +90,7 @@ double astrocalc::calc_fratio(double aperture, double flen_s) const noexcept
     return flen_s/aperture;
 
 }
-double astrocalc::calc_airydiskdiam(double dlambda, double flen_s, double aperture, double obstruct) const noexcept
+double astrocalc::calc_airydiskdiam(const double dlambda, const double flen_s, const double aperture, const double obstruct) const noexcept
 {
     // INPUTS: wavelength in nanometers
     // aperture, focal length and aperture any units, but must be the same
@@ -103,12 +103,10 @@ double astrocalc::calc_airydiskdiam(double dlambda, double flen_s, double apertu
     if (fabs(aperture) < tSMALL )
         return 0.0;
 
-    dlambda *= 1E-06; // convert to mm
-
-    return ( 1 - obstruct * obstruct) * 2.43932 * dlambda * flen_s / aperture;
+    return ( 1 - obstruct * obstruct) * 2.43932 * dlambda * 1E-06 * flen_s / aperture;
 }
 
-double astrocalc::calc_airydiskdiam(double dlambda, double aperture, double obstruct) const noexcept
+double astrocalc::calc_airydiskdiam(const double dlambda, const double aperture, const double obstruct) const noexcept
 {
     // INPUTS: wavelength in nanometer,  aperture in mm, obstruction size (as a fraction)
     // OUTPUT: none
@@ -120,7 +118,7 @@ double astrocalc::calc_airydiskdiam(double dlambda, double aperture, double obst
 
 }
 
-double astrocalc::calc_PPI(double dMag, double aperture) const noexcept
+double astrocalc::calc_PPI(const double dMag, const double aperture) const noexcept
 {
     // INPUTS: aperture in mm
     // OUTPUT: none
@@ -132,7 +130,7 @@ double astrocalc::calc_PPI(double dMag, double aperture) const noexcept
     return 25.40 * dMag/aperture;
 }
 
-double astrocalc::calc_PPI(double flen_s, double flen_e, double aperture) const noexcept
+double astrocalc::calc_PPI(const double flen_s, const double flen_e, const double aperture) const noexcept
 {
     // INPUTS: focal length of scope and eyepiece
     // OUTPUT: none
@@ -144,7 +142,8 @@ double astrocalc::calc_PPI(double flen_s, double flen_e, double aperture) const 
     return 25.40 * ( flen_s / flen_e) / aperture;
 }
 
-double astrocalc::calc_lmag_scope(double transcof, double aperture, double eyepupil, double nelm, double exitpupil, double zenithangle ) const noexcept
+double astrocalc::calc_lmag_scope(const double transcof, const double aperture, const double eyepupil, const double nelm, 
+                                    const double exitpupil, const double zenithangle ) const noexcept
 {
     if (eyepupil < tSMALL || fabs(90 - zenithangle) < tSMALL )
         return 0.0;
@@ -161,8 +160,9 @@ double astrocalc::calc_lmag_scope(double transcof, double aperture, double eyepu
     return dstarmaglimit;
 }
 
-double astrocalc::calc_lmag_scope(int explevel, double colindex, double disksize, double dirt, double etrans, double mreflect, double aperture, double eyepupil,
-                                  double nelm, double zenithangle, double extcoff, double mag, double obstruct, short type) const noexcept
+double astrocalc::calc_lmag_scope(const int explevel, const double colindex, const double disksize, const double dirt, const double etrans, 
+                            const double mreflect, const double aperture, const double eyepupil, const double nelm, const double zenithangle, 
+                            const double extcoff, const double mag, const double obstruct, const short type) const noexcept
 {
     // direct translation from SKY & TELESCOPE magazine, November, 1989, page 522. Schaefer.
     // INPUTS
@@ -172,7 +172,9 @@ double astrocalc::calc_lmag_scope(int explevel, double colindex, double disksize
     // disksize: ( diameter ) of object in arc sec
     // colindex: colour index of star B - V scale
 
-    zenithangle /= RADTODEG;
+    const double m_zenithangle = zenithangle /  RADTODEG;
+    double m_etrans = etrans; 
+
     double exitpupil = 0.0;
     constexpr double cc = 1.58E-10;                         // night-vision constant
     constexpr double kk = 0.0126;                           // night-vision constant
@@ -198,10 +200,10 @@ double astrocalc::calc_lmag_scope(int explevel, double colindex, double disksize
     }
 
     if ( REFLECTOR != type)
-          etrans = etrans * 0.97;          // we'll assume the added diagonal has 97% reflectivity
+          m_etrans = m_etrans * 0.97;          // we'll assume the added diagonal has 97% reflectivity
 
-    etrans *= 1 - dirt;                                  // effect of dirt on transmission
-    double ft = 1.0 / (fl * fd * etrans);                // net telescope transmission
+    m_etrans *= 1 - dirt;                                  // effect of dirt on transmission
+    double ft = 1.0 / (fl * fd * m_etrans);                // net telescope transmission
 
     // Compute sky brightness from NELM in zenith
 
@@ -230,9 +232,9 @@ double astrocalc::calc_lmag_scope(int explevel, double colindex, double disksize
     double fa = pow(eyepupil / aperture, 2);            // light collecting area
     double fm = mag * mag ;                             // spread of sky photons
     double fc = pow(10, 0.4 * (colindex / 2 - 1));              // colour of star
-    bs *= 1.0 + 0.5 * zenithangle * zenithangle;        // correction for zenith distance
+    bs *= 1.0 + 0.5 * m_zenithangle * m_zenithangle;        // correction for zenith distance
     double b = bs / (fb * ft * fp * fa * fm * fc);      // background brightness in telescope
-    double fe = pow(10, 0.4 * k / cos(zenithangle));    // atmospheric extinction
+    double fe = pow(10, 0.4 * k / cos(m_zenithangle));    // atmospheric extinction
     double theta = disksize * mag;                      // apparent size of seeing disk in arc sec.
 
     double fr = 1.0;                                    // point source extended
@@ -246,7 +248,7 @@ double astrocalc::calc_lmag_scope(int explevel, double colindex, double disksize
     return lmag;
 }
 
-double astrocalc::convert_nelm_to_sqm(double nelm) const noexcept
+double astrocalc::convert_nelm_to_sqm(const double nelm) const noexcept
 {
 
     // qreal dval = 21.58 - 5 * log10(pow(10, 1.586 - nelmvalue->value() / 5) - 1); //schaefer
@@ -258,7 +260,7 @@ double astrocalc::convert_nelm_to_sqm(double nelm) const noexcept
     return sqm < 0 ? 0.0 : -2.16934 * log(sqm);
 }
 
-double astrocalc::convert_sqm_to_nelm(double sqm) const noexcept
+double astrocalc::convert_sqm_to_nelm(const double sqm) const noexcept
 {
     // qreal dval = 7.93 - 5 * log10(pow(10, 4.316 - sqmvalue->value() / 5) + 1); // schaefer
     // nelmvalue->setValue(dval);
@@ -267,13 +269,13 @@ double astrocalc::convert_sqm_to_nelm(double sqm) const noexcept
     return 8.68 - 5 * log10(1 + 0.158 * sqrt(34.08 * exp(20.7233 - 0.92194 * sqm)));
 }
 
-double astrocalc::calc_eyepupil_from_age(double age) const noexcept
+double astrocalc::calc_eyepupil_from_age(const double age) const noexcept
 {
     double pupilsize = 7.0 * exp(-age * age  / 20000.0);
     return fabs(pupilsize) > 4 ? pupilsize : 4.0;
 }
 
-double astrocalc::calc_lunar_res(double aperture) const noexcept
+double astrocalc::calc_lunar_res(const double aperture) const noexcept
 {
     // INPUTS: aperture in mm
     // OUTPUTS: None
@@ -282,7 +284,7 @@ double astrocalc::calc_lunar_res(double aperture) const noexcept
     return fabs(aperture) < tSMALL  ?  0.0 : 447.24 / aperture;
 }
 
-double astrocalc::calc_brightness_factor(double aperture, double eyepupil, double mag) const noexcept
+double astrocalc::calc_brightness_factor(const double aperture, const double eyepupil, const double mag) const noexcept
 {
     // INPUTS: aperture eyepupil in the same units
     // OUTPUTS: None
@@ -291,7 +293,7 @@ double astrocalc::calc_brightness_factor(double aperture, double eyepupil, doubl
     return fabs(eyepupil) < tSMALL  ?  0.0 : pow((aperture / eyepupil) / mag , 2 );
 }
 
-double astrocalc::calc_brightness_factor(double aperture, double eyepupil, double flen_s, double flen_e) const noexcept
+double astrocalc::calc_brightness_factor(const double aperture, const double eyepupil, const double flen_s, const double flen_e) const noexcept
 {
     // INPUTS: aperture eyepupil in the same units
     // OUTPUTS: None
@@ -300,7 +302,7 @@ double astrocalc::calc_brightness_factor(double aperture, double eyepupil, doubl
     return fabs(eyepupil < tSMALL || flen_e < tSMALL)  ?  0.0 : pow((aperture / eyepupil) / (flen_s / flen_e) , 2 );
 }
 
-double astrocalc::calc_light_grasp(double aperture, double eyepupil) const noexcept
+double astrocalc::calc_light_grasp(const double aperture, const double eyepupil) const noexcept
 {
     // INPUTS: aperture eyepupil in the same units
     // OUTPUTS: None
@@ -308,15 +310,16 @@ double astrocalc::calc_light_grasp(double aperture, double eyepupil) const noexc
 
     return fabs(eyepupil) < tSMALL  ?  0.0 : pow(aperture / eyepupil, 2 );
 }
-double astrocalc::calc_light_effective_grasp(double aperture, double eyepupil, double obstruct, double mreflect) const noexcept
+double astrocalc::calc_light_effective_grasp(const double aperture, const double eyepupil, const double obstruct, const double mreflect) const noexcept
 {
     // INPUTS: aperture eyepupil in the same units
     // OUTPUTS: None
     // returns effective light grasp accounting for light loss, central obstruction + reflectivity.
 
-    aperture = aperture * sqrt( 1.0 - obstruct * obstruct ) * mreflect;
+    double m_aperture = aperture;
+    m_aperture = aperture * sqrt( 1.0 - obstruct * obstruct ) * mreflect;
 
-    return fabs(eyepupil) < tSMALL  ?  0.0 : pow(aperture / eyepupil, 2 );
+    return fabs(eyepupil) < tSMALL  ?  0.0 : pow(m_aperture / eyepupil, 2 );
 }
 
 double astrocalc::calc_optimal_minmag(const double aperture) const noexcept
@@ -358,7 +361,7 @@ double astrocalc::calc_optimal_max_flen(const double aperture, const double flen
     return flen_s / ( aperture / 4.0 );
 }
 
-double astrocalc::calc_maxmag(double aperture) const noexcept
+double astrocalc::calc_maxmag(const double aperture) const noexcept
 {
     // INPUTS: aperture in mm
     // returns the highest magnification where the telescope
@@ -367,7 +370,7 @@ double astrocalc::calc_maxmag(double aperture) const noexcept
     return 1.9685 * aperture;
 }
 
-double astrocalc::calc_minmag(double aperture, double eyepupil) const noexcept
+double astrocalc::calc_minmag(const double aperture, const double eyepupil) const noexcept
 {
     // INPUTS: aperture in mm
     // returns the lowest magnification where eye epupil size = exit pupil
@@ -375,7 +378,7 @@ double astrocalc::calc_minmag(double aperture, double eyepupil) const noexcept
     return fabs(eyepupil) < tSMALL  ?  0.0 : aperture / eyepupil ;
 }
 
-double astrocalc::calc_Daws_limit(double aperture, double lambda) const noexcept
+double astrocalc::calc_Daws_limit(const double aperture, const double lambda) const noexcept
 {
     // INPUTS: aperture in mm
     // wavelenghth in nm.
@@ -384,24 +387,25 @@ double astrocalc::calc_Daws_limit(double aperture, double lambda) const noexcept
     return fabs(aperture) < tSMALL ? 0.0 : 210589.0 * lambda * 1E-06 / aperture;
 }
 
-double astrocalc::calc_Rayleigh_limit(double aperture, double lambda, double obstruct) const noexcept
+double astrocalc::calc_Rayleigh_limit(const double aperture, const double lambda, const double obstruct) const noexcept
 {
     return 0.5 * calc_airydiskdiam(lambda, aperture, obstruct) ;
 }
-double astrocalc::calc_exit_pupil(double aperture, double mag) const noexcept
+
+double astrocalc::calc_exit_pupil(const double aperture, const double mag) const noexcept
 {
     // INPUTS: aperture in mm
     // returns exit pupil
     return fabs(mag) < tSMALL ? 0.0 : aperture / mag;
 }
-double astrocalc::calc_exit_pupil(double aperture, double flen_s, double flen_e) const noexcept
+double astrocalc::calc_exit_pupil(const double aperture, const double flen_s, const double flen_e) const noexcept
 {
     // INPUTS: aperture in mm
     // returns exit pupil
     return fabs(flen_s) < tSMALL ? 0.0 : aperture * flen_s * flen_e / (flen_s * flen_s - flen_e * flen_e);
 }
 
-double astrocalc::calc_minmirrorsize(double aperture, double flen_s, double fplane_s) const noexcept
+double astrocalc::calc_minmirrorsize(const double aperture, const double flen_s, const double fplane_s) const noexcept
 {
     // INPUTS: aperture in mm, focal length, dist from secondary to focal plane
     // return minimum obstruction diamteer of secondary as a percentage of the primary diameter.
@@ -413,7 +417,7 @@ double astrocalc::calc_minmirrorsize(double aperture, double flen_s, double fpla
 
     return 100.0 * fplane_s * fratio / aperture;
 }
-double astrocalc::calc_aff(double aperture, double flen_s, double lambda ) const noexcept
+double astrocalc::calc_aff(const double aperture, const double flen_s, const double lambda ) const noexcept
 {
     double fratio = calc_fratio(aperture, flen_s);
 
@@ -428,12 +432,12 @@ double astrocalc::calc_aff(double aperture, double flen_s, double lambda ) const
     return  2 * 60 * fabs( - 3.0 / ( 16.0 * fratio ) + sqrt(factor)) * RADTODEG;
 }
 
-double astrocalc::calc_affl(double aperture, double flen_s, double lambda) const noexcept
+double astrocalc::calc_affl(const double aperture, const double flen_s, double lambda) const noexcept
 {
     return flen_s * calc_aff(aperture, flen_s, lambda ) / ( 60 * RADTODEG );
 }
 
-double astrocalc::calc_contrast_factor(double obstruct) const noexcept
+double astrocalc::calc_contrast_factor(const double obstruct) const noexcept
 {
     // emperical formula for CF 5.25 - 5.1x - 34.1x 2 + 51.1x 3
     return ( 5.25 - 5.1 * obstruct - 34.1 * pow(obstruct,2) + 51.1 * pow(obstruct, 3)); 
@@ -463,19 +467,19 @@ double astrocalc::calc_contrast_index(const double background_brightness, const 
    return (-0.3981 *(object_brightness - background_brightness));
 }
 
-double astrocalc::calc_ortho_eyerelief(double e_flen) const noexcept
+double astrocalc::calc_ortho_eyerelief(const double e_flen) const noexcept
 {
     // emperical formula for genuine ortho eye relief
     return (0.849386 * e_flen - 0.0966205);
 }
 
-double astrocalc::calc_plossl_eyerelief(double e_flen) const noexcept
+double astrocalc::calc_plossl_eyerelief(const double e_flen) const noexcept
 {
      // emperical formula for genuine plossl eye relief
      return (0.687131 * e_flen + 0.181371);
 }
 
-double astrocalc::calc_thrconcs(double angle, double sb) const noexcept
+double astrocalc::calc_thrconcs(const double angle, const double sb) const noexcept
 {
 
     // a more precise interpolation of the Clark surface
@@ -564,7 +568,7 @@ double astrocalc::calc_thrconcs(double angle, double sb) const noexcept
     return pow(10.0, x);
 }
 
-double astrocalc::calc_thrconls(double angle, double sb) const noexcept
+double astrocalc::calc_thrconls(const double angle, const double sb) const noexcept
 {
     // As per Clark's book 
     static constexpr double angx[7] = {-0.2255,0.5563,0.9859,1.2601,1.7419,2.0828,2.5563};
