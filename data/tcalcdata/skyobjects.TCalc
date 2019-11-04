@@ -1,5 +1,5 @@
 # format: object name, imagefile, vmag, minor axis,major axis, image size in arc min (must be a square image), DSO type 
-M13  (NGC 6205)|m13sq1.png|5.8|23|23|100|Globular cluster|
+M13  (NGC 6205)|m13.png|5.8|23|23|100|Globular cluster|
 M51  (NGC 5194)|m51.png|8.1|5.5|10.0|40.2|Spiral galaxy|
 M57  (NGC 6720)|m57.png|8.8|1.0|1.3|3.0|Planetary nebula|
 M101 (NGC 5457)|m101.png|9.0|20|22|40|Spiral galaxy|

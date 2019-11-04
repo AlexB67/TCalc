@@ -9,7 +9,9 @@
 
 void fileIO::set_app_data()
 {
-	// folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
+    // folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
+
+	
 
 	if (true == std::filesystem::exists(AppGlobals::userconfigdir.c_str())) return;
 

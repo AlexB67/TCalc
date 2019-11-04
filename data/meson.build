@@ -31,7 +31,7 @@ endif
 
 install_data('org.gnome.TCalc.gschema.xml',
   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
-)
+) 
 
 compile_schemas = find_program('glib-compile-schemas', required: false)
 if compile_schemas.found()
@@ -49,37 +49,14 @@ endforeach
 
 # essential files needed by tcalc 
 
-install_data('tcalcdata/eyepieces.TCalc',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/telescopes.TCalc',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/skyobjects.TCalc',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/m13sq1.png',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/m51.png',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/m57.png',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/m101.png',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
-
-install_data('tcalcdata/NGC6116.png',
-  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc')
-)
+install_data('tcalcdata/eyepieces.TCalc',   install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/telescopes.TCalc',  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/skyobjects.TCalc',  install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/m13.png',           install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/m51.png',           install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/m57.png',           install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/m101.png',          install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/NGC6116.png',       install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
 
 
 

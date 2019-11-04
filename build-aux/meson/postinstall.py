@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
-import os
-import shutil
-from os import environ, makedirs, path
-from pathlib import Path
-from shutil import copy
+from os import environ, path
 from subprocess import call
 
 prefix = environ.get('MESON_INSTALL_PREFIX', '/usr/local')

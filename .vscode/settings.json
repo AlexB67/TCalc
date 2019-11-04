@@ -57,6 +57,8 @@
         "iterator": "cpp",
         "memory_resource": "cpp",
         "random": "cpp",
-        "codecvt": "cpp"
+        "codecvt": "cpp",
+        "set": "cpp",
+        "cinttypes": "cpp"
     }
 }

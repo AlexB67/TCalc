@@ -1,4 +1,3 @@
 data/org.gnome.TCalc.desktop.in
 data/org.gnome.TCalc.appdata.xml.in
 data/org.gnome.TCalc.gschema.xml
-src/tcalc-window.ui
