@@ -93,28 +93,23 @@ void OcularWindow::test()
 {
   double eyepupil = 7.5;
   double nelm = 6.5;
-  double minsize = 1.7;
-  double maxsize = 2.2;
- // double minsize = 23;
- // double maxsize = 23;
-
-
+ // double minsize = 1.7;
+ // double maxsize = 2.2;
+  double minsize = 23;
+  double maxsize = 23;
   double ap = 254;
   double tr = 0.7;
-  double objmag = 12.5;
- // double objmag = 5.8;
-
-
-
+ // double objmag = 12.5;
+  double objmag = 5.8;
 
   Astrocalc::astrocalc m;
 
   double objbright = m.calc_dso_mag_to_brightness(objmag, minsize, maxsize);
 
-  double magn[] = {40.0, 50.0, 60.0 , 70.0, 90.0, 120, 150, 180};
-  double darkening[8];
-  double axis[8];
-  double logc[8];
+  double magn[] = {40.0, 50.0, 60.0 , 70.0, 90.0, 100.0, 120, 150, 180};
+  double darkening[9];
+  double axis[9];
+  double logc[9];
 
   double bsky = m.calc_nelm_brightness_threshold_method(nelm);
 
@@ -126,7 +121,7 @@ void OcularWindow::test()
   std::clog << "obj contrast index " << m.calc_contrast_index(bsky, objbright) << std::endl <<  std::endl;
 
 
-  for (auto i = 0; i < 8; ++i)
+  for (auto i = 0; i < 9; ++i)
   {
     darkening[i] = - 5.0 * log10((sqrt(tr) / eyepupil) * (ap / magn[i]));
     axis[i] = log10(magn[i] * minsize);
@@ -147,13 +142,16 @@ void OcularWindow::create_sky_objects_box()
 
   skyobjectlabel.set_label(_("Select object"));
   minoraxislabel.set_markup(_("Minor axis/arcmin"));
-  majoraxislabel.set_markup(_("Major axis /arcmin"));
+  majoraxislabel.set_markup(_("Major axis/arcmin"));
   dsotypelabel.set_label(_("DSO type"));
   dsocontrastlabel.set_markup(_("Object contrast"));
-  vmaglabel.set_markup(_("DSO Magnitude"));
+  vmaglabel.set_markup(_("DSO magnitude"));
   nelmlabel.set_markup(_("NELM"));
+  skyscopelabel.set_markup(_("Sky telescope/mag sec<sup>-2</sup>"));
   surfacebrightnesslabel.set_markup(_("DSO Brightness/mag sec<sup>-2</sup>"));
-  skybglabel.set_markup(_("Sky Brightness/mag sec<sup>-2</sup>"));
+  skybglabel.set_markup(_("Sky brightness/mag sec<sup>-2</sup>"));
+  obscontrastlabel.set_label(_("Observed contrast"));
+  optmaglabel.set_label(_("Optimal magnification"));
 
   skyobjectlabel.set_halign(Gtk::ALIGN_START);
   minoraxislabel.set_halign(Gtk::ALIGN_START);
@@ -164,19 +162,26 @@ void OcularWindow::create_sky_objects_box()
   dsocontrastlabel.set_halign(Gtk::ALIGN_START);
   nelmlabel.set_halign(Gtk::ALIGN_START);
   skybglabel.set_halign(Gtk::ALIGN_START);
+  skyscopelabel.set_halign(Gtk::ALIGN_START);
+  obscontrastlabel.set_halign(Gtk::ALIGN_START);
+  optmaglabel.set_halign(Gtk::ALIGN_START);
+
   minoraxis.set_spin_entry(1.0, 1.0, 10000, 0.1, 2, true);
   minoraxis.set_tooltip_text(_("Represented as an ellipse, this is the minor axis in arc min."));
   majoraxis.set_spin_entry(1.0, 1.0, 10000, 0.1, 2, true);
   majoraxis.set_tooltip_text(_("Represented as an ellipse, this is the major axis in arc min.."));
   dsotype.set_tooltip_text(("The type of DSO object, galaxy, nebula etc."));
   dsotype.set_can_focus(false);
+  skyscope.set_can_focus(false);
+  obscontrast.set_can_focus(false);
+  optmag.set_can_focus(false);
   vmag.set_spin_entry(1.0, 1.0, 25, 0.1, 2, true);
   vmag.set_tooltip_text(_("The apparent magnitude of the object."));
   nelm.set_spin_entry(6.5, 1.0, 25, 0.025, 2, true);
-  surfacebrightness.set_spin_entry(1.0, 1.0, 100, 0.1, 2, true);
+  surfacebrightness.set_spin_entry(1.0, 1.0, 100, 0.01, 2, true);
   surfacebrightness.set_tooltip_text(_("The apparent surface brightness of the object."));
   skybglabel.set_tooltip_text(_("The background brightness of the sky."));
-  dsocontrast.set_spin_entry(0.0, -100, 100, 0.1, 2, true);
+  dsocontrast.set_spin_entry(0.0, -100, 100, 0.01, 2, true);
   skybg.set_spin_entry(0.0, 0, 100, 0.1, 2, true);
   
 
@@ -198,6 +203,13 @@ void OcularWindow::create_sky_objects_box()
   dsoobjgrid.attach(nelm, 1, 7);
   dsoobjgrid.attach(skybglabel, 0, 8);
   dsoobjgrid.attach(skybg, 1, 8);
+  dsoobjgrid.attach(skyscopelabel, 0, 9);
+  dsoobjgrid.attach(skyscope, 1, 9);
+  dsoobjgrid.attach(obscontrastlabel, 0, 10);
+  dsoobjgrid.attach(obscontrast, 1, 10);
+  dsoobjgrid.attach(optmaglabel, 0, 11);
+  dsoobjgrid.attach(optmag, 1, 11);
+
 
   AppGlobals::get_keyfile_config(dsoframe);
   AppGlobals::set_frame_style.connect([this](){ AppGlobals::change_frame_style(dsoframe);});

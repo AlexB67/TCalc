@@ -13,7 +13,9 @@ class Ocular : public Gtk::DrawingArea
         double m_tfov; // in arc min
         double m_imagesize;
         double exitpupil;
-
+        double magnification;
+        double obscontrast;
+        
     protected:
         bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
 };

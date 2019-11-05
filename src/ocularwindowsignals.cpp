@@ -90,8 +90,8 @@ void OcularWindow::dso_changed()
           dsotype.set_text(row[m_dsocombomodel.m_dsocols.m_DSOtype]);
           ocularbox.m_imagesize = row[m_dsocombomodel.m_dsocols.m_DSOimagesize];
           ocularbox.queue_draw();
-          set_contrast_index();
           set_ocular_info();
+          set_contrast_index();
         }
     }
 }
@@ -99,11 +99,27 @@ void OcularWindow::dso_changed()
 void OcularWindow::set_contrast_index()
 {
   Astrocalc::astrocalc m_calc;
-  double bg_brightness = m_calc.calc_nelm_brightness(nelm.get_value());
- // double bg_brightness = m_calc.calc_nelm_brightness_threshold_method(nelm.get_value());
+ // double bg_brightness = m_calc.calc_nelm_brightness(nelm.get_value());
+  double bg_brightness = m_calc.calc_nelm_brightness_threshold_method(nelm.get_value());
   double dsocontrastindex = m_calc.calc_contrast_index(bg_brightness, surfacebrightness.get_value());
   dsocontrast.set_value(dsocontrastindex);
   skybg.set_value(bg_brightness);
+  
+  auto tfactor = epbox->m_etrans.get_value()  * scopebox->m_sreflect.get_value()
+                                              * scopebox->m_sreflect.get_value() / 1000000.0;
+  
+  double dtmp = - 5.0 * log10((sqrt(tfactor) / 7.5) * 
+  (scopebox->m_saperture.get_value() / ocularbox.magnification));
+  
+  skyscope.set_text(GlibUtils::dtostr<double>(bg_brightness + dtmp, 2));
+
+  double obsc = -log10(m_calc.calc_thrconcs(ocularbox.magnification * minoraxis.get_value(), bg_brightness + dtmp));
+
+  auto objbright = m_calc.calc_dso_mag_to_brightness(vmag.get_value(), minoraxis.get_value(), majoraxis.get_value());
+  obsc += m_calc.calc_contrast_index(bg_brightness, objbright);
+  obscontrast.set_text(GlibUtils::dtostr<double>(obsc, 4));
+  ocularbox.obscontrast = obsc;
+  optmag.set_text("TO DO");
 }
 
 void OcularWindow::set_ocular_info()
@@ -118,6 +134,7 @@ void OcularWindow::set_ocular_info()
 
   dtmp = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
   ocularmag.set_text(GlibUtils::dtostr<double>(dtmp, 2) + _("x"));
+  ocularbox.magnification = dtmp;
 
    using namespace AppGlobals;
    short method;

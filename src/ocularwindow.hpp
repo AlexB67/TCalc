@@ -38,6 +38,9 @@ private:
     Gtk::Grid dsoobjgrid;
     Gtk::Grid ocularinfogrid;
     Gtk::Grid ocularboxgrid;
+    Gtk::Label skyscopelabel;
+    Gtk::Label obscontrastlabel;
+    Gtk::Label optmaglabel;
     Gtk::Label skyobjectlabel;
     Gtk::Label minoraxislabel;
     Gtk::Label majoraxislabel;
@@ -56,6 +59,9 @@ private:
     Gtk::Entry ocularexitpupil;
     Gtk::Entry ocularmag;
     Gtk::Entry dsotype;
+    Gtk::Entry skyscope;
+    Gtk::Entry obscontrast;
+    Gtk::Entry optmag;
     Ui::SpinEntry dsocontrast;
     Ui::SpinEntry minoraxis;
     Ui::SpinEntry majoraxis;

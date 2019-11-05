@@ -6,7 +6,6 @@
 #include <tuple>
 #include "fileio.hpp"
 #include "appglobals.hpp"
-#include <gtkmm/actionbar.h>
 
 void fileIO::set_app_data()
 {

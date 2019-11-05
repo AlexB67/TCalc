@@ -68,5 +68,3 @@ install_data('tcalcdata/NGC6116.png',       install_dir: join_paths(get_option('
 
 
 
-
-

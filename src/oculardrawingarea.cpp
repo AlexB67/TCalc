@@ -40,7 +40,7 @@ bool Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
   cr->scale(scale / w, scale / h);
   Gdk::Cairo::set_source_pixbuf(cr, m_image,  (-m_image->get_width()  + w  / scale) / 2,
                                               (-m_image->get_height() + h  / scale) / 2);
-  cr->paint_with_alpha(pow(exitpupil / 7.0, 0.85)); // just a hack for now 'till visibility model is done.
+  cr->paint_with_alpha(pow(exitpupil / 7.0, 0.88)); // just for visual effect.
 //  cr->paint();
 
   cr->scale(w / scale, h / scale);
