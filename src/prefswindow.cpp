@@ -89,7 +89,7 @@ void PrefsWindow::create_appearance_page()
     drawframeslabel.set_tooltip_text(drawframes->get_tooltip_text());
 
     // defaults to be overriden by key settings, first time user without a keyfile will have the default values below
-    preferdarktheme->set_active(true);
+    preferdarktheme->set_active(false);
     showtime->set_active(true);
     showcolour->set_active(false);
     usemonospace->set_active(false);
@@ -158,7 +158,7 @@ void PrefsWindow::create_appearance_page()
     appearancedefaults.signal_clicked().connect([this]() {
         showtime->set_active(true);
         usemonospace->set_active(false);
-        preferdarktheme->set_active(true);
+        preferdarktheme->set_active(false);
         showcolour->set_active(false);
         graphthemes.set_active(0);
         drawframes->set_active(true);

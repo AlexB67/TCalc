@@ -1,7 +1,8 @@
 conf_data = configuration_data()
 conf_data.set_quoted('PACKAGE_DATADIR', join_paths(get_option('prefix')))
 configure_file(
-output: 'tcalcconfig.h',
+input:  '../tcalcconfig.hpp.meson',
+output: 'tcalcconfig.hpp',
 configuration: conf_data)
 
 configuration_inc = include_directories('.')
