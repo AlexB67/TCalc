@@ -6,12 +6,23 @@
 #include <tuple>
 #include "fileio.hpp"
 #include "appglobals.hpp"
+#include <gtkmm/actionbar.h>
 
 void fileIO::set_app_data()
 {
-    // folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
+	if(false == std::filesystem::exists(AppGlobals::eyepiecesfilename.c_str())) // if running tcalc uninstalled
+	{																// create a file in $HOME/.config/gome-tcalc/devmode.tcalc
+		auto path = AppGlobals::userconfigdir + "devmode.tcalc";	// one line containing the absolute path to the build tcalcdata folder
+		std::ifstream file(path.c_str(), std::ifstream::in);
+		std::string datadir;
+		getline(file, datadir);
+		AppGlobals::datadir = datadir;
+		AppGlobals::eyepiecesfilename = datadir + "eyepieces.TCalc";
+		AppGlobals::telescopesfilename = datadir + "telescopes.TCalc";
+		AppGlobals::dsolistfilename = datadir + "skyobjects.TCalc";
+	}
 
-	
+	// folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
 
 	if (true == std::filesystem::exists(AppGlobals::userconfigdir.c_str())) return;
 

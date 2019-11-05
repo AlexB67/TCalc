@@ -78,5 +78,6 @@ void ScopeBox::Telescopebox::set_default_values()
 	m_sreflect.set_spin_entry(90.0, 0.0, 100.0, 0.1, 2, true);
 	m_sobstruct.set_spin_entry(23.15, 0.0, 50.0, 0.1, 2, true);
 	m_sobstruct.set_spin_entry(23.15, 0.0, 50.0, 0.1, 2, true);
+	m_stype.set_active(0);
 }
 

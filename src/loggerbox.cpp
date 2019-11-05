@@ -47,7 +47,7 @@ void LogView::LoggerView::setlogtext(const bool flag, const int level, const Gli
 
   if ( LogView::tINFO == level )
     m_logtext->insert_at_cursor(logtext);
-  else if ( LogView::tWARN == level )
+  else
     m_logtext->insert_with_tag(m_logtext->end(), logtext, tag);
 
   m_logtext->insert_at_cursor("\n");

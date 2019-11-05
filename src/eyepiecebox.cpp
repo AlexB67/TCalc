@@ -72,4 +72,5 @@ void EpBox::Eyepiecebox::set_default_values()
     m_efstop.set_spin_entry(9.1, 0.0, 100.0, 0.1, 2, true);
 	m_erelief.set_spin_entry(8.0, 0.0, 100.0, 0.1, 2, true);
     m_etrans.set_spin_entry(98.02, 0.0, 100.0, 0.5, 2, true);
+	m_etype.set_active(0);
 }
