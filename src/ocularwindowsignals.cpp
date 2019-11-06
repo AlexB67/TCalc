@@ -63,7 +63,7 @@ void OcularWindow::set_signal_handlers()
     surfacebrightness.set_value(m_calc.calc_dso_mag_to_brightness(vmag.get_value(), minoraxis.get_value(), majoraxis.get_value()));
   });
 
-  nelm.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_index));
+  nelm.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_info));
 }
 
 void OcularWindow::ocular_changed()
@@ -91,33 +91,34 @@ void OcularWindow::dso_changed()
           ocularbox.m_imagesize = row[m_dsocombomodel.m_dsocols.m_DSOimagesize];
           ocularbox.queue_draw();
           set_ocular_info();
-          set_contrast_index();
+          set_contrast_info();
         }
     }
 }
 
-void OcularWindow::set_contrast_index()
+void OcularWindow::set_contrast_info()
 {
   Astrocalc::astrocalc m_calc;
- // double bg_brightness = m_calc.calc_nelm_brightness(nelm.get_value());
+  // double bg_brightness = m_calc.calc_nelm_brightness(nelm.get_value());
   double bg_brightness = m_calc.calc_nelm_brightness_threshold_method(nelm.get_value());
   double dsocontrastindex = m_calc.calc_contrast_index(bg_brightness, surfacebrightness.get_value());
   dsocontrast.set_value(dsocontrastindex);
   skybg.set_value(bg_brightness);
-  
-  auto tfactor = epbox->m_etrans.get_value()  * scopebox->m_sreflect.get_value()
-                                              * scopebox->m_sreflect.get_value() / 1000000.0;
-  
-  double dtmp = - 5.0 * log10((sqrt(tfactor) / 7.5) * 
-  (scopebox->m_saperture.get_value() / ocularbox.magnification));
-  
+
+  double obsc =
+      m_calc.calc_dso_contrast_in_scope(ocularbox.magnification, scopebox->m_stype.get_active_row_number(), scopebox->m_saperture.get_value(),
+                                        scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0,
+                                        epbox->m_etrans.get_value() / 100.0, 0, 7.5, nelm.get_value(), vmag.get_value(),
+                                        minoraxis.get_value(), majoraxis.get_value());
+
+  auto tfactor = epbox->m_etrans.get_value() * scopebox->m_sreflect.get_value() * scopebox->m_sreflect.get_value() / 1000000.0;
+
+  double dtmp = -5.0 * log10((sqrt(tfactor) / 7.5) *
+                             (scopebox->m_saperture.get_value() / ocularbox.magnification));
+
   skyscope.set_text(GlibUtils::dtostr<double>(bg_brightness + dtmp, 2));
 
-  double obsc = -log10(m_calc.calc_thrconcs(ocularbox.magnification * minoraxis.get_value(), bg_brightness + dtmp));
-
-  auto objbright = m_calc.calc_dso_mag_to_brightness(vmag.get_value(), minoraxis.get_value(), majoraxis.get_value());
-  obsc += m_calc.calc_contrast_index(bg_brightness, objbright);
-  obscontrast.set_text(GlibUtils::dtostr<double>(obsc, 4));
+  obscontrast.set_text(GlibUtils::dtostr<double>(obsc, 2));
   ocularbox.obscontrast = obsc;
   optmag.set_text("TO DO");
 }

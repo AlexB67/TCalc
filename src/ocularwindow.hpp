@@ -90,7 +90,7 @@ private:
     void set_signal_handlers();
     void set_ocular_info();
     void dso_changed();
-    void set_contrast_index();
+    void set_contrast_info();
     void ocular_changed();
     void search();
     void test();
