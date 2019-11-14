@@ -57,6 +57,7 @@ install_data('tcalcdata/m51.png',           install_dir: join_paths(get_option('
 install_data('tcalcdata/m57.png',           install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
 install_data('tcalcdata/m101.png',          install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
 install_data('tcalcdata/NGC6116.png',       install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
+install_data('tcalcdata/m82.png',           install_dir: join_paths(get_option('datadir'), 'gnome-tcalc'))
 
 
 

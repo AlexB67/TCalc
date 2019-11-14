@@ -11,6 +11,7 @@
 #include <gtkmm/entry.h>
 #include <gtkmm/label.h>
 #include <gtkmm/settings.h>
+#include <gtkmm/switch.h>
 #include "eyepiecebox.hpp"
 #include "telescopebox.hpp"
 #include "starmagbox.hpp"
@@ -33,6 +34,7 @@ public:
 private:
     Gtk::HeaderBar  headerbar;
     Gtk::Button searchbutton;
+    Gtk::Switch *showgraphlegend;
     Gtk::Grid windowgrid;
     Gtk::Grid plotgrid;
     Gtk::Grid controlsgrid;
@@ -66,7 +68,8 @@ private:
         &GraphsWindow::plot3,
         &GraphsWindow::plot4,
         &GraphsWindow::plot5,
-        &GraphsWindow::plot6
+        &GraphsWindow::plot6,
+        &GraphsWindow::plot7,
     };
 
     void plot1();
@@ -75,6 +78,7 @@ private:
     void plot4();
     void plot5();
     void plot6();
+    void plot7();
 
     void init_plot();
     void set_signal_handlers();

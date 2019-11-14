@@ -50,6 +50,7 @@ void TcalcWindow::set_signal_handlers()
 		magbox->m_pupilsize.property_value(),
 		magbox->m_colour.property_value(),
 		magbox->m_nelm.property_value(),
+		magbox->m_dsocontrastindex.property_value(),
 		magbox->m_seeing.property_value(),
 		magbox->m_extinction.property_value(),
 		optionsbox->m_wavelength.property_value()};
@@ -208,6 +209,14 @@ void TcalcWindow::create_results()
 									   scopebox->m_sobstruct.get_value() / 100.0, static_cast<short>(scopebox->m_stype.get_active_row_number()));
 
 	resultsbox->append_row(_("Limiting magnitude"), dtmp, 2, "", set);
+
+	
+	dtmp =  m_astrocalc.calc_dso_contrast_in_scope(dmag, scopebox->m_stype.get_active_row_number(), scopebox->m_saperture.get_value(), 
+			scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
+			dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(), 
+			magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).first;
+
+	resultsbox->append_row(_("Visibility threshold"), dtmp, 4, "", set);
 
 	dtmp = m_astrocalc.calc_contrast_factor(scopebox->m_sobstruct.get_value() / 100.0);
 

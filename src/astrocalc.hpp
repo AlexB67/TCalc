@@ -68,9 +68,10 @@ public:
     double calc_dso_mag_to_brightness(const double mag, const double minoraxis, const double majoraxis) const noexcept;
     double calc_contrast_index(const double background_brightness, const double object_brightness) const noexcept;
     double calc_nelm_brightness_threshold_method(const double nelm) const noexcept;
+    double calc_nelm_threshold_method(const double surfacebrightness) const noexcept;
     double calc_nelm_brightness(const double nelm) const noexcept;
 
-    double calc_dso_contrast_in_scope(const double magnification, const int scopetype, const double aperture,
+    std::pair<double, double> calc_dso_contrast_in_scope(const double magnification, const int scopetype, const double aperture,
                                       const double scopeobstruct, const double scopereflect, const double etrans,
                                       const double dirt, const double eyepupilsize, const double nelm, const double dsovmag,
                                       const double minoraxis, const double majoraxis) const noexcept;

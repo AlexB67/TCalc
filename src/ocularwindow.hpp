@@ -14,6 +14,7 @@
 #include "telescopebox.hpp"
 #include "loggerbox.hpp"
 #include "optionsbox.hpp"
+#include "starmagbox.hpp"
 #include "oculardrawingarea.hpp"
 #include "dsocombomodel.hpp"
 #include "searchwindow.hpp"
@@ -38,52 +39,32 @@ private:
     Gtk::Grid dsoobjgrid;
     Gtk::Grid ocularinfogrid;
     Gtk::Grid ocularboxgrid;
-    Gtk::Label skyscopelabel;
-    Gtk::Label obscontrastlabel;
-    Gtk::Label optmaglabel;
-    Gtk::Label skyobjectlabel;
-    Gtk::Label minoraxislabel;
-    Gtk::Label majoraxislabel;
-    Gtk::Label vmaglabel;
-    Gtk::Label surfacebrightnesslabel;
-    Gtk::Label dsotypelabel;
     Gtk::Label dsocontrastlabel;
-    Gtk::Label nelmlabel;
-    Gtk::Label skybglabel;
     Gtk::Label ocularfovlabel;
     Gtk::Label ocularexitpupillabel;
     Gtk::Label ocularmaglabel;
     Gtk::Label dsoframelabel;
     Gtk::Label ocularboxframelabel;
+    Gtk::Label obscontrastlabel;
     Gtk::Entry ocularfov;
     Gtk::Entry ocularexitpupil;
     Gtk::Entry ocularmag;
-    Gtk::Entry dsotype;
-    Gtk::Entry skyscope;
     Gtk::Entry obscontrast;
-    Gtk::Entry optmag;
     Ui::SpinEntry dsocontrast;
-    Ui::SpinEntry minoraxis;
-    Ui::SpinEntry majoraxis;
-    Ui::SpinEntry vmag;
-    Ui::SpinEntry surfacebrightness;
-    Ui::SpinEntry nelm;
-    Ui::SpinEntry skybg;
     Gtk::Switch *nightmode;
     Gtk::Frame dsoframe;
     Gtk::AspectFrame ocularframe;
     Gtk::Frame ocularinfoframe;
     Gtk::Frame ocularboxframe;
-    Gtk::ComboBox dsocombo;
     std::shared_ptr<EpBox::Eyepiecebox> epbox;
     std::shared_ptr<ScopeBox::Telescopebox> scopebox;
     std::unique_ptr<OptionsBox::Optionsbox> optionsbox;
+    std::unique_ptr<MagBox::Magbox> magbox;
     std::unique_ptr<SearchWindow> searchwindow;
     Glib::RefPtr<Gtk::CssProvider> provider;
     Glib::RefPtr<Gtk::StyleContext> context;
     bool preferdarktheme;
     Ocular ocularbox;
-    DSOCombomodel m_dsocombomodel;
     void create_sky_objects_box();
     void create_ocular_info_box();
     bool on_key_press_event(GdkEventKey *event) override;
@@ -93,5 +74,4 @@ private:
     void set_contrast_info();
     void ocular_changed();
     void search();
-    void test();
 };

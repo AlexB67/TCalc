@@ -4,6 +4,14 @@
 
 void GraphsWindow::set_signal_handlers()
 {
+
+    searchbutton.signal_clicked().connect(sigc::mem_fun(*this, &GraphsWindow::search));
+
+    showgraphlegend->property_active().signal_changed().connect([this]()
+    {;
+        (true == showgraphlegend->get_active()) ? plot->show_legend() : plot->hide_legend();
+    });
+
     Gtk::Settings::get_default()->property_gtk_theme_name().signal_changed().connect([this]()
     {
         graphtheme = "Default";
@@ -36,6 +44,8 @@ void GraphsWindow::set_signal_handlers()
         magbox->m_nelm.property_value(),
         magbox->m_seeing.property_value(),
         magbox->m_extinction.property_value(),
+        magbox->m_dsocontrastindex.property_value(),
+        magbox->m_dsobrightness.property_value(),
         optionsbox->m_wavelength.property_value()
     };
 
@@ -50,6 +60,8 @@ void GraphsWindow::set_signal_handlers()
         if (epbox->m_efstop.get_value() > Astrocalc::astrocalc::tSMALL) plot_data_changed();
         epbox->m_efstop.set_sensitive(optionsbox->m_usefstop->get_active());
     });
+
+    magbox->m_dirtlevel.signal_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
 }
 
 void GraphsWindow::plot_data_changed()

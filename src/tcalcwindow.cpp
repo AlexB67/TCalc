@@ -13,8 +13,6 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
     : Glib::ObjectBase("TcalcWindow"), Gtk::ApplicationWindow(), m_app(app)
 {
    set_border_width(Uidefs::BORDER_WIDTH);
-   set_headerbar();
-   create_menu_and_shortcuts();
    fileIO::set_app_data();
 
    // Create separate grids to avoid expansion / layout issues
@@ -47,12 +45,15 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
 
    add(windowgrid);
 
+   set_headerbar();
+   create_menu_and_shortcuts();
    set_signal_handlers();
    get_keyfile_settings();
    show_all_children();
 
    epbox->init();
    scopebox->init();
+   magbox->set_default_mode();
 
    AppGlobals::LOGFLAG = true;
 
@@ -119,7 +120,13 @@ void TcalcWindow::create_menu_and_shortcuts()
       optionsbox->m_uselinearmethod->activate();
    });
 
+   add_action("dsomode", [this]() {
+      magbox->set_dso_mode(true);
+   });
 
+   add_action("starmode", [this]() {
+      magbox->set_dso_mode(false);
+   });
 
    add_action("equipment", sigc::mem_fun(*this, &TcalcWindow::equipment));
    add_action("menu", [this]() { menubutton.set_active(true); });
@@ -158,6 +165,8 @@ void TcalcWindow::create_menu_and_shortcuts()
    m_app->set_accel_for_action("win.logging", "<Ctrl>l");
    m_app->set_accel_for_action("win.fstop", "<Ctrl>s");
    m_app->set_accel_for_action("win.linearmethod", "<Ctrl>m");
+   m_app->set_accel_for_action("win.dsomode", "<Ctrl>Page_Down");
+   m_app->set_accel_for_action("win.starmode","<Ctrl>Page_Up");
 }
 
 void TcalcWindow::set_headerbar()
@@ -170,6 +179,7 @@ void TcalcWindow::set_headerbar()
    headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
    headerbar.set_show_close_button();
    headerbar.pack_start(searchbutton);
+   headerbar.pack_start(magbox->get_switcher_ref());
    headerbar.pack_end(menubutton);
    set_titlebar(headerbar);
 }

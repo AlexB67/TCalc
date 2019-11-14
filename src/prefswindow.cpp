@@ -100,8 +100,11 @@ void PrefsWindow::create_appearance_page()
     graphthemes.insert(0, _("Default"));
     graphthemes.insert(1, _("Natural blend"));
     graphthemes.insert(2, _("Natural blend dark"));
+    graphthemes.insert(3, _("White on black"));
+    graphthemes.insert(4, _("Black on white"));
+
     graphthemes.set_active(0);
-    graphthemes.set_tooltip_text(_("Customise the graph to blend in with desktop theme,"
+    graphthemes.set_tooltip_text(_("Customise the graph colours. The default will autodetect to suit a light or dark desktop theme. "
     "Note: This will reset if the desktop theme changes, or if prefer darkmode is swithed on/off."));
 
     appearancegrid.attach(preferdarkthemelabel, 0, 0);
@@ -124,14 +127,19 @@ void PrefsWindow::create_appearance_page()
         switch (graphthemes.get_active_row_number())
         {
         case 0:
-            AppGlobals::update_graphthemes.emit("Default");
+            AppGlobals::update_graphthemes.emit(_("Default"));
             break;
         case 1:
-            AppGlobals::update_graphthemes.emit("Natural blend");
+            AppGlobals::update_graphthemes.emit(_("Natural blend"));
             break;
         case 2:
-            AppGlobals::update_graphthemes.emit("Natural blend dark");
+            AppGlobals::update_graphthemes.emit(_("Natural blend dark"));
             break;
+        case 3:
+            AppGlobals::update_graphthemes.emit(_("White on black"));
+            break;
+        case 4:
+            AppGlobals::update_graphthemes.emit(_("Black on white"));
         
         default:
             break;

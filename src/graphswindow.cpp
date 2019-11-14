@@ -12,7 +12,11 @@ GraphsWindow::GraphsWindow()
   headerbar.set_title(_("Interactive graphs"));
   headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
   headerbar.set_show_close_button();
+  showgraphlegend = Gtk::make_managed<Gtk::Switch>();
+  showgraphlegend->set_active(true);
+  showgraphlegend->set_tooltip_text(_("Show the graph legend."));
   headerbar.pack_start(searchbutton);
+  headerbar.pack_end(*showgraphlegend);
   set_titlebar(headerbar);
   
   epbox = std::make_shared<EpBox::Eyepiecebox>();
@@ -36,7 +40,8 @@ GraphsWindow::GraphsWindow()
   plotlist.insert(2, _("limiting magnitude versus aperture"));
   plotlist.insert(3, _("Resolving power versus aperture"));
   plotlist.insert(4, _("Light gathering versus aperture"));
-  plotlist.insert(5, _("Visibility of extended objects"));
+  plotlist.insert(5, _("DSO visbility"));
+  plotlist.insert(6, _("Lunar resolution"));
   plotlist.set_active(0);
 
   xval.set_width_chars(14);
@@ -79,6 +84,8 @@ GraphsWindow::GraphsWindow()
   get_config();
   epbox->init();
   scopebox->init();
+  magbox->set_default_mode();
+  magbox->set_stack_transition_time(0);
 }
 
 void  GraphsWindow::get_config()
@@ -200,6 +207,25 @@ void::GraphsWindow::set_plot_theme_by_name(const Glib::ustring& themename)
     plot->set_region_selection_color(Gdk::RGBA("black"));
     plot->set_legend_background_color(Gdk::RGBA(colour));
     plot->set_legend_bounding_box_color(Gdk::RGBA("black"));
+  }
+  else if(_("White on black")  == themename)
+  {
+    canvas.set_background_color(Gdk::RGBA("black"));
+    plot->set_axes_color(Gdk::RGBA("white"));
+    plot->set_titles_color(Gdk::RGBA("white"));
+    plot->set_region_selection_color(Gdk::RGBA("white"));
+    plot->set_legend_background_color(Gdk::RGBA("black"));
+    plot->set_legend_bounding_box_color(Gdk::RGBA(colour));
+    
+  }
+  else if(_("Black on white")  == themename)
+  {
+    canvas.set_background_color(Gdk::RGBA("white"));
+    plot->set_axes_color(Gdk::RGBA("black"));
+    plot->set_titles_color(Gdk::RGBA("black"));
+    plot->set_region_selection_color(Gdk::RGBA("black"));
+    plot->set_legend_background_color(Gdk::RGBA("white"));
+    plot->set_legend_bounding_box_color(Gdk::RGBA(colour));
   }
   else if(_("Default")  == themename)
   { 

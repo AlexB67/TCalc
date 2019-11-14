@@ -175,8 +175,8 @@ void Resultsbox::init_property_names()
         _("<i>Opt max focal length</i> :"), _("<i>High mag limit</i> :"), _("<i>Low mag limit</i> :"), 
         _("<i>PPI</i> :"), _("<i>Light grasp</i> :"), _("<i>Light grasp effective</i> :"),
         _("<i>Brightness factor</i> :"), _("<i>Drift time</i> :"), _("<i>Collimation tol</i> :"),
-        _("<i>Limiting magnitude</i> :"), _("<i>Contrast factor</i> :"), _("<i>Airy disk diam</i> :"),
-        _("<i>Lunar resolution</i> :")
+        _("<i>Limiting magnitude</i> :"), _("<i>Visibility threshold</i> :"), _("<i>Contrast factor</i> :"), 
+        _("<i>Airy disk diam</i> :"), _("<i>Lunar resolution</i> :")
     };
 
     m_eplistnames = 

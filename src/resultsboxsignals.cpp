@@ -68,11 +68,14 @@ bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, bool keyboard
         tooltip->set_markup(_("The faintest star that can be seen (on the magnitude scale). "\
                             "Larger numbers equate to fainter objects."));
     else if(row[m_resultCols.m_results_property] == m_proplistnames[19]) 
+        tooltip->set_markup(_("An approximate indication whether a DSO is visisble through the telescope. If the value is > 0"\
+                            " the object is detectable. The larger the value the better the contrast against the sky background."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[20]) 
         tooltip->set_markup(_("Contrast factor. Depends on secondary mirror obstruction size. Higher numbers equate to improved contrast, "\
         "and sharper views, at zero obstruction size the maximum possible value is 5.25."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[20]) 
-        tooltip->set_markup(_("The airy disk size, a smaller disk means more resolving power."));
     else if(row[m_resultCols.m_results_property] == m_proplistnames[21]) 
+        tooltip->set_markup(_("The airy disk size, a smaller disk means more resolving power."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[22]) 
         tooltip->set_markup(_("The smallest possible object that can be seen on the moon (excluding seeing conditions)."));
     else
         tooltip->set_markup(_("No tooltip available."));

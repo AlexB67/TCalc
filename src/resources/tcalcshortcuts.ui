@@ -158,6 +158,20 @@
                 <property name="title" translatable="yes">Toggle ocular nightmode</property>
               </object>
             </child>
+             <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;Page_Down</property>
+                <property name="title" translatable="yes">DSO object page</property>
+              </object>
+            </child>
+             <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;Page_Up</property>
+                <property name="title" translatable="yes">Star object page</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
