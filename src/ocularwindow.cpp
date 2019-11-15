@@ -90,7 +90,7 @@ void OcularWindow::create_ocular_info_box()
 {
   ocularfovlabel.set_markup(_("<i>θ</i><sub>t</sub>"));
   ocularexitpupillabel.set_markup(_("<i>D</i><sub>e</sub>"));
-  ocularmaglabel.set_markup(_("<i>M</i>"));
+  ocularmaglabel.set_markup(_("<i>M</i><sub>c</sub>"));
   ocularfov.set_width_chars(16);
   ocularfov.set_editable(false);
   ocularfov.set_can_focus(false);

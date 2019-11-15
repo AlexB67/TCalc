@@ -3,6 +3,8 @@
 	<id>org.gnome.TCalc.desktop</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
+	 <name>GNOME TCalc</name>
 	<description>
+	An Astronomy tool for telescopes and eyepieces.
 	</description>
 </component>

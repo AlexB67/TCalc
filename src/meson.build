@@ -1,5 +1,6 @@
 conf_data = configuration_data()
 conf_data.set_quoted('PACKAGE_DATADIR', join_paths(get_option('prefix')))
+conf_data.set_quoted('TCALC_BUILD_DIR', meson.build_root())
 configure_file(
 input:  '../tcalcconfig.hpp.meson',
 output: 'tcalcconfig.hpp',
@@ -49,8 +50,6 @@ tcalc_deps = [
   dependency('gtkmm-plplot-2.0', version: '>= 2.3'),
   dependency('webkit2gtk-4.0', version: '>= 2.2'),
 ]
-
-gnome = import('gnome')
 
 tcalc_sources += gnome.compile_resources(
   'tcalc-resources',

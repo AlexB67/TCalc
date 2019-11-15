@@ -1,10 +1,11 @@
 project('tcalc', ['cpp', 'c'], 
-        version: '0.1.0',
-  meson_version: '>= 0.45.0',
+        version: '0.0.5',
+  meson_version: '>= 0.52.0',
 )
 
 i18n = import('i18n')
-
+gnome = import('gnome')
+pkgconfig = import('pkgconfig')
 
 subdir('data')
 subdir('src')

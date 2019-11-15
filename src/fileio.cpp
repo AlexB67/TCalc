@@ -10,15 +10,12 @@
 void fileIO::set_app_data()
 {
 	if(false == std::filesystem::exists(AppGlobals::eyepiecesfilename.c_str())) // if running tcalc uninstalled
-	{																// create a file in $HOME/.config/gome-tcalc/devmode.tcalc
-		auto path = AppGlobals::userconfigdir + "devmode.tcalc";	// one line containing the absolute path to the build tcalcdata folder
-		std::ifstream file(path.c_str(), std::ifstream::in);
-		std::string datadir;
-		getline(file, datadir);
-		AppGlobals::datadir = datadir;
-		AppGlobals::eyepiecesfilename = datadir + "eyepieces.TCalc";
-		AppGlobals::telescopesfilename = datadir + "telescopes.TCalc";
-		AppGlobals::dsolistfilename = datadir + "skyobjects.TCalc";
+	{																
+		auto path = AppGlobals::builddir + "/data/tcalcdata/";
+		AppGlobals::eyepiecesfilename = path + "eyepieces.TCalc";
+		AppGlobals::telescopesfilename = path + "telescopes.TCalc";
+		AppGlobals::dsolistfilename = path + "skyobjects.TCalc";
+		AppGlobals::datadir = path;
 	}
 
 	// folder used for writing user telescopes and eyepieces data + the configuration file tcalc.conf
