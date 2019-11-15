@@ -1,6 +1,6 @@
 project('tcalc', ['cpp', 'c'], 
         version: '0.0.5',
-  meson_version: '>= 0.52.0',
+  meson_version: '>= 0.47.0',
 )
 
 i18n = import('i18n')
