@@ -3,13 +3,12 @@ GNOME TCalc - An astronomy tool for telescopes and eyepieces written in gtkmm.
 Warning: very much work in progress, some things don't work fully as intended
 
 build gtkmm-plplot and install
-from https://github.com/tschoonj/gtkmm-plplot, version 2.3 or later is required.
-
-ready to install packages are also available
+from https://github.com/tschoonj/gtkmm-plplot, version 2.3 or later is required.\
+Ready to install packages are also available
 
 https://tschoonj.github.io/gtkmm-plplot/installation_instructions.html
 
-clone the Tcalc repo, at the comand prompt
+Clone the Tcalc repo, at the comand prompt
 
 $git clone https://github.com/AlexB67/TCalc.git
 
