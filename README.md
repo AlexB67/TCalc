@@ -9,9 +9,11 @@ ready to install packages are also available
 
 https://tschoonj.github.io/gtkmm-plplot/installation_instructions.html
 
-clone the Tcalc repo
+clone the Tcalc repo, at the comand prompt
 
-From the command line
+$git clone https://github.com/AlexB67/TCalc.git
+
+From the command line, assuming you were in the home directory
 
 $cd TCalc\
 $mkdir build\
