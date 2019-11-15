@@ -1,47 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="tcalc">
 	<schema id="org.gnome.TCalc" path="/org/gnome/TCalc/">
-	<key name="prefer-dark-theme" type="b">
-      <default>true</default>
-      <summary>Whether to use a dark theme variant.</summary>
-      <description>
-        Whether to use a dark theme variant.
-      </description>
-    </key>
-	<key name="draw-frames" type="b">
-      <default>true</default>
-      <summary>Determines whether frames are visible.</summary>
-      <description>
-        Determines whether frames are visible.
-      </description>
-    </key>
-	<key name="graph-theme-index" type="i">
-      <default>0</default>
-      <summary>Determines graph colours.</summary>
-      <description>
-        Determines graph colours.
-      </description>
-    </key>
-	<key name="ortho-transmission" type="d">
-      <default>98</default>
-      <summary>Orthoscopic eyepiece transmission.</summary>
-      <description>
-        Orthoscopic eyepiece transmission.
-      </description>
-    </key>
-	<key name="plossl-transmission" type="d">
-      <default>98.0</default>
-      <summary>Plossl eyepiece transmission.</summary>
-      <description>
-        Plossl eyepiece transmission.
-      </description>
-    </key>
-	<key name="multi-transmission" type="d">
-      <default>96.0</default>
-      <summary>multi element eyepiece transmission.</summary>
-      <description>
-        multi element eyepiece transmission.
-      </description>
-    </key>
 	</schema>
 </schemalist>

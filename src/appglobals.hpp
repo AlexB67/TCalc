@@ -32,7 +32,7 @@ namespace AppGlobals
 
     inline void get_keyfile_config(Gtk::Frame &frame)
     {
-        // we can add more when needed, just for frame style for now
+       // we can add more when needed, just for frame style for now
 
         if (false == std::filesystem::exists(AppGlobals::configpath.c_str()))
             return;
