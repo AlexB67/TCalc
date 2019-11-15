@@ -13,7 +13,7 @@ clone the Tcalc repo, at the comand prompt
 
 $git clone https://github.com/AlexB67/TCalc.git
 
-From the command line, assuming you were in the home directory
+From the command line
 
 $cd TCalc\
 $mkdir build\
