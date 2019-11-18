@@ -56,8 +56,8 @@ namespace ResultsBox
         void append_row(const Glib::ustring &propertyname, const double value,  const int precision,  
                         const Glib::ustring &prefix, const Glib::ustring &postfix, const int resultsset);
         
+        void append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset);
         void clear(bool reset = false);
-        
         void get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset);
         void get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox>& scopebox, const int resultsset);
 

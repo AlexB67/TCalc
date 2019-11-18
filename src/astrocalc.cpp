@@ -721,3 +721,23 @@ std::pair<double, double> astrocalc::calc_dso_contrast_in_scope(const double mag
     double obscontrastthreshold = obscontrast + calc_contrast_index(bg_brightness, objbrightness);
     return std::make_pair(obscontrastthreshold, -obscontrast); // threshold
 }
+
+std::tuple<double, double, double> astrocalc::calc_ocular_list(const double eyepupilsize,
+                                                               const double saperture, const double sflen) const noexcept
+{
+    double highpowerflen = sflen / 200.0;
+
+    double exitpupilhighpower = calc_exit_pupil(saperture, 200.0);
+    if (exitpupilhighpower < 0.6)
+        highpowerflen = 0.6 * sflen / saperture;
+
+    if (calc_PPI(sflen, highpowerflen, saperture) >= 30.0)
+        highpowerflen = sflen * 25.4 / (saperture * 30.0);
+
+    double lowpowerflen = sflen / calc_minmag(saperture, eyepupilsize - 0.5);
+    if (lowpowerflen > 40.0)
+        lowpowerflen = 40.0; // 40mm limit for easy to get eyepieces.
+    double medpowerflen = lowpowerflen / 2.0;
+
+    return {lowpowerflen, medpowerflen, highpowerflen};
+}

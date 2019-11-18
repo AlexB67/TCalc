@@ -50,33 +50,39 @@ bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, bool keyboard
     else if(row[m_resultCols.m_results_property] == m_proplistnames[11])
         tooltip->set_markup(_("The lowest useable magnification where "\
                               "the exit pupil diameter does not exceed the observer's eyepupil diameter."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[12]) 
-        tooltip->set_markup(_("Power per inch of aperture at the current magnification."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[13]) 
-        tooltip->set_markup(_("The amount of light gathered by the telescope."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[12])
+        tooltip->set_markup(_("The focal length corresponding to the low magnification limit."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[13])
+        tooltip->set_markup(_("The focal length corresponding to the high magnification limit."));
     else if(row[m_resultCols.m_results_property] == m_proplistnames[14]) 
+        tooltip->set_markup(_("Power per inch of aperture at the current magnification."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[15]) 
+        tooltip->set_markup(_("The amount of light gathered by the telescope."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[16]) 
         tooltip->set_markup(_("The amount of light gathered by the telescope taking into acount obstruction size, reflectivity and "\
                               "transmission of the optical elements (not including the eyepiece)."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[15]) 
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[17]) 
         tooltip->set_markup(_("How bright and object appears through the eyepiece. A value of 1 represents an exit pupil size "\
                               "equal to the observer's eye pupil size."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[16]) 
-        tooltip->set_markup(_("The amount of time it takes for an object to drift across the eyepiece at an angle of 0 declination."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[17]) 
-        tooltip->set_markup(_("The distance off-axis where optical abberations do not exceed the diffraction limit."));
     else if(row[m_resultCols.m_results_property] == m_proplistnames[18]) 
+        tooltip->set_markup(_("The amount of time it takes for an object to drift across the eyepiece at an angle of 0 declination."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[19]) 
+        tooltip->set_markup(_("The distance off-axis where optical abberations do not exceed the diffraction limit."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[20]) 
         tooltip->set_markup(_("The faintest star that can be seen (on the magnitude scale). "\
                             "Larger numbers equate to fainter objects."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[19]) 
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[21]) 
         tooltip->set_markup(_("An approximate indication whether a DSO is visisble through the telescope. If the value is > 0"\
                             " the object is detectable. The larger the value the better the contrast against the sky background."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[20]) 
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[22]) 
         tooltip->set_markup(_("Contrast factor. Depends on secondary mirror obstruction size. Higher numbers equate to improved contrast, "\
         "and sharper views, at zero obstruction size the maximum possible value is 5.25."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[21]) 
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[23]) 
         tooltip->set_markup(_("The airy disk size, a smaller disk means more resolving power."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[22]) 
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[24]) 
         tooltip->set_markup(_("The smallest possible object that can be seen on the moon (excluding seeing conditions)."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[25]) 
+        tooltip->set_markup(_("A list of recommended beginner eyepiece focal lengths for the selected telescope."));
     else
         tooltip->set_markup(_("No tooltip available."));
     

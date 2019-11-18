@@ -125,6 +125,15 @@ void Resultsbox::append_row(const Glib::ustring &propertyname, const double valu
     ++rowcount;
 }
 
+void Resultsbox::append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset)
+{
+    if (rowcount > m_proplistnames.size() || resultsset < 1 || resultsset > 2) return; 
+
+    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
+    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(resultsset,  text);
+    ++rowcount;
+}
+
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
                                         const int precision,  const Glib::ustring &postfix, const int resultsset)
 {
@@ -173,10 +182,11 @@ void Resultsbox::init_property_names()
         _("<i>Rayleigh's limit</i> :"), _("<i>Field of view</i> :"), _("<i>Exit pupil</i> :"),
         _("<i>Opt min mag</i> :"), _("<i>Opt max mag</i> :"), _("<i>Opt min focal length</i> :"),
         _("<i>Opt max focal length</i> :"), _("<i>High mag limit</i> :"), _("<i>Low mag limit</i> :"), 
-        _("<i>PPI</i> :"), _("<i>Light grasp</i> :"), _("<i>Light grasp effective</i> :"),
-        _("<i>Brightness factor</i> :"), _("<i>Drift time</i> :"), _("<i>Collimation tol</i> :"),
-        _("<i>Limiting magnitude</i> :"), _("<i>Visibility threshold</i> :"), _("<i>Contrast factor</i> :"), 
-        _("<i>Airy disk diam</i> :"), _("<i>Lunar resolution</i> :")
+        _("<i>Max focal length</i> :"), _("<i>Min focal length</i> :"), _("<i>PPI</i> :"), _("<i>Light grasp</i> :"), 
+        _("<i>Light grasp effective</i> :"), _("<i>Brightness factor</i> :"), _("<i>Drift time</i> :"), 
+        _("<i>Collimation tol</i> :"),_("<i>Limiting magnitude</i> :"), _("<i>Visibility threshold</i> :"), 
+        _("<i>Contrast factor</i> :"), _("<i>Airy disk diam</i> :"), _("<i>Lunar resolution</i> :"),
+        _("<i>Ocular list</i> :")
     };
 
     m_eplistnames = 

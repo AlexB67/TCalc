@@ -1,5 +1,6 @@
 #include "tcalcwindow.hpp"
 #include "appglobals.hpp"
+#include "glibmmcustomutils.hpp"
 #include "astrocalc.hpp"
 #include <iostream>
 #include <gtkmm/aboutdialog.h>
@@ -151,11 +152,11 @@ void TcalcWindow::create_results()
 
 	if (dtmp < 0.5)
 		logbox->setlogtext(flag, LogView::tWARN, _("Exit pupil size is low, light dimming."));
-	else if (dtmp > magbox->m_pupilsize.get_value())
+	else if (dtmp >= magbox->m_pupilsize.get_value())
 		logbox->setlogtext(flag, LogView::tWARN, _("Exit pupil larger than eye pupil, light loss."));
-	else if (dtmp > 2.0 && dtmp < 4.0)
+	else if (dtmp >= 2.0 && dtmp <= 4.0)
 		logbox->setlogtext(flag, LogView::tINFO, _("Exit pupil in optimal range."));
-	else if (dtmp > 0.5 && dtmp < magbox->m_pupilsize.get_value())
+	else if (dtmp >= 0.5 && dtmp < magbox->m_pupilsize.get_value())
 		logbox->setlogtext(flag, LogView::tINFO, _("Exit pupil in acceptable range."));
 
 	resultsbox->append_row(_("Exit pupil"), dtmp, 2, _("mm"), set);
@@ -177,6 +178,12 @@ void TcalcWindow::create_results()
 
 	dtmp = m_astrocalc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
 	resultsbox->append_row(_("Low mag limit"), dtmp, 2, _("x"), set);
+
+	dtmp = scopebox->m_sflen.get_value() / m_astrocalc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
+	resultsbox->append_row(_("Max focal length"), dtmp, 2, _("mm"), set);
+
+	dtmp = scopebox->m_sflen.get_value() / m_astrocalc.calc_maxmag(scopebox->m_saperture.get_value());
+	resultsbox->append_row(_("Min focal length"), dtmp, 2, _("mm"), set);
 
 	dtmp = m_astrocalc.calc_PPI(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value(),
 								scopebox->m_saperture.get_value());
@@ -230,6 +237,15 @@ void TcalcWindow::create_results()
 	dtmp = m_astrocalc.calc_lunar_res(scopebox->m_saperture.get_value());
 
 	resultsbox->append_row(_("Lunar resolution"), dtmp, 2, _("km"), set);
+
+	std::tuple<double, double, double> ocularlist = m_astrocalc.calc_ocular_list(magbox->m_pupilsize.get_value(), 
+													scopebox->m_saperture.get_value(),scopebox->m_sflen.get_value());
+
+	Glib::ustring oculars = GlibUtils::dtostr<double>(std::get<0>(ocularlist), 0) + _(",") +
+				GlibUtils::dtostr<double>(std::get<1>(ocularlist), 0) + _(",") +
+				GlibUtils::dtostr<double>(std::get<2>(ocularlist), 1);
+	
+	resultsbox->append_row(_("Ocular list"), oculars + _("mm"), set);
 
 	logbox->setlogtext(flag, LogView::tINFO, _("Calculation completed:"));
 

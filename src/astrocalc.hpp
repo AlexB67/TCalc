@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include <tuple>
 
 namespace Astrocalc
 {
@@ -75,6 +76,9 @@ public:
                                       const double scopeobstruct, const double scopereflect, const double etrans,
                                       const double dirt, const double eyepupilsize, const double nelm, const double dsovmag,
                                       const double minoraxis, const double majoraxis) const noexcept;
+    
+    std::tuple<double, double, double> calc_ocular_list(const double eyepupilsize, 
+                                                        const double aperture, const double sflen) const noexcept;
 
     static constexpr double RADTODEG = 57.2957795;
     static constexpr double DEGTOARCMIN = 60.0;
