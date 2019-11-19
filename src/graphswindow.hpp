@@ -70,6 +70,8 @@ private:
         &GraphsWindow::plot5,
         &GraphsWindow::plot6,
         &GraphsWindow::plot7,
+        &GraphsWindow::plot8,
+        &GraphsWindow::plot9,
     };
 
     void plot1();
@@ -79,6 +81,8 @@ private:
     void plot5();
     void plot6();
     void plot7();
+    void plot8();
+    void plot9();
 
     void init_plot();
     void set_signal_handlers();

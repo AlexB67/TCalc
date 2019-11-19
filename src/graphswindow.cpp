@@ -42,6 +42,8 @@ GraphsWindow::GraphsWindow()
   plotlist.insert(4, _("Light gathering versus aperture"));
   plotlist.insert(5, _("DSO visbility"));
   plotlist.insert(6, _("Lunar resolution"));
+  plotlist.insert(7, _("Abberation free field versus aperture"));
+  plotlist.insert(8, _("Brightness factor"));
   plotlist.set_active(0);
 
   xval.set_width_chars(14);

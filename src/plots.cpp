@@ -532,3 +532,115 @@ void GraphsWindow::plot7()
     magbox->set_dso_mode(false);
     if (false == showgraphlegend->get_active()) plot->hide_legend();
 }
+
+void GraphsWindow::plot8()
+{
+    if (plot)
+        canvas.remove_plot(*plot);
+
+    constexpr size_t numpoints = 200;
+    std::vector<double> aperture(numpoints), aff(numpoints);
+    Astrocalc::astrocalc m_calc;
+
+    double minaperture = 60.0;
+    double maxaperture = 450.0;
+    double daperture = minaperture;
+
+    size_t i = 0;
+    for (auto &iter : aff)
+    {
+        iter = m_calc.calc_aff(daperture, scopebox->m_sflen.get_value(), optionsbox->m_wavelength.get_value());
+
+        aperture[i] = daperture;
+        daperture += (maxaperture - minaperture) / numpoints;
+        ++i;
+    }
+
+    Gdk::RGBA colour;
+    colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+
+    auto plot_data = Gtk::make_managed<Gtk::PLplot::PlotData2D>(aperture, aff, Gdk::RGBA(colour),
+                                                                Gtk::PLplot::LineStyle::CONTINUOUS, 2.0);
+
+    plot = Gtk::make_managed<Gtk::PLplot::Plot2D>(*plot_data);
+
+    double currentaff = m_calc.calc_aff(scopebox->m_saperture.get_value(), scopebox->m_sflen.get_value(), 
+                                        optionsbox->m_wavelength.get_value());
+
+    Glib::ustring infotext = _("#fiθ#fn = ") + GlibUtils::dtostr<double>(currentaff, 2) + _("arcmin");
+
+    plot->set_axis_title_x(_("#fiD#fn#daperture#u / mm"));
+    plot->set_axis_title_y(_("#fiθ#fn / arcmin"));
+    xvallabel.set_markup(_("<i>D</i><sub>aperture</sub>"));
+    yvallabel.set_markup(_("<i>θ</i> / arcmin"));
+    xunit = _(" mm");
+    yunit = _(" arcmin");
+    plot->set_plot_title(_("#fnAbberation free field versus aperture"));
+    plot->set_legend_position(0.04, 0.05);
+    plot_data->set_name(infotext);
+    create_gridlines(aperture[0], aperture[numpoints - 1], aff[numpoints - 1], aff[0]);
+    canvas.add_plot(*plot);
+    plot->signal_cursor_motion().connect(sigc::mem_fun(*this, &GraphsWindow::track_cursor));
+    set_plot_theme_by_name(graphtheme);
+    magbox->set_dso_mode(false);
+    if (false == showgraphlegend->get_active()) plot->hide_legend();
+}
+
+void GraphsWindow::plot9()
+{
+    if (plot)
+        canvas.remove_plot(*plot);
+
+    constexpr size_t numpoints = 200;
+    std::vector<double> aperture(numpoints), brightnessfactor(numpoints);
+    Astrocalc::astrocalc m_calc;
+
+    double minaperture = 60.0;
+    double maxaperture = 450.0;
+    double daperture = minaperture;
+    double mag = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
+    double exitpupil = m_calc.calc_exit_pupil(scopebox->m_saperture.get_value(), mag);
+
+    size_t i = 0;
+    for (auto &iter : brightnessfactor)
+    {
+        double tmp = m_calc.calc_brightness_factor(daperture, magbox->m_pupilsize.get_value(), mag);
+        (tmp < 1.0) ? iter = tmp : iter = 1.0;
+
+        aperture[i] = daperture;
+        daperture += (maxaperture - minaperture) / numpoints;
+        ++i;
+    }
+
+    Gdk::RGBA colour;
+    colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+
+    auto plot_data = Gtk::make_managed<Gtk::PLplot::PlotData2D>(aperture, brightnessfactor, Gdk::RGBA(colour),
+                                                                Gtk::PLplot::LineStyle::CONTINUOUS, 2.0);
+
+    plot = Gtk::make_managed<Gtk::PLplot::Plot2D>(*plot_data);
+
+    double currentbrightnessfactor = m_calc.calc_brightness_factor(scopebox->m_saperture.get_value(), 
+                                                                    magbox->m_pupilsize.get_value(), mag);
+
+    if ( currentbrightnessfactor > 1.0) currentbrightnessfactor = 1.0;
+
+    Glib::ustring infotext =    _("#fiB#fn = ") + GlibUtils::dtostr<double>(currentbrightnessfactor, 2) +
+                                _(", #fiD#fn#de#u = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm");
+
+    plot->set_axis_title_x(_("#fiD#fn#daperture#u / mm"));
+    plot->set_axis_title_y(_("#fiB#fn"));
+    xvallabel.set_markup(_("<i>D</i><sub>aperture</sub>"));
+    yvallabel.set_markup(_("<i>B</i>"));
+    xunit = _(" mm");
+    yunit.clear();
+    plot->set_plot_title(_("#fnBrightness versus aperture"));
+    plot->set_legend_position(0.04, 0.92);
+    plot_data->set_name(infotext);
+    create_gridlines(aperture[0], aperture[numpoints - 1], brightnessfactor[numpoints - 1], brightnessfactor[0]);
+    canvas.add_plot(*plot);
+    plot->signal_cursor_motion().connect(sigc::mem_fun(*this, &GraphsWindow::track_cursor));
+    set_plot_theme_by_name(graphtheme);
+    magbox->set_dso_mode(false);
+    if (false == showgraphlegend->get_active()) plot->hide_legend();
+}

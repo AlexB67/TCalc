@@ -737,6 +737,7 @@ std::tuple<double, double, double> astrocalc::calc_ocular_list(const double eyep
     double lowpowerflen = sflen / calc_minmag(saperture, eyepupilsize - 0.5);
     if (lowpowerflen > 40.0)
         lowpowerflen = 40.0; // 40mm limit for easy to get eyepieces.
+    
     double medpowerflen = lowpowerflen / 2.0;
 
     return {lowpowerflen, medpowerflen, highpowerflen};

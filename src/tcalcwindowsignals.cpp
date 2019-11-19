@@ -198,14 +198,23 @@ void TcalcWindow::create_results()
 
 	dtmp = m_astrocalc.calc_brightness_factor(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(),
 											  scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
+	
 	resultsbox->append_row(_("Brightness factor"), dtmp, 4, "", set);
 
 	dtmp = tFOV * Astrocalc::astrocalc::DEGTOARCMIN / (0.2507);
 	resultsbox->append_row(_("Drift time"), dtmp, 1, "s", set);
 
-	dtmp = m_astrocalc.calc_affl(scopebox->m_saperture.get_value(), scopebox->m_sflen.get_value(),
-								 optionsbox->m_wavelength.get_value());
-	resultsbox->append_row(_("Collimation tol"), dtmp, 2, _("mm"), set);
+	if(Astrocalc::astrocalc::REFLECTOR == scopebox->m_stype.get_active_row_number())
+	{
+		dtmp = m_astrocalc.calc_aff(scopebox->m_saperture.get_value(), scopebox->m_sflen.get_value(),
+								 optionsbox->m_wavelength.get_value()) /  2.0;
+		resultsbox->append_row(_("Collimation tol"), dtmp, 2, _("<i>\"</i>"), set);
+	}
+	else
+	{
+		resultsbox->append_row(_("Collimation tol"), "", set);
+	}
+	
 
 	double dirt = magbox->get_optical_dirt_level();
 
