@@ -3,5 +3,6 @@
   <gresource prefix="/org/gnome/TCalc">
     <file>resources/tcalcshortcuts.ui</file>
     <file>resources/nightmode.css</file>
+    <file>resources/tcalc.png</file>
   </gresource>
 </gresources>

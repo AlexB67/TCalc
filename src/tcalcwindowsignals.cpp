@@ -315,7 +315,7 @@ void TcalcWindow::about()
 	Gtk::AboutDialog aboutdialog;
 	aboutdialog.set_transient_for(*this);
 
-	aboutdialog.set_logo(Gdk::Pixbuf::create_from_file("/home/afb/Documents/TCalc/tcalc.png", 128, 128, true));
+	aboutdialog.set_logo(Gdk::Pixbuf::create_from_resource("/org/gnome/TCalc/resources/tcalc.png", 128, 128, true));
 	aboutdialog.set_program_name(_("GNOME TCalc"));
 	aboutdialog.set_version("0.0.1");
 	aboutdialog.set_copyright("Alexander Borro");
