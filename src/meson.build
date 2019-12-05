@@ -25,7 +25,6 @@ tcalc_sources = [
   'starmagbox.cpp',
   'starmagboxsignals.cpp',
   'optionsbox.cpp',
-  'astrocalc.cpp',
   'gtkmmcustomutils.cpp',
   'telescopecombomodel.cpp',
   'eyepiececombomodel.cpp',
@@ -42,12 +41,18 @@ tcalc_sources = [
   'searchwindow.cpp',
   'equipwindow.cpp',
   'helpwindow.cpp',
-  'dsocombomodel.cpp'
+  'dsocombomodel.cpp',
+  'plotlib/plotter.cpp',
+  'plotlib/plotterlabels.cpp',
+  'plotlib/plotteroptions.cpp',
+  'plotlib/plotterthemes.cpp',
+  'plotlib/plotterwidgets.cpp',
+  'plotlib/plotterevents.cpp',
+  'astrocalclib/astrocalc.cpp',
 ]
 
 tcalc_deps = [
   dependency('gtkmm-3.0', version: '>= 3.24'),
-  dependency('gtkmm-plplot-2.0', version: '>= 2.3'),
   dependency('webkit2gtk-4.0', version: '>= 2.2'),
 ]
 

@@ -1,5 +1,5 @@
 #include "eyepieceboxedit.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 
 EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) : Eyepiecebox(true), m_app(app)
 {

@@ -1,5 +1,5 @@
 #include "telescopeboxedit.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include <gtkmm/messagedialog.h>
 
 ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &app) : Telescopebox(true), m_app(app)

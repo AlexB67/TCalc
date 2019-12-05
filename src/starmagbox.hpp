@@ -12,7 +12,7 @@
 #include <gtkmm/sizegroup.h>
 #include <gtkmm/separator.h>
 #include <glibmm/i18n.h>
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "gtkmmcustomutils.hpp"
 #include "appglobals.hpp"
 #include "loggerbox.hpp"

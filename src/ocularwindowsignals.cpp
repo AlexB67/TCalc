@@ -1,5 +1,5 @@
 #include "ocularwindow.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "glibmmcustomutils.hpp"
 #include "appglobals.hpp"
 #include <gtkmm/settings.h>

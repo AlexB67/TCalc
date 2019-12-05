@@ -5,7 +5,7 @@
 #include "ocularwindow.hpp"
 #include "gtkmmcustomutils.hpp"
 #include "fileio.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "appglobals.hpp"
 
 OcularWindow::OcularWindow()

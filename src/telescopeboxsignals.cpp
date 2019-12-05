@@ -1,6 +1,6 @@
 #include "telescopebox.hpp"
 #include <iostream>
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "glibmmcustomutils.hpp"
 #include "appglobals.hpp"
 

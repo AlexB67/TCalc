@@ -9,23 +9,33 @@ void GraphsWindow::set_signal_handlers()
 
     showgraphlegend->property_active().signal_changed().connect([this]()
     {;
-        (true == showgraphlegend->get_active()) ? plot->show_legend() : plot->hide_legend();
+        graphbox->show_legend(showgraphlegend->get_active());
+        graphbox->update_graph();
     });
 
     Gtk::Settings::get_default()->property_gtk_theme_name().signal_changed().connect([this]()
     {
-        graphtheme = "Default";
-        set_plot_theme();
+        if (Gtk::Settings::get_default()->property_gtk_theme_name().get_value().lowercase() == "adwaita")
+            graphbox->set_theme("Adwaita");
+        else if (Gtk::Settings::get_default()->property_gtk_theme_name().get_value().lowercase() == "adwaita-dark")
+            graphbox->set_theme("Adwaita-dark");
+        else
+            graphbox->set_theme(graphtheme);
+        
+        graphbox->update_graph();
     });
 
     Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().signal_changed().connect([this]() 
     {   
         if(true == Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().get_value())
-        graphtheme = "Default";
-        set_plot_theme();
+            graphbox->set_theme("Fade to black");
+        else
+            graphbox->set_theme("Adwaita");
+        
+        graphbox->update_graph();
     });
 
-    AppGlobals::update_graphthemes.connect(sigc::mem_fun(*this, &GraphsWindow::set_plot_theme_by_name));
+    AppGlobals::update_graphthemes.connect(sigc::mem_fun(*this, &GraphsWindow::set_plot_theme));
 
     plotlist.signal_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
 
@@ -66,17 +76,8 @@ void GraphsWindow::set_signal_handlers()
 
 void GraphsWindow::plot_data_changed()
 {
-    xval.set_text("");
-    yval.set_text("");
-
     auto plotfunc = graphlist[plotlist.get_active_row_number()];
     std::invoke(plotfunc, *this);
-}
-
-void GraphsWindow::track_cursor(double x, double y) 
-{
-        xval.set_text(_(" = ") + GlibUtils::dtostr<double>(x, 4) + xunit);
-        yval.set_text(_(" = ") + GlibUtils::dtostr<double>(y, 4) + yunit);
 }
 
 void GraphsWindow::search()

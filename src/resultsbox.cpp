@@ -2,7 +2,7 @@
 #include "gtkmmcustomutils.hpp"
 #include "glibmmcustomutils.hpp"
 #include "appglobals.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 
 using GlibUtils::dtostr;
 using namespace ResultsBox;

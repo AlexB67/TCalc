@@ -7,7 +7,7 @@
 #include "appglobals.hpp"
 #include "prefswindow.hpp"
 #include "gtkmmcustomutils.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 
 using AppGlobals::log_msg;
 
@@ -89,7 +89,7 @@ void PrefsWindow::create_appearance_page()
     drawframeslabel.set_tooltip_text(drawframes->get_tooltip_text());
 
     // defaults to be overriden by key settings, first time user without a keyfile will have the default values below
-    preferdarktheme->set_active(false);
+    preferdarktheme->set_active(true);
     showtime->set_active(true);
     showcolour->set_active(false);
     usemonospace->set_active(false);
@@ -98,14 +98,16 @@ void PrefsWindow::create_appearance_page()
     Uidefs::set_ui_spacing<Gtk::Grid>(appearancegrid);
 
     graphthemes.insert(0, _("Default"));
-    graphthemes.insert(1, _("Natural blend"));
-    graphthemes.insert(2, _("Natural blend dark"));
-    graphthemes.insert(3, _("White on black"));
-    graphthemes.insert(4, _("Black on white"));
+    graphthemes.insert(1, _("Fade to black"));
+    graphthemes.insert(2, _("Herculean blue"));
+    graphthemes.insert(3, _("Midnight blue"));
+    graphthemes.insert(4, _("Dark"));
+    graphthemes.insert(5, _("Adwaita-dark"));
+    graphthemes.insert(6, _("Adwaita"));
 
     graphthemes.set_active(0);
-    graphthemes.set_tooltip_text(_("Customise the graph colours. The default will autodetect to suit a light or dark desktop theme. "
-    "Note: This will reset if the desktop theme changes, or if prefer darkmode is swithed on/off."));
+    graphthemes.set_tooltip_text(_("Customise the graph colours. This will reset if the" 
+    "desktop theme changes, or if prefer darkmode is swithed on or off."));
 
     appearancegrid.attach(preferdarkthemelabel, 0, 0);
     appearancegrid.attach(*preferdarktheme, 1, 0);
@@ -123,27 +125,13 @@ void PrefsWindow::create_appearance_page()
 
     graphthemes.signal_changed().connect([this](){
 
-
-        switch (graphthemes.get_active_row_number())
+        std::vector<Glib::ustring> themes
         {
-        case 0:
-            AppGlobals::update_graphthemes.emit(_("Default"));
-            break;
-        case 1:
-            AppGlobals::update_graphthemes.emit(_("Natural blend"));
-            break;
-        case 2:
-            AppGlobals::update_graphthemes.emit(_("Natural blend dark"));
-            break;
-        case 3:
-            AppGlobals::update_graphthemes.emit(_("White on black"));
-            break;
-        case 4:
-            AppGlobals::update_graphthemes.emit(_("Black on white"));
-        
-        default:
-            break;
-        }
+            "Default", "Fade to black", "Herculean blue", "Midnight blue",
+             "Dark", "Adwaita-dark", "Adwaita"
+        };
+    
+        AppGlobals::update_graphthemes.emit(themes[graphthemes.get_active_row_number()]);
     });
 
     drawframes->property_active().signal_changed().connect([this](){
@@ -166,7 +154,7 @@ void PrefsWindow::create_appearance_page()
     appearancedefaults.signal_clicked().connect([this]() {
         showtime->set_active(true);
         usemonospace->set_active(false);
-        preferdarktheme->set_active(false);
+        preferdarktheme->set_active(true);
         showcolour->set_active(false);
         graphthemes.set_active(0);
         drawframes->set_active(true);

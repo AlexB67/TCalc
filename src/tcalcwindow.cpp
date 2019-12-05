@@ -4,7 +4,7 @@
 #include <iostream>
 #include "tcalcwindow.hpp"
 #include "gtkmmcustomutils.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "appglobals.hpp"
 #include "fileio.hpp"
 #include <giomm/appinfo.h>

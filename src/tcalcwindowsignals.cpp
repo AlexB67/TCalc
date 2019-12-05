@@ -1,7 +1,7 @@
 #include "tcalcwindow.hpp"
 #include "appglobals.hpp"
 #include "glibmmcustomutils.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include <iostream>
 #include <gtkmm/aboutdialog.h>
 #include <glibmm/i18n.h>

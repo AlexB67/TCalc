@@ -1,5 +1,5 @@
 #include "eyepiecebox.hpp"
-#include "astrocalc.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "glibmmcustomutils.hpp"
 #include "appglobals.hpp"
 
