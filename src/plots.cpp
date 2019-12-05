@@ -316,8 +316,8 @@ void GraphsWindow::plot6()
              GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
              GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
     
-    graphbox->set_legend_scale(0.75);
-    graphbox->add_multi_legends(legends, 0.10, 0.01);
+    graphbox->set_legend_scale(0.70);
+    graphbox->add_multi_legends(legends, 0.05, 0.01);
 
     // Add contour lines text
     std::array ypos = {0.03, 0.125, 0.21, 0.26, 0.325, 0.425, 0.505, 0.560, 0.60};
