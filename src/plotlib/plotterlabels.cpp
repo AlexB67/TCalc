@@ -358,6 +358,7 @@ void CairoGraph::create_labels(const Cairo::RefPtr<Cairo::Context> &cr)
         }
     }
 
+   
    for (auto &i : text_objects)
    {
         Pango::FontDescription text_font;
@@ -375,7 +376,7 @@ void CairoGraph::create_labels(const Cairo::RefPtr<Cairo::Context> &cr)
         textlayout->get_pixel_size(label_width, label_height);
         cr->get_current_point(xpos, ypos);
         cr->move_to(xpos, ypos - label_height);
-        textlayout->show_in_cairo_context(cr);
+        if (false == draw_zoom && true == showlegend) textlayout->show_in_cairo_context(cr);
         cr->scale(w, h);
    }
 
