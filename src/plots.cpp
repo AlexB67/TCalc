@@ -229,14 +229,14 @@ void GraphsWindow::plot6()
 {
 
     size_t constexpr numpoints = 40;
-    size_t constexpr numplots = 13;
+    size_t constexpr numplots = 12;
 
     Astrocalc::astrocalc m_calc;
     double minmag = m_calc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
     double maxmag = m_calc.calc_maxmag(scopebox->m_saperture.get_value());
 
     double minlogangle = -0.5;
-    double maxlogangle =  3.0;
+    double maxlogangle =  3.25;
 
     double angle;
     double sb = 5.0;
@@ -244,7 +244,7 @@ void GraphsWindow::plot6()
     std::vector<std::vector<double>> logangle(numplots, std::vector<double>(numpoints));
     std::vector<std::vector<double>> logcontrast(numplots, std::vector<double>(numpoints));
 
-    for (size_t j = 0; j < logcontrast.size() - 1; ++j)
+    for (size_t j = 0; j < logcontrast.size(); ++j)
     {
         double dlogangle = minlogangle;
         for (size_t i = 0; i < logangle[0].size(); ++i)
@@ -260,24 +260,27 @@ void GraphsWindow::plot6()
     double step = (maxmag - minmag) / (numpoints - 1);
     double dirt = magbox->get_optical_dirt_level();
 
-    for (size_t i = 0; i < logcontrast[numplots - 1].size(); ++i)
+    std::vector<double> objangle;
+    std::vector<double> objcontrast;
+
+    for (size_t i = 0; i < logcontrast[0].size(); ++i)
     {
         double tmp = log10(magbox->m_minoraxis.get_value() * (minmag + step * i));
-        if (tmp > maxlogangle) 
-        {
-            // if we are over the edge of the graph
-            logangle[numplots - 1].resize(i); 
-            logcontrast[numplots - 1].resize(i);
-            break;
-        }
 
-        logangle[numplots - 1][i] = tmp;
-        logcontrast[numplots - 1][i] = 
-                            (m_calc.calc_dso_contrast_in_scope(minmag + step * i, scopebox->m_stype.get_active_row_number(), 
-                            scopebox->m_saperture.get_value(), scopebox->m_sobstruct.get_value() / 100.0, 
-                            scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
-                            dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
-                            magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).second);
+        if (tmp > maxlogangle) break; // we are out of bounds for a meaningful result
+
+        objangle.emplace_back(tmp);
+        objcontrast.emplace_back((m_calc.calc_dso_contrast_in_scope(minmag + step * i, scopebox->m_stype.get_active_row_number(),
+        scopebox->m_saperture.get_value(), scopebox->m_sobstruct.get_value() / 100.0,
+        scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
+        dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
+        magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).second));
+    }
+
+    if(objcontrast.size()) 
+    {
+        logcontrast.emplace_back(objcontrast); 
+        logangle.emplace_back(objangle);
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
@@ -296,12 +299,21 @@ void GraphsWindow::plot6()
     graphbox->add_multi_series(logangle, logcontrast);
 
     Gdk::RGBA colour; colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0); 
-    Gdk::RGBA colour2; colour2.set("purple");
     
-    for(size_t j = 0; j < numplots - 1; ++j) graphbox->set_line_colour(j, colour);
+    for(size_t j = 0; j < numplots; ++j) graphbox->set_line_colour(j, colour);
     
-    graphbox->set_line_colour(numplots - 1, colour2);
-    colour2.set("green"); graphbox->set_line_colour(numplots, colour2); 
+    if(objcontrast.size())
+    {
+        Gdk::RGBA colour2; colour2.set("purple");
+        graphbox->set_line_colour(numplots, colour2);
+        colour2.set("green"); graphbox->set_line_colour(numplots + 1, colour2); 
+    }
+    else
+    {
+        Gdk::RGBA colour2; colour2.set("green");
+        graphbox->set_line_colour(numplots, colour2);
+    }
+    
 
     double currentmag = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
     
@@ -311,19 +323,34 @@ void GraphsWindow::plot6()
                              dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
                              magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value());
 
-    std::vector<Glib::ustring> legends(numplots + 1, "");
-    legends[numplots -1]  = (_("log(<i>C</i> ) = ") + 
+    if(objcontrast.size())
+    {
+        std::vector<Glib::ustring> legends(numplots + 2, "");
+        legends[numplots]  = (_("log(<i>C</i> ) = ") + 
                  GlibUtils::dtostr<double>(currentcontrast.second, 3) +
                  _(", log(<i>C</i><sub>o</sub>/<i>C</i> ) = ") + GlibUtils::dtostr<double>(currentcontrast.first, 3) +
                  _(", <i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"));
 
-    legends[numplots] = _("log(<i>C</i><sub>o</sub>) = ") + 
-             GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
-             GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
-             GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
+        legends[numplots + 1] = _("log(<i>C</i><sub>o</sub>) = ") + 
+        GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
+        GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
+        GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
+        graphbox->set_legend_scale(0.6);
+        graphbox->add_multi_legends(legends, 0.05, 0.01);
+    }
+    else
+    {
+       std::vector<Glib::ustring> legends(numplots + 1, "");
+        legends[numplots] = _("log(<i>C</i><sub>o</sub>) = ") + 
+        GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
+        GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
+        GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
+        graphbox->set_legend_scale(0.6);
+        graphbox->add_multi_legends(legends, 0.05, 0.01);
+    }
     
-    graphbox->set_legend_scale(0.6);
-    graphbox->add_multi_legends(legends, 0.05, 0.01);
+
+    
 
     // Add contour lines text
     std::array ypos = {0.03, 0.125, 0.21, 0.26, 0.325, 0.425, 0.500, 0.560, 0.60, 0.624, 0.645, 0.67};
