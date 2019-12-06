@@ -12,7 +12,7 @@
 namespace CarioGraphConstants
 {
     constexpr double BOX_LINEWIDTH = 1.5;
-    constexpr double GRID_LINEWIDTH = 0.0005;
+    constexpr double GRID_LINEWIDTH = 0.0005; // in scaled coordinates
     constexpr double OFFSET_X = 0.1950;
     constexpr double OFFSET_Y = 0.1000;
     constexpr double GRAPH_WIDTH = 0.700;
@@ -79,7 +79,7 @@ public:
     void update_graph();
     void set_background_style(const Gdk::RGBA colour1, const Gdk::RGBA colour2);
     void set_background_style(const Gdk::RGBA colour1);
-    void set_axes_labels(const Glib::ustring &xlabel, const Glib::ustring &ylabel, Glib::ustring fontfamily = _("Latin Modern Roman"));
+    void set_axes_labels(const Glib::ustring &xlabel, const Glib::ustring &ylabel, Glib::ustring fontfamily = _("Nimbus Roman"));
     void set_tick_label_format_x(const bool showpointx, const int precision);
     void set_tick_label_format_y(const bool showpointy, const int precision);
     void add_multi_series(const std::vector<std::vector<double>> &xvalues, const std::vector<std::vector<double>> &yvalues);

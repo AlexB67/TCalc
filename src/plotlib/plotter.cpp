@@ -14,7 +14,7 @@ CairoGraph::CairoGraph()
     xvaluelabel = Gtk::make_managed<Gtk::Label>();
     yvaluelabel = Gtk::make_managed<Gtk::Label>();
 
-    add_events(Gdk::POINTER_MOTION_MASK | Gdk::BUTTON_PRESS_MASK | Gdk::LEAVE_NOTIFY_MASK | Gdk::BUTTON_RELEASE_MASK);
+    add_events(Gdk::POINTER_MOTION_MASK | Gdk::BUTTON_PRESS_MASK | Gdk::BUTTON_RELEASE_MASK);
 
     auto display = Gdk::Display::get_default();
     cross_hair_cursor = Gdk::Cursor::create(display, Gdk::CROSSHAIR); // graph cursor
@@ -131,13 +131,12 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
     cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
     cr->stroke();
     cr->restore();
-
+    
     //  plot data
     draw_single_series(cr);
     draw_multi_series(cr);
 
     // Axes and labels
-    cr->begin_new_path();
     create_tickmark_labels(cr);
     create_labels(cr);
 
@@ -161,7 +160,7 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
     cr->rectangle(0, 0, get_allocation().get_width(), get_allocation().get_height());
     cr->clip();
 
-    if (true == selection_mode /* && plot.zoom_count < 1 */) // TO DO zoomstack to allow for more than one zoom level
+    if (true == selection_mode) // TO DO zoomstack to allow for more than one zoom level
     {
         if (current_theme == "Adwaita")
             cr->set_source_rgba(0.80, 0.80, 0.80, 0.35);

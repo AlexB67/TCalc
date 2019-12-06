@@ -36,7 +36,7 @@ void GraphsWindow::plot1()
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
-    graphbox->set_axes_labels("<i>M</i>", "<i>V</i><sub>mag</sub>", "Nimbus Roman");
+    graphbox->set_axes_labels("<i>M</i>", "<i>V</i><sub>mag</sub>");
     graphbox->set_title("Limiting magnitude versus magnification");
 
     Gdk::RGBA colour;
@@ -49,7 +49,7 @@ void GraphsWindow::plot1()
 
     graphbox->add_single_legend(_("<i>V</i><sub>mag</sub> = ") + GlibUtils::dtostr<double>(currentvmag, 2) + 
             _(", <i>D</i><sub>e</sub> = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm, ") + 
-            _("<i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"), CairoGraphPos::LEGEND_BOTTOM, false);
+            _("<i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"), CairoGraphPos::LEGEND_BOTTOM, true);
 
     magbox->set_dso_mode(false);
     graphbox->update_graph();
@@ -93,8 +93,8 @@ void GraphsWindow::plot2()
     std::vector<Glib::ustring> legends(numplots);
     legends[0] = (_("<i>M</i> = ") + GlibUtils::dtostr<double>(mag[0], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = ") + 
                                      GlibUtils::dtostr<double>(exitpupil, 2) + _("mm"));
-    legends[1] = (_("<i>M</i> =") + GlibUtils::dtostr<double>(mag[1], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = 4mm"));
-    legends[2] = (_("<i>M</i> =") + GlibUtils::dtostr<double>(mag[2], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = 2mm"));
+    legends[1] = (_("<i>M</i> = ") + GlibUtils::dtostr<double>(mag[1], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = 4mm"));
+    legends[2] = (_("<i>M</i> = ") + GlibUtils::dtostr<double>(mag[2], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = 2mm"));
 
     graphbox->add_multi_legends(legends, 0.0, 0.80);
     magbox->set_dso_mode(false);
@@ -140,7 +140,7 @@ void GraphsWindow::plot3()
     graphbox->add_series(aperture, lmag, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>M</i> =") + GlibUtils::dtostr<double>(mag, 2) + _("x,") +
-            _(" <i>D</i><sub>e</sub> = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm"), CairoGraphPos::LEGEND_BOTTOM, false);
+            _(" <i>D</i><sub>e</sub> = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm"), CairoGraphPos::LEGEND_TOP, true);
 
     
     magbox->set_dso_mode(false);
@@ -170,7 +170,7 @@ void GraphsWindow::plot4()
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
-    graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>θ</i> / <i>\"</i>", "Nimbus Roman");
+    graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>θ</i> / <i>\"</i>");
     graphbox->set_title("Resolution versus aperture");
 
     graphbox->set_tick_label_format_x(false, 2);
@@ -208,7 +208,7 @@ void GraphsWindow::plot5()
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
-    graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>L</i>", "Nimbus Roman");
+    graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>L</i>");
     graphbox->set_title("Light gathering versus aperture");
 
     graphbox->set_tick_label_format_x(false, 2);
@@ -316,11 +316,11 @@ void GraphsWindow::plot6()
              GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
              GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
     
-    graphbox->set_legend_scale(0.70);
+    graphbox->set_legend_scale(0.6);
     graphbox->add_multi_legends(legends, 0.05, 0.01);
 
     // Add contour lines text
-    std::array ypos = {0.03, 0.125, 0.21, 0.26, 0.325, 0.425, 0.505, 0.560, 0.60};
+    std::array ypos = {0.03, 0.125, 0.21, 0.26, 0.325, 0.425, 0.500, 0.560, 0.60, 0.624, 0.645, 0.67};
     std::vector<std::tuple<Glib::ustring, double, double, double>> textobjects(ypos.size());
 
     unsigned int sb_contour = 27.0; 
@@ -330,7 +330,7 @@ void GraphsWindow::plot6()
         std::get<0>(i) = GlibUtils::dtostr<unsigned int>(sb_contour, 0); 
         std::get<1>(i) = 0.01; 
         std::get<2>(i) = ypos[j];
-        std::get<3>(i) = 1.0;
+        std::get<3>(i) = 0.62;
         sb_contour -= 2.0;
         j++;
     }
@@ -370,7 +370,7 @@ void GraphsWindow::plot7()
     graphbox->add_series(aperture, lunarres, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>R</i> = ") + GlibUtils::dtostr<double>(currentlunarres, 2) + _(" km"), 
-                                    CairoGraphPos::LEGEND_BOTTOM, false);
+                                    CairoGraphPos::LEGEND_BOTTOM, true);
     magbox->set_dso_mode(false);
     graphbox->update_graph();
 }
@@ -407,7 +407,7 @@ void GraphsWindow::plot8()
     graphbox->add_series(aperture, aff, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>θ</i> = ") + GlibUtils::dtostr<double>(currentaff, 2) + _("<i>'</i>"), 
-                                    CairoGraphPos::LEGEND_BOTTOM, false);
+                                    CairoGraphPos::LEGEND_BOTTOM, true);
     magbox->set_dso_mode(false);
     graphbox->update_graph();
 }
@@ -448,7 +448,7 @@ void GraphsWindow::plot9()
     graphbox->add_single_legend(_("<i>B</i> = ") + GlibUtils::dtostr<double>(currentbrightness, 4) + 
                                 _(", <i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(mag, 2) + _("x, <i>D</i><sub>e</sub> = ") + 
                                 GlibUtils::dtostr<double>(exitpupil, 2) + _(" mm"),
-                                CairoGraphPos::LEGEND_TOP, false);
+                                CairoGraphPos::LEGEND_TOP, true);
 
     magbox->set_dso_mode(false);
     graphbox->update_graph();
