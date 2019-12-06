@@ -16,14 +16,17 @@ void OcularWindow::set_signal_handlers()
       context->add_provider_for_screen(Gdk::Screen::get_default(),
                                         provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
       auto settings =  Gtk::Settings::get_default();
-      preferdarktheme = settings->property_gtk_application_prefer_dark_theme();
+      preferdarktheme = settings->property_gtk_application_prefer_dark_theme().get_value();
+      currenttheme = settings->property_gtk_theme_name().get_value();
       settings->property_gtk_application_prefer_dark_theme().set_value(true);
+      settings->property_gtk_theme_name().set_value(_("Adwaita-dark"));
     }
     else
     {
       context->remove_provider_for_screen(Gdk::Screen::get_default(), provider);
       auto settings =  Gtk::Settings::get_default();
       settings->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme);
+      settings->property_gtk_theme_name().set_value(currenttheme);
     }
   });
 

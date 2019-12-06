@@ -64,6 +64,7 @@ private:
     Glib::RefPtr<Gtk::CssProvider> provider;
     Glib::RefPtr<Gtk::StyleContext> context;
     bool preferdarktheme;
+    Glib::ustring currenttheme;
     Ocular ocularbox;
     void create_sky_objects_box();
     void create_ocular_info_box();
