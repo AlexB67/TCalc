@@ -263,7 +263,13 @@ void GraphsWindow::plot6()
     for (size_t i = 0; i < logcontrast[numplots - 1].size(); ++i)
     {
         double tmp = log10(magbox->m_minoraxis.get_value() * (minmag + step * i));
-        if (tmp > maxlogangle) break;
+        if (tmp > maxlogangle) 
+        {
+            // if we are over the edge of the graph
+            logangle[numplots - 1].resize(i); 
+            logcontrast[numplots - 1].resize(i);
+            break;
+        }
 
         logangle[numplots - 1][i] = tmp;
         logcontrast[numplots - 1][i] = 
