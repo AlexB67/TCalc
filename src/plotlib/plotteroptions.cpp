@@ -112,7 +112,7 @@ void CairoGraph::add_multi_legends(const std::vector<Glib::ustring> &legends, co
     legend_offsety = offsety * GRAPH_HEIGHT;
 }
 
-void CairoGraph::add_text_objects(const std::vector<std::tuple<Glib::ustring, double, double, double> >& text)
+void CairoGraph::add_text_objects(const std::vector<std::tuple<Glib::ustring, double, double, double, bool> >& text)
 {
     // Add the text at position x, y with respect to the graph top left corner, and scale text
 

@@ -40,6 +40,9 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
     const int w = allocation.get_width();
     const int h = allocation.get_height();
 
+    cr->rectangle(0, 0, get_allocation().get_width(), get_allocation().get_height());
+    cr->clip();
+
     cr->scale(w, h); // We will often work in a unit square (scaled coordinates) when useful
 
     // Create the linear gradient top to bottom
@@ -156,9 +159,6 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
         cr->rectangle(0.0, 0.0, 1.0, 1.0);
         cr->stroke();
     }
-    
-    cr->rectangle(0, 0, get_allocation().get_width(), get_allocation().get_height());
-    cr->clip();
 
     if (true == selection_mode) // TO DO zoomstack to allow for more than one zoom level
     {

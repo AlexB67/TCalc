@@ -335,7 +335,7 @@ void GraphsWindow::plot6()
         GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
         GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
         GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
-        graphbox->set_legend_scale(0.65);
+        graphbox->set_legend_scale(0.70);
         graphbox->add_multi_legends(legends, 0.05, 0.01);
     }
     else
@@ -345,7 +345,7 @@ void GraphsWindow::plot6()
         GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
         GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
         GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
-        graphbox->set_legend_scale(0.65);
+        graphbox->set_legend_scale(0.70);
         graphbox->add_multi_legends(legends, 0.05, 0.01);
     }
     
@@ -354,7 +354,7 @@ void GraphsWindow::plot6()
 
     // Add contour lines text
     std::array ypos = {0.03, 0.125, 0.21, 0.26, 0.325, 0.425, 0.500, 0.560, 0.60, 0.624, 0.645, 0.67};
-    std::vector<std::tuple<Glib::ustring, double, double, double>> textobjects(ypos.size());
+    std::vector<std::tuple<Glib::ustring, double, double, double, bool>> textobjects(ypos.size());
 
     unsigned int sb_contour = 27.0; 
     size_t j = 0;
@@ -364,6 +364,7 @@ void GraphsWindow::plot6()
         std::get<1>(i) = 0.01; 
         std::get<2>(i) = ypos[j];
         std::get<3>(i) = 0.62;
+        std::get<4>(i) = false;
         sb_contour -= 2.0;
         j++;
     }

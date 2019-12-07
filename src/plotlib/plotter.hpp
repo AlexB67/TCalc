@@ -102,7 +102,7 @@ public:
     void set_graph_box_style(const CairoGraphBoxStyle style);
     void set_title(const Glib::ustring &title);
     void set_theme(const Glib::ustring &theme, bool automatic = false);
-    void add_text_objects(const std::vector<std::tuple<Glib::ustring, double, double, double> >& text);
+    void add_text_objects(const std::vector<std::tuple<Glib::ustring, double, double, double, bool> >& text);
 
 private:
     double xmax;
@@ -171,7 +171,7 @@ private:
     std::vector<double> m_yvalues;
     std::vector<std::vector<double>> seriesx;
     std::vector<std::vector<double>> seriesy;
-    std::vector<std::tuple<Glib::ustring, double, double, double> > text_objects;
+    std::vector<std::tuple<Glib::ustring, double, double, double, bool> > text_objects;
 
     void create_tickmark_labels(const Cairo::RefPtr<Cairo::Context> &cr);
     void create_labels(const Cairo::RefPtr<Cairo::Context> &cr);
