@@ -93,7 +93,7 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
         cr->stroke();
         
         // create minor gridlines
-        cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), 0.50 * axes_colour.get_alpha());
+        cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), 0.60 * axes_colour.get_alpha());
         cr->set_dash(dashes2, 0.0);
         cr->move_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y));
         cr->line_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT)); // quarter graph

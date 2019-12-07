@@ -98,7 +98,7 @@ void  GraphsWindow::get_config()
 
   std::vector<Glib::ustring> themes
   {
-    "Default", "Fade to black", "Herculean blue", "Midnight blue",
+    "Fade to black", "Black", "Herculean blue", "Midnight blue",
     "Dark", "Adwaita-dark", "Adwaita"
   };
 

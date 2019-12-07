@@ -97,8 +97,8 @@ void PrefsWindow::create_appearance_page()
 
     Uidefs::set_ui_spacing<Gtk::Grid>(appearancegrid);
 
-    graphthemes.insert(0, _("Default"));
-    graphthemes.insert(1, _("Fade to black"));
+    graphthemes.insert(0, _("Fade to black"));
+    graphthemes.insert(1, _("Black"));
     graphthemes.insert(2, _("Herculean blue"));
     graphthemes.insert(3, _("Midnight blue"));
     graphthemes.insert(4, _("Dark"));
@@ -127,7 +127,7 @@ void PrefsWindow::create_appearance_page()
 
         std::vector<Glib::ustring> themes
         {
-            "Default", "Fade to black", "Herculean blue", "Midnight blue",
+             "Fade to black", "Black", "Herculean blue", "Midnight blue",
              "Dark", "Adwaita-dark", "Adwaita"
         };
     
@@ -138,25 +138,12 @@ void PrefsWindow::create_appearance_page()
 			AppGlobals::set_frame_style.emit();
 	});
 
-    Gtk::Settings::get_default()->property_gtk_theme_name().signal_changed().connect([this]()
-    {
-        graphthemes.set_active(0);
-        AppGlobals::update_graphthemes.emit("Default");
-    });
-
-    preferdarktheme->property_active().signal_changed().connect([this]() { 
-        const bool darktheme = preferdarktheme->get_active();
-        Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().set_value(darktheme);
-        graphthemes.set_active(0);
-        AppGlobals::update_graphthemes.emit("Default");
-    });
-
     appearancedefaults.signal_clicked().connect([this]() {
         showtime->set_active(true);
         usemonospace->set_active(false);
         preferdarktheme->set_active(true);
         showcolour->set_active(false);
-        graphthemes.set_active(0);
+        graphthemes.set_active(1);
         drawframes->set_active(true);
     });
 }
