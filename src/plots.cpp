@@ -335,7 +335,7 @@ void GraphsWindow::plot6()
         GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
         GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
         GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
-        graphbox->set_legend_scale(0.6);
+        graphbox->set_legend_scale(0.65);
         graphbox->add_multi_legends(legends, 0.05, 0.01);
     }
     else
@@ -345,7 +345,7 @@ void GraphsWindow::plot6()
         GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
         GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
         GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
-        graphbox->set_legend_scale(0.6);
+        graphbox->set_legend_scale(0.65);
         graphbox->add_multi_legends(legends, 0.05, 0.01);
     }
     

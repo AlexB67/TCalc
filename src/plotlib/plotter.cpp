@@ -436,6 +436,7 @@ void CairoGraph::add_series(const std::vector<double> &xvalues, const std::vecto
 
 void CairoGraph::clear_graph()
 {
+    zstack.clear();
     seriescolour.clear();
     serieslinestyle.clear();
     graph_legend.clear();
@@ -448,10 +449,13 @@ void CairoGraph::clear_graph()
     text_objects.clear();
     plot.zoom_factor_x = 1.0;
     plot.zoom_factor_y = 1.0;
-    zstack.clear();
+    plot.zoom_count = 0;
     legend_offsetx = 0.0;
     legend_offsety = 0.0;
     legend_scale = 1.0;
+    draw_zoom = false;
+    selection_mode = false;
+
 }
 
 void CairoGraph::update_graph()

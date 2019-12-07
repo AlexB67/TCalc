@@ -13,28 +13,6 @@ void GraphsWindow::set_signal_handlers()
         graphbox->update_graph();
     });
 
-    Gtk::Settings::get_default()->property_gtk_theme_name().signal_changed().connect([this]()
-    {
-        if (Gtk::Settings::get_default()->property_gtk_theme_name().get_value().lowercase() == "adwaita")
-            graphbox->set_theme("Adwaita");
-        else if (Gtk::Settings::get_default()->property_gtk_theme_name().get_value().lowercase() == "adwaita-dark")
-            graphbox->set_theme("Adwaita-dark");
-        else
-            graphbox->set_theme(graphtheme);
-        
-        graphbox->update_graph();
-    });
-
-    Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().signal_changed().connect([this]() 
-    {   
-        if(true == Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().get_value())
-            graphbox->set_theme("Fade to black");
-        else
-            graphbox->set_theme("Adwaita");
-        
-        graphbox->update_graph();
-    });
-
     AppGlobals::update_graphthemes.connect(sigc::mem_fun(*this, &GraphsWindow::set_plot_theme));
 
     plotlist.signal_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
