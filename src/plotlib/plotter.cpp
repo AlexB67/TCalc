@@ -195,7 +195,6 @@ void CairoGraph::draw_multi_series(const Cairo::RefPtr<Cairo::Context> &cr)
         plot.xmax = xmin + (plot.zoom_end_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.ymin = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_end_y) * (ymax - ymin) / GRAPH_HEIGHT;
         plot.ymax = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_start_y) * (ymax - ymin) / GRAPH_HEIGHT;
-        zstack.emplace_back(plot); // unused, to do use stack instead of plot for more zoom levels
         plot.zoom_count++;
     }
     else
@@ -206,7 +205,6 @@ void CairoGraph::draw_multi_series(const Cairo::RefPtr<Cairo::Context> &cr)
         plot.xmax = xmax;
         plot.ymin = ymin;
         plot.ymax = ymax;
-        zstack.clear();
     }
 
     for (size_t j = 0; j < seriesy.size(); ++j)
@@ -269,7 +267,6 @@ void CairoGraph::draw_single_series(const Cairo::RefPtr<Cairo::Context> &cr)
         plot.xmax = xmin + (plot.zoom_end_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.ymin = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_end_y) * (ymax - ymin) / GRAPH_HEIGHT;
         plot.ymax = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_start_y) * (ymax - ymin) / GRAPH_HEIGHT;
-        zstack.emplace_back(plot); // unused, to do use stack instead of plot for more zoom levels 
         plot.zoom_count++;
     }
     else
@@ -278,7 +275,6 @@ void CairoGraph::draw_single_series(const Cairo::RefPtr<Cairo::Context> &cr)
         plot.xmax = xmax;
         plot.ymin = ymin;
         plot.ymax = ymax;
-        zstack.clear();
     }
 
     cr->set_source_rgba(seriescolour[0].get_red(), seriescolour[0].get_green(), 
