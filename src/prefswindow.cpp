@@ -102,8 +102,7 @@ void PrefsWindow::create_appearance_page()
     graphthemes.insert(2, _("Herculean blue"));
     graphthemes.insert(3, _("Midnight blue"));
     graphthemes.insert(4, _("Dark"));
-    graphthemes.insert(5, _("Adwaita-dark"));
-    graphthemes.insert(6, _("Adwaita"));
+    graphthemes.insert(5, _("Desktop theme"));
 
     graphthemes.set_active(0);
     graphthemes.set_tooltip_text(_("Customise the graph colours. This will reset if the" 
@@ -128,7 +127,7 @@ void PrefsWindow::create_appearance_page()
         std::vector<Glib::ustring> themes
         {
              "Fade to black", "Black", "Herculean blue", "Midnight blue",
-             "Dark", "Adwaita-dark", "Adwaita"
+             "Dark", "Default"
         };
     
         AppGlobals::update_graphthemes.emit(themes[graphthemes.get_active_row_number()]);
@@ -143,7 +142,7 @@ void PrefsWindow::create_appearance_page()
         usemonospace->set_active(false);
         preferdarktheme->set_active(true);
         showcolour->set_active(false);
-        graphthemes.set_active(1);
+        graphthemes.set_active(1); // black graph theme
         drawframes->set_active(true);
     });
 }
