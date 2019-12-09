@@ -346,10 +346,10 @@ void CairoGraph::create_labels(const Cairo::RefPtr<Cairo::Context> &cr)
                                     seriescolour[i].get_blue(), seriescolour[i].get_alpha());
 
                 cr->move_to(w * (legend_offsetx + OFFSET_X + TICKS_LENGTH), 
-                            h * (legend_offsety + OFFSET_Y + TICKS_LENGTH + 2.0 / h + 0.50 * offset * label_height / h));
+                            h * (legend_offsety + OFFSET_Y + TICKS_LENGTH  + 0.50 * offset * label_height / h) + 6.0);
                 
                 cr->line_to(w * (legend_offsetx + OFFSET_X + 3.0 * TICKS_LENGTH), 
-                            h * (legend_offsety + OFFSET_Y + TICKS_LENGTH + 2.0 / h + 0.50 * offset * label_height / h));
+                            h * (legend_offsety + OFFSET_Y + TICKS_LENGTH + 0.50 * offset * label_height / h) + 6.0);
                 cr->stroke();
 
                 cr->scale(w, h);

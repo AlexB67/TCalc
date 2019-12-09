@@ -47,125 +47,151 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
 
     // Create the linear gradient top to bottom
 
-    gradient = Cairo::LinearGradient::create(0.0, 0.0, 0.0, 1.0);
-
-    // Set grandient colors
-    gradient->add_color_stop_rgba(0.0, bg_colour1.get_red(), bg_colour1.get_green(), bg_colour1.get_blue(), bg_colour1.get_alpha());
-    gradient->add_color_stop_rgba(1.0, bg_colour2.get_red(), bg_colour2.get_green(), bg_colour2.get_blue(), bg_colour2.get_alpha());
-
-   // draw gradient
-    cr->set_source(gradient);
-    cr->rectangle(0.0, 0.0, 1.0, 1.0);
-    cr->fill();
-    
-    // Draw axes and gridlines
-    cr->save();
-    cr->scale(1.0 / w, 1.0 / h);
-    cr->set_line_join(Cairo::LINE_JOIN_ROUND);
-    cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), axes_colour.get_alpha());
-    cr->set_line_width(BOX_LINEWIDTH);
-    
-    if (CairoGraphBoxStyle::BOX_GRID == graphboxstyle || CairoGraphBoxStyle::BOX_ONLY == graphboxstyle)
+    if (selection_mode == false)
     {
-        cr->rectangle(w * OFFSET_X, h * OFFSET_Y, w * GRAPH_WIDTH, h * GRAPH_HEIGHT);
-    }
-    else
-    {
-        cr->move_to(w * OFFSET_X, h * OFFSET_Y);
-        cr->line_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT));
-        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-    }
-    cr->stroke();
+        // we create a durface to write on and restore it when zooming
+        // instead of redrawing eveything
+        cr->save();
+        cr->scale(1.0 / w, 1.0 / h);
+        canvas = Cairo::ImageSurface::create(Cairo::FORMAT_ARGB32, w, h);
+        auto context = Cairo::Context::create(canvas);
+        cr->restore();
 
-    if (graphboxstyle == CairoGraphBoxStyle::AXES_GRID || graphboxstyle == CairoGraphBoxStyle::BOX_GRID)
-    {
-        // Create major grid lines
-        cr->set_dash(dashes1, 0.0);
-        cr->set_line_width(0.4);
-        cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), 0.75 * axes_colour.get_alpha());
-        cr->move_to(w * OFFSET_X, h * OFFSET_Y);
-        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * OFFSET_Y);
-        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-        cr->move_to(w * (OFFSET_X + 0.5 * GRAPH_WIDTH), h * OFFSET_Y);
-        cr->line_to(w * (OFFSET_X + 0.5 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-        cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.5 * GRAPH_HEIGHT));
-        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + 0.5 * GRAPH_HEIGHT));
+        gradient = Cairo::LinearGradient::create(0.0, 0.0, 0.0, 1.0);
+
+        // Set grandient colors
+        gradient->add_color_stop_rgba(0.0, bg_colour1.get_red(), bg_colour1.get_green(), bg_colour1.get_blue(), bg_colour1.get_alpha());
+        gradient->add_color_stop_rgba(1.0, bg_colour2.get_red(), bg_colour2.get_green(), bg_colour2.get_blue(), bg_colour2.get_alpha());
+
+        // draw gradient
+        cr->set_source(gradient);
+        cr->rectangle(0.0, 0.0, 1.0, 1.0);
+        cr->fill();
+
+        // Draw axes and gridlines
+        cr->save();
+        cr->scale(1.0 / w, 1.0 / h);
+        cr->set_line_join(Cairo::LINE_JOIN_ROUND);
+        cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), axes_colour.get_alpha());
+        cr->set_line_width(BOX_LINEWIDTH);
+
+        if (CairoGraphBoxStyle::BOX_GRID == graphboxstyle || CairoGraphBoxStyle::BOX_ONLY == graphboxstyle)
+        {
+            cr->rectangle(w * OFFSET_X, h * OFFSET_Y, w * GRAPH_WIDTH, h * GRAPH_HEIGHT);
+        }
+        else
+        {
+            cr->move_to(w * OFFSET_X, h * OFFSET_Y);
+            cr->line_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT));
+            cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+        }
         cr->stroke();
-        
-        // create minor gridlines
-        cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), 0.60 * axes_colour.get_alpha());
-        cr->set_dash(dashes2, 0.0);
-        cr->move_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y));
-        cr->line_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT)); // quarter graph
-        cr->move_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * OFFSET_Y);
-        cr->line_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT)); // 3/4 graph etc.
+
+        if (graphboxstyle == CairoGraphBoxStyle::AXES_GRID || graphboxstyle == CairoGraphBoxStyle::BOX_GRID)
+        {
+            // Create major grid lines
+            cr->set_dash(dashes1, 0.0);
+            cr->set_line_width(0.4);
+            cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), 0.75 * axes_colour.get_alpha());
+            cr->move_to(w * OFFSET_X, h * OFFSET_Y);
+            cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * OFFSET_Y);
+            cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+            cr->move_to(w * (OFFSET_X + 0.5 * GRAPH_WIDTH), h * OFFSET_Y);
+            cr->line_to(w * (OFFSET_X + 0.5 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+            cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.5 * GRAPH_HEIGHT));
+            cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + 0.5 * GRAPH_HEIGHT));
+            cr->stroke();
+
+            // create minor gridlines
+            cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), 0.60 * axes_colour.get_alpha());
+            cr->set_dash(dashes2, 0.0);
+            cr->move_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y));
+            cr->line_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT)); // quarter graph
+            cr->move_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * OFFSET_Y);
+            cr->line_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT)); // 3/4 graph etc.
+            cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
+            cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
+            cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
+            cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
+            cr->stroke();
+            cr->unset_dash();
+        }
+
+        // Draw major tickmarks Y axis
+        cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), axes_colour.get_alpha());
+        cr->set_line_width(BOX_LINEWIDTH);
+        cr->move_to(w * OFFSET_X, h * OFFSET_Y);
+        cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * OFFSET_Y);
         cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
-        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
+        cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.50 * GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + 0.50 * GRAPH_HEIGHT));
         cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
-        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
+        cr->move_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+
+        // Draw major tickmarks X axis
+        cr->move_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT));
+        cr->line_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
+        cr->move_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
+        cr->move_to(w * (OFFSET_X + 0.50 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X + 0.50 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
+        cr->move_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
+        cr->move_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+        cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
         cr->stroke();
-        cr->unset_dash();
-    }
+        cr->restore();
 
-    // Draw major tickmarks Y axis
-    cr->set_source_rgba(axes_colour.get_red(), axes_colour.get_green(), axes_colour.get_blue(), axes_colour.get_alpha());
-    cr->set_line_width(BOX_LINEWIDTH);
-    cr->move_to(w * OFFSET_X, h * OFFSET_Y);
-    cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * OFFSET_Y);
-    cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + 0.25 * GRAPH_HEIGHT));
-    cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.50 * GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + 0.50 * GRAPH_HEIGHT));
-    cr->move_to(w * OFFSET_X, h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + 0.75 * GRAPH_HEIGHT));
-    cr->move_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X - TICKS_LENGTH), h * (OFFSET_Y + GRAPH_HEIGHT));
+        //  plot data
+        draw_single_series(cr);
+        draw_multi_series(cr);
 
-     // Draw major tickmarks X axis
-    cr->move_to(w * OFFSET_X, h *(OFFSET_Y + GRAPH_HEIGHT));
-    cr->line_to(w * OFFSET_X, h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
-     cr->move_to(w *(OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X + 0.25 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
-    cr->move_to(w * (OFFSET_X + 0.50 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X + 0.50 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
-    cr->move_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X + 0.75 * GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
-    cr->move_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT));
-    cr->line_to(w * (OFFSET_X + GRAPH_WIDTH), h * (OFFSET_Y + GRAPH_HEIGHT + TICKS_LENGTH));
-    cr->stroke();
-    cr->restore();
-    
-    //  plot data
-    draw_single_series(cr);
-    draw_multi_series(cr);
+        // Axes and labels
+        create_tickmark_labels(cr);
+        create_labels(cr);
 
-    // Axes and labels
-    create_tickmark_labels(cr);
-    create_labels(cr);
+        // Draw a line around the graph box if Adwaita
+        if ("Adwaita-dark" == current_theme)
+        {
+            cr->set_source_rgba(0.0, 0.0, 0.0, 0.50);
+            cr->set_line_width(0.0020);
+            cr->rectangle(0.0, 0.0, 1.0, 1.0);
+            cr->stroke();
+        }
 
-    // Draw a line around the graph box if Adwaita
-    if ("Adwaita-dark" == current_theme)
-    {
-        cr->set_source_rgba(0.0, 0.0, 0.0, 0.50);
-        cr->set_line_width(0.0020);
-        cr->rectangle(0.0, 0.0, 1.0, 1.0);
-        cr->stroke();
-    }
+        if ("Adwaita" == current_theme)
+        {
+            cr->set_source_rgba(0.1, 0.1, 0.1, 0.35);
+            cr->set_line_width(0.0020);
+            cr->rectangle(0.0, 0.0, 1.0, 1.0);
+            cr->stroke();
+        }
 
-    if ("Adwaita" == current_theme)
-    {
-        cr->set_source_rgba(0.1, 0.1, 0.1, 0.35);
-        cr->set_line_width(0.0020);
-        cr->rectangle(0.0, 0.0, 1.0, 1.0);
-        cr->stroke();
+        // Write everything to the canvas
+        cr->save(); 
+        cr->scale(1.0 / w, 1.0 / h);
+        context->set_source(cr->get_target(), -allocation.get_x(), -allocation.get_y());
+        context->paint();
+        cr->restore();
     }
 
     if (true == selection_mode) // TO DO zoomstack to allow for more than one zoom level
     {
+        // restore previously drawn canavas
+        cr->scale(1.0 / w, 1.0 / h);
+        cr->set_source(canvas, 0.0, 0.0);
+        cr->paint();
+        cr->scale(w, h);
+        
+        // Draw the selection rectangle 
         if (current_theme == "Adwaita")
             cr->set_source_rgba(0.80, 0.80, 0.80, 0.35);
         else
             cr->set_source_rgba(0.0, 1.0, 1.0, 0.25);
+
         cr->set_line_width(0.0005);
         cr->rectangle(start_x, start_y, end_x - start_x, end_y - start_y);
         cr->fill();
@@ -256,7 +282,7 @@ void CairoGraph::draw_single_series(const Cairo::RefPtr<Cairo::Context> &cr)
     cr->rectangle(OFFSET_X, OFFSET_Y, GRAPH_WIDTH, GRAPH_HEIGHT); 
     cr->clip();
 
-    if (true == draw_zoom) // to do allow for more zoom levels, currently one
+   if (true == draw_zoom) // to do allow for more zoom levels currently one
     {
         if (plot.zoom_start_x > plot.zoom_end_x) std::swap(plot.zoom_start_x, plot.zoom_end_x);
         if (plot.zoom_start_y > plot.zoom_end_y) std::swap(plot.zoom_start_y, plot.zoom_end_y);
@@ -432,7 +458,6 @@ void CairoGraph::add_series(const std::vector<double> &xvalues, const std::vecto
 
 void CairoGraph::clear_graph()
 {
-    zstack.clear();
     seriescolour.clear();
     serieslinestyle.clear();
     graph_legend.clear();

@@ -118,6 +118,7 @@ private:
     double legend_scale = 1.0;
     bool selection_mode = false;
     bool draw_zoom = false;
+    bool been_once = false;
     bool forcescientificx = false;
     bool forcescientificy = false;
     bool legend_show_colour = true;
@@ -144,7 +145,6 @@ private:
     };
 
     graph_params plot;
-    std::vector<graph_params> zstack; // TO DO, right now we have one zoom level;
     Glib::ustring xmarkuplabel;
     Glib::ustring ymarkuplabel;
     Glib::ustring graph_title;
@@ -172,6 +172,7 @@ private:
     std::vector<std::vector<double>> seriesx;
     std::vector<std::vector<double>> seriesy;
     std::vector<std::tuple<Glib::ustring, double, double, double, bool> > text_objects;
+    Cairo::RefPtr<Cairo::ImageSurface> canvas;
 
     void create_tickmark_labels(const Cairo::RefPtr<Cairo::Context> &cr);
     void create_labels(const Cairo::RefPtr<Cairo::Context> &cr);
