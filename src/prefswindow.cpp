@@ -133,9 +133,15 @@ void PrefsWindow::create_appearance_page()
         AppGlobals::update_graphthemes.emit(themes[graphthemes.get_active_row_number()]);
     });
 
+    preferdarktheme->property_active().signal_changed().connect([this]() { 
+        Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme->get_active());
+    });
+
     drawframes->property_active().signal_changed().connect([this](){
 			AppGlobals::set_frame_style.emit();
 	});
+
+
 
     appearancedefaults.signal_clicked().connect([this]() {
         showtime->set_active(true);
