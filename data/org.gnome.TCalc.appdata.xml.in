@@ -15,13 +15,13 @@
 	</description>
 	<screenshots>
     <screenshot type="default">
-      <image type="source">https://github.com/AlexB67/TCalc/blob/master/data/screenshots/TCalc-mainwindow.png</image>
+      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/TCalc-mainwindow.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://github.com/AlexB67/TCalc/blob/master/data/screenshots/Interactive%20graphs.png</image>
+      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/Interactive%20graphs.png</image>
     </screenshot>
     <screenshot>
-      <image type="source">https://github.com/AlexB67/TCalc/blob/master/data/screenshots/ocular-view.png</image>
+      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/ocular-view.png</image>
     </screenshot>
 	</screenshots>
 	<release version="0.0.5" date="2019-12-10" type="development">
