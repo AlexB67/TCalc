@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
 	<id>org.gnome.TCalc.desktop</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
 	 <name>GNOME TCalc</name>
 	<description>
+	<p>
 	An Astronomy tool for telescopes and eyepieces.
+	</p>
+	<p>
+	Calculate various poperties related to telescopes and eyepieces. Includes an ocular viewer and interactive graphs.
+	Add your own telescopes and eyepieces alongside an already extensive list included with the application.
+	</p>
 	</description>
+	<screenshots>
+    <screenshot type="default">
+      <image type="source">https://github.com/AlexB67/TCalc/blob/master/data/screenshots/TCalc-mainwindow.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://github.com/AlexB67/TCalc/blob/master/data/screenshots/Interactive%20graphs.png</image>
+    </screenshot>
+    <screenshot>
+      <image type="source">https://github.com/AlexB67/TCalc/blob/master/data/screenshots/ocular-view.png</image>
+    </screenshot>
+	</screenshots>
+	<release version="0.0.5" date="2019-12-10" type="development">
+      <description>
+        <p>
+          This is an early development release.
+          with the following improvements:
+        </p>
+        <ul>
+          <li>New graphing widget</li>
+          <li>Flatpak support</li>
+        </ul>
+    </description>
+  </release>
 </component>
