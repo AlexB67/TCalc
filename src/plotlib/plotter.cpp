@@ -13,7 +13,7 @@ CairoGraph::CairoGraph()
     xvaluelabel = Gtk::make_managed<Gtk::Label>();
     yvaluelabel = Gtk::make_managed<Gtk::Label>();
 
-    add_events(Gdk::POINTER_MOTION_MASK | Gdk::BUTTON_PRESS_MASK | Gdk::BUTTON_RELEASE_MASK);
+    add_events( Gdk::POINTER_MOTION_MASK | Gdk::BUTTON_PRESS_MASK | Gdk::BUTTON_RELEASE_MASK);
 
     auto display = Gdk::Display::get_default();
     cross_hair_cursor = Gdk::Cursor::create(display, Gdk::CROSSHAIR); // graph cursor
@@ -52,10 +52,10 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
         // instead of redrawing eveything
         cr->save();
         cr->scale(1.0 / w, 1.0 / h);
-        canvas = Cairo::ImageSurface::create(Cairo::FORMAT_ARGB32, w, h); 
+        canvas.clear(); // needed ?
+        canvas = Cairo::ImageSurface::create(Cairo::FORMAT_ARGB32, w, h);
         auto context = Cairo::Context::create(canvas);
         cr->restore();
-
         gradient = Cairo::LinearGradient::create(0.0, 0.0, 0.0, 1.0);
 
         // Set grandient colors
@@ -179,7 +179,7 @@ bool CairoGraph::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
         
         // Draw the selection rectangle 
         if (axes_colour.get_red() < 0.25 && axes_colour.get_green() < 0.25 && axes_colour.get_blue() < 0.25)
-            cr->set_source_rgba(0.1, 0.1, 0.1, 0.25); // proably a light theme
+            cr->set_source_rgba(0.1, 0.1, 0.1, 0.25); // probably a light theme
         else
             cr->set_source_rgba(0.0, 1.0, 1.0, 0.25);
             
@@ -212,12 +212,10 @@ void CairoGraph::draw_multi_series(const Cairo::RefPtr<Cairo::Context> &cr)
         plot.xmax = xmin + (plot.zoom_end_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.ymin = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_end_y) * (ymax - ymin) / GRAPH_HEIGHT;
         plot.ymax = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_start_y) * (ymax - ymin) / GRAPH_HEIGHT;
-        plot.zoom_count++;
+        plot.zoomed = true;
     }
     else
     {
-        plot.zoom_factor_x = 1.0;
-        plot.zoom_factor_x = 1.0;
         plot.xmin = xmin;
         plot.xmax = xmax;
         plot.ymin = ymin;
@@ -284,7 +282,7 @@ void CairoGraph::draw_single_series(const Cairo::RefPtr<Cairo::Context> &cr)
         plot.xmax = xmin + (plot.zoom_end_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.ymin = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_end_y) * (ymax - ymin) / GRAPH_HEIGHT;
         plot.ymax = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_start_y) * (ymax - ymin) / GRAPH_HEIGHT;
-        plot.zoom_count++;
+        plot.zoomed = true;
     }
     else
     {
@@ -461,7 +459,7 @@ void CairoGraph::clear_graph()
     text_objects.clear();
     plot.zoom_factor_x = 1.0;
     plot.zoom_factor_y = 1.0;
-    plot.zoom_count = 0;
+    plot.zoomed = false;
     legend_offsetx = 0.0;
     legend_offsety = 0.0;
     legend_scale = 1.0;
