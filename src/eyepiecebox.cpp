@@ -57,7 +57,7 @@ Gtk::Frame &EpBox::Eyepiecebox::create_eyepiece_grid()
 
 	create_epmodel_connection();
 
-	AppGlobals::set_frame_style.connect([this](){ AppGlobals::change_frame_style(m_frame);});
+	AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
     AppGlobals::get_keyfile_config(m_frame);
 	m_frame.add(m_grid);
 

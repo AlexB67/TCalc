@@ -38,7 +38,7 @@ Gtk::Frame &OptionsBox::Optionsbox::create_options_grid()
     m_frame.add(m_grid);
 
     AppGlobals::get_keyfile_config(m_frame);
-    AppGlobals::set_frame_style.connect([this]() { AppGlobals::change_frame_style(m_frame); });
+    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
 
     return m_frame;
 }

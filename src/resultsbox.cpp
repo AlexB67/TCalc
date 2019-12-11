@@ -71,7 +71,7 @@ Gtk::Frame &Resultsbox::create_results_grid()
     init_property_names();
 
     AppGlobals::get_keyfile_config(m_resultsframe);
-    AppGlobals::set_frame_style.connect([this](){ AppGlobals::change_frame_style(m_resultsframe);});
+    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_resultsframe, type);});
 
     return m_resultsframe;
 }

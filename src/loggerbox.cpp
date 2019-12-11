@@ -32,7 +32,7 @@ Gtk::Frame &LogView::LoggerView::create_logger()
 
     AppGlobals::log_msg.connect(sigc::mem_fun(*this, &LogView::LoggerView::setlogtext));
     AppGlobals::get_keyfile_config(m_loggerframe);
-    AppGlobals::set_frame_style.connect([this](){ AppGlobals::change_frame_style(m_loggerframe);});
+    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_loggerframe, type);});
 
     return m_loggerframe;
 }

@@ -138,7 +138,10 @@ void PrefsWindow::create_appearance_page()
     });
 
     drawframes->property_active().signal_changed().connect([this](){
-			AppGlobals::set_frame_style.emit();
+			//AppGlobals::set_frame_style.emit();
+            (true == drawframes->get_active())  ? AppGlobals::frame_style.emit(Gtk::SHADOW_ETCHED_IN)
+                                                : AppGlobals::frame_style.emit(Gtk::SHADOW_NONE);
+
 	});
 
 

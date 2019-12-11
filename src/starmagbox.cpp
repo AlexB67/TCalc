@@ -180,7 +180,7 @@ Gtk::Frame &MagBox::Magbox::create_mag_grid()
     set_signal_handlers();
 
     AppGlobals::get_keyfile_config(m_frame);
-    AppGlobals::set_frame_style.connect([this]() { AppGlobals::change_frame_style(m_frame); });
+    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
     m_frame.add(m_maingrid);
 
     m_dsocombo.signal_changed().connect(sigc::mem_fun(*this, &Magbox::dso_changed));

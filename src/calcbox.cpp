@@ -77,6 +77,6 @@ Gtk::Frame &CalcBox::Calcbox::create_calc_grid()
     });
     
     AppGlobals::get_keyfile_config(m_calcframe);
-    AppGlobals::set_frame_style.connect([this](){ AppGlobals::change_frame_style(m_calcframe);});
+    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_calcframe, type);});
     return m_calcframe;
 }

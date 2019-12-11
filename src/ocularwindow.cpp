@@ -43,7 +43,7 @@ OcularWindow::OcularWindow()
   ocularboxframe.set_vexpand(true);
   ocularboxframe.set_border_width(Uidefs::BORDER_WIDTH);
   AppGlobals::get_keyfile_config(ocularboxframe);
-  AppGlobals::set_frame_style.connect([this](){ AppGlobals::change_frame_style(ocularboxframe);});
+  AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(ocularboxframe, type);});
 
   ocularframe.set_shadow_type(Gtk::SHADOW_NONE); // frame to maintain aspect ratio for the ocular
   ocularframe.set_halign(Gtk::ALIGN_FILL);

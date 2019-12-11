@@ -56,10 +56,9 @@ namespace AppGlobals
         app->send_notification(messageid, note);
     }
 
-    inline void change_frame_style(Gtk::Frame &frame)
+    inline void set_frame_style(Gtk::Frame &frame, const Gtk::ShadowType type)
     {
-        (Gtk::SHADOW_ETCHED_IN == frame.get_shadow_type()) ? 
-        frame.set_shadow_type(Gtk::SHADOW_NONE) : frame.set_shadow_type(Gtk::SHADOW_ETCHED_IN);
+        frame.set_shadow_type(type);
     }
 
     inline std::tuple<Glib::ustring, double, double, double, double,
@@ -72,7 +71,7 @@ namespace AppGlobals
 
     inline sigc::signal<void(const bool, const int, const Glib::ustring&)> log_msg;
 
-    inline sigc::signal<void()> set_frame_style;
+    inline sigc::signal<void(const Gtk::ShadowType)> frame_style;
 
     inline sigc::signal<void()> update_ep_data;
     inline sigc::signal<void()> new_ep_data;
