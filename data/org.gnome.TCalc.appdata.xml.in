@@ -4,7 +4,7 @@
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
 	 <name>GNOME TCalc</name>
-   <summary>Astronomy calculator</summary>
+   <summary>An astronomy tool</summary>
 	<description>
 	<p>
 	An Astronomy tool for telescopes and eyepieces.
@@ -18,6 +18,10 @@
     <screenshot type="default">
        <caption>Main application window</caption>
       <image>https://github.com/AlexB67/TCalc/tree/master/data/screenshots/TCalc-mainwindow.png</image>
+    </screenshot>
+     <screenshot>
+       <caption>Main application window</caption>
+      <image>https://github.com/AlexB67/TCalc/tree/master/data/screenshots/graphswindow.png</image>
     </screenshot>
 	</screenshots>
   <releases>
