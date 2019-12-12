@@ -1,0 +1,64 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="introduction">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>An astronomy tool for eyepieces and telescopes</desc>
+  </info>
+
+  <title>An introduction to GNOME TCalc</title>
+  <p>GNOME TCalc is an astronomy tool for telescopes and eyepieces.</p>
+
+  <section id="Main window">
+  <title>The main application window – an overview</title>
+  <p>The main window is broken up into sections calculating
+  various properties which are displayed in the results section. 
+  Each section in the main window operates as follows:</p>
+  </section>
+  
+  <section id="Telescopes section">
+  <title>Telescope properties</title>
+  <p>The first row allows the user to select a telescope model. The
+  rows below the model selection  allow for supplying custom values.  
+  </p>
+  </section>
+
+  <section id="Eyepieces section">
+  <title>Eyepiece properties</title>
+  <p>The first row allows the user to select an eyepiece model. The
+  rows below the model selection  allow for supplying custom values.
+  For more details see <link xref="eyepiecedata">using eyepiece data</link>
+  </p>
+  </section>
+
+  <section id="Vibility section">
+  <title>Object visibility</title>
+  <p>This can be in two modes as defined by the two buttons on the top
+  left header bar. A star object mode, and an extended  object mode.
+  The first mode is used to calculate limiting magnitudes for point
+  like objects (stars), the latter mode for extended objects, galaxies,
+  nebulae, etc.</p> 
+  </section>
+
+  <section id="Calculate section">
+  <title>Calculate</title>
+  <p>Press the calculate button to populate the results section. The clear button clears the information log and results section.
+  It is not necessary to clear results to subsequent calculations, it is for convenience only.</p>
+  <p>The logging switch enables or disables logging in the log window, useful when using interactive mode, the log can fill up quickly.</p>
+  <p>The interactive mode switch enables calculations on the fly while input values are changed, the calculate button is not needed
+  in this mode.</p> 
+  </section>
+
+</page>

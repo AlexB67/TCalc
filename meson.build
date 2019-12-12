@@ -8,7 +8,9 @@ gnome = import('gnome')
 pkgconfig = import('pkgconfig')
 
 subdir('data')
+subdir('help')
 subdir('src')
 subdir('po')
+
 
 meson.add_install_script('build-aux/meson/postinstall.py')

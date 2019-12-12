@@ -4,7 +4,7 @@
 HelpWindow::HelpWindow(const Glib::RefPtr<Gtk::Application> app)
 {
     set_title("GNOME TCalc browser");
-    const gchar* uri = "file:///home/afb/Documents/TCalc/docs/index.html"; 
+    const gchar* uri = "file:///home/afb/Documents/tcalc-help.html"; 
     help_page = std::make_unique<WebView>();
 
     Uidefs::set_ui_spacing(m_grid);

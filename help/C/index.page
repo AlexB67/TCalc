@@ -1,0 +1,23 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" id="index">
+
+  <info>
+    <title type="link">GNOME TCalc</title>
+    <title type="text">GNOME TCalc</title>
+    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  </info>
+
+  <title>
+  <media type="image" mime="image/png" src="figures/tcalc.png"
+  its:translate="no"/>
+  GNOME TCalc
+  </title>
+</page>
