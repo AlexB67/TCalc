@@ -317,7 +317,7 @@ void TcalcWindow::about()
 
 	aboutdialog.set_logo(Gdk::Pixbuf::create_from_resource("/org/gnome/TCalc/resources/tcalc.png", 128, 128, true));
 	aboutdialog.set_program_name(_("GNOME TCalc"));
-	aboutdialog.set_version("0.0.1");
+	aboutdialog.set_version("0.0.5");
 	aboutdialog.set_copyright("Alexander Borro");
 	aboutdialog.set_comments(_("An astronomy tool for telescopes and eyepieces for Gnome. " 
 								"\nThe brother of the Qt version TCalc."));

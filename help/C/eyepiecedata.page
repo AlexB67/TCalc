@@ -15,11 +15,28 @@
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
-    <desc>Eyepiece data</desc>
+    <desc>Using the eyepiece properties box.</desc>
   </info>
-<title>Using eyepiece data</title>
+<title>Eyepiece properties</title>
+
+<media type="image" mime="image/png" src="figures/eyepiecedata.png"/>
+
 <p>
-TO DO.
+The input parameters for eyepieces are as follows. Using the combo box the user can select a model from the available presets. 
+Models can also be searched for by  pressing the search button on the top left of the header bar ( denoted by the hour glass icon).  
+Upon selection the eyepiece properties will be populated.
+</p>
+<p>
+The second row specifies the field of view of the eyepiece in degrees. This field can be customised by the user to a desired value.
+</p>
+<p>
+The third row specifies the focal length of the eyepiece in mm. This field can be customised by the user to a desired value.
+</p>
+<p>
+The fourth row specifies the field stop of the eyepiece in mm. This field can be customised by the user to a desired value.
+By default this field is disabled, it can be enabled in options. It should be used if field stop data is known.  
+Note that if field stop data is unknown when selecting an eyepiece, the field stop value will be set to zero, this will also be shown 
+in the information log. 
 </p>
 </page>
 

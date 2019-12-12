@@ -15,7 +15,7 @@
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
-    <desc>An astronomy tool for eyepieces and telescopes</desc>
+    <desc>A quick start guide.</desc>
   </info>
 
   <title>An introduction to GNOME TCalc</title>
@@ -23,28 +23,37 @@
 
   <section id="Main window">
   <title>The main application window – an overview</title>
-  <p>The main window is broken up into sections calculating
-  various properties which are displayed in the results section. 
-  Each section in the main window operates as follows:</p>
+
+  <p>The main window is broken up into sections, each section can be used to
+  specify input parameters to calculate various properties. Calculation results are displayed 
+  in the results section of the main window.</p> 
+
+  <p>Each section in the main window operates as follows:</p>
   </section>
   
   <section id="Telescopes section">
   <title>Telescope properties</title>
-  <p>The first row allows the user to select a telescope model. The
-  rows below the model selection  allow for supplying custom values.  
+
+  <p>The first row allows the user to select a telescope model. The rows below the model selection allow for supplying custom values.  
+  When a telescope is selected, the telescope properties wil be populated. Alternatively, customised values can be specified using the 
+  fields in the telecope properties box. For more details see ...
   </p>
+
   </section>
 
   <section id="Eyepieces section">
   <title>Eyepiece properties</title>
-  <p>The first row allows the user to select an eyepiece model. The
-  rows below the model selection  allow for supplying custom values.
-  For more details see <link xref="eyepiecedata">using eyepiece data</link>
+
+  <p>The first row allows the user to select an eyepiece model. The rows below the model selection allow for supplying custom values.  
+  When an eyepiece is selected, the eyepiece properties wil be populated. Alternatively, customised values can be specified using the 
+  fields in the eyepiece properties box. For more details see <link xref="eyepiecedata">using the eyepiece property box</link>
   </p>
+
   </section>
 
   <section id="Vibility section">
   <title>Object visibility</title>
+  
   <p>This can be in two modes as defined by the two buttons on the top
   left header bar. A star object mode, and an extended  object mode.
   The first mode is used to calculate limiting magnitudes for point
@@ -54,11 +63,15 @@
 
   <section id="Calculate section">
   <title>Calculate</title>
+  
   <p>Press the calculate button to populate the results section. The clear button clears the information log and results section.
   It is not necessary to clear results to subsequent calculations, it is for convenience only.</p>
+
   <p>The logging switch enables or disables logging in the log window, useful when using interactive mode, the log can fill up quickly.</p>
+  
   <p>The interactive mode switch enables calculations on the fly while input values are changed, the calculate button is not needed
   in this mode.</p> 
+  
   </section>
 
 </page>

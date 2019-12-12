@@ -1,10 +1,18 @@
+tcalc_help_sources = [
+  'index.page',
+  'introduction.page',
+  'eyepiecedata.page',
+  'legal.xml',
+]
 
-gnome.yelp(meson.project_name(),
-  sources: [
-    'index.page',
-    'introduction.page',
-    'eyepiecedata.page',
-    'legal.xml',
-  ],
-  media: 'figures/tcalc.png',
+tcalc_help_media = [
+  'figures/tcalc.png', 
+  'figures/telescopedata.png',
+  'figures/eyepiecedata.png',
+]
+
+gnome.yelp(
+  meson.project_name(),
+  sources: tcalc_help_sources,
+  media: tcalc_help_media,
 )
