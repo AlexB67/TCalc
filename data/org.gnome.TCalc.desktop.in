@@ -1,9 +1,12 @@
 [Desktop Entry]
 Name=GNOME TCalc
+GenericName=Astronomy tool
+X-GNOME-FullName=Astronomy tool
 Exec=tcalc
 Icon=tcalc
 Terminal=false
 Comment=An astronomy tool for telescopes and eyepieces
 Type=Application
-Categories=Categories=GNOME;GTK;
+Keywords=Astronomy;Physics;Calculator;
+Categories=GNOME;GTK;
 StartupNotify=true
