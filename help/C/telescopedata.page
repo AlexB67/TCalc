@@ -1,0 +1,60 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="telescopedata">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Using the telescope properties box.</desc>
+  </info>
+<title>Telescope properties</title>
+
+<media type="image" mime="image/png" src="figures/telescopedata.png"/>
+
+<p>
+The input parameters for telescopes are as follows. Using the combo box the user can select a model from the available presets. 
+Models can also be searched for by  pressing the search button on the top left of the header bar ( denoted by the hour glass icon).  
+Upon selection the telescope properties will be populated.
+</p>
+
+<p>
+The second row specifies the focal length of the telescope in mm. This field can be customised by the user to a desired value.
+</p>
+
+<p>
+The third row specifies the aperture length of the telescope in mm. This field can be customised by the user to a desired value.
+</p>
+
+<p>
+The fourth row specifies the focal ratio. This field can be customised by the user to a desired value. The focal ratio is linked to the 
+previous two input fields. Changing the focal ratio will change the focal length. Changing the aperture or focal length will in turn 
+change the focal ratio.
+</p>
+
+<p>
+The fifth row specifies the obstruction size of the secondary mirror as a percentage. This field is only applicable for reflectors, SCT and Maksutov
+type telescopes. For refractors this field is always zero. This field can be customised to a desired value for reflectors, SCT and Maksutov
+type telescopes. When selecting a telescope and the obstruction size is unknown a default value is assumed, this information is also shown in the information log.
+</p>
+
+<p>
+The sixth row specifies the reflectivity for reflectors or transmission for refractors.   In the case of SCT and Maksutov type telescopes this will be a 
+combination of both.  This field can be customised to a desired value.  When selecting a telescope and the value is unknown a default value is assumed, 
+this information is also shown in the information log.
+</p>
+
+<p>
+The seventh row specifies the telescope design. Currently there are three categories, reflector, refractor and SCT/Maksutov types.
+</p>
+</page>
+

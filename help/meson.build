@@ -2,6 +2,11 @@ tcalc_help_sources = [
   'index.page',
   'introduction.page',
   'eyepiecedata.page',
+  'telescopedata.page',
+  'resultsdata.page',
+  'graphswindow.page',
+  'ocularwindow.page',
+  'prefsdialog.page',
   'legal.xml',
 ]
 

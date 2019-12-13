@@ -1,0 +1,38 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="resultsdata">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Using the results box.</desc>
+
+  </info>
+<title>Calculation results</title>
+
+<p>
+Results are displayed in a table. By default column 1 is used for populating calculating results. Using the buttons at the bottom, results column 1 or 2 can be selected.
+The 2 columns are intended for comparison purposes. 
+</p>
+
+<p>
+Columns can be expanded using the mouse and dragging header separators,  but this is not necessary. In the case where some fields are too long to fit, such as telescope and eyepiece model names, 
+hover the mouse over the row and the tooltip will display the full name. Tooltips are available on each row explaning the property. The title of the property is displayed in column 0. 
+</p>
+
+<p>
+There are three sections in the results table: Calculated results, followed by all stored eyepiece data and telescope data.
+</p>
+
+</page>
+

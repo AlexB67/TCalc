@@ -23,8 +23,22 @@
 
   <section id="Main window">
   <title>The main application window – an overview</title>
+  
+  <p>The header bar at the top of the application window has a search button for telescopes and eyepieces denoted by an hourglass icon on the top left. 
+  The menu button on the right can be used to access other dialogs and windows. For information regarding other windows and dialogs follow the links below:</p>
+    <list>
+      <item>
+        <p><link xref="graphswindow">Interactive graphs.</link></p>
+      </item>
+      <item>
+        <p><link xref="ocularwindow">Ocular viewer.</link></p>
+      </item>
+      <item>
+        <p><link xref="prefsdialog">Preferences.</link></p>
+      </item>
+    </list>
 
-  <p>The main window is broken up into sections, each section can be used to
+  <p>The main window is broken up into sections, a section is often referred to as a "box" (surrounded by a frame). Each box can be used to
   specify input parameters to calculate various properties. Calculation results are displayed 
   in the results section of the main window.</p> 
 
@@ -34,9 +48,8 @@
   <section id="Telescopes section">
   <title>Telescope properties</title>
 
-  <p>The first row allows the user to select a telescope model. The rows below the model selection allow for supplying custom values.  
-  When a telescope is selected, the telescope properties wil be populated. Alternatively, customised values can be specified using the 
-  fields in the telecope properties box. For more details see ...
+  <p>The first row displaying a combo box allows the user to select a telescope model. When a telescope is selected, the fields below the model selection will be populated automatically. 
+  Alternatively, customised values can be specified. For more details see <link xref="telescopedata">using the telescope property box</link>.
   </p>
 
   </section>
@@ -44,9 +57,8 @@
   <section id="Eyepieces section">
   <title>Eyepiece properties</title>
 
-  <p>The first row allows the user to select an eyepiece model. The rows below the model selection allow for supplying custom values.  
-  When an eyepiece is selected, the eyepiece properties wil be populated. Alternatively, customised values can be specified using the 
-  fields in the eyepiece properties box. For more details see <link xref="eyepiecedata">using the eyepiece property box</link>
+  <p>The first row displaying a combo box allows the user to select an eyepiece model. When an eyepiece is selected, the fields below the model selection will be populated automatically. 
+  Alternatively, customised values can be specified. For more details see <link xref="eyepiecedata">using the eyepiece property box</link>.
   </p>
 
   </section>
@@ -54,24 +66,30 @@
   <section id="Vibility section">
   <title>Object visibility</title>
   
-  <p>This can be in two modes as defined by the two buttons on the top
-  left header bar. A star object mode, and an extended  object mode.
-  The first mode is used to calculate limiting magnitudes for point
-  like objects (stars), the latter mode for extended objects, galaxies,
-  nebulae, etc.</p> 
+  <p>There are two modes. The input parameters for each mode can be viewed by pressing one the two buttons on the top left header bar titled "Star objects" and "DSO objects".
+  Star mode is used to calculate limiting magnitudes for point like objects (stars), DSO mode is used to determine visibility of extended objects, galaxies, nebulae, etc.
+  </p> 
   </section>
 
   <section id="Calculate section">
   <title>Calculate</title>
   
-  <p>Press the calculate button to populate the results section. The clear button clears the information log and results section.
+  <p>Press the calculate button to populate the results table. The clear button clears the information log and results section.
   It is not necessary to clear results to subsequent calculations, it is for convenience only.</p>
 
   <p>The logging switch enables or disables logging in the log window, useful when using interactive mode, the log can fill up quickly.</p>
   
-  <p>The interactive mode switch enables calculations on the fly while input values are changed, the calculate button is not needed
-  in this mode.</p> 
+  <p>Interactive mode enables calculations on the fly when input values change, the calculate button is not needed in this mode.</p>
   
   </section>
 
+  <section id="Results section">
+  <title>Results</title>
+  <p>Calculation results are displayed here. For more details see <link xref="resultsdata">using the results box</link>.</p>  
+  </section>
+
+  <section id="log viewer">
+  <title>Log viewer</title>
+  <p>When calculations are performed useful information is displayed here.</p>
+  </section>
 </page>
