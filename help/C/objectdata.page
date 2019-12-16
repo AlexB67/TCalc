@@ -1,0 +1,85 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="objectdata">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Using the object visbility property box.</desc>
+
+  </info>
+<title>Object visibilty</title>
+
+<p>
+Two input modes can be accessed using the header bar buttons titled "Star objects" and "DSO Objects". Each mode operates as follows:
+</p>
+<section id="starobject mode">
+<title>Star objects</title>
+
+<list>
+
+<item>
+<p>Experience level: Use the slider to adjust the experience level of the observer. The default center setting gives a pure unbiased calculation result. At the far right for expert obeservers,
+or far left for beginners a bias is applied.</p>
+</item>
+
+<item>
+<p>Age:  Estimate the eye pupil diameter of the observer below based on age in years.</p>  
+</item>
+
+<item>
+<p>Pupil size: The eye pupil size of the observer, can be estimated with the previous setting.</p>  
+</item>
+
+<item>
+<p>Select site: Use this to select a preset or override with a custom NELM value. The presets provide measure of sky darkness based on the Bortle scale.</p>  
+</item>
+
+<item>
+<p>NELM: The faintest star that can be seen near zenith using averted vision. For furhter details see <link href="https://en.wikipedia.org/wiki/Limiting_magnitude"> limiting magnitude</link>. </p>  
+</item>
+
+<item>
+<p>SQM: A measure of sky Brightness, this can be deduced from the NELM value or obtained directly using a sky quality meter.</p>  
+</item>
+
+<item>
+<p>Zenith angle: The angle subtended right above the observer, 0 degrees up to 90 degress, the horizon. For the sake of sensible observations and reliabilty of the calculation
+the maximum value is limited 85 degrees.</p>  
+</item>
+
+<item>
+<p>Colour index: The B-V colour index of the star. A value of 0 is white. For further details see <link href="https://en.wikipedia.org/wiki/Color_index"> the B-V color index of stars</link>. </p>  
+</item>
+
+<item>
+<p>Customise CI: You can provide a custom value for the colour index here.</p>  
+</item>
+
+
+
+
+
+
+
+</list>
+</section>
+
+<section id="dsoobject mode">
+<title>DSO objects</title>
+<p>TO DO</p>
+</section>
+</page>
+
+
+

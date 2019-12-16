@@ -7,6 +7,7 @@ tcalc_help_sources = [
   'graphswindow.page',
   'ocularwindow.page',
   'prefsdialog.page',
+  'objectdata.page',
   'legal.xml',
 ]
 

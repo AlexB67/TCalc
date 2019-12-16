@@ -21,8 +21,24 @@
 <title>The ocular window</title>
 
 <p>
-TO DO
-</p>
+The property boxes used here are the same as the main application window. For furthere details see:</p>
+
+ <list>
+      <item>
+        <p><link xref="telescopedata">Using the telescope property box</link>.</p>
+      </item>
+      <item>
+        <p><link xref="eyepiecedata">Using the eyepiece property box</link></p>
+      </item>
+      <item>
+        <p><link xref="objectdata">Using the object visibility property box</link>.</p>
+      </item>
+      <item>
+        <p><link xref="optionsdata">Using the options property box</link>.</p>
+      </item>
+ </list>
+
+ <p>TO DO</p>
 
 </page>
 

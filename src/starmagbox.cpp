@@ -70,15 +70,24 @@ MagBox::Magbox::Magbox()
     m_dirtlevel.set_tooltip_text(_("Dirt level of the optical elements."));
     m_extinction.set_tooltip_text(_("Extinction due to atmosphere."));
     m_nelm.set_tooltip_text(_("The magnitude of the faintest star that can be seen near zenith."));
+    m_nelm1.set_tooltip_text(_("The magnitude of the faintest star that can be seen, (ideally) nearest the observation location."));
     m_sqm.set_tooltip_text(_("Sky brightness. Can be obtained from an SQM meter to obtain the nelm value above."));
+    m_bgsky.set_tooltip_text(_("The brightness of the sky background deduced from an NELM measurement."));
+    m_dsobrightness.set_tooltip_markup(_("The average surface brightness in mag arcsec<sup>-2</sup> of the the DSO, " 
+                                        "deduced from its visual magnitude and size."));
+    m_vmag.set_tooltip_text(_("The visual magnitude of DSO."));
+    m_dsocontrastindex.set_tooltip_markup(_("The contast index of the DSO. Defined by 100<sup>-1/5</sup>(<i>S</i><sub>DSO</sub> - <i>S</i><sub>sky</sub> )."
+                                        " Where <i>S</i> is the surface brighhtness in mag arcsec<sup>-2</sup>."));
+    m_minoraxis.set_tooltip_text(_("The DSO minor axis in arc minutes (the smaller of the two axes)."));
+    m_majoraxis.set_tooltip_text(_("The DSO major axis in arc minutes (the larger of the two axes)."));
     m_colourbyname.set_tooltip_text(_("The colour index of the star, or specify a value below."));
     m_colour.set_tooltip_text(_("Custom value for the colour index of the star."));
     m_seeing.set_tooltip_text(_("Seeing conditions. 1 - 3 arcsec is typical for good to average skies."));
     m_explevel.set_tooltip_text(_("Experience level of the observer. Range is beginner to expert."));
     m_sitetype.set_tooltip_text(_("Select a preset or specify custom settings below."));
     m_zenith.set_tooltip_text(_("Zenith angle, 0 degrees is right above. 90 degrees the horizon."));
-    m_age.set_tooltip_text(_("Calculate eye pupil size based on age."));
-    m_pupilsize.set_tooltip_text(_("Eye pupil size of the observer. Use the slider above to estimate a value if unknown."));
+    m_age.set_tooltip_text(_("Calculates eye pupil size based on age."));
+    m_pupilsize.set_tooltip_text(_("The eye pupil size of the observer. Use the slider above to estimate pupil size if unknown."));
 
     m_grid.set_hexpand(false);
     m_grid.set_vexpand(false);

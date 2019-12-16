@@ -21,8 +21,96 @@
 <title>The preferences dialog</title>
 
 <p>
-TO DO
+Application defaults can be set here. Click the mouse on a tab or use the tab key to access different cattegories. Each category operates as follows:
 </p>
+
+ <section id="appearance">
+  <title>The appearance page</title>
+  
+  <list>
+  <item>
+  <p>Prefer dark theme variant:  When enabled, pefer dark theme will use the dark theme variant of the current desktop theme if one is available, this is the default. 
+  Not all themes support this setting in some desktop environments, in such cases the switch may be disabled.</p>
+  </item>
+
+  <item>
+  <p>Enable date and time stamp:  Enables a date and time stamp stamp in front of information log messages, this is the default.</p>
+  </item>
+
+  <item>
+  <p>Use colour for warnings: By default the more important messages are printed italics. Enabling this feature prints them in red.</p>
+  </item>
+
+  <item>
+  <p>Use monospace font:  Use a fixed-width font style in the information log.</p>
+  </item>
+
+  <item>
+  <p>Show frames:  Disabling this feature make frames surrounding property boxes invisible, resulting in a less cluttered interface.</p>
+  </item>
+
+  <item>
+  <p>Custom graph theme:  Determines the colour scheme used for graphs in the interactive graphs window. When using the "Desktop theme" setting graphs will blend in with the desktop theme.</p>
+  </item>
+
+  <item>
+  <p>Defaults:  Restore settings to factory defaults.</p>
+  </item>
+
+  </list>
+</section>
+
+ <section id="telescope-defaults">
+  <title>Telescope optical defaults</title>
+  
+  <list>
+  
+  <item>
+  <p>Reflectivity: The default value used for the reflectivity of telescope mirrors when unknown, it can be overriden in the telescope property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>Transmission: The default value used for the transmission of telescope lenses when unknown, it can be overriden in the telescope property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>Reflector obstruction size: The default value used for the obstruction size of the secondary mirror of a Newtonian/Dobsonian when unknown, it can be overriden in the telescope property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>SCT/Mak obstruction size: The default value used for the obstruction size of the secondary mirror of an SCT/Maksutov telescope when unknown, it can be overriden in the telescope property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>Defaults:  Restore settings to factory defaults.</p>
+  </item>
+
+  </list>
+  </section>
+
+ <section id="eyepiece-defaults">
+  <title>Eyepiece optical defaults</title>
+  
+  <list>
+  
+  <item>
+  <p>Multi element transmission:  The default value used for the transmission of mutli element eyepieces when unknown, it be overriden in the eyepiece property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>Plossl transmission:  The default value used for the transmission of possl type eyepieces when unknown, it can be overriden in the eyepiece property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>Orthoscopic transmission:  The default value used for the transmission of orthoscopic type eyepieces when unknown, it can be overriden in the eyepiece property box. The value is expressed as a percentage.</p>
+  </item>
+
+  <item>
+  <p>Defaults:  Restore settings to factory defaults.</p>
+  </item>
+
+  </list>
+  </section>
 
 </page>
 

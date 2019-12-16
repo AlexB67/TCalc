@@ -25,7 +25,11 @@
   <title>The main application window – an overview</title>
   
   <p>The header bar at the top of the application window has a search button for telescopes and eyepieces denoted by an hourglass icon on the top left. 
-  The menu button on the right can be used to access other dialogs and windows. For information regarding other windows and dialogs follow the links below:</p>
+  The menu button on the right can be used to access other dialogs and windows. The two buttons titled "Star Objects" and "DSO Objects" can be used to change 
+  between the two input modes.</p>
+  
+  <p>For information using other windows an dialogs via the menu follow the links below:</p>
+
     <list>
       <item>
         <p><link xref="graphswindow">Interactive graphs.</link></p>
@@ -40,7 +44,7 @@
 
   <p>The main window is broken up into sections, a section is often referred to as a "box" (surrounded by a frame). Each box can be used to
   specify input parameters to calculate various properties. Calculation results are displayed 
-  in the results section of the main window.</p> 
+  in the results table on the right hand side of the main application window.</p> 
 
   <p>Each section in the main window operates as follows:</p>
   </section>
@@ -66,8 +70,9 @@
   <section id="Vibility section">
   <title>Object visibility</title>
   
-  <p>There are two modes. The input parameters for each mode can be viewed by pressing one the two buttons on the top left header bar titled "Star objects" and "DSO objects".
+  <p>There are two modes. The input parameters for each mode can be viewed by pressing one of the two buttons on the top left header bar titled "Star objects" and "DSO objects".
   Star mode is used to calculate limiting magnitudes for point like objects (stars), DSO mode is used to determine visibility of extended objects, galaxies, nebulae, etc.
+  For more details see <link xref="objectdata">using the object visibility property box</link>.
   </p> 
   </section>
 
@@ -77,9 +82,16 @@
   <p>Press the calculate button to populate the results table. The clear button clears the information log and results section.
   It is not necessary to clear results to subsequent calculations, it is for convenience only.</p>
 
-  <p>The logging switch enables or disables logging in the log window, useful when using interactive mode, the log can fill up quickly.</p>
+  <p>The logging switch enables or disables the information log, useful when using interactive mode, the log can fill up quickly.</p>
   
   <p>Interactive mode enables calculations on the fly when input values change, the calculate button is not needed in this mode.</p>
+  
+  </section>
+
+  <section id="Options section">
+  <title>Options</title>
+  
+  <p>There are three options available. </p>
   
   </section>
 
@@ -89,7 +101,7 @@
   </section>
 
   <section id="log viewer">
-  <title>Log viewer</title>
+  <title>Information log</title>
   <p>When calculations are performed useful information is displayed here.</p>
   </section>
 </page>

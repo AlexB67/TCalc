@@ -49,7 +49,7 @@ private:
     Gtk::Label          etransplossllabel{_("Plossl transmission/%:"), Gtk::ALIGN_START};
     Gtk::Label          etransmultilabel{_("Multi element transmission/%:"), Gtk::ALIGN_START};
     Gtk::Label          graphthemeslabel{_("Custom graph theme:"), Gtk::ALIGN_START};
-    Gtk::Label          drawframeslabel{_("Show Frames:"), Gtk::ALIGN_START};
+    Gtk::Label          drawframeslabel{_("Show frames:"), Gtk::ALIGN_START};
     Ui::SpinEntry       sreflect;
     Ui::SpinEntry       sobstruct;
     Ui::SpinEntry       sobstructsct;

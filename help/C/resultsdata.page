@@ -21,7 +21,7 @@
 <title>Calculation results</title>
 
 <p>
-Results are displayed in a table. By default column 1 is used for populating calculating results. Using the buttons at the bottom, results column 1 or 2 can be selected.
+Results are displayed in a table in the results box on the right hand side of the application window. By default column 1 is used for populating calculating results. Using the buttons at the bottom, results column 1 or 2 can be selected.
 The 2 columns are intended for comparison purposes. 
 </p>
 

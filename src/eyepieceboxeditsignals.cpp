@@ -60,6 +60,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
         m_button_save.set_sensitive(true);
         m_button_cancel.set_sensitive(true);
         m_button_new.set_sensitive(false);
+        m_button_edit.set_sensitive(false);
         m_button_del.set_sensitive(false);
         m_button_moveup.set_sensitive(false);
         m_button_movedown.set_sensitive(false);

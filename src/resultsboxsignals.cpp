@@ -145,8 +145,8 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_t
         tooltip->set_markup(_("The Reflectifity of a reflector, or transmission for a refractor " 
 	                              "as a percentage. A combination of both for Maksutov/SCT types."));
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[4])
-        tooltip->set_markup(_("The obtruction size as a percentage of the aperture diameter. " 
-							"Reflectors and SCT/Maksutov types only."));
+        tooltip->set_markup(_("The obtruction size as a percentage of the aperture diameter." 
+							" Reflectors and SCT/Maksutov types only."));
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[5])
         tooltip->set_markup(_("The type of telescope. Reflector, refractor or SCT/Mak."));
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[6])
