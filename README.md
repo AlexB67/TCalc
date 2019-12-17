@@ -1,5 +1,5 @@
-GNOME TCalc - An astronomy tool for telescopes and eyepieces written in gtkmm.\
-help Documentation is still missing.
+GNOME TCalc - An astronomy tool for telescopes and eyepieces written in gtkmm for amateur astronomers.\
+Help Documentation is included how to use the application.
 
 Warning: very much work in progress, some things don't work fully as intended
 Clone the Tcalc repo, at the comand prompt - 

@@ -1,6 +1,9 @@
-5 / 12 / 2019
+5 / 12 / 2019 0.0.5
 
 New Plotting library - depedency on plplot and gtk-plplot is no longer required.
 
 TCalc now only relies on gtkmm and webkit - easier flapak build as a result and it's on the way.
 
+17 / 12 / 2019 0.0.6
+
+Fixes, enahncements and help documentation added.
