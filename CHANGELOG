@@ -6,4 +6,4 @@ TCalc now only relies on gtkmm and webkit - easier flapak build as a result and 
 
 17 / 12 / 2019 0.0.6
 
-Fixes, enahncements and help documentation added.
+Fixes, enhancements and help documentation added. Flatpak build support from gnome builder.
