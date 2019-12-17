@@ -29,12 +29,12 @@ Application defaults can be set here. Click the mouse on a tab or use the tab ke
   
   <list>
   <item>
-  <p>Prefer dark theme variant:  When enabled, pefer dark theme will use the dark theme variant of the current desktop theme if one is available, this is the default. 
+  <p>Prefer dark theme variant:  When enabled, pefer dark theme will use the dark theme variant of the current desktop theme (if one is available). 
   Not all themes support this setting in some desktop environments, in such cases the switch may be disabled.</p>
   </item>
 
   <item>
-  <p>Enable date and time stamp:  Enables a date and time stamp stamp in front of information log messages, this is the default.</p>
+  <p>Enable date and time stamp:  Enables a date and time stamp stamp in front of information log messages.</p>
   </item>
 
   <item>

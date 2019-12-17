@@ -38,7 +38,8 @@ The property boxes used here are the same as the main application window. For fu
       </item>
  </list>
 
- <p>TO DO</p>
-
+ <p>The ocular viewer can be used to estimate the field of view obtained from a selected eyepiece and telescope combination. Customised input parameters can also be used using the property boxes to the right of the ocular viewer.  
+ A number of sample objects are included. Various parameters are displayed, the current magnification, the resulting field of view, exit pupil and the visbilty threshold.
+ More features will be added in future.</p>
 </page>
 

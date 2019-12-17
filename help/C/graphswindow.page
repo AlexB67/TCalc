@@ -21,7 +21,7 @@
 <title>The graphs window</title>
 
 <p>
-The property boxes used here are the same as the main application window. For furthere details see:</p>
+The property boxes used here are the same as the main application window. For further details see:</p>
 
  <list>
       <item>
@@ -40,16 +40,22 @@ The property boxes used here are the same as the main application window. For fu
 
 
 <section id="graphswindow secion">
-<p>The graphs window gives an alternative approach for viewing calculation results. In particular it is much eaier to see trends and relationships.
-Changing any of the values in the property boxes on the right will update the graph, naturally, as long as the graph depends on the property being changhed.</p>
+<p>The graphs window gives an alternative approach for viewing calculation results. In particular it is much easier to see trends and relationships.
+Changing any of the input values in the property boxes on the right of the graph area will update the graph, naturally, as long as the graph depends on the property being changhed.</p>
 
-<p>Graphs can also be zoomed, but there is only one level i.e. you can't zoom into an already zoomed region (a future version will support more zoom levels).  
-Use the left mouse button and drag out a rectangle, then release the mouse button, this will define the zoom region. A right click will reset the graph to the default view.</p>
+<p>Zoom is supported, but there is only one zoom level i.e. you can't zoom into an already zoomed region (a future version will support more zoom levels).  
+Hold down the left mouse button and drag out a rectangular area, then release the mouse button, this will define the zoom region. A right click will reset the graph to the default view.</p>
 
-<p>The mouse cursor also tracks graph coordinates inside the plot region. The current cursor postion is displayed below the graph to give more accurate readings.</p>
+<p>The mouse cursor also tracks graph coordinates inside the plot region. The current cursor postion is displayed below the graph.  To the left a combobox can be used to select a graph of interest.</p>
+
+<p>Each graph is hopefully fairly self explanatory, experiment with the input controls and observe the response in the graph.</p> 
+
+<p>The DSO visbility graph warrants some further explanation. The blue lines are contours on the Cark surface. The details of this surface are explained in the book "Visual Astronomy of the Deep Sky". 
+Explanations can also be found <link href="https://www.uv.es/jrtorres/visib.html">here</link> and <link href="https://clarkvision.com/visastro/omva1/index.html">here</link>. 
+The purple line plots the treshold contrast (or visibility curve) for the given telescope and DSO object specification. The plot range is from the minimum to maximum magnification of the selected telescope. 
+The green line plots the contrast index line. If some parameters are out of range the purple line will not show in the graph. i.e. for too large objects and magnifications
+to give a meaningful result.</p>
+
 </section>
-
-<p>TO DO</p>
-
 </page>
 

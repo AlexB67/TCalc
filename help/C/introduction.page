@@ -90,9 +90,7 @@
 
   <section id="Options section">
   <title>Options</title>
-  
-  <p>There are three options available. </p>
-  
+  <p>There are three options available here that will affect calculation results. For futher details see  <link xref="optionsdata">using the options box</link>.</p> 
   </section>
 
   <section id="Results section">

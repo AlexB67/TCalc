@@ -48,7 +48,7 @@ Focal length:  The third row specifies the focal length of the eyepiece in mm. T
 
 <item>
 <p>
-Filed stop:  The fourth row specifies the field stop of the eyepiece in mm. This field can be customised by the user to a desired value.
+Field stop:  The fourth row specifies the field stop of the eyepiece in mm. This field can be customised by the user to a desired value.
 By default this field is disabled, it can be enabled in options. It should be used if field stop data is known.  
 Note that if field stop data is unknown when selecting an eyepiece, the field stop value will be set to zero, this information will also be shown 
 in the information log. 

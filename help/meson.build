@@ -8,6 +8,7 @@ tcalc_help_sources = [
   'ocularwindow.page',
   'prefsdialog.page',
   'objectdata.page',
+  'optionsdata.page',
   'legal.xml',
 ]
 

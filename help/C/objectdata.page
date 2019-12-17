@@ -18,7 +18,7 @@
     <desc>Using the object visbility property box.</desc>
 
   </info>
-<title>Object visibilty</title>
+<title>Object visibility</title>
 
 <p>
 Two input modes can be accessed using the header bar buttons titled "Star objects" and "DSO Objects". Each mode operates as follows:
@@ -38,7 +38,7 @@ or far left for beginners a bias is applied.</p>
 </item>
 
 <item>
-<p>Pupil size: The eye pupil size of the observer, can be estimated with the previous setting.</p>  
+<p>Pupil size: The eye pupil size of the observer in mm, can be estimated with the previous setting.</p>  
 </item>
 
 <item>
@@ -46,11 +46,15 @@ or far left for beginners a bias is applied.</p>
 </item>
 
 <item>
-<p>NELM: The faintest star that can be seen near zenith using averted vision. For furhter details see <link href="https://en.wikipedia.org/wiki/Limiting_magnitude"> limiting magnitude</link>. </p>  
+<p>NELM: Naked eye limiting magnitude. The faintest star that can be seen near zenith using averted vision. For furhter details see <link href="https://en.wikipedia.org/wiki/Limiting_magnitude"> limiting magnitude</link>. </p>  
 </item>
 
 <item>
 <p>SQM: A measure of sky Brightness, this can be deduced from the NELM value or obtained directly using a sky quality meter.</p>  
+</item>
+
+<item>
+<p>Extinction: The extinction coefficient due to atmosphere. Increases with zenith angle. Typically 0.2 - 0.6 mag / atm .</p>
 </item>
 
 <item>
@@ -66,18 +70,82 @@ the maximum value is limited 85 degrees.</p>
 <p>Customise CI: You can provide a custom value for the colour index here.</p>  
 </item>
 
-
-
-
-
-
+<item>
+<p>Seeing: A measure of atmospheric stability, effectively the diameter of the image of a star (in arc seconds). Varies from less than an arc second to several arc seconds. You have to judge this at the telescope. Bad seeing negates the advantage of high powers. 
+See the interactive graphs (Limiting magnitude versus magnification) where this trend can be seen.</p>  
+</item>
 
 </list>
+
+<p>See <link href="https://iopscience.iop.org/article/10.1086/132629"> telescope limiting magnitudes</link> for further details.</p>
 </section>
 
 <section id="dsoobject mode">
 <title>DSO objects</title>
-<p>TO DO</p>
+
+<list>
+<item>
+<p>Experience level:  Not used.</p>
+</item>
+
+<item>
+<p>Age:  Estimate the eye pupil diameter of the observer below based on age in years.</p>  
+</item>
+
+<item>
+<p>Pupil size: The eye pupil size of the observer in mm, can be estimated with the previous setting.</p>  
+</item>
+
+<item>
+<p>Select site: Use this to select a preset or override with a custom NELM value. The presets provide measure of sky darkness based on the Bortle scale.
+Note that the scale is sightly reduced compared to star objects. 
+In effect the calculation is limited to a lower bound of NELM 5. </p>  
+</item>
+
+<item>
+<p>NELM: Naked eye limiting magnitude. The faintest star that can be seen near zenith using averted vision. For further details see <link href="https://en.wikipedia.org/wiki/Limiting_magnitude"> limiting magnitude</link>. </p>
+</item>
+
+<item>
+<p>SB sky: A measure of sky background Brightness, this can be deduced from the NELM value. Note that the values produced from naked eye limiting magnitudes are different compared to those produced by the "star object" mode sky quality. 
+As such a a sky quality meter is not a direct measure of genuine sky background darkness, but a combined glow of stars and sky.
+</p>  
+</item>
+
+<item>
+<p>DSO magnitude: The visual magnitude of the object. Such data can be obtained from other packages such as stellarium, websites and books.
+</p>
+</item>
+
+<item>
+<p>SB DSO: The average surface brightness of the object deduced from its size and magnitude.
+</p>
+</item>
+
+<item>
+<p>Minor axis: The smaller of the two axes of the object in arc minutes.
+</p>
+</item>
+
+<item>
+<p>Major axis: The larger of the two axes of the object in arc minutes.
+</p>
+</item>
+
+<item>
+<p>Contrast index: The contrast index of the object.
+</p>
+</item>
+</list>
+
+<p>The preset sample parameters are those of a typical galaxy like M82, visible in all telescopes under most sky conditions. For further information and the definition of contrast index see <link href="https://www.uv.es/jrtorres/visib.html"> methods explained</link>.
+The method used to calculate the visbility threshold for any given object in the results table follows the threshold method, with some minor modifications.</p>
+
+<p>See the interactive graphs window (DSO visbility) for further insight where the visbility threshold is calculated, starting from the minimum magnification up to the maximum magnification.
+Note that the contrast index is a constant under any given sky conditions, independent of magnification, but the observable threshold (contrast) for extended objects varies with magnification. 
+</p>
+<p>For further reading consult the book by Roger N. Clark, Visual Astronomy of the Deep Sky.</p>  
+
 </section>
 </page>
 

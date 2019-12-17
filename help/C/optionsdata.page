@@ -1,0 +1,51 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="optionsdata">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Using the options box.</desc>
+
+  </info>
+<title>Options</title>
+
+<p>
+There are three options. Each operates as follows:
+</p>
+
+<list>
+
+<item>
+<p>Use field stop: Enables the use of field stop data when calculating the field of view ( resulting from the eyepiece telescope combination).</p>
+<p>While this mehod is more accurate, field stop data is often unavailable. Use this feature if field stop dat is available for the selected eyepiece or have such 
+data available for entry into the field stop data field in the eyepiece properties box.</p>
+</item>
+
+<item>
+<p>Linear method: Enabling this switch changes the FOV calculation to a simpler method. The method  assumes that the tan of the angle is equal to the angle itself, which is only true for very small angles. 
+In practical terms this means that the larger the apparent field of view of the eyepiece, the less accurate the method for calculating the true field of view.  See the application tooltip for more information using the more accurate formula.
+For more details also see  <link href="https://ui.adsabs.harvard.edu/abs/1995JBAA..105..242G/abstract"> calculation of the k factor</link>. It should be noted that other forms of distortion,  
+such as pincushion, or rectilinear distortion are ignored, thus,  the resulting FOV calculation is always approximate. Typical deviations are around 5% - 10% of the actual FOV.
+The linear method is included in any case for comparison, since it is commonly used.
+</p>
+</item>
+
+<item>
+<p>Wavelength: The wavelength ( in nm) has an affect on several calculation results such as Daw's limit and Rayleigh's limit. You can adjust the wavelength to a desired value using this input field.</p>
+</item>
+
+</list>
+
+</page>
+
