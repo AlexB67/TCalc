@@ -23,7 +23,7 @@ GraphsWindow::GraphsWindow()
   scopebox = std::make_shared<ScopeBox::Telescopebox>();
   magbox = std::make_unique<MagBox::Magbox>();
   optionsbox = std::make_unique<OptionsBox::Optionsbox>();
-  graphbox = std::make_unique<CairoGraph>();
+  graphbox = std::make_unique<CGraph::CairoGraph>();
   scopebox->frame_can_expand(true);
 
   plotframe.set_label_widget(plotframe_label);

@@ -19,7 +19,8 @@
   </info>
 
   <title>An introduction to GNOME TCalc</title>
-  <p>GNOME TCalc is an astronomy tool for telescopes and eyepieces.</p>
+  <p>GNOME TCalc is an astronomy calculator and a desktop application for telescopes and eyepieces. The application is called GNOME TCalc, 
+  it can be searched for in the GNOME activites overview and launched.</p>
 
   <section id="Main window">
   <title>The main application window – an overview</title>

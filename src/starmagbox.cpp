@@ -84,7 +84,8 @@ MagBox::Magbox::Magbox()
     m_colour.set_tooltip_text(_("Custom value for the colour index of the star."));
     m_seeing.set_tooltip_text(_("Seeing conditions. 1 - 3 arcsec is typical for good to average skies."));
     m_explevel.set_tooltip_text(_("Experience level of the observer. Range is beginner to expert."));
-    m_sitetype.set_tooltip_text(_("Select a preset or specify custom settings below."));
+    m_sitetype.set_tooltip_text(_("Select a preset site or specify custom settings below."));
+    m_sitetype1.set_tooltip_text(_("Select a preset site or specify custom settings below."));
     m_zenith.set_tooltip_text(_("Zenith angle, 0 degrees is right above. 90 degrees the horizon."));
     m_age.set_tooltip_text(_("Calculates eye pupil size based on age."));
     m_pupilsize.set_tooltip_text(_("The eye pupil size of the observer. Use the slider above to estimate pupil size if unknown."));

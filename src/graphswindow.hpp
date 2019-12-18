@@ -41,7 +41,7 @@ private:
     Gtk::Label plotlabel{_("Select graph :")};
     Glib::ustring graphtheme = "Default";
     Gtk::ComboBoxText   plotlist;
-    std::unique_ptr<CairoGraph> graphbox;
+    std::unique_ptr<CGraph::CairoGraph> graphbox;
     std::shared_ptr<EpBox::Eyepiecebox>     epbox;
     std::shared_ptr<ScopeBox::Telescopebox> scopebox;
     std::unique_ptr<MagBox::Magbox>         magbox;

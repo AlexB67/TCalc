@@ -31,10 +31,10 @@ namespace AppGlobals
     inline Glib::ustring eyepiecesfilenameuser  = userconfigdir + "eyepiecesuser.TCalc";
 
     inline void get_keyfile_config(Gtk::Frame &frame)
-    {
+    {   
        // we can add more when needed, just for frame style for now
-
-        if (false == std::filesystem::exists(AppGlobals::configpath.c_str()))
+       
+       if (false == std::filesystem::exists(AppGlobals::configpath.c_str()))
             return;
 
         Glib::KeyFile keyfile;

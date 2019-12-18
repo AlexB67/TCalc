@@ -4,6 +4,7 @@
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
     "command" : "tcalc",
+    "tags": ["devel", "development", "nightly"],
     "finish-args" : [
         "--share=network",
         "--share=ipc",

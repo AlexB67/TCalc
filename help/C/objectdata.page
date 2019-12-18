@@ -42,7 +42,7 @@ or far left for beginners a bias is applied.</p>
 </item>
 
 <item>
-<p>Select site: Use this to select a preset or override with a custom NELM value. The presets provide measure of sky darkness based on the Bortle scale.</p>  
+<p>Select site: Use this to select a preset or override with a custom NELM value below. The presets provide measure of sky darkness based on the Bortle scale.</p>  
 </item>
 
 <item>
@@ -97,7 +97,7 @@ See the interactive graphs (Limiting magnitude versus magnification) where this 
 </item>
 
 <item>
-<p>Select site: Use this to select a preset or override with a custom NELM value. The presets provide measure of sky darkness based on the Bortle scale.
+<p>Select site: Use this to select a preset or override with a custom NELM value below. The presets provide measure of sky darkness based on the Bortle scale.
 Note that the scale is sightly reduced compared to star objects. 
 In effect the calculation is limited to a lower bound of NELM 5. </p>  
 </item>
@@ -107,8 +107,8 @@ In effect the calculation is limited to a lower bound of NELM 5. </p>
 </item>
 
 <item>
-<p>SB sky: A measure of sky background Brightness, this can be deduced from the NELM value. Note that the values produced from naked eye limiting magnitudes are different compared to those produced by the "star object" mode sky quality. 
-As such a a sky quality meter is not a direct measure of genuine sky background darkness, but a combined glow of stars and sky.
+<p>SB sky: A measure of sky background Brightness, this can be deduced from the NELM value. Note that the values produced here from naked eye limiting magnitudes are different compared to those produced by the "star object" mode sky quality value. 
+As such a sky quality meter is not a direct measure of genuine sky background darkness, but a combined glow of stars and sky.
 </p>  
 </item>
 

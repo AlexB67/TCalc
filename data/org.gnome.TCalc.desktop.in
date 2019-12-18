@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=GNOME TCalc
-GenericName=Astronomy tool
-X-GNOME-FullName=Astronomy tool
+GenericName=An astronomy tool
 Exec=tcalc
 Icon=tcalc
 Terminal=false

@@ -37,7 +37,7 @@ data available for entry into the field stop data field in the eyepiece properti
 In practical terms this means that the larger the apparent field of view of the eyepiece, the less accurate the method for calculating the true field of view.  See the application tooltip for more information using the more accurate formula.
 For more details also see  <link href="https://ui.adsabs.harvard.edu/abs/1995JBAA..105..242G/abstract"> calculation of the k factor</link>. It should be noted that other forms of distortion,  
 such as pincushion, or rectilinear distortion are ignored, thus,  the resulting FOV calculation is always approximate. Typical deviations are around 5% - 10% of the actual FOV.
-The linear method is included in any case for comparison, since it is commonly used.
+The linear method is included for comparison, since it is commonly used.
 </p>
 </item>
 
