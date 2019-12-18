@@ -48,12 +48,14 @@ Hold down the left mouse button and drag out a rectangular area, then release th
 
 <p>The mouse cursor also tracks graph coordinates inside the plot region. The current cursor postion is displayed below the graph.  To the left a combobox can be used to select a graph of interest.</p>
 
+<p>Graph legends can be hidden using the switch found on the right handside of the graphs window header bar.</p>
+
 <p>Each graph is hopefully fairly self explanatory, experiment with the input controls and observe the response in the graph.</p> 
 
 <p>The DSO visbility graph warrants some further explanation. The blue lines are contours on the Cark surface. The details of this surface are explained in the book "Visual Astronomy of the Deep Sky". 
 Explanations can also be found <link href="https://www.uv.es/jrtorres/visib.html">here</link> and <link href="https://clarkvision.com/visastro/omva1/index.html">here</link>. 
 The purple line plots the treshold contrast (or visibility curve) for the given telescope and DSO object specification. The plot range is from the minimum to maximum magnification of the selected telescope. 
-The green line plots the contrast index line. If some parameters are out of range the purple line will not show in the graph. i.e. for too large objects and magnifications
+The green line plots the object contrast index line. If some parameters are out of range the purple line will not show in the graph. i.e. for too large objects and magnifications
 to give a meaningful result.</p>
 
 </section>

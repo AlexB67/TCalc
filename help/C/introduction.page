@@ -103,4 +103,9 @@
   <title>Information log</title>
   <p>When calculations are performed useful information is displayed here.</p>
   </section>
+  
+  <section id="shortcuts">
+  <title>Keyboard shortcuts</title>
+  <p>An extensive list of keyboard shortcuts is available.  The shortcuts window can be accessed via the main application window headerbar menu button, click on the menu item titled "Keyboard shortcuts".</p>
+  </section>
 </page>

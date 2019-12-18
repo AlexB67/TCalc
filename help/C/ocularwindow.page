@@ -39,7 +39,9 @@ The property boxes used here are the same as the main application window. For fu
  </list>
 
  <p>The ocular viewer can be used to estimate the field of view obtained from a selected eyepiece and telescope combination. Customised input parameters can also be used using the property boxes to the right of the ocular viewer.  
- A number of sample objects are included. Various parameters are displayed, the current magnification, the resulting field of view, exit pupil and the visbilty threshold.
+ A number of sample objects are included. Various parameters are displayed, the current magnification, the resulting field of view, exit pupil and the visbilty threshold.</p>
+ 
+ <p>The switch on the top right of the headebar allows switching on night mode, making it easier to focus on faint objects in the ocular viewer. The ocular window can also be maximised to full screen mode, the F11 key toggles full screen on and off. 
  More features will be added in future.</p>
 </page>
 
