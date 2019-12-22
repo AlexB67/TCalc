@@ -43,8 +43,7 @@ The property boxes used here are the same as the main application window. For fu
 <p>The graphs window gives an alternative approach for viewing calculation results. In particular it is much easier to see trends and relationships.
 Changing any of the input values in the property boxes on the right of the graph area will update the graph, naturally, as long as the graph depends on the property being changhed.</p>
 
-<p>Zoom is supported, but there is only one zoom level i.e. you can't zoom into an already zoomed region (a future version will support more zoom levels).  
-Hold down the left mouse button and drag out a rectangular area, then release the mouse button, this will define the zoom region. A right click will reset the graph to the default view.</p>
+<p>Zoom is supported. Hold down the left mouse button and drag out a rectangular area, then release the mouse button, this will define the new zoom region, repeat if desired for increased zom levels. A right click will reset the graph to the default view.</p>
 
 <p>The mouse cursor also tracks graph coordinates inside the plot region. The current cursor postion is displayed below the graph.  To the left a combobox can be used to select a graph of interest.</p>
 

@@ -201,18 +201,14 @@ void CGraph::CairoGraph::draw_multi_series(const Cairo::RefPtr<Cairo::Context> &
     cr->clip();
 
 
-    if (true == draw_zoom) // to do allow for more zoom levels currently one
-    {
-        if (plot.zoom_start_x > plot.zoom_end_x) std::swap(plot.zoom_start_x, plot.zoom_end_x);
-        if (plot.zoom_start_y > plot.zoom_end_y) std::swap(plot.zoom_start_y, plot.zoom_end_y);
-        
+    if (true == draw_zoom)
+    {   
         cr->translate(OFFSET_X - plot.zoom_start_x  / plot.zoom_factor_x , OFFSET_Y - plot.zoom_start_y / plot.zoom_factor_y);
 
         plot.xmin = xmin + (plot.zoom_start_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.xmax = xmin + (plot.zoom_end_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.ymin = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_end_y) * (ymax - ymin) / GRAPH_HEIGHT;
         plot.ymax = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_start_y) * (ymax - ymin) / GRAPH_HEIGHT;
-        plot.zoomed = true;
     }
     else
     {
@@ -271,18 +267,14 @@ void CGraph::CairoGraph::draw_single_series(const Cairo::RefPtr<Cairo::Context> 
     cr->rectangle(OFFSET_X, OFFSET_Y, GRAPH_WIDTH, GRAPH_HEIGHT); 
     cr->clip();
 
-   if (true == draw_zoom) // to do allow for more zoom levels currently one
-    {
-        if (plot.zoom_start_x > plot.zoom_end_x) std::swap(plot.zoom_start_x, plot.zoom_end_x);
-        if (plot.zoom_start_y > plot.zoom_end_y) std::swap(plot.zoom_start_y, plot.zoom_end_y);
-        
-        cr->translate(OFFSET_X - plot.zoom_start_x  / plot.zoom_factor_x , OFFSET_Y - plot.zoom_start_y / plot.zoom_factor_y);
+   if (true == draw_zoom)
+    {   
+        cr->translate(OFFSET_X - plot.zoom_start_x / plot.zoom_factor_x, OFFSET_Y - plot.zoom_start_y / plot.zoom_factor_y);
 
         plot.xmin = xmin + (plot.zoom_start_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.xmax = xmin + (plot.zoom_end_x - OFFSET_X) * (xmax - xmin) / GRAPH_WIDTH;
         plot.ymin = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_end_y) * (ymax - ymin) / GRAPH_HEIGHT;
         plot.ymax = ymin + (GRAPH_HEIGHT + OFFSET_Y - plot.zoom_start_y) * (ymax - ymin) / GRAPH_HEIGHT;
-        plot.zoomed = true;
     }
     else
     {
@@ -459,7 +451,6 @@ void CGraph::CairoGraph::clear_graph()
     text_objects.clear();
     plot.zoom_factor_x = 1.0;
     plot.zoom_factor_y = 1.0;
-    plot.zoomed = false;
     legend_offsetx = 0.0;
     legend_offsety = 0.0;
     legend_scale = 1.0;
