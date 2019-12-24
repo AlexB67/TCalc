@@ -61,7 +61,7 @@ void TcalcWindow::set_signal_handlers()
 		iter.signal_changed().connect([this]() { if (true == AppGlobals::IMODE) create_results(); });
 
 	magbox->m_dirtlevel.signal_changed().connect([this]() {if (true == AppGlobals::IMODE) create_results();});
-	magbox->m_explevel.signal_value_changed().connect(sigc::mem_fun(*this, &TcalcWindow::create_results));
+	magbox->m_explevel.signal_value_changed().connect([this]() {if (true == AppGlobals::IMODE) create_results();});
 }
 
 void TcalcWindow::create_results()
