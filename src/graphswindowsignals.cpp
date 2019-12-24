@@ -15,6 +15,8 @@ void GraphsWindow::set_signal_handlers()
 
     AppGlobals::update_graphthemes.connect(sigc::mem_fun(*this, &GraphsWindow::set_plot_theme));
 
+    magbox->m_explevel.signal_value_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
+
     plotlist.signal_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
 
     auto objlist = std::vector

@@ -45,6 +45,7 @@ void TcalcWindow::set_signal_handlers()
 		scopebox->m_sflen.property_value(),
 		scopebox->m_sobstruct.property_value(),
 		scopebox->m_sreflect.property_value(),
+		epbox->m_efov.property_value(),
 		epbox->m_etrans.property_value(),
 		epbox->m_eflen.property_value(),
 		magbox->m_zenith.property_value(),
@@ -60,6 +61,7 @@ void TcalcWindow::set_signal_handlers()
 		iter.signal_changed().connect([this]() { if (true == AppGlobals::IMODE) create_results(); });
 
 	magbox->m_dirtlevel.signal_changed().connect([this]() {if (true == AppGlobals::IMODE) create_results();});
+	magbox->m_explevel.signal_value_changed().connect(sigc::mem_fun(*this, &TcalcWindow::create_results));
 }
 
 void TcalcWindow::create_results()
