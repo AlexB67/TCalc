@@ -5,7 +5,7 @@
 
   <info>
     <link type="guide" xref="index" group="#first"/>
-    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
 
     <credit type="author">
       <name>Alexander Borro</name>
@@ -37,6 +37,9 @@
       </item>
       <item>
         <p><link xref="ocularwindow">Ocular viewer.</link></p>
+      </item>
+      <item>
+        <p><link xref="editequipment">Edit equipment.</link></p>
       </item>
       <item>
         <p><link xref="prefsdialog">Preferences.</link></p>

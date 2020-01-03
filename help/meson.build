@@ -9,6 +9,9 @@ tcalc_help_sources = [
   'prefsdialog.page',
   'objectdata.page',
   'optionsdata.page',
+  'editequipment.page',
+  'editeyepieces.page',
+  'edittelescopes.page',
   'legal.xml',
 ]
 
@@ -16,6 +19,8 @@ tcalc_help_media = [
   'figures/tcalc.png', 
   'figures/telescopedata.png',
   'figures/eyepiecedata.png',
+  'figures/edittelescopes.png',
+  'figures/editeyepieces.png'
 ]
 
 gnome.yelp(

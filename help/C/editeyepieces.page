@@ -1,0 +1,47 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="editeyepieces">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Edit eyepieces using the equipment editor.</desc>
+  </info>
+
+<title>Edit eyepieces</title>
+
+<media type="image" mime="image/png" src="figures/editeyepieces.png"/>
+
+<p>
+The eyepiece editor controls work as follows:
+</p>
+<list>
+<item>
+<p>Use New to add a new eyepiece. Fill out all the fields. Tooltips are provided for each input field. Use the save button to add the eyepiece to the application. 
+When pressing the save button some validation takes places; If one or more criteria are not satisfied you will be promped to correct the relevant entries
+and try again. For model names it is recommended to follow the pattern already used by the application, in the form "Model name, identifier, focal length, barrel size". 
+You can cancel the New operation at any time using the cancel button.</p>
+</item>
+<item>
+<p>Use the Edit button to enter edit mode.  In this mode any field can be updated. Apply the changhes by pressing the save button. You can exit edit mode any time by pressing the cancel button.</p>
+</item>
+<item>
+<p>Use the Delete button to remove an eyepiece. You will be prompted before applying the change.</p>
+</item>
+<item>
+<p>Use the "Move up" or "Move down" buttons to change the order in which model appear in the selection list. As you add eyepieces, new models will be appended to the list by the default.
+ "Move up" moves the current model up by one row, "Move down" moves the current model down by one row.</p>
+</item>
+</list>
+</page>
+

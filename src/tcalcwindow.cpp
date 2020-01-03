@@ -138,12 +138,12 @@ void TcalcWindow::create_menu_and_shortcuts()
 
    winmenu->append(_("_Interactive graphs"), "win.graphs");
    winmenu->append(_("_Ocular viewer"), "win.ocular");
-   winmenu->append(_("_Equipment"), "win.equipment");
+   winmenu->append(_("_Edit equipment"), "win.equipment");
 
    winmenusection->append(_("_Preferences"), "win.preferences");
    winmenusection->append(_("_Keyboard shortcuts"), "win.shortcuts");
    winmenusection->append(_("_Help"), "win.help");
-   winmenusection->append(_("_About"), "win.about");
+   winmenusection->append(_("_About TCalc"), "win.about");
    winmenusection->append(_("_Quit"), "win.quit");
 
    winmenu->insert_section(3, winmenusection);

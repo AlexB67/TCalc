@@ -1,0 +1,40 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="2column task"
+      id="editequipment">
+
+  <info>
+    <link type="guide" xref="index" group="#first"/>
+    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
+
+    <credit type="author">
+      <name>Alexander Borro</name>
+      <email its:translate="no">alexander.borro@gmail.com</email>
+      <years>2019</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Edit user telescopes and eyepieces.</desc>
+  </info>
+<title>Edit equipment</title>
+
+<p>
+The equipment editor window can be used to add or remove user equipment. Once equipment has been added, new telescope (or eyepiece models)
+will be shown at the top of the model selection list, and shown above a separator in the combobox pull down list for convenient access. User added models can be used in the same way as already included models to perform calculations.
+ Note that the models already provided by the application cannot be edited.</p> 
+
+<p>Use the buttons on the top of the headerbar to select a relevant mode, "edit eyepieces" or "edit telescopes". For further details 
+see.</p>
+
+<list>
+<item>
+<p><link xref="editeyepieces">Edit eyepieces</link>.</p>
+</item>
+<item>
+<p><link xref="edittelescopes">Edit telescopes</link>.</p>
+</item>
+</list>
+
+</page>
+

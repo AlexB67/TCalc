@@ -6,7 +6,7 @@
     <title type="link">GNOME TCalc</title>
     <title type="text">GNOME TCalc</title>
     <desc>The GNOME TCalc help guide.</desc>
-    <revision pkgversion="0.0.5" date="2019-12-12" status="review"/>
+    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
 
     <credit type="author">
       <name>Alexander Borro</name>
