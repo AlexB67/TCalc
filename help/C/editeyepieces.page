@@ -33,13 +33,13 @@ and try again. For model names it is recommended to follow the pattern already u
 You can cancel the New operation at any time using the cancel button.</p>
 </item>
 <item>
-<p>Use the Edit button to enter edit mode.  In this mode any field can be updated. Apply the changhes by pressing the save button. You can exit edit mode any time by pressing the cancel button.</p>
+<p>Use the Edit button to enter edit mode.  In this mode any field can be updated for the selected model. Apply the changhes by pressing the save button. You can exit edit mode any time by pressing the cancel button.</p>
 </item>
 <item>
 <p>Use the Delete button to remove an eyepiece. You will be prompted before applying the change.</p>
 </item>
 <item>
-<p>Use the "Move up" or "Move down" buttons to change the order in which model appear in the selection list. As you add eyepieces, new models will be appended to the list by the default.
+<p>Use the "Move up" or "Move down" buttons to change the order in which models appear in the selection list. As you add eyepieces, new models will be appended to the list by the default.
  "Move up" moves the current model up by one row, "Move down" moves the current model down by one row.</p>
 </item>
 </list>
