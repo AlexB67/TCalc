@@ -48,6 +48,8 @@ tcalc_sources = [
   'plotlib/plotterthemes.cpp',
   'plotlib/plotterwidgets.cpp',
   'plotlib/plotterevents.cpp',
+  'plotlib/plotterseries.cpp',
+  'plotlib/plottercoords.cpp',
   'astrocalclib/astrocalc.cpp',
 ]
 

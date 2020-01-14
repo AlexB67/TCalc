@@ -1,12 +1,12 @@
 # Format: model name, fov, focal length, field stop, eye relief, transmission, barrel size, type,
 #number of groups, number of elements, weight, coatings, material
 # delimiter is the |  character.
-Baader BGO ortho 5mm 1.25"|40|5|3.40|4.05|98|1.25|Ortho|2|4|86|Phantom MC||
-Baader BGO ortho 6mm 1.25"|40|6|4.20|4.91|98|1.25|Ortho|2|4|86|Phantom MC||
-Baader BGO ortho 7mm 1.25"|40|7|4.87|6.07|98|1.25|Ortho|2|4|86|Phantom MC||
-Baader BGO ortho 9mm 1.25"|40|9|6.30|7.61|98|1.25|Ortho|2|4|86|Phantom MC||
-Baader BGO ortho 12.5mm 1.25"|40|12.5|9.20|10.41|98|1.25|Ortho|2|4|0|Phantom MC||
-Baader BGO ortho 18mm 1.25"|40|18|12.5|15.21|98|1.25|Ortho|2|4|0|Phantom MC||
+Baader BGO ortho 5mm 1.25"|40|5|3.40|4.05|98|1.25|Ortho|2|4|86|Phantom FMC||
+Baader BGO ortho 6mm 1.25"|40|6|4.20|4.91|98|1.25|Ortho|2|4|86|Phantom FMC||
+Baader BGO ortho 7mm 1.25"|40|7|4.87|6.07|98|1.25|Ortho|2|4|86|Phantom FMC||
+Baader BGO ortho 9mm 1.25"|40|9|6.30|7.61|98|1.25|Ortho|2|4|86|Phantom FMC||
+Baader BGO ortho 12.5mm 1.25"|40|12.5|9.20|10.41|98|1.25|Ortho|2|4|0|Phantom FMC||
+Baader BGO ortho 18mm 1.25"|40|18|12.5|15.21|98|1.25|Ortho|2|4|0|Phantom FMC||
 Baader Morpheus 76 4.5mm 1.25"|76|4.5|6.1|17.5|0|1.25|Multi other|0|0|0|||
 Baader Morpheus 76 6.5mm 1.25"|76|6.5|8.75|18.5|0|1.25|Multi other|0|0|0|||
 Baader Morpheus 76 9mm 1.25"|76|9.0|12.1|21.0|0|1.25|Multi other|0|0|0|||
@@ -14,18 +14,18 @@ Baader Morpheus 76 12.5mm 1.25"|76|12.5|16.8|20.0|0|1.25|Multi other|0|0|0|||
 Baader Morpheus 76 14mm 1.25"|76|14.0|18.85|18.5|0|1.25|Multi other|0|0|0|||
 Baader Morpheus 76 17.5mm 1.25"|76|17.5|23.55|19.0|0|1.25|Multi other|0|0|0|||
 Baader Pl Hyperion 3.5mm 2"|68|3.5|4.3|0|0|2.0|Multi other|0|0|0|||
-Baader Pl Hyperion 5mm 2"|68|5|6.5|0|0|2.0|Multi other|0|0|0|||
-Baader Pl Hyperion 8mm 2"|68|8|10.7|0|0|2.0|Multi other|0|0|0|||
-Baader Pl Hyperion 13mm 2"|68|13|17.7|0|0|2.0|Multi other|0|0|0|||
-Baader Pl Hyperion 17mm 2"|68|17|20.9|0|0|2.0|Multi other|0|0|0|||
-Baader Pl Hyperion 21mm 2"|68|21|22.5|0|0|2.0|Multi other|0|0|0|||
-Baader Pl Hyperion 24mm 2"|68|24|28.5|0|0|2.0|Multi other|0|0|0|||
+Baader Pl Hyperion 5mm 2"|68|5|6.5|0|0|2.0|Multi other|0|0|0|Phantom FMC||
+Baader Pl Hyperion 8mm 2"|68|8|10.7|0|0|2.0|Multi other|0|0|0|Phantom FMC||
+Baader Pl Hyperion 13mm 2"|68|13|17.7|0|0|2.0|Multi other|0|0|0|Phantom FMC||
+Baader Pl Hyperion 17mm 2"|68|17|20.9|0|0|2.0|Multi other|0|0|0|Phantom FMC||
+Baader Pl Hyperion 21mm 2"|68|21|22.5|0|0|2.0|Multi other|0|0|0|Phantom FMC||
+Baader Pl Hyperion 24mm 2"|68|24|28.5|0|0|2.0|Multi other|0|0|0|Phantom FMC||
 BST Explorer ED Starguider 5mm 1.25"|60|5|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
 BST Explorer ED Starguider 8mm 1.25"|60|8|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
-BST Explorer ED Starguider 12mm 1.25"|60|12|0|13|0|1.25|Multi other|0|0|0|||
-BST Explorer ED Starguider 15mm 1.25"|60|15|0|13|0|1.25|Multi other|0|0|0|||
-BST Explorer ED Starguider 18mm 1.25"|60|18|0|13|0|1.25|Multi other|0|0|0|||
-BST Explorer ED Starguider 25mm 1.25"|60|25|0|13|0|1.25|Multi other|0|0|0|||
+BST Explorer ED Starguider 12mm 1.25"|60|12|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
+BST Explorer ED Starguider 15mm 1.25"|60|15|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
+BST Explorer ED Starguider 18mm 1.25"|60|18|0|13|0|1.25|Multi other|4|6|450|FMC-BE|ED glass|
+BST Explorer ED Starguider 25mm 1.25"|60|25|0|13|0|1.25|Multi other|4|5|450|FMC-BE|ED glass|
 Celestron Luminos 7mm 1.25"|82|7|0|12|0|1.25|Multi other|0|0|0|||
 Celestron Luminos 10mm 1.25"|82|10|0|12|0|1.25|Multi other|0|0|0|||
 Celestron Luminos 15mm 1.25"|82|15|0|17|0|1.25|Multi other|0|0|0|||
