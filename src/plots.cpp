@@ -6,7 +6,6 @@
 void GraphsWindow::plot1()
 {
     size_t constexpr numpoints = 200;
-    std::vector<double> mag(numpoints), lmag(numpoints);
     Astrocalc::astrocalc m_calc;
 
     double minmag = m_calc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
@@ -22,17 +21,18 @@ void GraphsWindow::plot1()
     
     double exitpupil = m_calc.calc_exit_pupil(scopebox->m_saperture.get_value(), currentmag);
 
-    size_t i = 0;
-    for (auto &iter : lmag)
+    graphbox->init_plots(1);
+
+    for (size_t i = 0; i < numpoints; ++i)
     {
-        iter = m_calc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
+        double lmag = m_calc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
                                       magbox->m_seeing.get_value(), magbox->get_optical_dirt_level(), epbox->m_etrans.get_value() / 100.0,
                                       scopebox->m_sreflect.get_value() / 100.0, scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(),
                                       magbox->m_nelm.get_value(), magbox->m_zenith.get_value(), magbox->m_extinction.get_value(), dmag,
                                       scopebox->m_sobstruct.get_value() / 100.0, static_cast<short>(scopebox->m_stype.get_active_row_number()));
-        mag[i] = dmag;
+        
+        graphbox->add_point(0, dmag, lmag);
         dmag += (maxmag - minmag) / (numpoints - 1);
-        ++i;
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
@@ -42,14 +42,14 @@ void GraphsWindow::plot1()
     Gdk::RGBA colour;
     if (graphtheme == "Herculean blue") colour.set_rgba(0.0, 1.0, 1.0, 1.0);
     else colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
-
+    
+    graphbox->set_line_colour(0, colour);
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
-    graphbox->add_series(mag, lmag, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>V</i><sub>mag</sub> = ") + GlibUtils::dtostr<double>(currentvmag, 2) + 
             _(", <i>D</i><sub>e</sub> = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm, ") + 
-            _("<i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"), CairoGraphPos::LEGEND_BOTTOM, true);
+            _("<i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"), CairoGraphPos::LEGEND_BOTTOM, false);
 
     magbox->set_dso_mode(false);
     graphbox->update_graph();
@@ -59,28 +59,30 @@ void GraphsWindow::plot2()
 {
     size_t constexpr numpoints = 200;
     size_t constexpr numplots = 3;
-    std::vector<std::vector<double> > xvalues(numplots, std::vector<double>(numpoints)); 
-    std::vector<std::vector<double> > yvalues(numplots, std::vector<double>(numpoints));
     Astrocalc::astrocalc m_calc;
     std::array<double, 3> mag;
+
     mag[0] = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
     mag[1] = m_calc.calc_optimal_minmag(scopebox->m_saperture.get_value());
     mag[2] = m_calc.calc_optimal_maxmag(scopebox->m_saperture.get_value());
     double exitpupil = m_calc.calc_exit_pupil(scopebox->m_saperture.get_value(), mag[0]);
     double dirt = magbox->get_optical_dirt_level();
+    
+    graphbox->init_plots(numplots);
 
-    for ( size_t j = 0; j < xvalues.size(); ++j)
+    for ( size_t j = 0; j < numplots; ++j)
     {
         double dzenith = 0;
-        for (size_t i = 0; i < yvalues[j].size(); ++i)
+        for (size_t i = 0; i < numpoints; ++i)
         {
-            yvalues[j][i] = m_calc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
+            double lmag = m_calc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
             magbox->m_seeing.get_value(), dirt, epbox->m_etrans.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0,
             scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(), magbox->m_nelm.get_value(),
-            dzenith, magbox->m_extinction.get_value(), mag[j],
-            scopebox->m_sobstruct.get_value() / 100.0, static_cast<short>(scopebox->m_stype.get_active_row_number()));
-
-            xvalues[j][i] = dzenith;
+            dzenith, magbox->m_extinction.get_value(), mag[j], scopebox->m_sobstruct.get_value() / 100.0, 
+            static_cast<short>(scopebox->m_stype.get_active_row_number()));
+            
+            graphbox->add_point(j, dzenith, lmag);
+            
             dzenith += 85.0 / (numpoints - 1);
         }
     }
@@ -88,7 +90,6 @@ void GraphsWindow::plot2()
     graphbox->show_legend(showgraphlegend->get_active());
     graphbox->set_axes_labels("<i>θ</i>", "<i>V</i><sub>mag</sub>", "Nimbus Roman");
     graphbox->set_title("Limiting magnitude versus zenith angle");
-    graphbox->add_multi_series(xvalues, yvalues);
     
     std::vector<Glib::ustring> legends(numplots);
     legends[0] = (_("<i>M</i> = ") + GlibUtils::dtostr<double>(mag[0], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = ") + 
@@ -104,7 +105,6 @@ void GraphsWindow::plot2()
 void GraphsWindow::plot3()
 {
     constexpr size_t numpoints = 200;
-    std::vector<double> aperture(numpoints), lmag(numpoints);
     Astrocalc::astrocalc m_calc;
 
     double minaperture = 60.0;
@@ -112,19 +112,19 @@ void GraphsWindow::plot3()
     double daperture = minaperture;
     double mag = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
     double exitpupil = m_calc.calc_exit_pupil(scopebox->m_saperture.get_value(), mag);
+    
+    graphbox->init_plots(1);
 
-    size_t i = 0;
-    for (auto &iter : lmag)
+    for (size_t i = 0; i < numpoints; ++i)
     {
-        iter = m_calc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
+        double lmag = m_calc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
                                       magbox->m_seeing.get_value(), magbox->get_optical_dirt_level(), epbox->m_etrans.get_value() / 100.0,
                                       scopebox->m_sreflect.get_value() / 100.0, daperture, magbox->m_pupilsize.get_value(), magbox->m_nelm.get_value(),
                                       magbox->m_zenith.get_value(), magbox->m_extinction.get_value(), mag, scopebox->m_sobstruct.get_value() / 100.0,
                                       static_cast<short>(scopebox->m_stype.get_active_row_number()));
 
-        aperture[i] = daperture;
+        graphbox->add_point(0, daperture, lmag);
         daperture += (maxaperture - minaperture) / (numpoints - 1);
-        ++i;
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
@@ -135,12 +135,12 @@ void GraphsWindow::plot3()
     if (graphtheme == "Herculean blue") colour.set_rgba(0.0, 1.0, 1.0, 1.0);
     else colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
 
+    graphbox->set_line_colour(0, colour);
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
-    graphbox->add_series(aperture, lmag, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>M</i> =") + GlibUtils::dtostr<double>(mag, 2) + _("x,") +
-            _(" <i>D</i><sub>e</sub> = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm"), CairoGraphPos::LEGEND_TOP, true);
+            _(" <i>D</i><sub>e</sub> = ") + GlibUtils::dtostr<double>(exitpupil, 2) + _("mm"), CairoGraphPos::LEGEND_TOP, false);
 
     
     magbox->set_dso_mode(false);
@@ -151,31 +151,29 @@ void GraphsWindow::plot4()
 {
     constexpr size_t numpoints = 200;
     constexpr size_t numplots = 2;
-    std::vector<std::vector<double> > xvalues(numplots, std::vector<double>(numpoints)); 
-    std::vector<std::vector<double> > yvalues(numplots, std::vector<double>(numpoints));
     Astrocalc::astrocalc m_calc;
-
     double minaperture = 60.0;
     double maxaperture = 450.0;
     double daperture = minaperture;
 
-    for (size_t i = 0; i < xvalues[0].size(); ++ i)
+    graphbox->init_plots(numplots);
+    
+    for (size_t i = 0; i < numpoints; ++ i)
     {
-        yvalues[0][i] = m_calc.calc_Daws_limit(daperture, optionsbox->m_wavelength.get_value());
-        yvalues[1][i] = m_calc.calc_Rayleigh_limit(daperture, optionsbox->m_wavelength.get_value(),
+        double daws = m_calc.calc_Daws_limit(daperture, optionsbox->m_wavelength.get_value());
+        double rayleigh = m_calc.calc_Rayleigh_limit(daperture, optionsbox->m_wavelength.get_value(),
                                                     scopebox->m_sobstruct.get_value() / 100.0);
 
-        xvalues[0][i] = daperture; xvalues[1][i] = daperture;
+        graphbox->add_point(0, daperture, daws);
+        graphbox->add_point(1, daperture, rayleigh);
         daperture += (maxaperture - minaperture) / (numpoints - 1);
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
     graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>θ</i> / <i>\"</i>");
     graphbox->set_title("Resolution versus aperture");
-
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
-    graphbox->add_multi_series(xvalues, yvalues);
 
     std::vector<Glib::ustring> legends(numplots);
     legends[1]  = _("<i>θ</i><sub>r</sub> (Rayleigh)");
@@ -189,31 +187,29 @@ void GraphsWindow::plot5()
 {
     constexpr size_t numpoints  = 200;
     constexpr size_t numplots   = 2;
-    std::vector<std::vector<double> > xvalues(numplots, std::vector<double>(numpoints)); 
-    std::vector<std::vector<double> > yvalues(numplots, std::vector<double>(numpoints));
     Astrocalc::astrocalc m_calc;
-
     double minaperture = 60.0;
     double maxaperture = 450.0;
     double daperture = minaperture;
 
-    for (size_t i = 0; i < xvalues[0].size(); ++i)
-    {
-        yvalues[0][i] = m_calc.calc_light_grasp(daperture, magbox->m_pupilsize.get_value());
-        yvalues[1][i] = m_calc.calc_light_effective_grasp(daperture, magbox->m_pupilsize.get_value(),
-                                scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0);
+    graphbox->init_plots(numplots);
 
-        xvalues[0][i] = daperture; xvalues[1][i] = daperture;
+    for (size_t i = 0; i < numpoints; ++i)
+    {
+        double lgrasp = m_calc.calc_light_grasp(daperture, magbox->m_pupilsize.get_value());
+        double lgrasp_eff = m_calc.calc_light_effective_grasp(daperture, magbox->m_pupilsize.get_value(),
+                            scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0);
+
+        graphbox->add_point(0, daperture, lgrasp);
+        graphbox->add_point(1, daperture, lgrasp_eff);
         daperture += (maxaperture - minaperture) / (numpoints - 1);
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
     graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>L</i>");
     graphbox->set_title("Light gathering versus aperture");
-
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
-    graphbox->add_multi_series(xvalues, yvalues);
 
     std::vector<Glib::ustring> legends(numplots);
     legends[0] = _("<i>L</i><sub> theoretical</sub>");
@@ -227,31 +223,26 @@ void GraphsWindow::plot5()
 
 void GraphsWindow::plot6()
 {
-
     size_t constexpr numpoints = 40;
-    size_t constexpr numplots = 12;
-
+    size_t constexpr numplots = 14;
     Astrocalc::astrocalc m_calc;
     double minmag = m_calc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
     double maxmag = m_calc.calc_maxmag(scopebox->m_saperture.get_value());
-
     double minlogangle = -0.5;
     double maxlogangle =  3.25;
-
     double angle;
     double sb = 5.0;
 
-    std::vector<std::vector<double>> logangle(numplots, std::vector<double>(numpoints));
-    std::vector<std::vector<double>> logcontrast(numplots, std::vector<double>(numpoints));
+    graphbox->init_plots(numplots);
 
-    for (size_t j = 0; j < logcontrast.size(); ++j)
+    for (size_t j = 0; j < numplots - 2; ++j)
     {
         double dlogangle = minlogangle;
-        for (size_t i = 0; i < logangle[0].size(); ++i)
+        for (size_t i = 0; i < numpoints; ++i)
         {
             angle = pow(10, dlogangle);
-            logcontrast[j][i] = log10(m_calc.calc_thrconcs(angle, sb));
-            logangle[j][i] = dlogangle;
+            double logcontrast = log10(m_calc.calc_thrconcs(angle, sb));
+            graphbox->add_point(j, dlogangle, logcontrast);        
             dlogangle += (maxlogangle - minlogangle) / (numpoints - 1);
         }
         sb += 2.0;
@@ -260,27 +251,15 @@ void GraphsWindow::plot6()
     double step = (maxmag - minmag) / (numpoints - 1);
     double dirt = magbox->get_optical_dirt_level();
 
-    std::vector<double> objangle;
-    std::vector<double> objcontrast;
-
-    for (size_t i = 0; i < logcontrast[0].size(); ++i)
+    for (size_t i = 0; i < numpoints; ++i)
     {
-        double tmp = log10(magbox->m_minoraxis.get_value() * (minmag + step * i));
-
-        if (tmp > maxlogangle) break; // we are out of bounds for a meaningful result
-
-        objangle.emplace_back(tmp);
-        objcontrast.emplace_back((m_calc.calc_dso_contrast_in_scope(minmag + step * i, scopebox->m_stype.get_active_row_number(),
+        double objangle = log10(magbox->m_minoraxis.get_value() * (minmag + step * i));
+        double objcontrast = (m_calc.calc_dso_contrast_in_scope(minmag + step * i, scopebox->m_stype.get_active_row_number(),
         scopebox->m_saperture.get_value(), scopebox->m_sobstruct.get_value() / 100.0,
         scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
         dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
-        magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).second));
-    }
-
-    if(objcontrast.size()) 
-    {
-        logcontrast.emplace_back(objcontrast); 
-        logangle.emplace_back(objangle);
+        magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).second);
+        graphbox->add_point(numplots - 2, objangle, objcontrast, false);
     }
 
     graphbox->show_legend(showgraphlegend->get_active());
@@ -289,68 +268,44 @@ void GraphsWindow::plot6()
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
 
-    std::vector<double> dso_contrastline_y(2), dso_contrastline_x(2);
-    dso_contrastline_y[0] = magbox->m_dsocontrastindex.get_value();
-    dso_contrastline_y[1] = dso_contrastline_y[0];
-    dso_contrastline_x[0] = minlogangle;
-    dso_contrastline_x[1] = maxlogangle;
-    logangle.emplace_back(dso_contrastline_x); logcontrast.emplace_back(dso_contrastline_y);
+    double dso_contrastline_y0 = magbox->m_dsocontrastindex.get_value();
+    double dso_contrastline_y1 = dso_contrastline_y0;
+    double dso_contrastline_x0 = minlogangle;
+    double dso_contrastline_x1 = maxlogangle;
+    graphbox->add_point(numplots - 1, dso_contrastline_x0, dso_contrastline_y0, false);
+    graphbox->add_point(numplots - 1, dso_contrastline_x1, dso_contrastline_y1, false);
 
-    graphbox->add_multi_series(logangle, logcontrast);
 
     Gdk::RGBA colour; colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0); 
-    
-    for(size_t j = 0; j < numplots; ++j) graphbox->set_line_colour(j, colour);
-    
-    if(objcontrast.size())
-    {
-        Gdk::RGBA colour2; colour2.set("purple");
-        graphbox->set_line_colour(numplots, colour2);
-        colour2.set("green"); graphbox->set_line_colour(numplots + 1, colour2); 
-    }
-    else
-    {
-        Gdk::RGBA colour2; colour2.set("green");
-        graphbox->set_line_colour(numplots, colour2);
-    }
+    for(size_t j = 0; j < numplots - 2; ++j) graphbox->set_line_colour(j, colour);
+    colour.set("purple");
+    graphbox->set_line_colour(numplots - 2, colour);
+    colour.set("green");
+    graphbox->set_line_colour(numplots - 1, colour);
     
 
     double currentmag = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
-    
-    const std::pair<double, double> currentcontrast = m_calc.calc_dso_contrast_in_scope(currentmag, scopebox->m_stype.get_active_row_number(), 
-                             scopebox->m_saperture.get_value(), scopebox->m_sobstruct.get_value() / 100.0, 
-                             scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
-                             dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
-                             magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value());
 
-    if(objcontrast.size())
-    {
-        std::vector<Glib::ustring> legends(numplots + 2, "");
-        legends[numplots]  = (_("log(<i>C</i> ) = ") + 
-                 GlibUtils::dtostr<double>(currentcontrast.second, 3) +
-                 _(", log(<i>C</i><sub>o</sub>/<i>C</i> ) = ") + GlibUtils::dtostr<double>(currentcontrast.first, 3) +
-                 _(", <i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"));
+    const std::pair<double, double> currentcontrast =
+        m_calc.calc_dso_contrast_in_scope(currentmag, scopebox->m_stype.get_active_row_number(),
+        scopebox->m_saperture.get_value(), scopebox->m_sobstruct.get_value() / 100.0,
+        scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
+        dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
+        magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value());
 
-        legends[numplots + 1] = _("log(<i>C</i><sub>o</sub>) = ") + 
-        GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
-        GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
-        GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
-        graphbox->set_legend_scale(0.70);
-        graphbox->add_multi_legends(legends, 0.05, 0.01);
-    }
-    else
-    {
-       std::vector<Glib::ustring> legends(numplots + 1, "");
-        legends[numplots] = _("log(<i>C</i><sub>o</sub>) = ") + 
-        GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") + 
-        GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") + 
-        GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
-        graphbox->set_legend_scale(0.70);
-        graphbox->add_multi_legends(legends, 0.05, 0.01);
-    }
-    
+    std::vector<Glib::ustring> legends(numplots, "");
+    legends[numplots - 2] = (_("log(<i>C</i> ) = ") +
+                         GlibUtils::dtostr<double>(currentcontrast.second, 3) +
+                         _(", log(<i>C</i><sub>o</sub>/<i>C</i> ) = ") + GlibUtils::dtostr<double>(currentcontrast.first, 3) +
+                         _(", <i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(currentmag, 2) + _("x"));
 
-    
+    legends[numplots - 1] = _("log(<i>C</i><sub>o</sub>) = ") +
+                        GlibUtils::dtostr<double>(magbox->m_dsocontrastindex.get_value(), 3) + _(": NELM = ") +
+                        GlibUtils::dtostr<double>(magbox->m_nelm1.get_value(), 2) + _(": <i>S</i> = ") +
+                        GlibUtils::dtostr<double>(magbox->m_bgsky.get_value(), 2) + _(" mag arcsec<sup>-2</sup>");
+
+    graphbox->set_legend_scale(0.70);
+    graphbox->add_multi_legends(legends, 0.05, 0.01);
 
     // Add contour lines text
     std::array ypos = {0.03, 0.125, 0.21, 0.26, 0.325, 0.425, 0.500, 0.560, 0.60, 0.624, 0.645, 0.67};
@@ -377,34 +332,36 @@ void GraphsWindow::plot6()
 void GraphsWindow::plot7()
 {
     constexpr size_t numpoints = 200;
-    std::vector<double> aperture(numpoints), lunarres(numpoints);
     Astrocalc::astrocalc m_calc;
 
     double minaperture = 60.0;
     double maxaperture = 450.0;
     double daperture = minaperture;
 
-    size_t i = 0;
-    for (auto &iter : lunarres)
+    graphbox->init_plots(1);
+
+    for (size_t i = 0; i < numpoints; ++i)
     {
-        iter = m_calc.calc_lunar_res(daperture);
-        aperture[i] = daperture;
+        double lunarres = m_calc.calc_lunar_res(daperture);
+        graphbox->add_point(0, daperture, lunarres);
         daperture += (maxaperture - minaperture) / (numpoints - 1);
-        ++i;
     }
 
     double currentlunarres = m_calc.calc_lunar_res(scopebox->m_saperture.get_value());
 
     graphbox->show_legend(showgraphlegend->get_active());
-    graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>R</i> / km", "Nimbus Roman");
+    graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>R</i> / km");
     graphbox->set_title("Lunar resolution versus aperture");
-    Gdk::RGBA colour; colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+    
+    Gdk::RGBA colour;
+    if (graphtheme == "Herculean blue") colour.set_rgba(0.0, 1.0, 1.0, 1.0);
+    else colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+    graphbox->set_line_colour(0, colour);
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
-    graphbox->add_series(aperture, lunarres, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>R</i> = ") + GlibUtils::dtostr<double>(currentlunarres, 2) + _(" km"), 
-                                    CairoGraphPos::LEGEND_BOTTOM, true);
+                                    CairoGraphPos::LEGEND_BOTTOM, false);
     magbox->set_dso_mode(false);
     graphbox->update_graph();
 }
@@ -412,21 +369,19 @@ void GraphsWindow::plot7()
 void GraphsWindow::plot8()
 {
     constexpr size_t numpoints = 200;
-    std::vector<double> aperture(numpoints), aff(numpoints);
     Astrocalc::astrocalc m_calc;
 
     double minaperture = 60.0;
     double maxaperture = 450.0;
     double daperture = minaperture;
 
-    size_t i = 0;
-    for (auto &iter : aff)
+    graphbox->init_plots(1);
+    for (size_t i = 0; i < numpoints; ++i)
     {
-        iter = m_calc.calc_aff(daperture, scopebox->m_sflen.get_value(), optionsbox->m_wavelength.get_value());
+        double aff = m_calc.calc_aff(daperture, scopebox->m_sflen.get_value(), optionsbox->m_wavelength.get_value());
 
-        aperture[i] = daperture;
+        graphbox->add_point(0, daperture, aff);
         daperture += (maxaperture - minaperture) / (numpoints - 1);
-        ++i;
     }
 
     double currentaff = m_calc.calc_aff(scopebox->m_saperture.get_value(), scopebox->m_sflen.get_value(), 
@@ -435,13 +390,16 @@ void GraphsWindow::plot8()
     graphbox->show_legend(showgraphlegend->get_active());
     graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>θ</i> / <i>'</i>", "Nimbus Roman");
     graphbox->set_title("Aberration free field versus aperture");
-    Gdk::RGBA colour; colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+    
+    Gdk::RGBA colour;
+    if (graphtheme == "Herculean blue") colour.set_rgba(0.0, 1.0, 1.0, 1.0);
+    else colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+    graphbox->set_line_colour(0, colour);
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 2);
-    graphbox->add_series(aperture, aff, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>θ</i> = ") + GlibUtils::dtostr<double>(currentaff, 2) + _("<i>'</i>"), 
-                                    CairoGraphPos::LEGEND_BOTTOM, true);
+                                    CairoGraphPos::LEGEND_BOTTOM, false);
     magbox->set_dso_mode(false);
     graphbox->update_graph();
 }
@@ -449,7 +407,6 @@ void GraphsWindow::plot8()
 void GraphsWindow::plot9()
 {
     constexpr size_t numpoints = 200;
-    std::vector<double> aperture(numpoints), brightnessfactor(numpoints);
     Astrocalc::astrocalc m_calc;
 
     double minaperture = 60.0;
@@ -458,15 +415,13 @@ void GraphsWindow::plot9()
     double mag = m_calc.calc_MagL(scopebox->m_sflen.get_value(), epbox->m_eflen.get_value());
     double exitpupil = m_calc.calc_exit_pupil(scopebox->m_saperture.get_value(), mag);
 
-    size_t i = 0;
-    for (auto &iter : brightnessfactor)
+    graphbox->init_plots(1);
+    for (size_t i = 0; i < numpoints; ++i)
     {
-        double tmp = m_calc.calc_brightness_factor(daperture, magbox->m_pupilsize.get_value(), mag);
-        (tmp < 1.0) ? iter = tmp : iter = 1.0;
-
-        aperture[i] = daperture;
+        double brightnessfactor = m_calc.calc_brightness_factor(daperture, magbox->m_pupilsize.get_value(), mag);
+        if (brightnessfactor  > 1.0) brightnessfactor  = 1.0;
+        graphbox->add_point(0, daperture, brightnessfactor);
         daperture += (maxaperture - minaperture) / (numpoints - 1);
-        ++i;
     }
 
     double currentbrightness = m_calc.calc_brightness_factor(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(), mag);
@@ -474,15 +429,17 @@ void GraphsWindow::plot9()
     graphbox->show_legend(showgraphlegend->get_active());
     graphbox->set_axes_labels("<i>D</i><sub>a</sub> / mm", "<i>B</i>", "Nimbus Roman");
     graphbox->set_title("Brightness factor versus aperture");
-    Gdk::RGBA colour; colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+    Gdk::RGBA colour;
+    if (graphtheme == "Herculean blue") colour.set_rgba(0.0, 1.0, 1.0, 1.0);
+    else colour.set_rgba(18.0 / 255.0, 83.0 / 255.0, 158.0 / 255.0);
+    graphbox->set_line_colour(0, colour);
     graphbox->set_tick_label_format_x(false, 2);
     graphbox->set_tick_label_format_y(false, 4);
-    graphbox->add_series(aperture, brightnessfactor, colour, CairoGraphLineStyle::SOLID_LINE);
 
     graphbox->add_single_legend(_("<i>B</i> = ") + GlibUtils::dtostr<double>(currentbrightness, 4) + 
                                 _(", <i>M</i><sub>c</sub> = ") + GlibUtils::dtostr<double>(mag, 2) + _("x, <i>D</i><sub>e</sub> = ") + 
                                 GlibUtils::dtostr<double>(exitpupil, 2) + _(" mm"),
-                                CairoGraphPos::LEGEND_TOP, true);
+                                CairoGraphPos::LEGEND_TOP, false);
 
     magbox->set_dso_mode(false);
     graphbox->update_graph();
