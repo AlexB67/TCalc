@@ -81,8 +81,7 @@ void GraphsWindow::plot2()
             dzenith, magbox->m_extinction.get_value(), mag[j], scopebox->m_sobstruct.get_value() / 100.0, 
             static_cast<short>(scopebox->m_stype.get_active_row_number()));
             
-            graphbox->add_point(j, dzenith, lmag);
-            
+            graphbox->add_point(j, dzenith, lmag); 
             dzenith += 85.0 / (numpoints - 1);
         }
     }

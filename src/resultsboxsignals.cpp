@@ -80,8 +80,11 @@ bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, bool keyboard
     else if(row[m_resultCols.m_results_property] == m_proplistnames[23]) 
         tooltip->set_markup(_("The airy disk size, a smaller disk means more resolving power."));
     else if(row[m_resultCols.m_results_property] == m_proplistnames[24]) 
+        tooltip->set_markup(_("The appoximate peak to value wavefront error, the smaller the value, the better the optical quality."\
+        " Typically a value of ~0.25 is diffraction limited."));
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[25])
         tooltip->set_markup(_("The smallest possible object that can be seen on the moon (excluding seeing conditions)."));
-    else if(row[m_resultCols.m_results_property] == m_proplistnames[25]) 
+    else if(row[m_resultCols.m_results_property] == m_proplistnames[26]) 
         tooltip->set_markup(_("A list of recommended beginner eyepiece focal lengths for the selected telescope."));
     else
         tooltip->set_markup(_("No tooltip available."));

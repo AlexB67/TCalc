@@ -484,6 +484,11 @@ double astrocalc::calc_plossl_eyerelief(const double e_flen) const noexcept
     return (0.687131 * e_flen + 0.181371);
 }
 
+double astrocalc::calc_pv_from_strehl(const double strehl) const noexcept
+{
+    return (3.51 * sqrt((sqrt(fabs(strehl)) - 1.0) / (-2 * M_PI * M_PI)));
+}
+
 double astrocalc::calc_thrconcs(const double angle, const double sb) const noexcept
 {
 

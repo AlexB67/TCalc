@@ -245,6 +245,20 @@ void TcalcWindow::create_results()
 
 	resultsbox->append_row(_("Airy disk diam"), 1000.0 * dtmp, 3, _("&#x03BC;m"), set);
 
+	Gtk::TreeModel::iterator iter = scopebox->m_smodel.get_active();
+	auto row = *iter;
+	double strehl = row[scopebox->m_scombomodel.m_scopecols.m_sstrehl];
+	
+	if ( strehl > Astrocalc::astrocalc::tSMALL && Astrocalc::astrocalc::REFRACTOR != scopebox->m_stype.get_active_row_number()) 
+	{
+		dtmp = m_astrocalc.calc_pv_from_strehl(strehl);
+		resultsbox->append_row(_("PV from Strehl"), dtmp, 3, "", set);
+	}
+	else
+	{
+		resultsbox->append_row(_("PV from Strehl"), "", set);
+	}
+
 	dtmp = m_astrocalc.calc_lunar_res(scopebox->m_saperture.get_value());
 
 	resultsbox->append_row(_("Lunar resolution"), dtmp, 2, _("km"), set);
