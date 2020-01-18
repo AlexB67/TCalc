@@ -167,6 +167,10 @@ void ScopeCombomodel::setup_scope_combo()
 {
     m_scopecombo->pack_start(m_scopecols.m_smodel);
     m_scopecombo->set_active(0);
+
+    auto renderer = static_cast<Gtk::CellRendererText*>(m_scopecombo->get_first_cell());
+    renderer->property_ellipsize() = Pango::ELLIPSIZE_END;
+    renderer->set_fixed_size(300, -1);
 }
 
 void ScopeCombomodel::set_scope_completion_model(Gtk::SearchEntry& scopesearch)
