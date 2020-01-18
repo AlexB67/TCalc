@@ -183,6 +183,10 @@ void EpCombomodel::setup_ep_combo()
 {
     m_epcombo->pack_start(m_epcols.m_epmodel);
     m_epcombo->set_active(0);
+
+    auto v_cellRenderer = (Gtk::CellRendererText*)m_epcombo->get_first_cell();
+    v_cellRenderer->property_ellipsize() = Pango::ELLIPSIZE_END;
+    v_cellRenderer->set_fixed_size(300, -1);
 }
 
 void EpCombomodel::set_ep_completion_model(Gtk::SearchEntry &epsearch)

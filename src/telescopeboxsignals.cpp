@@ -48,18 +48,21 @@ void ScopeBox::Telescopebox::scope_type_changed()
       m_sobstruct.set_value(0.0);
       m_sreflect.set_value(Astrocalc::astrocalc::SCOPETRANS);
       m_sobstruct.set_sensitive(false);
+      m_sreflectlabel.set_text(_("Transmission/%"));
     }
     else if (Astrocalc::astrocalc::REFLECTOR == m_stype.get_active_row_number())
     {
       m_sobstruct.set_value(Astrocalc::astrocalc::OBSTRUCTSIZE);
       m_sreflect.set_value(Astrocalc::astrocalc::SCOPEREFLECT);
       m_sobstruct.set_sensitive(true);
+      m_sreflectlabel.set_text(_("Reflectivity/%"));
     }
     else if (Astrocalc::astrocalc::SCTMAK == m_stype.get_active_row_number())
     {
       m_sobstruct.set_value(Astrocalc::astrocalc::OBSTRUCTSIZESCT);
       m_sreflect.set_value(Astrocalc::astrocalc::SCOPEREFLECT * Astrocalc::astrocalc::SCOPETRANS / 100.0);
       m_sobstruct.set_sensitive(true);
+      m_sreflectlabel.set_text(_("Trans.(Refl.)/%"));
     }
 }
 
@@ -68,14 +71,13 @@ void ScopeBox::Telescopebox::scope_changed()
   using GlibUtils::dtostr;
   using namespace Astrocalc;
   bool flag = AppGlobals::LOGFLAG;
-  Gtk::TreeModel::iterator iter = m_smodel.get_active();
+  const Gtk::TreeModel::iterator iter = m_smodel.get_active();
   
   if(iter)
   {
-    Gtk::TreeModel::Row row = *iter;
+    const Gtk::TreeModel::Row row = *iter;
     if(row)
     {  
-
       log_msg.emit(flag, LogView::tINFO, row[m_scombomodel.m_scopecols.m_smodel] + _(" selected."));
       
       m_saperture.set_value(row[m_scombomodel.m_scopecols.m_saperture]); 

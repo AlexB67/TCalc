@@ -22,7 +22,6 @@ EpBox::Eyepiecebox::Eyepiecebox(const bool userdataonly) : m_userdataonly(userda
 	m_etype.set_tooltip_text(_("The optical design of the eyepiece. Plossl, ortho, or other types (specified as multi other)."));
 
 	m_etype.set_vexpand(false);
-    
 	m_grid.set_hexpand(false);
 	m_grid.set_vexpand(false);
 }
