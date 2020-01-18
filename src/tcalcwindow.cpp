@@ -55,6 +55,8 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    scopebox->init();
    magbox->set_default_mode();
 
+   graphswindow = std::make_unique<GraphsWindow>();
+   ocularwindow = std::make_unique<OcularWindow>();
    AppGlobals::LOGFLAG = true;
 
    logbox->setlogtext(AppGlobals::LOGFLAG, LogView::tINFO, _("TCalc ready."));
