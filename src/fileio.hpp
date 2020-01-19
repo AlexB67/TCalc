@@ -26,7 +26,7 @@ namespace fileIO
   private:
     void read_ep_file(const Gtk::ComboBox &epcombobox,
                       const Glib::ustring &path,
-                      const EpCombo::EpCombomodel &epcombomodel);
+                      EpCombo::EpCombomodel &epcombomodel);
 
     void read_scope_file(const Gtk::ComboBox &scopecombobox,
                          const Glib::ustring &path,

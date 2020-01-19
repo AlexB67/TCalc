@@ -3,12 +3,9 @@
 
 using namespace EpCombo;
 
-void EpCombomodel::create_ep_model_combo(Gtk::ComboBox &epcombo)
+void EpCombomodel::create_ep_model()
 {
-    m_epcombo = &epcombo;
     m_eptreemodel = Gtk::ListStore::create(m_epcols);
-    m_epcombo->set_model(m_eptreemodel);
-    m_epcombo->set_row_separator_func(sigc::mem_fun(*this, &EpCombomodel::on_separator));
 }
 
 bool EpCombomodel::on_separator(const Glib::RefPtr<Gtk::TreeModel>& model, const Gtk::TreeModel::iterator& iter)
@@ -90,7 +87,7 @@ void EpCombomodel::append_ep_to_model(const std::tuple<Glib::ustring, double, do
                                         double, double, Glib::ustring, int, int, double, Glib::ustring, 
                                         Glib::ustring>& epdata) const
 {
-    Gtk::TreeModel::Row row = *(m_eptreemodel->append());
+    const Gtk::TreeModel::Row row = *(m_eptreemodel->append());
     row[m_epcols.m_epmodel] = std::get<0>(epdata);
     row[m_epcols.m_epfov] = std::get<1>(epdata);
     row[m_epcols.m_epflen] = std::get<2>(epdata);
@@ -118,7 +115,7 @@ void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, double, doubl
 
     if (iter)
     {
-        Gtk::TreeRow row{};
+        Gtk::TreeRow row;
         (true == append) ? row = *(m_eptreemodel->append()) : row = *(m_eptreemodel->insert(*iter));
         row[m_epcols.m_epmodel] = std::get<0>(epdata);
         row[m_epcols.m_epfov] = std::get<1>(epdata);
@@ -179,8 +176,12 @@ void EpCombomodel::update_ep_model(const std::tuple<Glib::ustring, double, doubl
     }
 }
 
-void EpCombomodel::setup_ep_combo()
+void EpCombomodel::setup_ep_combo_model(Gtk::ComboBox &epcombo)
 {
+    m_epcombo = &epcombo;
+    m_epcombo->set_model(m_eptreemodel);
+    m_epcombo->set_row_separator_func(sigc::mem_fun(*this, &EpCombomodel::on_separator));
+
     m_epcombo->pack_start(m_epcols.m_epmodel);
     m_epcombo->set_active(0);
 

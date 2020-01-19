@@ -38,14 +38,14 @@ void fileIO::dbfileIO::load_scope_data(	Gtk::ComboBox& scopecombobox,
 		return;
 	
 	if (true == std::filesystem::exists(path.c_str()))
-		scopecombomodel.create_scope_model_combo(scopecombobox);
+		scopecombomodel.create_scope_model();
 
 	read_scope_file(scopecombobox, pathuser, scopecombomodel);
 
 	if (false == userdataonly) 
 		read_scope_file(scopecombobox, path, scopecombomodel);
 
-	scopecombomodel.setup_scope_combo();
+	scopecombomodel.setup_scope_combo_model(scopecombobox);
 }
 
 void fileIO::dbfileIO::load_ep_data(Gtk::ComboBox& epcombobox, 
@@ -59,14 +59,14 @@ void fileIO::dbfileIO::load_ep_data(Gtk::ComboBox& epcombobox,
 		return;
 
  	if (true == std::filesystem::exists(path.c_str()))
-		epcombomodel.create_ep_model_combo(epcombobox);
+		epcombomodel.create_ep_model();
 
 	read_ep_file(epcombobox, pathuser, epcombomodel);
 
 	if (false == userdataonly) 
 		read_ep_file(epcombobox, path, epcombomodel);
 
-	epcombomodel.setup_ep_combo();
+	epcombomodel.setup_ep_combo_model(epcombobox);
 }
 
 void fileIO::dbfileIO::load_dso_data(Gtk::ComboBox &dsocombobox, DSOCombomodel &dsocombomodel) const
@@ -138,7 +138,7 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
             	double, double> scopedata;
 
     std::string line, tmp;
-	unsigned int size = scopecombobox.get_model()->children().size();
+	unsigned int size = scopecombomodel.get_scopemodel()->children().size();
 
 	if ( size)
 	{
@@ -191,7 +191,7 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
 
 void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox, 
 									const Glib::ustring &path, 
-									const EpCombo::EpCombomodel &epcombomodel)
+									EpCombo::EpCombomodel &epcombomodel)
 {
 	std::ifstream file(path.c_str(), std::ifstream::in);
 
@@ -199,7 +199,7 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 			   Glib::ustring, int, int, double, Glib::ustring, Glib::ustring> epdata;
 
 	std::string line, tmp;
-	unsigned int size = epcombobox.get_model()->children().size();
+	unsigned int size = epcombomodel.get_epmodel()->children().size();
 
 	if ( size )
 	{

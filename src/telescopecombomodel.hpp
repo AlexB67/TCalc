@@ -49,7 +49,7 @@ namespace ScopeCombo
   class ScopeCombomodel
   {
     public:
-      void create_scope_model_combo(Gtk::ComboBox& scopecombo);
+      void create_scope_model();
 
       void append_scope_to_model (const std::tuple<Glib::ustring, double, double, double, double, int, 
                                   Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
@@ -65,9 +65,10 @@ namespace ScopeCombo
       
       void remove_scope_from_model(const Glib::ustring &scopename) const;
       void swap_scope_rows(const Glib::ustring& scopename, bool movedown = true) const;
-      void setup_scope_combo();
+      void setup_scope_combo_model(Gtk::ComboBox& scopecombo);
       void set_scope_completion_model(Gtk::SearchEntry &scopesearch);
       void set_case_sensitive(const bool case_sensitive);
+      const Glib::RefPtr<Gtk::ListStore>& get_scopemodel() const { return m_scopetreemodel;}
       Scopemodelcols m_scopecols;
     
     private:

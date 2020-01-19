@@ -3,12 +3,9 @@
 
 using namespace ScopeCombo;
 
-void ScopeCombomodel::create_scope_model_combo(Gtk::ComboBox& scopecombo)
+void ScopeCombomodel::create_scope_model()
 {
-    m_scopecombo = &scopecombo;
     m_scopetreemodel = Gtk::ListStore::create(m_scopecols);
-    m_scopecombo->set_model(m_scopetreemodel);
-    m_scopecombo->set_row_separator_func(sigc::mem_fun(*this, &ScopeCombomodel::on_separator));
 }
 
 bool ScopeCombomodel::on_separator(const Glib::RefPtr<Gtk::TreeModel>& model, const Gtk::TreeModel::iterator& iter)
@@ -163,8 +160,12 @@ void ScopeCombomodel::tuple_to_model(const Gtk::TreeRow& row, const std::tuple<G
     row[m_scopecols.m_sweight] = std::get<11>(scopedata);
 }
 
-void ScopeCombomodel::setup_scope_combo()
+void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
 {
+    m_scopecombo = &scopecombo;
+    m_scopecombo->set_model(m_scopetreemodel);
+    m_scopecombo->set_row_separator_func(sigc::mem_fun(*this, &ScopeCombomodel::on_separator));
+    
     m_scopecombo->pack_start(m_scopecols.m_smodel);
     m_scopecombo->set_active(0);
 

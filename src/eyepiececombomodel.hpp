@@ -46,7 +46,7 @@ namespace EpCombo
   class EpCombomodel  // ep stands for eyepiece
   {
     public:
-      void create_ep_model_combo(Gtk::ComboBox& epcombo);
+      void create_ep_model();
       void append_ep_to_model(const std::tuple<Glib::ustring, double, double, double, double,
                               double, double, Glib::ustring, int, int, double, Glib::ustring, 
                               Glib::ustring>& epdata) const;
@@ -61,9 +61,10 @@ namespace EpCombo
       
       void remove_ep_from_model(const Glib::ustring& epname) const;
       void swap_ep_rows(const Glib::ustring& epname, bool movedown = true) const;
-      void setup_ep_combo();
+      void setup_ep_combo_model(Gtk::ComboBox &epcombo);
       void set_ep_completion_model(Gtk::SearchEntry& epsearch);
       void set_case_sensitive(const bool case_sensitive);
+      const Glib::RefPtr<Gtk::ListStore>& get_epmodel() const { return m_eptreemodel;}
       Epmodelcols m_epcols;
 
     private:
