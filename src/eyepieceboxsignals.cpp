@@ -43,8 +43,7 @@ void EpBox::Eyepiecebox::ep_changed()
         const Gtk::TreeModel::Row row = *iter;
         if (row)
         {
-            log_msg.emit(flag, LogView::tINFO, row[m_ecombomodel.m_epcols.m_epbrand] + " " + 
-            row[m_ecombomodel.m_epcols.m_epmodel] + _(" selected."));
+            log_msg.emit(flag, LogView::tINFO, row[m_ecombomodel.m_epcols.m_epmodel] + _(" selected."));
             
             m_efov.set_value(row[m_ecombomodel.m_epcols.m_epfov]);
             m_eflen.set_value(row[m_ecombomodel.m_epcols.m_epflen]);

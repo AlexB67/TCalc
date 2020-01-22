@@ -1,457 +1,454 @@
-## Format: brand, model name, fov, focal length, field stop, eye relief, transmission, barrel size, type,
-#number of groups, number of elements, weight, coatings, material
-# delimiter is the |  character.
-365 Astronomy|365 Astronomy Andromeda Extra Flat 8.0mm 1.25"|60|8.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Andromeda Extra Flat 12.0mm 1.25"|60|12.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Andromeda Extra Flat 16.0mm 1.25"|60|16.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Andromeda Extra Flat 19.0mm 1.25"|65|19.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Andromeda Extra Flat 27.0mm 1.25"|58|27.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Columbus Ultra Wide Angle 11.0mm 1.25"|80|11.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
-365 Astronomy|365 Astronomy Columbus Ultra Wide Angle 16.0mm 1.25"|80|16.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
-365 Astronomy|365 Astronomy Magellan Wide Angle 8.0mm 1.25"|60|8.0|13.0|9.0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Magellan Wide Angle 12.0mm 1.25"|60|12.0|15.0|12.0|0|1.25|Multi other|0|0|0|FMC||
-365 Astronomy|365 Astronomy Magellan Wide Angle 17.0mm 1.25"|65|17.0|23.0|18.0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Andromeda Extra Flat 8mm 1.25"|60|8.0|0|0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Andromeda Extra Flat 12mm 1.25"|60|12.0|0|0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Andromeda Extra Flat 16mm 1.25"|60|16.0|0|0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Andromeda Extra Flat 19mm 1.25"|65|19.0|0|0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Andromeda Extra Flat 27mm 1.25"|58|27.0|0|0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Columbus Ultra Wide Angle 11mm 1.25"|80|11.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
+365 Astronomy|365 Astronomy Columbus Ultra Wide Angle 16mm 1.25"|80|16.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
+365 Astronomy|365 Astronomy Magellan Wide Angle 8mm 1.25"|60|8.0|13.0|9.0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Magellan Wide Angle 12mm 1.25"|60|12.0|15.0|12.0|0|1.25|Multi other|0|0|0|FMC||
+365 Astronomy|365 Astronomy Magellan Wide Angle 17mm 1.25"|65|17.0|23.0|18.0|0|1.25|Multi other|0|0|0|FMC||
 365 Astronomy|365 Astronomy Orthoscopic 4.8mm 1.25"|48|4.8|0|4.2|0|1.25|Ortho|0|4|0|FMC||
 365 Astronomy|365 Astronomy Orthoscopic 7.7mm 1.25"|48|7.7|0|6.5|0|1.25|Ortho|0|4|0|FMC||
 365 Astronomy|365 Astronomy Orthoscopic 10.5mm 1.25"|48|10.5|0|7.2|0|1.25|Ortho|0|4|0|FMC||
 365 Astronomy|365 Astronomy Orthoscopic 16.8mm 1.25"|48|16.8|0|15.5|0|1.25|Ortho|0|4|0|FMC||
-Agena|Agena Enhanced Wide Angle 6.0mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Enhanced Wide Angle 9.0mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|6|0|FMC||
-Agena|Agena Enhanced Wide Angle 15.0mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC||
-Agena|Agena Enhanced Wide Angle 20.0mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Starguide Dual ED 3.2mm 1.25"|60|3.2|0|15.8|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Starguide Dual ED 5.0mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Agena|Agena Starguide Dual ED 8.0mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Agena|Agena Starguide Dual ED 12.0mm 1.25"|60|12.0|12.0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Agena|Agena Starguide Dual ED 15.0mm 1.25"|60|15.0|15.0|15.0|0|1.25|Multi other|0|6|0|FMC||
-Agena|Agena Starguide Dual ED 18.0mm 1.25"|60|18.0|18.0|13.0|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Starguide Dual ED 25.0mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Super Wide Angle SWA 10.0mm 1.25"|70|10.0|12.4|10.0|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Super Wide Angle SWA 15.0mm 1.25"|70|15.0|18.8|13.0|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Super Wide Angle SWA 20.0mm 1.25"|70|20.0|25.0|16.0|0|1.25|Multi other|0|5|0|FMC||
-Agena|Agena Super Wide Angle SWA 26.0mm 2.00"|70|26.0|32.3|20.0|0|2.00|Multi other|0|5|0|FMC||
-Agena|Agena Super Wide Angle SWA 32.0mm 2.00"|70|32.0|40.0|24.0|0|2.00|Multi other|0|5|0|FMC||
-Agena|Agena Super Wide Angle SWA 38.0mm 2.00"|70|38.0|45.7|28.0|0|2.00|Multi other|0|5|0|FMC||
-Agena|Agena Wide Angle 8.0mm 1.25"|60|8.0|0|9.0|0|1.25|Multi other|0|4|0|FMC||
-Agena|Agena Wide Angle 12.0mm 1.25"|60|12.0|0|10.0|0|1.25|Multi other|0|4|0|FMC||
-Agena|Agena Wide Angle 17.0mm 1.25"|65|17.0|0|16.0|0|1.25|Multi other|0|4|0|FMC||
-Agena|Agena Wide Angle 20.0mm 1.25"|65|20.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave Hyperwide Premium 20.00mm 2.00"|100|20.00|0|14.5|0|2.00|Multi other|0|9|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER 3.0mm 1.25"|55|3.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER 5.0mm 1.25"|55|5.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER 6.0mm 1.25"|55|6.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER 9.0mm 1.25"|55|9.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 7.0mm 1.25"|68|7.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 9.0mm 1.25"|68|9.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 12.0mm 1.25"|68|12.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 14.5mm 1.25"|68|14.5|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 18.0mm 1.25"|68|18.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Altair Astro (UK)|Altair Astro (UK) UltraFlat 10.0mm 1.25"|60|10.0|14.7|16.0|0|1.25|Multi other|0|5|80|FMC||
-Altair Astro (UK)|Altair Astro (UK) UltraFlat 15.0mm 1.25"|60|15.0|19.6|16.0|0|1.25|Multi other|0|8|136|FMC||
-Altair Astro (UK)|Altair Astro (UK) UltraFlat 18.0mm 1.25"|65|18.0|23.4|20.0|0|1.25|Multi other|0|8|206|FMC||
-Altair Astro (UK)|Altair Astro (UK) UltraFlat 30.0mm 2.00"|70|30.0|38.0|22.0|0|2.00|Multi other|0|9|556|FMC||
+Agena|Agena Enhanced Wide Angle 6mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Enhanced Wide Angle 9mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Agena|Agena Enhanced Wide Angle 15mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Agena|Agena Enhanced Wide Angle 20mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Starguide Dual ED 3.2mm 1.25"|60|3.2|0|15.8|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Starguide Dual ED 5mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Agena|Agena Starguide Dual ED 8mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Agena|Agena Starguide Dual ED 12mm 1.25"|60|12.0|12.0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Agena|Agena Starguide Dual ED 15mm 1.25"|60|15.0|15.0|15.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Agena|Agena Starguide Dual ED 18mm 1.25"|60|18.0|18.0|13.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Starguide Dual ED 25mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Super Wide Angle SWA 10mm 1.25"|70|10.0|12.4|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Super Wide Angle SWA 15mm 1.25"|70|15.0|18.8|13.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Super Wide Angle SWA 20mm 1.25"|70|20.0|25.0|16.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Agena|Agena Super Wide Angle SWA 26mm 2"|70|26.0|32.3|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Agena|Agena Super Wide Angle SWA 32mm 2"|70|32.0|40.0|24.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Agena|Agena Super Wide Angle SWA 38mm 2"|70|38.0|45.7|28.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Agena|Agena Wide Angle 8mm 1.25"|60|8.0|0|9.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Agena|Agena Wide Angle 12mm 1.25"|60|12.0|0|10.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Agena|Agena Wide Angle 17mm 1.25"|65|17.0|0|16.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Agena|Agena Wide Angle 20mm 1.25"|65|20.0|0|20.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave Hyperwide Premium 20.00mm 2"|100|20.00|0|14.5|0|2.00|Multi other|0|9|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER 3mm 1.25"|55|3.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER 5mm 1.25"|55|5.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER 6mm 1.25"|55|6.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER 9mm 1.25"|55|9.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 7mm 1.25"|68|7.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 9mm 1.25"|68|9.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 12mm 1.25"|68|12.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 14.5mm 1.25"|68|14.5|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) Lightwave LER Premium 18mm 1.25"|68|18.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) UltraFlat 10mm 1.25"|60|10.0|14.7|16.0|0|1.25|Multi other|0|5|80|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) UltraFlat 15mm 1.25"|60|15.0|19.6|16.0|0|1.25|Multi other|0|8|136|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) UltraFlat 18mm 1.25"|65|18.0|23.4|20.0|0|1.25|Multi other|0|8|206|FMC-BE||
+Altair Astro (UK)|Altair Astro (UK) UltraFlat 30mm 2"|70|30.0|38.0|22.0|0|2.00|Multi other|0|9|556|FMC-BE||
 Altair Astro (UK)|Altair Astro (UK) Widefield 15.00mm 1.25"|70|15.00|0|15.0|0|1.25|Multi other|0|4|0|FMC||
-Andrews (AUS)|Andrews (AUS) ED  18.0mm 1.25"|55|18.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Andrews (AUS)|Andrews (AUS) ED  21.0mm 1.25"|55|21.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Andrews (AUS)|Andrews (AUS) ED  25.0mm 1.25"|55|25.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Andrews (AUS)|Andrews (AUS) Series 500 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
-Andrews (AUS)|Andrews (AUS) Series 500 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
-Antares|Antares SWA (Speers Waler 3) 9.5mm 1.25"|80|9.5|0|11.3|0|1.25|Multi other|0|8|0|FMC||
-Antares|Antares SWA (Speers Waler 3) 13.0mm 1.25"|80|13.0|0|14.6|0|1.25|Multi other|0|8|0|FMC||
-Antares|Antares SWA (Speers Waler 3) 17.0mm 1.25"|80|17.0|0|9.0|0|1.25|Multi other|0|7|0|FMC||
-Antares|Antares SWA (Speers Waler II) 4.9mm 1.25"|82|4.9|0|12.0|0|1.25|Multi other|0|8|0|FMC||
-Antares|Antares SWA (Speers Waler II) 7.2mm 1.25"|82|7.2|0|0|0|1.25|Multi other|0|8|0|FMC||
-Antares|Antares SWA (Speers Waler II) 9.4mm 1.25"|82|9.4|0|12.0|0|1.25|Multi other|0|8|0|FMC||
-Antares|Antares SWA (Speers Waler II) 10.0mm 1.25"|80|10.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-Antares|Antares SWA (Speers Waler II) 13.4mm 1.25"|80|13.4|0|0|0|1.25|Multi other|0|0|0|FMC||
-Antares|Antares SWA (Speers Waler II) 14.0mm 1.25"|80|14.0|0|0|0|1.25|Multi other|0|0|0|FMC||
-Antares|Antares SWA (Speers Waler II) 17.0mm 1.25"|78|17.0|0|19.0|0|1.25|Multi other|0|8|0|FMC||
-Antares|Antares SWA (Speers Waler II) 31.5mm 2.00"|90|31.5|0|10.0|0|2.00|Multi other|0|0|0|FMC||
-Antares|Antares W70 5.8mm 1.25"|67|5.8|0|15.0|0|1.25|Multi other|0|7|0|MC||
-Antares|Antares W70 6.0mm 1.25"|70|6.0|0|0|0|1.25|Multi other|0|0|0|MC||
-Antares|Antares W70 8.6mm 1.25"|70|8.6|0|0|0|1.25|Multi other|0|0|0|MC||
-Antares|Antares W70 9.7mm 1.25"|70|9.7|0|15.0|0|1.25|Multi other|0|0|0|MC||
-Antares|Antares W70 14.0mm 1.25"|70|14.0|0|0|0|1.25|Multi other|0|0|0|MC||
-Antares|Antares W70 15.0mm 1.25"|70|15.0|0|10.0|0|1.25|Multi other|0|4|0|MC||
-Antares|Antares W70 19.0mm 1.25"|70|19.0|0|0|0|1.25|Multi other|0|0|0|MC||
-Antares|Antares W70 25.0mm 1.25"|70|25.0|0|0|0|1.25|Multi other|0|0|0|MC||
-APM|APM Ultra Flat Field 10.0mm 1.25"|60|10.0|14.7|16.0|0|1.25|Multi other|0|5|80|FMC||
-APM|APM Ultra Flat Field 15.0mm 1.25"|60|15.0|19.6|16.0|0|1.25|Multi other|0|8|136|FMC||
-APM|APM Ultra Flat Field 18.0mm 1.25"|65|18.0|23.4|20.0|0|1.25|Multi other|0|8|206|FMC||
-APM|APM Ultra Flat Field 30.0mm 2.00"|70|30.0|38.0|22.0|0|2.00|Multi other|0|9|556|FMC||
-APM|APM Ultrawide  12.5mm 1.25"|84|12.5|0|23.0|0|1.25|Multi other|0|9|545|FMC||
-APM|APM XWA HDC 3.50mm 1.25"|110|3.50|0|15.0|0|1.25|Multi other|0|8|525|FMC||
-APM|APM XWA HDC 4.77mm 1.25"|110|4.77|0|15.0|0|1.25|Multi other|0|9|492|FMC||
-APM|APM XWA HDC 9.00mm 1.25"|100|9.00|0|13.0|0|1.25|Multi other|0|9|468|FMC||
-APM|APM XWA HDC 13.00mm 1.25"|100|13.00|0|13.0|0|1.25|Multi other|0|9|461|FMC||
-APM|APM XWA HDC 20.00mm 2.00"|100|20.00|0|15.0|0|2.00|Multi other|0|9|678|FMC||
-Arcturus|Arcturus Ebony 3.5mm 1.25"|70|3.5|0|17.0|0|1.25|Multi other|0|8|0|FMC||
-Arcturus|Arcturus Ebony 5.0mm 1.25"|70|5.0|0|17.0|0|1.25|Multi other|0|8|0|FMC||
-Arcturus|Arcturus Ebony 8.0mm 1.25"|70|8.0|0|17.0|0|1.25|Multi other|0|8|0|FMC||
-Arcturus|Arcturus Ebony 13.0mm 1.25"|70|13.0|0|17.0|0|1.25|Multi other|0|8|0|FMC||
-Arcturus|Arcturus Ebony 17.0mm 1.25"|70|17.0|0|17.0|0|1.25|Multi other|0|8|0|FMC||
-Arcturus|Arcturus Ebony 22.0mm 2.00"|70|22.0|0|17.0|0|2.00|Multi other|0|6|0|FMC||
-Arcturus|Arcturus Ebony 32.0mm 2.00"|70|32.0|0|17.0|0|2.00|Multi other|0|6|0|FMC||
-Arcturus|Arcturus Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
-Arcturus|Arcturus Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|||
-Astro Hutech|Astro Hutech HC Orthoscopic 4.0mm 1.25"|42|4.0|2.7|3.4|0|1.25|Ortho|0|4|0|FMC||
-Astro Hutech|Astro Hutech HC Orthoscopic 5.0mm 1.25"|42|5.0|3.4|4.1|0|1.25|Ortho|0|4|0|FMC||
-Astro Hutech|Astro Hutech HC Orthoscopic 6.0mm 1.25"|42|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FMC||
-Astro Hutech|Astro Hutech HC Orthoscopic 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|0|4|0|FMC||
-Astro Hutech|Astro Hutech HC Orthoscopic 25.0mm 1.25"|42|25.0|17.5|22.2|0|1.25|Ortho|0|4|0|FMC||
-Astro Professional|Astro Professional Kellner 9.0mm 1.25"|50|9.0|0|0|0|1.25|Multi other|0|3|0|||
-Astro Professional|Astro Professional Long Eye Relief 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Astro Professional|Astro Professional Long Eye Relief 14.5mm 1.25"|55|14.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Astro Professional|Astro Professional Long Eye Relief 18.0mm 1.25"|55|18.0|0|20|0|1.25|Multi other|0|5|0|FMC||
-Astro Professional|Astro Professional SWA  15.0mm 1.25"|70|15.0|0|13.0|0|1.25|Multi other|0|5|0|FMC||
-Astro Professional|Astro Professional SWA  20.0mm 1.25"|70|20.0|0|16.0|0|1.25|Multi other|0|5|0|FMC||
-Astro Tech|Astro Tech Hi-Grade Plossl 4.0mm 1.25"|55|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Hi-Grade Plossl 6.0mm 1.25"|55|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Hi-Grade Plossl 17.0mm 1.25"|55|17.0|0|11.9|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 3.2mm 1.25"|60|3.2|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 5.0mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 8.0mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 12.0mm 1.25"|60|12.0|12.0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 15.0mm 1.25"|60|15.0|15.0|15.0|0|1.25|Multi other|0|6|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 18.0mm 1.25"|60|18.0|18.0|13.0|0|1.25|Multi other|0|5|0|FMC||
-Astro Tech|Astro Tech Paradigm Dual ED 25.0mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 4.0mm 1.25"|52|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 6.0mm 1.25"|52|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 9.0mm 1.25"|52|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 12.0mm 1.25"|52|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 15.0mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 20.0mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 25.0mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-Astro Tech|Astro Tech Value Line Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-Astromania|Astromania Kellner 26.0mm 2.00"|55|26.0|0|0|0|2.00|Multi other|0|3|0|FMC||
-Astromania|Astromania Kellner 32.0mm 2.00"|55|32.0|0|0|0|2.00|Multi other|0|3|0|FMC||
-Astromania|Astromania Kellner 55.0mm 2.00"|55|55.0|0|0|0|2.00|Multi other|0|3|0|FMC||
+Andrews (AUS)|Andrews (AUS) ED  18mm 1.25"|55|18.0|0|20.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Andrews (AUS)|Andrews (AUS) ED  21mm 1.25"|55|21.0|0|20.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Andrews (AUS)|Andrews (AUS) ED  25mm 1.25"|55|25.0|0|20.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Andrews (AUS)|Andrews (AUS) Series 500 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
+Andrews (AUS)|Andrews (AUS) Series 500 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
+Antares|Antares SWA (Speers Waler 3) 9.5mm 1.25"|80|9.5|0|11.3|0|1.25|Multi other|0|8|0|FMC-BE||
+Antares|Antares SWA (Speers Waler 3) 13mm 1.25"|80|13.0|0|14.6|0|1.25|Multi other|0|8|0|FMC-BE||
+Antares|Antares SWA (Speers Waler 3) 17mm 1.25"|80|17.0|0|9.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 4.9mm 1.25"|82|4.9|0|12.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 7.2mm 1.25"|82|7.2|0|0|0|1.25|Multi other|0|8|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 9.4mm 1.25"|82|9.4|0|12.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 10mm 1.25"|80|10.0|0|0|0|1.25|Multi other|0|0|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 13.4mm 1.25"|80|13.4|0|0|0|1.25|Multi other|0|0|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 14mm 1.25"|80|14.0|0|0|0|1.25|Multi other|0|0|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 17mm 1.25"|78|17.0|0|19.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Antares|Antares SWA (Speers Waler II) 31.5mm 2"|90|31.5|0|10.0|0|2.00|Multi other|0|0|0|FMC-BE||
+Antares|Antares W70 5.8mm 1.25"|67|5.8|0|15.0|0|1.25|Multi other|0|7|0|MC-BE||
+Antares|Antares W70 6mm 1.25"|70|6.0|0|0|0|1.25|Multi other|0|0|0|MC-BE||
+Antares|Antares W70 8.6mm 1.25"|70|8.6|0|0|0|1.25|Multi other|0|0|0|MC-BE||
+Antares|Antares W70 9.7mm 1.25"|70|9.7|0|15.0|0|1.25|Multi other|0|0|0|MC-BE||
+Antares|Antares W70 14mm 1.25"|70|14.0|0|0|0|1.25|Multi other|0|0|0|MC-BE||
+Antares|Antares W70 15mm 1.25"|70|15.0|0|10.0|0|1.25|Multi other|0|4|0|MC-BE||
+Antares|Antares W70 19mm 1.25"|70|19.0|0|0|0|1.25|Multi other|0|0|0|MC-BE||
+Antares|Antares W70 25mm 1.25"|70|25.0|0|0|0|1.25|Multi other|0|0|0|MC-BE||
+APM|APM Ultra Flat Field 10mm 1.25"|60|10.0|14.7|16.0|0|1.25|Multi other|0|5|80|FMC-BE||
+APM|APM Ultra Flat Field 15mm 1.25"|60|15.0|19.6|16.0|0|1.25|Multi other|0|8|136|FMC-BE||
+APM|APM Ultra Flat Field 18mm 1.25"|65|18.0|23.4|20.0|0|1.25|Multi other|0|8|206|FMC-BE||
+APM|APM Ultra Flat Field 30mm 2"|70|30.0|38.0|22.0|0|2.00|Multi other|0|9|556|FMC-BE||
+APM|APM Ultrawide  12.5mm 1.25"|84|12.5|0|23.0|0|1.25|Multi other|0|9|545|FMC-BE||
+APM|APM XWA HDC 3.50mm 1.25"|110|3.50|0|15.0|0|1.25|Multi other|0|8|525|FMC-BE||
+APM|APM XWA HDC 4.77mm 1.25"|110|4.77|0|15.0|0|1.25|Multi other|0|9|492|FMC-BE||
+APM|APM XWA HDC 9.00mm 1.25"|100|9.00|0|13.0|0|1.25|Multi other|0|9|468|FMC-BE||
+APM|APM XWA HDC 13.00mm 1.25"|100|13.00|0|13.0|0|1.25|Multi other|0|9|461|FMC-BE||
+APM|APM XWA HDC 20.00mm 2"|100|20.00|0|15.0|0|2.00|Multi other|0|9|678|FMC-BE||
+Arcturus|Arcturus Ebony 3.5mm 1.25"|70|3.5|0|17.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Arcturus|Arcturus Ebony 5mm 1.25"|70|5.0|0|17.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Arcturus|Arcturus Ebony 8mm 1.25"|70|8.0|0|17.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Arcturus|Arcturus Ebony 13mm 1.25"|70|13.0|0|17.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Arcturus|Arcturus Ebony 17mm 1.25"|70|17.0|0|17.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Arcturus|Arcturus Ebony 22mm 2"|70|22.0|0|17.0|0|2.00|Multi other|0|6|0|FMC-BE||
+Arcturus|Arcturus Ebony 32mm 2"|70|32.0|0|17.0|0|2.00|Multi other|0|6|0|FMC-BE||
+Arcturus|Arcturus Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
+Arcturus|Arcturus Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|||
+Astro Hutech|Astro Hutech HC Orthoscopic 4mm 1.25"|42|4.0|2.7|3.4|0|1.25|Ortho|0|4|0|FMC-BE||
+Astro Hutech|Astro Hutech HC Orthoscopic 5mm 1.25"|42|5.0|3.4|4.1|0|1.25|Ortho|0|4|0|FMC-BE||
+Astro Hutech|Astro Hutech HC Orthoscopic 6mm 1.25"|42|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FMC-BE||
+Astro Hutech|Astro Hutech HC Orthoscopic 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|0|4|0|FMC-BE||
+Astro Hutech|Astro Hutech HC Orthoscopic 25mm 1.25"|42|25.0|17.5|22.2|0|1.25|Ortho|0|4|0|FMC-BE||
+Astro Professional|Astro Professional Kellner 9mm 1.25"|50|9.0|0|0|0|1.25|Multi other|0|3|0|||
+Astro Professional|Astro Professional Long Eye Relief 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Astro Professional|Astro Professional Long Eye Relief 14.5mm 1.25"|55|14.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Astro Professional|Astro Professional Long Eye Relief 18mm 1.25"|55|18.0|0|20|0|1.25|Multi other|0|5|0|FMC-BE||
+Astro Professional|Astro Professional SWA  15mm 1.25"|70|15.0|0|13.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Astro Professional|Astro Professional SWA  20mm 1.25"|70|20.0|0|16.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Astro Tech|Astro Tech Hi-Grade Plossl 4mm 1.25"|55|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Hi-Grade Plossl 6mm 1.25"|55|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Hi-Grade Plossl 17mm 1.25"|55|17.0|0|11.9|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 3.2mm 1.25"|60|3.2|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 5mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 8mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 12mm 1.25"|60|12.0|12.0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 15mm 1.25"|60|15.0|15.0|15.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 18mm 1.25"|60|18.0|18.0|13.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Astro Tech|Astro Tech Paradigm Dual ED 25mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 4mm 1.25"|52|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 6mm 1.25"|52|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 9mm 1.25"|52|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 12mm 1.25"|52|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 15mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 20mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 25mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Astro Tech|Astro Tech Value Line Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Astromania|Astromania Kellner 26mm 2"|55|26.0|0|0|0|2.00|Multi other|0|3|0|FMC||
+Astromania|Astromania Kellner 32mm 2"|55|32.0|0|0|0|2.00|Multi other|0|3|0|FMC||
+Astromania|Astromania Kellner 55mm 2"|55|55.0|0|0|0|2.00|Multi other|0|3|0|FMC||
 Astromania|Astromania Planetary 2.5mm 1.25"|58|2.5|0|16.0|0|1.25|Multi other|0|5|0|FC||
 Astromania|Astromania Planetary 3.2mm 1.25"|58|3.2|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 4.0mm 1.25"|58|4.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 4mm 1.25"|58|4.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
 Astromania|Astromania Planetary 4.5mm 1.25"|58|4.5|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 5.0mm 1.25"|58|5.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 6.0mm 1.25"|58|6.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 7.0mm 1.25"|58|7.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 5mm 1.25"|58|5.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 6mm 1.25"|58|6.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 7mm 1.25"|58|7.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
 Astromania|Astromania Planetary 7.5mm 1.25"|58|7.5|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 8.0mm 1.25"|58|8.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 9.0mm 1.25"|58|9.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 15.0mm 1.25"|58|15.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 20.0mm 1.25"|58|20.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Planetary 25.0mm 1.25"|58|25.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Astromania|Astromania Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 6.0mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 8.0mm 1.25"|50|8.0|0|5.6|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Planetary 8mm 1.25"|58|8.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 9mm 1.25"|58|9.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 15mm 1.25"|58|15.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 20mm 1.25"|58|20.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Planetary 25mm 1.25"|58|25.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Astromania|Astromania Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 6mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 8mm 1.25"|50|8.0|0|5.6|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
 Astromania|Astromania Plossl 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 13.0mm 1.25"|50|13.0|0|9.1|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 17.0mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 40.0mm 1.25"|50|40.0|0|28.0|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Plossl 56.0mm 2.00"|50|56.0|0|39.2|0|2.00|Plossl|0|4|0|||
-Astromania|Astromania Premium Flatfield 8.0mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC||
-Astromania|Astromania Premium Flatfield 16.0mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC||
-Astromania|Astromania Premium Flatfield 19.0mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC||
-Astromania|Astromania Premium Flatfield 27.0mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC||
-Astromania|Astromania Super Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 13mm 1.25"|50|13.0|0|9.1|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 17mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 40mm 1.25"|50|40.0|0|28.0|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Plossl 56mm 2"|50|56.0|0|39.2|0|2.00|Plossl|0|4|0|||
+Astromania|Astromania Premium Flatfield 8mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC||
+Astromania|Astromania Premium Flatfield 16mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC||
+Astromania|Astromania Premium Flatfield 19mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC||
+Astromania|Astromania Premium Flatfield 27mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC||
+Astromania|Astromania Super Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|||
 Astromania|Astromania Super Plossl 6.3mm 1.25"|50|6.3|0|4.4|0|1.25|Plossl|0|4|0|||
 Astromania|Astromania Super Plossl 7.5mm 1.25"|50|7.5|0|5.3|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
 Astromania|Astromania Super Plossl 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 17.0mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 26.0mm 1.25"|50|26.0|0|18.2|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|||
-Astromania|Astromania Super Plossl 56.0mm 2.00"|50|56.0|0|39.2|0|2.00|Plossl|0|4|0|||
-Astromania|Astromania SWA 7.0mm 1.25"|82|7.0|0|0|0|1.25|Multi other|0|0|0|||
-Astromania|Astromania SWA 10.0mm 1.25"|82|10.0|0|0|0|1.25|Multi other|0|0|0|||
-Astromania|Astromania SWA 15.0mm 1.25"|82|15.0|0|0|0|1.25|Multi other|0|0|0|||
-Astromania|Astromania SWA 19.0mm 2.00"|82|19.0|0|0|0|2.00|Multi other|0|0|0|||
-Astromania|Astromania SWA 23.0mm 2.00"|82|23.0|0|0|0|2.00|Multi other|0|0|0|||
-Astromania|Astromania SWA 32.0mm 2.00"|82|32.0|0|0|0|2.00|Multi other|0|0|0|||
+Astromania|Astromania Super Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 17mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 26mm 1.25"|50|26.0|0|18.2|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|||
+Astromania|Astromania Super Plossl 56mm 2"|50|56.0|0|39.2|0|2.00|Plossl|0|4|0|||
+Astromania|Astromania SWA 7mm 1.25"|82|7.0|0|0|0|1.25|Multi other|0|0|0|||
+Astromania|Astromania SWA 10mm 1.25"|82|10.0|0|0|0|1.25|Multi other|0|0|0|||
+Astromania|Astromania SWA 15mm 1.25"|82|15.0|0|0|0|1.25|Multi other|0|0|0|||
+Astromania|Astromania SWA 19mm 2"|82|19.0|0|0|0|2.00|Multi other|0|0|0|||
+Astromania|Astromania SWA 23mm 2"|82|23.0|0|0|0|2.00|Multi other|0|0|0|||
+Astromania|Astromania SWA 32mm 2"|82|32.0|0|0|0|2.00|Multi other|0|0|0|||
 Astromania|Astromania SWA 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Astromania|Astromania SWA 5.0mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Astromania|Astromania SWA 8.0mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Astromania|Astromania SWA 13.0mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Astromania|Astromania SWA 17.0mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Astromania|Astromania SWA 22.0mm 2.00"|70|22.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Astromania|Astromania SWA 32.0mm 2.00"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Astromania|Astromania UltraWide 80 11.0mm 1.25"|80|11.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Astromania|Astromania UltraWide 80 15.0mm 2.00"|80|15.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
-Astromania|Astromania UltraWide 80 16.0mm 1.25"|80|16.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Astromania|Astromania UltraWide 80 20.0mm 2.00"|80|20.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
-Astromania|Astromania UltraWide 80 30.0mm 2.00"|80|30.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
-Astromania|Astromania UWA 6.0mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|5|0|MC||
-Astromania|Astromania UWA 9.0mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|6|0|MC||
-Astromania|Astromania UWA 15.0mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|MC||
-Astromania|Astromania UWA 20.0mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|4|0|MC||
-ATC (Czech)|ATC (Czech) Erfle 11.0mm 1.25"|60|11.0|0|0|0|1.25|Multi other|0|4|0|||
-ATC (Czech)|ATC (Czech) Erfle 13.0mm 1.25"|60|13.0|0|0|0|1.25|Multi other|0|4|0|||
-ATC (Czech)|ATC (Czech) Erfle 13.0mm 1.25"|59|13.0|0|0|0|1.25|Multi other|0|4|0|||
-ATC (Czech)|ATC (Czech) Erfle 16.0mm 1.25"|60|16.0|0|0|0|1.25|Multi other|0|4|0|||
-ATC (Czech)|ATC (Czech) Erfle 90.0mm 4.25"|60|90.0|104.0|0|0|4.25|Multi other|0|0|0|||
-ATC (Czech)|ATC (Czech) Kellner 20.0mm 1.25"|50|20.0|0|0|0|1.25|Multi other|0|3|0|||
-ATC (Czech)|ATC (Czech) Kellner 32.0mm 1.25"|46|32.0|27.2|0|0|1.25|Multi other|0|3|0|||
-ATC (Czech)|ATC (Czech) Kellner 40.0mm 1.25"|38|40.0|27.2|0|0|1.25|Multi other|0|3|0|||
-ATC (Czech)|ATC (Czech) Kellner 60.0mm 1.25"|26|60.0|27.2|0|0|1.25|Multi other|0|3|0|||
-ATC (Czech)|ATC (Czech) Kellner 60.0mm 2.00"|38|60.0|0|0|0|2.00|Multi other|0|3|0|||
-ATC (Czech)|ATC (Czech) Plossl 20.0mm 1.25"|60|20.0|0|0|0|1.25|Plossl|0|4|0|||
-ATC (Czech)|ATC (Czech) Plossl 26.0mm 1.25"|60|26.0|0|0|0|1.25|Plossl|0|4|0|FMC||
-ATC (Czech)|ATC (Czech) Plossl 26.0mm 1.25"|60|26.0|0|0|0|1.25|Plossl|0|4|0|||
-ATC (Czech)|ATC (Czech) Plossl 40.0mm 2.00"|60|40.0|0|0|0|2.00|Plossl|0|4|0|||
-ATC (Czech)|ATC (Czech) Plossl 53.0mm 2.00"|50|53.0|0|0|0|2.00|Plossl|0|4|0|||
-ATC (Czech)|ATC (Czech) Plossl 53.0mm 2.00"|50|53.0|0|0|0|2.00|Plossl|0|4|0|||
-ATC (Czech)|ATC (Czech) Ultra Wide 8.0mm 1.25"|94|8.0|0|0|0|1.25|Multi other|0|0|0|||
-ATC (Czech)|ATC (Czech) Wide field 3.0mm 1.25"|68|3.0|0|0|0|1.25|Multi other|0|6|0|||
-ATC (Czech)|ATC (Czech) Wide field 4.0mm 1.25"|68|4.0|0|0|0|1.25|Multi other|0|6|0|||
+Astromania|Astromania SWA 5mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
+Astromania|Astromania SWA 8mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
+Astromania|Astromania SWA 13mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
+Astromania|Astromania SWA 17mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
+Astromania|Astromania SWA 22mm 2"|70|22.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
+Astromania|Astromania SWA 32mm 2"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|0|FMC||
+Astromania|Astromania UltraWide 80 11mm 1.25"|80|11.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
+Astromania|Astromania UltraWide 80 15mm 2"|80|15.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
+Astromania|Astromania UltraWide 80 16mm 1.25"|80|16.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
+Astromania|Astromania UltraWide 80 20mm 2"|80|20.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
+Astromania|Astromania UltraWide 80 30mm 2"|80|30.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
+Astromania|Astromania UWA 6mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|5|0|MC||
+Astromania|Astromania UWA 9mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|6|0|MC||
+Astromania|Astromania UWA 15mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|MC||
+Astromania|Astromania UWA 20mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|4|0|MC||
+ATC (Czech)|ATC (Czech) Erfle 11mm 1.25"|60|11.0|0|0|0|1.25|Multi other|0|4|0|||
+ATC (Czech)|ATC (Czech) Erfle 13mm 1.25"|60|13.0|0|0|0|1.25|Multi other|0|4|0|||
+ATC (Czech)|ATC (Czech) Erfle 13mm 1.25"|59|13.0|0|0|0|1.25|Multi other|0|4|0|||
+ATC (Czech)|ATC (Czech) Erfle 16mm 1.25"|60|16.0|0|0|0|1.25|Multi other|0|4|0|||
+ATC (Czech)|ATC (Czech) Erfle 90mm 4.25"|60|90.0|104.0|0|0|4.25|Multi other|0|0|0|||
+ATC (Czech)|ATC (Czech) Kellner 20mm 1.25"|50|20.0|0|0|0|1.25|Multi other|0|3|0|||
+ATC (Czech)|ATC (Czech) Kellner 32mm 1.25"|46|32.0|27.2|0|0|1.25|Multi other|0|3|0|||
+ATC (Czech)|ATC (Czech) Kellner 40mm 1.25"|38|40.0|27.2|0|0|1.25|Multi other|0|3|0|||
+ATC (Czech)|ATC (Czech) Kellner 60mm 1.25"|26|60.0|27.2|0|0|1.25|Multi other|0|3|0|||
+ATC (Czech)|ATC (Czech) Kellner 60mm 2"|38|60.0|0|0|0|2.00|Multi other|0|3|0|||
+ATC (Czech)|ATC (Czech) Plossl 20mm 1.25"|60|20.0|0|0|0|1.25|Plossl|0|4|0|||
+ATC (Czech)|ATC (Czech) Plossl 26mm 1.25"|60|26.0|0|0|0|1.25|Plossl|0|4|0|FMC||
+ATC (Czech)|ATC (Czech) Plossl 26mm 1.25"|60|26.0|0|0|0|1.25|Plossl|0|4|0|||
+ATC (Czech)|ATC (Czech) Plossl 40mm 2"|60|40.0|0|0|0|2.00|Plossl|0|4|0|||
+ATC (Czech)|ATC (Czech) Plossl 53mm 2"|50|53.0|0|0|0|2.00|Plossl|0|4|0|||
+ATC (Czech)|ATC (Czech) Plossl 53mm 2"|50|53.0|0|0|0|2.00|Plossl|0|4|0|||
+ATC (Czech)|ATC (Czech) Ultra Wide 8mm 1.25"|94|8.0|0|0|0|1.25|Multi other|0|0|0|||
+ATC (Czech)|ATC (Czech) Wide field 3mm 1.25"|68|3.0|0|0|0|1.25|Multi other|0|6|0|||
+ATC (Czech)|ATC (Czech) Wide field 4mm 1.25"|68|4.0|0|0|0|1.25|Multi other|0|6|0|||
 ATC (Czech)|ATC (Czech) Wide field 5.5mm 1.25"|68|5.5|0|0|0|1.25|Multi other|0|6|0|||
-ATC (Czech)|ATC (Czech) Wide field 7.0mm 1.25"|68|7.0|0|0|0|1.25|Multi other|0|6|0|||
-ATC (Czech)|ATC (Czech) Wide field 8.0mm 1.25"|68|8.0|0|0|0|1.25|Multi other|0|6|0|||
-ATC (Czech)|ATC (Czech) Wide field 10.0mm 1.25"|64|10.0|0|0|0|1.25|Multi other|0|6|0|||
-Baader Planetarium|Baader Planetarium Classic Ortho 6.0mm 1.25"|49|6.0|5.0|4.5|0|1.25|Ortho|2|4|40|FMC||
-Baader Planetarium|Baader Planetarium Classic Ortho 10.0mm 1.25"|50|10.0|8.7|7.5|0|1.25|Ortho|2|4|52|FMC||
-Baader Planetarium|Baader Planetarium Classic Ortho 18.0mm 1.25"|53|18.0|16.8|13.5|0|1.25|Ortho|2|4|85|FMC||
-Baader Planetarium|Baader Planetarium Classic Plossl 32.0mm 1.25"|43|32.0|24.1|22.4|0|1.25|Plossl|2|4|104|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 5.0mm 1.25"|68|5.0|6.5|20.0|0|1.25|Multi other|0|8|416|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 8.0mm 1.25"|68|8.0|10.7|20.0|0|1.25|Multi other|0|8|381|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 10.0mm 1.25"|68|10.0|15.0|20.0|0|1.25|Multi other|0|8|385|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 13.0mm 1.25"|68|13.0|17.7|20.0|0|1.25|Multi other|0|8|390|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 17.0mm 1.25"|68|17.0|20.9|20.0|0|1.25|Multi other|0|8|395|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 21.0mm 1.25"|68|21.0|24.9|20.0|0|1.25|Multi other|0|8|388|FMC||
-Baader Planetarium|Baader Planetarium Hyperion 24.0mm 1.25"|68|24.0|28.5|20.0|0|1.25|Multi other|0|6|330|FMC||
-Baader Planetarium|Baader Planetarium Hyperion Ashperic 31.0mm 2.00"|72|31.0|38.0|18.0|0|2.00|Multi other|0|6|390|FMC||
-Baader Planetarium|Baader Planetarium Hyperion Ashperic 36.0mm 2.00"|72|36.0|44.0|20.0|0|2.00|Multi other|0|6|415|FMC||
-Baader Planetarium|Baader Planetarium Morpheus 4.5mm 1.25"|76|4.5|6.1|16.7|0|1.25|Multi other|0|8|370|FMC||
-Baader Planetarium|Baader Planetarium Morpheus 6.5mm 1.25"|76|6.5|8.8|17.5|0|1.25|Multi other|0|8|350|FMC||
-Baader Planetarium|Baader Planetarium Morpheus 9.0mm 1.25"|76|9.0|12.1|21.4|0|1.25|Multi other|0|8|360|FMC||
-Baader Planetarium|Baader Planetarium Morpheus 12.5mm 1.25"|76|12.5|16.8|19.8|0|1.25|Multi other|0|8|345|FMC||
-Baader Planetarium|Baader Planetarium Morpheus 14.0mm 1.25"|76|14.0|18.9|18.3|0|1.25|Multi other|0|8|360|FMC||
-Baader Planetarium|Baader Planetarium Morpheus 17.5mm 1.25"|76|17.5|23.6|24.0|0|1.25|Multi other|0|8|312|FMC||
-Brandon|Brandon Orthoscopic 6.0mm 1.25"|42|6.0|4.4|4.8|0|1.25|Multi other|0|4|0|FC||
-Brandon|Brandon Orthoscopic 8.0mm 1.25"|43|8.0|6.0|6.4|0|1.25|Multi other|0|4|0|FC||
-Brandon|Brandon Orthoscopic 12.0mm 1.25"|43|12.0|8.9|9.6|0|1.25|Multi other|0|4|0|FC||
-Brandon|Brandon Orthoscopic 16.0mm 1.25"|43|16.0|12.0|12.8|0|1.25|Multi other|0|4|0|FC||
-Brandon|Brandon Orthoscopic 24.0mm 1.25"|52|24.0|22.0|19.2|0|1.25|Multi other|0|4|0|FC||
-Brandon|Brandon Orthoscopic 32.0mm 1.25"|45|32.0|25.0|25.6|0|1.25|Multi other|0|4|0|FC||
-Brandon|Brandon Orthoscopic 48.0mm 2.00"|45|48.0|37.0|38.4|0|2.00|Multi other|0|4|0|FC||
-Bresser|Bresser Modified Plossl 20.0mm 1.25"|60|20.0|0|15.0|0|1.25|Plossl|0|5|0|FMC||
-Bresser|Bresser Modified Plossl 26.0mm 1.25"|60|26.0|0|19.0|0|1.25|Plossl|0|5|0|FMC||
-Bresser|Bresser Modified Plossl 32.0mm 2.00"|60|32.0|0|22.0|0|2.00|Plossl|0|5|0|FMC||
-Bresser|Bresser Plossl 5.0mm 1.25"|50|5.0|0|3.5|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 6.5mm 1.25"|50|6.5|0|4.6|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 30.0mm 1.25"|50|30.0|0|21.0|0|1.25|Plossl|0|4|0|FMC||
-Bresser|Bresser Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
+ATC (Czech)|ATC (Czech) Wide field 7mm 1.25"|68|7.0|0|0|0|1.25|Multi other|0|6|0|||
+ATC (Czech)|ATC (Czech) Wide field 8mm 1.25"|68|8.0|0|0|0|1.25|Multi other|0|6|0|||
+ATC (Czech)|ATC (Czech) Wide field 10mm 1.25"|64|10.0|0|0|0|1.25|Multi other|0|6|0|||
+Baader Planetarium|Baader Planetarium Classic Ortho 6mm 1.25"|49|6.0|5.0|4.5|0|1.25|Ortho|0|4|40|FMC||
+Baader Planetarium|Baader Planetarium Classic Ortho 10mm 1.25"|50|10.0|8.7|7.5|0|1.25|Ortho|0|4|52|FMC||
+Baader Planetarium|Baader Planetarium Classic Ortho 18mm 1.25"|53|18.0|16.8|13.5|0|1.25|Ortho|0|4|85|FMC||
+Baader Planetarium|Baader Planetarium Classic Plossl 32mm 1.25"|43|32.0|24.1|22.4|0|1.25|Plossl|0|4|104|FMC||
+Baader Planetarium|Baader Planetarium Hyperion 5mm 1.25"|68|5.0|6.5|20.0|0|1.25|Multi other|0|8|416|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion 8mm 1.25"|68|8.0|10.7|20.0|0|1.25|Multi other|0|8|381|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion 10mm 1.25"|68|10.0|15.0|20.0|0|1.25|Multi other|0|8|385|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion 13mm 1.25"|68|13.0|17.7|20.0|0|1.25|Multi other|0|8|390|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion 17mm 1.25"|68|17.0|20.9|20.0|0|1.25|Multi other|0|8|395|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion 21mm 1.25"|68|21.0|24.9|20.0|0|1.25|Multi other|0|8|388|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion 24mm 1.25"|68|24.0|28.5|20.0|0|1.25|Multi other|0|6|330|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion Ashperic 31mm 2"|72|31.0|38.0|18.0|0|2.00|Multi other|0|6|390|FMC-BE||
+Baader Planetarium|Baader Planetarium Hyperion Ashperic 36mm 2"|72|36.0|44.0|20.0|0|2.00|Multi other|0|6|415|FMC-BE||
+Baader Planetarium|Baader Planetarium Morpheus 4.5mm 1.25"|76|4.5|6.1|16.7|0|1.25|Multi other|0|8|370|FMC-BE||
+Baader Planetarium|Baader Planetarium Morpheus 6.5mm 1.25"|76|6.5|8.8|17.5|0|1.25|Multi other|0|8|350|FMC-BE||
+Baader Planetarium|Baader Planetarium Morpheus 9mm 1.25"|76|9.0|12.1|21.4|0|1.25|Multi other|0|8|360|FMC-BE||
+Baader Planetarium|Baader Planetarium Morpheus 12.5mm 1.25"|76|12.5|16.8|19.8|0|1.25|Multi other|0|8|345|FMC-BE||
+Baader Planetarium|Baader Planetarium Morpheus 14mm 1.25"|76|14.0|18.9|18.3|0|1.25|Multi other|0|8|360|FMC-BE||
+Baader Planetarium|Baader Planetarium Morpheus 17.5mm 1.25"|76|17.5|23.6|24.0|0|1.25|Multi other|0|8|312|FMC-BE||
+Brandon|Brandon Brandon Orthoscopic 6mm 1.25"|42|6.0|4.4|4.8|0|1.25|Multi other|0|4|0|FC||
+Brandon|Brandon Brandon Orthoscopic 8mm 1.25"|43|8.0|6.0|6.4|0|1.25|Multi other|0|4|0|FC||
+Brandon|Brandon Brandon Orthoscopic 12mm 1.25"|43|12.0|8.9|9.6|0|1.25|Multi other|0|4|0|FC||
+Brandon|Brandon Brandon Orthoscopic 16mm 1.25"|43|16.0|12.0|12.8|0|1.25|Multi other|0|4|0|FC||
+Brandon|Brandon Brandon Orthoscopic 24mm 1.25"|52|24.0|22.0|19.2|0|1.25|Multi other|0|4|0|FC||
+Brandon|Brandon Brandon Orthoscopic 32mm 1.25"|45|32.0|25.0|25.6|0|1.25|Multi other|0|4|0|FC||
+Brandon|Brandon Brandon Orthoscopic 48mm 2"|45|48.0|37.0|38.4|0|2.00|Multi other|0|4|0|FC||
+Bresser|Bresser Modified Plossl 20mm 1.25"|60|20.0|0|15.0|0|1.25|Plossl|0|5|0|FMC-BE||
+Bresser|Bresser Modified Plossl 26mm 1.25"|60|26.0|0|19.0|0|1.25|Plossl|0|5|0|FMC-BE||
+Bresser|Bresser Modified Plossl 32mm 2"|60|32.0|0|22.0|0|2.00|Plossl|0|5|0|FMC-BE||
+Bresser|Bresser Plossl 5mm 1.25"|50|5.0|0|3.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 6.5mm 1.25"|50|6.5|0|4.6|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 30mm 1.25"|50|30.0|0|21.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Bresser|Bresser Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
 BST (Barsta)|BST (Barsta) 58 degree Series 2.5mm 1.25"|58|2.5|0|16.0|0|1.25|Multi other|0|5|0|FC||
 BST (Barsta)|BST (Barsta) 58 degree Series 3.2mm 1.25"|58|3.2|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 4.0mm 1.25"|58|4.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 4mm 1.25"|58|4.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
 BST (Barsta)|BST (Barsta) 58 degree Series 4.5mm 1.25"|58|4.5|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 5.0mm 1.25"|58|5.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 6.0mm 1.25"|58|6.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 7.0mm 1.25"|58|7.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 8.0mm 1.25"|58|8.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 9.0mm 1.25"|58|9.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 15.0mm 1.25"|58|15.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 20.0mm 1.25"|58|20.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) 58 degree Series 25.0mm 1.25"|58|25.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-BST (Barsta)|BST (Barsta) Dual ED 3.2mm 1.25"|60|3.2|0|13.0|0|1.25|Multi other|4|6|0|FMC||
-BST (Barsta)|BST (Barsta) Dual ED 5.0mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|4|6|0|FMC||
-BST (Barsta)|BST (Barsta) Dual ED 8.0mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|4|6|0|FMC||
-BST (Barsta)|BST (Barsta) Dual ED 12.0mm 1.25"|60|12.0|12.0|13.0|0|1.25|Multi other|0|6|0|FMC||
-BST (Barsta)|BST (Barsta) Dual ED 15.0mm 1.25"|60|15.0|15.0|15.0|0|1.25|Multi other|0|6|0|FMC||
-BST (Barsta)|BST (Barsta) Dual ED 18.0mm 1.25"|60|18.0|18.0|13.0|0|1.25|Multi other|0|5|0|FMC||
-BST (Barsta)|BST (Barsta) Dual ED 25.0mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC||
-BST (Barsta)|BST (Barsta) Flat Field 8.0mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC||
-BST (Barsta)|BST (Barsta) Flat Field 12.0mm 1.25"|60|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC||
-BST (Barsta)|BST (Barsta) Flat Field 16.0mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC||
-BST (Barsta)|BST (Barsta) Flat Field 19.0mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC||
-BST (Barsta)|BST (Barsta) Flat Field 27.0mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC||
-Burgess Optical  |Burgess Optical   Modified Erfle 16.0mm 1.25"|67|16.0|18.0|14.0|0|1.25|Multi other|0|5|76|FMC||
-Burgess Optical  |Burgess Optical   Modified Erfle 24.0mm 1.25"|67|24.0|26.0|18.0|0|1.25|Multi other|0|5|188|FMC||
-Burgess Optical  |Burgess Optical   Modified Erfle 35.0mm 2.00"|67|35.0|39.0|18.0|0|2.00|Multi other|0|5|460|FMC||
-Burgess Optical  |Burgess Optical   Symmetrical 12.5mm 1.25"|48|12.5|0|12.5|0|1.25|Plossl|0|4|52|FMC||
-Burgess Optical  |Burgess Optical   Symmetrical 30.0mm 1.25"|55|30.0|0|18.0|0|1.25|Plossl|0|4|114|FMC||
-Burgess Optical  |Burgess Optical   Ultra Mono 10.0mm 1.25"|35|10.0|5.5|16.0|0|1.25|Multi other|0|3|50|FMC||
-Celestron|Celestron Luminos 7.0mm 1.25"|82|7.0|15.0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Celestron|Celestron Luminos 10.0mm 1.25"|82|10.0|17.0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Celestron|Celestron Luminos 15.0mm 1.25"|82|15.0|26.0|17.0|0|1.25|Multi other|0|7|0|FMC||
-Celestron|Celestron Luminos 19.0mm 2.00"|82|19.0|30.0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Celestron|Celestron Luminos 23.0mm 2.00"|82|23.0|37.0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Celestron|Celestron Luminos 31.0mm 2.00"|82|31.0|47.0|27.0|0|2.00|Multi other|0|6|0|FMC||
-Celestron|Celestron Omni 4.0mm 1.25"|50|4.0|0|6.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron Omni 6.0mm 1.25"|50|6.0|0|5.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron Omni 9.0mm 1.25"|50|9.0|0|6.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron Omni 12.0mm 1.25"|50|12.0|0|8.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron Omni 15.0mm 1.25"|50|15.0|0|13.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron Omni 32.0mm 1.25"|48|32.0|0|22.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron Omni 40.0mm 1.25"|40|40.0|0|31.0|0|1.25|Plossl|0|4|0|FMC||
-Celestron|Celestron X-CEL LX 2.3mm 1.25"|60|2.3|0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Celestron|Celestron X-CEL LX 5.0mm 1.25"|60|5.0|5.1|16.0|0|1.25|Multi other|0|6|0|FMC||
-Celestron|Celestron X-CEL LX 7.0mm 1.25"|60|7.0|7.0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Celestron|Celestron X-CEL LX 9.0mm 1.25"|60|9.0|9.5|16.0|0|1.25|Multi other|0|6|0|FMC||
-Celestron|Celestron X-CEL LX 12.0mm 1.25"|60|12.0|13.0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Celestron|Celestron X-CEL LX 18.0mm 1.25"|60|18.0|18.4|16.0|0|1.25|Multi other|0|6|0|FMC||
-Celestron|Celestron X-CEL LX 25.0mm 1.25"|60|25.0|25.0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Coronado|Coronado CeMax 12.0mm 1.25"|52.2|12.0|10.5|9.0|0|1.25|Plossl|0|4|0|FMC||
-Coronado|Coronado CeMax 18.0mm 1.25"|52|18.0|18.0|12.0|0|1.25|Plossl|0|4|0|FMC||
-Coronado|Coronado CeMax 25.0mm 1.25"|47.2|25.0|19.5|13.0|0|1.25|Plossl|0|4|0|FMC||
+BST (Barsta)|BST (Barsta) 58 degree Series 5mm 1.25"|58|5.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 6mm 1.25"|58|6.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 7mm 1.25"|58|7.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 8mm 1.25"|58|8.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 9mm 1.25"|58|9.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 15mm 1.25"|58|15.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 20mm 1.25"|58|20.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) 58 degree Series 25mm 1.25"|58|25.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+BST (Barsta)|BST (Barsta) Dual ED 3.2mm 1.25"|60|3.2|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Dual ED 5mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Dual ED 8mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Dual ED 12mm 1.25"|60|12.0|12.0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Dual ED 15mm 1.25"|60|15.0|15.0|15.0|0|1.25|Multi other|0|6|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Dual ED 18mm 1.25"|60|18.0|18.0|13.0|0|1.25|Multi other|0|5|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Dual ED 25mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Flat Field 8mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Flat Field 12mm 1.25"|60|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Flat Field 16mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Flat Field 19mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC-BE||
+BST (Barsta)|BST (Barsta) Flat Field 27mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Burgess Optical  |Burgess Optical   Modified Erfle 16mm 1.25"|67|16.0|18.0|14.0|0|1.25|Multi other|0|5|76|FMC||
+Burgess Optical  |Burgess Optical   Modified Erfle 24mm 1.25"|67|24.0|26.0|18.0|0|1.25|Multi other|0|5|188|FMC||
+Burgess Optical  |Burgess Optical   Modified Erfle 35mm 2"|67|35.0|39.0|18.0|0|2.00|Multi other|0|5|460|FMC||
+Burgess Optical  |Burgess Optical   Symmetrical 12.5mm 1.25"|48|12.5|0|12.5|0|1.25|Plossl|0|4|52|FMC-BE||
+Burgess Optical  |Burgess Optical   Symmetrical 30mm 1.25"|55|30.0|0|18.0|0|1.25|Plossl|0|4|114|FMC-BE||
+Burgess Optical  |Burgess Optical   Ultra Mono 10mm 1.25"|35|10.0|5.5|16.0|0|1.25|Multi other|0|3|50|FMC||
+Celestron|Celestron Luminos 7mm 1.25"|82|7.0|15.0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Celestron|Celestron Luminos 10mm 1.25"|82|10.0|17.0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Celestron|Celestron Luminos 15mm 1.25"|82|15.0|26.0|17.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Celestron|Celestron Luminos 19mm 2"|82|19.0|30.0|20.0|0|2.00|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron Luminos 23mm 2"|82|23.0|37.0|20.0|0|2.00|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron Luminos 31mm 2"|82|31.0|47.0|27.0|0|2.00|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron Omni 4mm 1.25"|50|4.0|0|6.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron Omni 6mm 1.25"|50|6.0|0|5.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron Omni 9mm 1.25"|50|9.0|0|6.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron Omni 12mm 1.25"|50|12.0|0|8.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron Omni 15mm 1.25"|50|15.0|0|13.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron Omni 32mm 1.25"|48|32.0|0|22.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron Omni 40mm 1.25"|40|40.0|0|31.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Celestron|Celestron X-CEL LX 2.3mm 1.25"|60|2.3|0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron X-CEL LX 5mm 1.25"|60|5.0|5.1|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron X-CEL LX 7mm 1.25"|60|7.0|7.0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron X-CEL LX 9mm 1.25"|60|9.0|9.5|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron X-CEL LX 12mm 1.25"|60|12.0|13.0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron X-CEL LX 18mm 1.25"|60|18.0|18.4|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Celestron|Celestron X-CEL LX 25mm 1.25"|60|25.0|25.0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Coronado|Coronado CeMax 12mm 1.25"|52.2|12.0|10.5|9.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Coronado|Coronado CeMax 18mm 1.25"|52|18.0|18.0|12.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Coronado|Coronado CeMax 25mm 1.25"|47.2|25.0|19.5|13.0|0|1.25|Plossl|0|4|0|FMC-BE||
 Denkmeier Optical|Denkmeier Optical D14-pr 15.3mm 1.25"|65|15.3|0|20.0|0|1.25|Multi other|0|0|0|FMC||
 Denkmeier Optical|Denkmeier Optical D21-pr 21.6mm 1.25"|65|21.6|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Denkmeier Optical|Denkmeier Optical Plossl 32.0mm 1.25"|50|32.0|27.0|22.4|0|1.25|Plossl|0|4|0|FMC||
-Discovery|Discovery Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|||
+Denkmeier Optical|Denkmeier Optical Plossl 32mm 1.25"|50|32.0|27.0|22.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Discovery|Discovery Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|||
 Discovery|Discovery Plossl 6.5mm 1.25"|50|6.5|0|4.6|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
+Discovery|Discovery Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|||
 Discovery|Discovery Plossl 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Plossl 30.0mm 1.25"|50|30.0|0|21.0|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|||
-Discovery|Discovery Series 70 10.0mm 1.25"|70|10.0|0|0|0|1.25|Multi other|0|0|0|||
-Discovery|Discovery Series 70 15.0mm 1.25"|70|15.0|0|0|0|1.25|Multi other|0|0|0|||
-Discovery|Discovery Series 70 20.0mm 1.25"|70|20.0|0|0|0|1.25|Multi other|0|0|0|||
-Discovery|Discovery Series 70 32.0mm 2.00"|70|32.0|0|0|0|2.00|Multi other|0|0|0|||
-Edmund Optics|Edmund Optics Orthoscopic 6.0mm 1.25"|43|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FC||
-Edmund Optics|Edmund Optics RKE 8.0mm 1.25"|45|8.0|6.6|8.2|0|1.25|Multi other|0|3|0|FC||
-Edmund Optics|Edmund Optics RKE 12.0mm 1.25"|46|12.0|9.7|10.7|0|1.25|Multi other|0|3|0|FC||
+Discovery|Discovery Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|||
+Discovery|Discovery Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|||
+Discovery|Discovery Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|||
+Discovery|Discovery Plossl 30mm 1.25"|50|30.0|0|21.0|0|1.25|Plossl|0|4|0|||
+Discovery|Discovery Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|||
+Discovery|Discovery Series 70 10mm 1.25"|70|10.0|0|0|0|1.25|Multi other|0|0|0|||
+Discovery|Discovery Series 70 15mm 1.25"|70|15.0|0|0|0|1.25|Multi other|0|0|0|||
+Discovery|Discovery Series 70 20mm 1.25"|70|20.0|0|0|0|1.25|Multi other|0|0|0|||
+Discovery|Discovery Series 70 32mm 2"|70|32.0|0|0|0|2.00|Multi other|0|0|0|||
+Edmund Optics|Edmund Optics Orthoscopic 6mm 1.25"|43|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FC||
+Edmund Optics|Edmund Optics RKE 8mm 1.25"|45|8.0|6.6|8.2|0|1.25|Multi other|0|3|0|FC||
+Edmund Optics|Edmund Optics RKE 12mm 1.25"|46|12.0|9.7|10.7|0|1.25|Multi other|0|3|0|FC||
 Edmund Optics|Edmund Optics RKE 21.5mm 1.25"|47|21.5|17.5|18.8|0|1.25|Multi other|0|3|0|FC||
 Edmund Optics|Edmund Optics RKE 28.7mm 1.25"|47|28.7|23.3|24.5|0|1.25|Multi other|0|3|0|FC||
-Explore Scientific|Explore Scientific 100 Series 5.5mm 2.00"|100|5.5|9.6|10.5|0|2.00|Multi other|0|9|603|FMC||
-Explore Scientific|Explore Scientific 100 Series 9.0mm 2.00"|100|9.0|15.7|12.5|0|2.00|Multi other|0|9|596|FMC||
-Explore Scientific|Explore Scientific 100 Series 14.0mm 2.00"|100|14.0|24.4|14.5|0|2.00|Multi other|0|9|852|FMC||
-Explore Scientific|Explore Scientific 100 Series 20.0mm 2.00"|100|20.0|34.8|14.5|0|2.00|Multi other|0|9|965|FMC||
-Explore Scientific|Explore Scientific 100 Series 25.0mm 2.00"|100|25.0|41.0|14.5|0|2.00|Multi other|0|8|1176|FMC||
-Explore Scientific|Explore Scientific 120 Series 9.0mm 2.00"|120|9.0|21.7|12.5|0|2.00|Multi other|0|12|1295|FMC||
-Explore Scientific|Explore Scientific 52 Series 3.0mm 1.25"|52|3.0|2.7|15.0|0|1.25|Multi other|0|6|190|FMC||
-Explore Scientific|Explore Scientific 52 Series 4.5mm 1.25"|52|4.5|4.1|15.0|0|1.25|Multi other|0|6|190|FMC||
-Explore Scientific|Explore Scientific 52 Series 6.5mm 1.25"|52|6.5|5.9|15.9|0|1.25|Multi other|0|6|220|FMC||
-Explore Scientific|Explore Scientific 52 Series 10.0mm 1.25"|52|10.0|9.1|16.6|0|1.25|Multi other|0|6|185|FMC||
-Explore Scientific|Explore Scientific 52 Series 15.0mm 1.25"|52|15.0|0|16.3|0|1.25|Multi other|0|0|200|FMC||
-Explore Scientific|Explore Scientific 52 Series 20.0mm 1.25"|52|20.0|18.2|15.0|0|1.25|Multi other|0|5|175|FMC||
-Explore Scientific|Explore Scientific 52 Series 25.0mm 1.25"|52|25.0|0|16.4|0|1.25|Multi other|0|4|182|FMC||
-Explore Scientific|Explore Scientific 52 Series 30.0mm 1.25"|52|30.0|27.2|19.9|0|1.25|Multi other|0|4|200|FMC||
-Explore Scientific|Explore Scientific 52 Series 40.0mm 2.00"|52|40.0|36.3|27.1|0|2.00|Multi other|0|4|385|FMC||
-Explore Scientific|Explore Scientific 62 Series 5.5mm 1.25"|62|5.5|6.7|12.9|0|1.25|Multi other|0|6|115|FMC||
-Explore Scientific|Explore Scientific 62 Series 9.0mm 1.25"|62|9.0|10.9|12.6|0|1.25|Multi other|0|6|115|FMC||
-Explore Scientific|Explore Scientific 62 Series 14.0mm 1.25"|62|14.0|14.7|10.4|0|1.25|Multi other|0|5|99|FMC||
-Explore Scientific|Explore Scientific 62 Series 20.0mm 1.25"|62|20.0|20.9|14.8|0|1.25|Multi other|0|5|136|FMC||
-Explore Scientific|Explore Scientific 62 Series 26.0mm 1.25"|62|26.0|27.3|19.3|0|1.25|Multi other|0|5|220|FMC||
-Explore Scientific|Explore Scientific 62 Series 32.0mm 2.00"|62|32.0|33.6|22.2|0|2.00|Multi other|0|5|420|FMC||
-Explore Scientific|Explore Scientific 62 Series 40.0mm 2.00"|62|40.0|42.2|28.2|0|2.00|Multi other|0|5|665|FMC||
-Explore Scientific|Explore Scientific 68 Series 16.0mm 1.25"|68|16.0|18.2|11.9|0|1.25|Multi other|0|6|159|FMC||
-Explore Scientific|Explore Scientific 68 Series 20.0mm 1.25"|68|20.0|22.8|15.3|0|1.25|Multi other|0|6|250|FMC||
-Explore Scientific|Explore Scientific 68 Series 24.0mm 1.25"|68|24.0|27.2|18.4|0|1.25|Multi other|0|6|318|FMC||
-Explore Scientific|Explore Scientific 68 Series 28.0mm 2.00"|68|28.0|31.8|21.6|0|2.00|Multi other|0|6|454|FMC||
-Explore Scientific|Explore Scientific 68 Series 34.0mm 2.00"|68|34.0|38.6|26.4|0|2.00|Multi other|0|6|681|FMC||
-Explore Scientific|Explore Scientific 68 Series 40.0mm 2.00"|68|40.0|46.0|31.0|0|2.00|Multi other|0|6|977|FMC||
-Explore Scientific|Explore Scientific 82 Series 4.7mm 1.25"|82|4.7|6.9|14.0|0|1.25|Multi other|0|7|213|FMC||
-Explore Scientific|Explore Scientific 82 Series 6.7mm 1.25"|82|6.7|9.5|14.0|0|1.25|Multi other|0|7|227|FMC||
-Explore Scientific|Explore Scientific 82 Series 8.8mm 1.25"|82|8.8|12.4|14.0|0|1.25|Multi other|0|7|227|FMC||
-Explore Scientific|Explore Scientific 82 Series 11.0mm 1.25"|82|11.0|15.9|15.0|0|1.25|Multi other|0|7|284|FMC||
-Explore Scientific|Explore Scientific 82 Series 14.0mm 1.25"|82|14.0|18.9|15.0|0|1.25|Multi other|0|7|256|FMC||
-Explore Scientific|Explore Scientific 82 Series 18.0mm 2.00"|82|18.0|25.3|13.0|0|2.00|Multi other|0|6|398|FMC||
-Explore Scientific|Explore Scientific 82 Series 24.0mm 2.00"|82|24.0|33.5|17.0|0|2.00|Multi other|0|6|727|FMC||
-Explore Scientific|Explore Scientific 82 Series 30.0mm 2.00"|82|30.0|43.0|21.0|0|2.00|Multi other|0|6|1000|FMC||
-Explore Scientific|Explore Scientific 92 Series 12.0mm 2.00"|92|12.0|19.6|20.0|0|2.00|Multi other|0|8|1017|FMC||
-Explore Scientific|Explore Scientific 92 Series 17.0mm 2.00"|92|17.0|27.5|19.9|0|2.00|Multi other|0|8|1159|FMC||
-Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 10.0mm 1.25"|70|10.0|0|0|0|1.25|Multi other|0|5|0|FMC||
-Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 15.0mm 1.25"|70|15.0|0|0|0|1.25|Multi other|0|5|0|FMC||
-Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 20.0mm 1.25"|70|20.0|0|0|0|1.25|Multi other|0|5|0|FMC||
-Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 25.0mm 2.00"|70|25.0|0|0|0|2.00|Multi other|0|5|0|FMC||
-Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 30.0mm 2.00"|70|30.0|0|0|0|2.00|Multi other|0|5|0|FMC||
-Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 35.0mm 2.00"|70|35.0|0|0|0|2.00|Multi other|0|5|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 4.0mm 1.25"|42|4.0|2.6|3.4|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 5.0mm 1.25"|42|5.0|3.4|4.0|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 6.0mm 1.25"|42|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 7.0mm 1.25"|42|7.0|4.8|6.1|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 9.0mm 1.25"|42|9.0|6.3|7.6|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 18.0mm 1.25"|42|18.0|12.5|15.2|0|1.25|Ortho|0|4|0|FMC||
-Fujiyama|Fujiyama HD Orthoscopic 25.0mm 1.25"|42|25.0|17.4|22.2|0|1.25|Ortho|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 6.0mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 9.0mm 1.25"|50|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 12.0mm 1.25"|50|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 15.0mm 1.25"|65|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 20.0mm 1.25"|67|20.0|23.5|18.0|0|1.25|Multi other|0|5|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 30.0mm 2.00"|70|30.0|0|22.0|0|2.00|Multi other|0|5|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 42.0mm 2.00"|58|42.0|42.0|30.0|0|2.00|Multi other|0|5|0|FMC||
-GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 50.0mm 2.00"|48|50.0|0|35.0|0|2.00|Multi other|0|5|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40.0mm 2.50"|75|40.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40.0mm 2.70"|75|40.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40.0mm 3.00"|75|40.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40.0mm 4.00"|75|40.0|0|25.0|0|4.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40.0mm 4.30"|75|40.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42.0mm 2.50"|75|42.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42.0mm 2.70"|75|42.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42.0mm 3.00"|75|42.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42.0mm 4.00"|75|42.0|0|25.0|0|4.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42.0mm 4.30"|75|42.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50.0mm 2.50"|70|50.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50.0mm 2.70"|70|50.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50.0mm 3.00"|70|50.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50.0mm 4.00"|70|50.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50.0mm 4.30"|70|50.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55.0mm 2.50"|63|55.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55.0mm 2.70"|65|55.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55.0mm 3.00"|70|55.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55.0mm 4.00"|70|55.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55.0mm 4.30"|70|55.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60.0mm 2.50"|57|60.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60.0mm 2.70"|60|60.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60.0mm 3.00"|65|60.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60.0mm 4.00"|70|60.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60.0mm 4.30"|70|60.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65.0mm 2.50"|53|65.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65.0mm 2.70"|56|65.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65.0mm 3.00"|65|65.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65.0mm 4.00"|65|65.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65.0mm 4.30"|65|65.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70.0mm 2.50"|50|70.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70.0mm 2.70"|52|70.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70.0mm 3.00"|60|70.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70.0mm 4.00"|65|70.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70.0mm 4.30"|65|70.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 75.0mm 3.00"|60|75.0|0|25.0|0|3.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 75.0mm 4.00"|60|75.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 75.0mm 4.30"|60|75.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 80.0mm 3.00"|60|80.0|0|25.0|0|3.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 80.0mm 4.00"|60|80.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 80.0mm 4.30"|60|80.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 85.0mm 4.00"|57|85.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 85.0mm 4.30"|57|85.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 90.0mm 4.00"|55|90.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 90.0mm 4.30"|55|90.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 95.0mm 4.00"|55|95.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 95.0mm 4.30"|55|95.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 100.0mm 4.00"|55|100.0|0|25.0|0|4.00|Multi other|0|6|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 100.0mm 4.30"|55|100.0|0|25.0|0|4.30|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Series 34.0mm 2.00"|65|34.0|0|20.0|0|2.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Observatory Series 36.0mm 2.00"|65|36.0|0|20.0|0|2.00|Multi other|0|0|0|||
-Harry Siebert Optics|Harry Siebert Optics Performance + 9.0mm 1.25"|60|9.0|0|10.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 10.0mm 1.25"|60|10.0|0|10.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 14.0mm 1.25"|60|14.0|0|14.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 15.0mm 1.25"|60|15.0|0|15.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 16.0mm 1.25"|60|16.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 17.0mm 1.25"|60|17.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 18.0mm 1.25"|60|18.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 27.0mm 1.25"|52|27.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Performance + 35.0mm 1.25"|49|35.0|0|25.0|0|1.25|Multi other|0|3|0|FMC||
+Explore Scientific|Explore Scientific 100 Series 5.5mm 2"|100|5.5|9.6|10.5|0|2.00|Multi other|0|9|603|FMC-BE||
+Explore Scientific|Explore Scientific 100 Series 9mm 2"|100|9.0|15.7|12.5|0|2.00|Multi other|0|9|596|FMC-BE||
+Explore Scientific|Explore Scientific 100 Series 14mm 2"|100|14.0|24.4|14.5|0|2.00|Multi other|0|9|852|FMC-BE||
+Explore Scientific|Explore Scientific 100 Series 20mm 2"|100|20.0|34.8|14.5|0|2.00|Multi other|0|9|965|FMC-BE||
+Explore Scientific|Explore Scientific 100 Series 25mm 2"|100|25.0|41.0|14.5|0|2.00|Multi other|0|8|1176|FMC-BE||
+Explore Scientific|Explore Scientific 120 Series 9mm 2"|120|9.0|21.7|12.5|0|2.00|Multi other|0|12|1295|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 3mm 1.25"|52|3.0|2.7|15.0|0|1.25|Multi other|0|6|190|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 4.5mm 1.25"|52|4.5|4.1|15.0|0|1.25|Multi other|0|6|190|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 6.5mm 1.25"|52|6.5|5.9|15.9|0|1.25|Multi other|0|6|220|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 10mm 1.25"|52|10.0|9.1|16.6|0|1.25|Multi other|0|6|185|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 15mm 1.25"|52|15.0|0|16.3|0|1.25|Multi other|0|0|200|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 20mm 1.25"|52|20.0|18.2|15.0|0|1.25|Multi other|0|5|175|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 25mm 1.25"|52|25.0|0|16.4|0|1.25|Multi other|0|4|182|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 30mm 1.25"|52|30.0|27.2|19.9|0|1.25|Multi other|0|4|200|FMC-BE||
+Explore Scientific|Explore Scientific 52 Series 40mm 2"|52|40.0|36.3|27.1|0|2.00|Multi other|0|4|385|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 5.5mm 1.25"|62|5.5|6.7|12.9|0|1.25|Multi other|0|6|115|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 9mm 1.25"|62|9.0|10.9|12.6|0|1.25|Multi other|0|6|115|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 14mm 1.25"|62|14.0|14.7|10.4|0|1.25|Multi other|0|5|99|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 20mm 1.25"|62|20.0|20.9|14.8|0|1.25|Multi other|0|5|136|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 26mm 1.25"|62|26.0|27.3|19.3|0|1.25|Multi other|0|5|220|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 32mm 2"|62|32.0|33.6|22.2|0|2.00|Multi other|0|5|420|FMC-BE||
+Explore Scientific|Explore Scientific 62 Series 40mm 2"|62|40.0|42.2|28.2|0|2.00|Multi other|0|5|665|FMC-BE||
+Explore Scientific|Explore Scientific 68 Series 16mm 1.25"|68|16.0|18.2|11.9|0|1.25|Multi other|0|6|159|FMC-BE||
+Explore Scientific|Explore Scientific 68 Series 20mm 1.25"|68|20.0|22.8|15.3|0|1.25|Multi other|0|6|250|FMC-BE||
+Explore Scientific|Explore Scientific 68 Series 24mm 1.25"|68|24.0|27.2|18.4|0|1.25|Multi other|0|6|318|FMC-BE||
+Explore Scientific|Explore Scientific 68 Series 28mm 2"|68|28.0|31.8|21.6|0|2.00|Multi other|0|6|454|FMC-BE||
+Explore Scientific|Explore Scientific 68 Series 34mm 2"|68|34.0|38.6|26.4|0|2.00|Multi other|0|6|681|FMC-BE||
+Explore Scientific|Explore Scientific 68 Series 40mm 2"|68|40.0|46.0|31.0|0|2.00|Multi other|0|6|977|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 4.7mm 1.25"|82|4.7|6.9|14.0|0|1.25|Multi other|0|7|213|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 6.7mm 1.25"|82|6.7|9.5|14.0|0|1.25|Multi other|0|7|227|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 8.8mm 1.25"|82|8.8|12.4|14.0|0|1.25|Multi other|0|7|227|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 11mm 1.25"|82|11.0|15.9|15.0|0|1.25|Multi other|0|7|284|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 14mm 1.25"|82|14.0|18.9|15.0|0|1.25|Multi other|0|7|256|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 18mm 2"|82|18.0|25.3|13.0|0|2.00|Multi other|0|6|398|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 24mm 2"|82|24.0|33.5|17.0|0|2.00|Multi other|0|6|727|FMC-BE||
+Explore Scientific|Explore Scientific 82 Series 30mm 2"|82|30.0|43.0|21.0|0|2.00|Multi other|0|6|1000|FMC-BE||
+Explore Scientific|Explore Scientific 92 Series 12mm 2"|92|12.0|19.6|20.0|0|2.00|Multi other|0|8|1017|FMC-BE||
+Explore Scientific|Explore Scientific 92 Series 17mm 2"|92|17.0|27.5|19.9|0|2.00|Multi other|0|8|1159|FMC-BE||
+Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 10mm 1.25"|70|10.0|0|0|0|1.25|Multi other|0|5|0|FMC-BE||
+Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 15mm 1.25"|70|15.0|0|0|0|1.25|Multi other|0|5|0|FMC-BE||
+Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 20mm 1.25"|70|20.0|0|0|0|1.25|Multi other|0|5|0|FMC-BE||
+Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 25mm 2"|70|25.0|0|0|0|2.00|Multi other|0|5|0|FMC-BE||
+Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 30mm 2"|70|30.0|0|0|0|2.00|Multi other|0|5|0|FMC-BE||
+Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 35mm 2"|70|35.0|0|0|0|2.00|Multi other|0|5|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 4mm 1.25"|42|4.0|2.6|3.4|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 5mm 1.25"|42|5.0|3.4|4.0|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 6mm 1.25"|42|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 7mm 1.25"|42|7.0|4.8|6.1|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 9mm 1.25"|42|9.0|6.3|7.6|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 18mm 1.25"|42|18.0|12.5|15.2|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 25mm 1.25"|42|25.0|17.4|22.2|0|1.25|Ortho|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 6mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 9mm 1.25"|50|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 12mm 1.25"|50|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 15mm 1.25"|65|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 20mm 1.25"|67|20.0|23.5|18.0|0|1.25|Multi other|0|5|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 30mm 2"|70|30.0|0|22.0|0|2.00|Multi other|0|5|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 42mm 2"|58|42.0|42.0|30.0|0|2.00|Multi other|0|5|0|FMC-BE||
+GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Superview 50mm 2"|48|50.0|0|35.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40mm 2.50"|75|40.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40mm 2.70"|75|40.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40mm 3.00"|75|40.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40mm 4.00"|75|40.0|0|25.0|0|4.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 40mm 4.30"|75|40.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42mm 2.50"|75|42.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42mm 2.70"|75|42.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42mm 3.00"|75|42.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42mm 4.00"|75|42.0|0|25.0|0|4.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 42mm 4.30"|75|42.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50mm 2.50"|70|50.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50mm 2.70"|70|50.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50mm 3.00"|70|50.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50mm 4.00"|70|50.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 50mm 4.30"|70|50.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55mm 2.50"|63|55.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55mm 2.70"|65|55.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55mm 3.00"|70|55.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55mm 4.00"|70|55.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 55mm 4.30"|70|55.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60mm 2.50"|57|60.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60mm 2.70"|60|60.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60mm 3.00"|65|60.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60mm 4.00"|70|60.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 60mm 4.30"|70|60.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65mm 2.50"|53|65.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65mm 2.70"|56|65.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65mm 3.00"|65|65.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65mm 4.00"|65|65.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 65mm 4.30"|65|65.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70mm 2.50"|50|70.0|60.0|25.0|0|2.50|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70mm 2.70"|52|70.0|66.0|25.0|0|2.70|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70mm 3.00"|60|70.0|67.0|25.0|0|3.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70mm 4.00"|65|70.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 70mm 4.30"|65|70.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 75mm 3.00"|60|75.0|0|25.0|0|3.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 75mm 4.00"|60|75.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 75mm 4.30"|60|75.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 80mm 3.00"|60|80.0|0|25.0|0|3.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 80mm 4.00"|60|80.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 80mm 4.30"|60|80.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 85mm 4.00"|57|85.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 85mm 4.30"|57|85.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 90mm 4.00"|55|90.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 90mm 4.30"|55|90.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 95mm 4.00"|55|95.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 95mm 4.30"|55|95.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 100mm 4.00"|55|100.0|0|25.0|0|4.00|Multi other|0|6|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Elite Series 100mm 4.30"|55|100.0|0|25.0|0|4.30|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Series 34mm 2"|65|34.0|0|20.0|0|2.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Observatory Series 36mm 2"|65|36.0|0|20.0|0|2.00|Multi other|0|0|0|||
+Harry Siebert Optics|Harry Siebert Optics Performance + 9mm 1.25"|60|9.0|0|10.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 10mm 1.25"|60|10.0|0|10.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 14mm 1.25"|60|14.0|0|14.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 15mm 1.25"|60|15.0|0|15.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 16mm 1.25"|60|16.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 17mm 1.25"|60|17.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 18mm 1.25"|60|18.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 27mm 1.25"|52|27.0|0|16.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Performance + 35mm 1.25"|49|35.0|0|25.0|0|1.25|Multi other|0|3|0|FMC||
 Harry Siebert Optics|Harry Siebert Optics Starsplitter SS3 Series 2.9mm 1.25"|60|2.9|0|10.0|0|1.25|Ortho|0|5|0|SC||
 Harry Siebert Optics|Harry Siebert Optics Starsplitter SS3 Series 3.4mm 1.25"|60|3.4|0|10.0|0|1.25|Ortho|0|5|0|SC||
 Harry Siebert Optics|Harry Siebert Optics Starsplitter SS3 Series 3.9mm 1.25"|60|3.9|0|10.0|0|1.25|Ortho|0|5|0|SC||
@@ -478,585 +475,585 @@ Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 7.9mm 1.25"|60
 Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 8.9mm 1.25"|60|8.9|0|16.0|0|1.25|Ortho|0|5|0|||
 Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 9.4mm 1.25"|60|9.4|0|16.0|0|1.25|Ortho|0|5|0|||
 Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 9.9mm 1.25"|60|9.9|0|16.0|0|1.25|Ortho|0|5|0|||
-Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 14.0mm 1.25"|60|14.0|0|16.0|0|1.25|Ortho|0|5|0|||
-Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 18.0mm 1.25"|60|18.0|0|16.0|0|1.25|Ortho|0|5|0|||
-Harry Siebert Optics|Harry Siebert Optics Ultra 7.0mm 1.25"|70|7.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 7.0mm 2.00"|70|7.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 9.0mm 1.25"|70|9.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 9.0mm 2.00"|70|9.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 10.0mm 1.25"|70|10.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 10.0mm 2.00"|70|10.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 11.0mm 1.25"|70|11.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 11.0mm 2.00"|70|11.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 13.0mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 13.0mm 2.00"|70|13.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 15.0mm 1.25"|70|15.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 15.0mm 2.00"|70|15.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 17.0mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 17.0mm 2.00"|70|17.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 18.0mm 1.25"|70|18.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 18.0mm 2.00"|70|18.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 19.0mm 1.25"|70|19.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 19.0mm 2.00"|70|19.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 24.0mm 1.25"|65|24.0|0|20.0|0|1.25|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 24.0mm 2.00"|65|24.0|0|20.0|0|2.00|Multi other|0|3|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 28.0mm 1.25"|58|28.0|25.0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 28.0mm 2.00"|58|28.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 35.0mm 1.25"|45|35.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Harry Siebert Optics|Harry Siebert Optics Ultra 35.0mm 2.00"|45|35.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
-High Point|High Point Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 6.0mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 9.0mm 1.25"|50|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 12.0mm 1.25"|50|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-High Point|High Point SuperView 15.0mm 1.25"|65|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC||
-High Point|High Point SuperView 20.0mm 1.25"|67|20.0|23.5|18.0|0|1.25|Multi other|0|5|0|FMC||
-High Point|High Point SuperView 30.0mm 2.00"|70|30.0|0|22.0|0|2.00|Multi other|0|5|0|FMC||
-High Point|High Point SuperView 42.0mm 2.00"|58|42.0|42.0|30.0|0|2.00|Multi other|0|5|0|FMC||
-High Point|High Point SuperView 50.0mm 2.00"|48|50.0|0|35.0|0|2.00|Multi other|0|5|0|FMC||
-Kitakaru  |Kitakaru   RPL 18.0mm 1.25"|62|18.0|0|9.0|0|1.25|Multi other|0|4|0|FMC||
-Kitakaru  |Kitakaru   RPL 25.0mm 1.25"|62|25.0|0|14.0|0|1.25|Multi other|0|4|0|FMC||
-Kitakaru  |Kitakaru   RPL 30.0mm 2.00"|62|30.0|0|15.0|0|2.00|Multi other|0|4|0|FMC||
-Kitakaru  |Kitakaru   RPL 40.0mm 2.00"|65|40.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
-Kitakaru  |Kitakaru   RPL 45.0mm 2.00"|62|45.0|0|22.0|0|2.00|Multi other|0|4|0|FMC||
-Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 30.0mm 1.25"|43|30.0|0|17.0|0|1.25|Ortho|0|6|0|FMC||
-Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 40.0mm 1.25"|40|40.0|0|20.0|0|1.25|Ortho|0|6|0|FMC||
-Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 50.0mm 2.00"|45|50.0|0|23.0|0|2.00|Ortho|0|6|0|FMC||
-Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 63.0mm 2.00"|45|63.0|0|33.0|0|2.00|Ortho|0|6|0|FMC||
-KnightOwl|KnightOwl Enhanced Super Wide 6.0mm 1.25"|66|6.0|0|17.0|0|1.25|Multi other|0|6|0|FMC||
-KnightOwl|KnightOwl Enhanced Super Wide 9.0mm 1.25"|66|9.0|0|17.0|0|1.25|Multi other|0|7|0|FMC||
-KnightOwl|KnightOwl Enhanced Super Wide 15.0mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC||
-KnightOwl|KnightOwl Enhanced Super Wide 20.0mm 1.25"|66|20.0|0|16.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 2.5mm 1.25"|58|2.5|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 3.2mm 1.25"|58|3.2|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 4.0mm 1.25"|58|4.0|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 5.0mm 1.25"|58|5.0|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 6.0mm 1.25"|58|6.0|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 7.5mm 1.25"|58|7.5|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Hi-Res Planetary 9.0mm 1.25"|58|9.0|0|14.0|0|1.25|Multi other|0|6|0|FMC||
-KnightOwl|KnightOwl MC 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 6.5mm 1.25"|50|6.5|0|4.6|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 30.0mm 1.25"|50|30.0|0|21.0|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl MC 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-KnightOwl|KnightOwl Ultra-Wide 11.0mm 1.25"|80|11.0|0|14.0|0|1.25|Multi other|0|5|0|FMC||
-KnightOwl|KnightOwl Ultra-Wide 15.0mm 2.00"|80|15.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-KnightOwl|KnightOwl Ultra-Wide 16.0mm 1.25"|80|16.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
-KnightOwl|KnightOwl Ultra-Wide 20.0mm 2.00"|80|20.0|0|24.0|0|2.00|Multi other|0|7|0|FMC||
-KnightOwl|KnightOwl Ultra-Wide 30.0mm 2.00"|80|30.0|0|28.0|0|2.00|Multi other|0|5|0|FMC||
-Masuyama|Masuyama Masuyama 10.0mm 1.25"|85|10.0|0|6.5|0|1.25|Multi other|0|5|100|FMC||
-Masuyama|Masuyama Masuyama 16.0mm 1.25"|85|16.0|0|10.0|0|1.25|Multi other|0|5|138|FMC||
-Masuyama|Masuyama Masuyama 45.0mm 2.00"|53|45.0|32.0|12.0|0|2.00|Multi other|0|5|508|FMC||
-Masuyama|Masuyama Masuyama 50.0mm 2.00"|53|50.0|40.0|12.0|0|2.00|Multi other|0|5|570|FMC||
-Masuyama|Masuyama Masuyama 60.0mm 2.00"|46|60.0|46.5|18.0|0|2.00|Multi other|0|5|600|FMC||
-Masuyama|Masuyama Masuyama 80.0mm 3.00"|52|80.0|70.0|0|0|3.00|Multi other|0|3|1700|FMC||
-Masuyama|Masuyama Widefield 26.0mm 2.00"|85|26.0|38.4|16.0|0|2.00|Multi other|0|5|380|FMC||
-Masuyama|Masuyama Widefield 32.0mm 2.00"|85|32.0|0|20.0|0|2.00|Multi other|0|5|450|FMC||
-Meade|Meade Mega Wide Angle 5.0mm 1.25"|100|5.0|0|13.0|0|1.25|Multi other|0|9|0|FMC||
-Meade|Meade Mega Wide Angle 10.0mm 1.25"|100|10.0|0|19.7|0|1.25|Multi other|0|8|0|FMC||
-Meade|Meade Mega Wide Angle 15.0mm 2.00"|100|15.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Meade|Meade Mega Wide Angle 21.0mm 2.00"|100|21.0|0|20.0|0|2.00|Multi other|0|7|0|FMC||
-Meade|Meade Series 5000 HD-60  4.5mm 1.25"|60|4.5|0|19.0|0|1.25|Multi other|0|6|0|FMC||
-Meade|Meade Series 5000 HD-60  6.5mm 1.25"|60|6.5|0|19.0|0|1.25|Multi other|0|6|0|FMC||
-Meade|Meade Series 5000 HD-60  9.0mm 1.25"|60|9.0|0|19.0|0|1.25|Multi other|0|6|0|FMC||
-Meade|Meade Series 5000 HD-60  12.0mm 1.25"|60|12.0|0|19.0|0|1.25|Multi other|0|6|0|FMC||
-Meade|Meade Series 5000 HD-60  18.0mm 1.25"|60|18.0|0|19.0|0|1.25|Multi other|0|6|0|FMC||
-Meade|Meade Series 5000 HD-60  25.0mm 1.25"|60|25.0|0|19.0|0|1.25|Multi other|0|6|0|FMC||
-Meade|Meade Series 5000 Ultra Wide Angle 5.5mm 1.25"|82|5.5|0|13.2|0|1.25|Multi other|0|7|0|FMC||
-Meade|Meade Series 5000 Ultra Wide Angle 8.8mm 1.25"|82|8.8|0|15.0|0|1.25|Multi other|0|7|0|FMC||
-Meade|Meade Series 5000 Ultra Wide Angle 14.0mm 1.25"|82|14.0|0|15.0|0|1.25|Multi other|0|7|0|FMC||
-Meade|Meade Series 5000 Ultra Wide Angle 20.0mm 2.00"|82|20.0|0|17.6|0|2.00|Multi other|0|7|0|FMC||
-Meade|Meade Series4000SuperPlossl 6.4mm 1.25"|52|6.4|5.3|4.5|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 9.7mm 1.25"|52|9.7|7.7|6.8|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 12.4mm 1.25"|52|12.4|0|8.7|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 15.0mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 20.0mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 26.0mm 1.25"|52|26.0|22.0|18.2|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-Meade|Meade Series4000SuperPlossl 56.0mm 2.00"|52|56.0|0|30.0|0|2.00|Plossl|0|4|0|FMC||
-Moonfish|Moonfish Superview 15.0mm 1.25"|68|15.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
-Moonfish|Moonfish Superview 20.0mm 1.25"|68|20.0|0|20.0|0|1.25|Multi other|0|5|0|FMC||
-Moonfish|Moonfish Ultra Wide 15.0mm 2.00"|80|15.0|0|0|0|2.00|Multi other|0|6|260|FMC||
-Moonfish|Moonfish Ultra Wide 30.0mm 2.00"|80|30.0|40.8|22.0|0|2.00|Multi other|0|5|570|FMC||
-Nikon|Nikon NAV-HW 12.5mm 1.25"|102|12.5|22.5|16.0|0|1.25|Multi other|0|10|0|FMC||
-Nikon|Nikon NAV-HW 17.0mm 2.00"|102|17.0|30.1|16.0|0|2.00|Multi other|0|10|0|FMC||
-Nikon|Nikon NAV-SW 5.0mm 1.25"|72|5.0|6.3|18.0|0|1.25|Multi other|0|8|0|FMC||
-Nikon|Nikon NAV-SW 7.0mm 1.25"|72|7.0|8.8|17.0|0|1.25|Multi other|0|8|0|FMC||
-Nikon|Nikon NAV-SW 10.0mm 1.25"|72|10.0|12.5|19.0|0|1.25|Multi other|0|8|0|FMC||
-Nikon|Nikon NAV-SW 14.0mm 1.25"|72|14.0|17.6|18.0|0|1.25|Multi other|0|7|0|FMC||
-Nikon|Nikon NAV-SW 17.5mm 1.25"|72|17.5|22.0|26.0|0|1.25|Multi other|0|8|0|FMC||
-Noblex|Noblex UWA Astro Eyepiece 12.5mm 1.25"|84|12.5|19.2|18.0|0|1.25|Multi other|0|8|0|FMC||
-Oberwerk|Oberwerk Binocular Eyepieces (Sold in Pairs Only) 8.0mm 1.25"|70|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC||
-Oberwerk|Oberwerk Binocular Eyepieces (Sold in Pairs Only) 12.0mm 1.25"|70|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC||
-Oberwerk|Oberwerk Binocular Eyepieces (Sold in Pairs Only) 16.0mm 1.25"|70|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC||
-Olivon |Olivon  70 degree Series 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|503|FMC||
-Olivon |Olivon  70 degree Series 5.0mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|492|FMC||
-Olivon |Olivon  70 degree Series 8.0mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|486|FMC||
-Olivon |Olivon  70 degree Series 13.0mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|474|FMC||
-Olivon |Olivon  70 degree Series 17.0mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|8|461|FMC||
-Olivon |Olivon  70 degree Series 22.0mm 2.00"|70|22.0|0|20.0|0|2.00|Multi other|0|8|503|FMC||
-Olivon |Olivon  70 degree Series 32.0mm 2.00"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|411|FMC||
+Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 14mm 1.25"|60|14.0|0|16.0|0|1.25|Ortho|0|5|0|||
+Harry Siebert Optics|Harry Siebert Optics Starsplitter SS4 Series 18mm 1.25"|60|18.0|0|16.0|0|1.25|Ortho|0|5|0|||
+Harry Siebert Optics|Harry Siebert Optics Ultra 7mm 1.25"|70|7.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 7mm 2"|70|7.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 9mm 1.25"|70|9.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 9mm 2"|70|9.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 10mm 1.25"|70|10.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 10mm 2"|70|10.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 11mm 1.25"|70|11.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 11mm 2"|70|11.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 13mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 13mm 2"|70|13.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 15mm 1.25"|70|15.0|0|20.0|0|1.25|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 15mm 2"|70|15.0|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 17mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 17mm 2"|70|17.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 18mm 1.25"|70|18.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 18mm 2"|70|18.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 19mm 1.25"|70|19.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 19mm 2"|70|19.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 24mm 1.25"|65|24.0|0|20.0|0|1.25|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 24mm 2"|65|24.0|0|20.0|0|2.00|Multi other|0|3|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 28mm 1.25"|58|28.0|25.0|20.0|0|1.25|Multi other|0|0|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 28mm 2"|58|28.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 35mm 1.25"|45|35.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
+Harry Siebert Optics|Harry Siebert Optics Ultra 35mm 2"|45|35.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
+High Point|High Point Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 6mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 9mm 1.25"|50|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 12mm 1.25"|50|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
+High Point|High Point SuperView 15mm 1.25"|65|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC-BE||
+High Point|High Point SuperView 20mm 1.25"|67|20.0|23.5|18.0|0|1.25|Multi other|0|5|0|FMC-BE||
+High Point|High Point SuperView 30mm 2"|70|30.0|0|22.0|0|2.00|Multi other|0|5|0|FMC-BE||
+High Point|High Point SuperView 42mm 2"|58|42.0|42.0|30.0|0|2.00|Multi other|0|5|0|FMC-BE||
+High Point|High Point SuperView 50mm 2"|48|50.0|0|35.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Kitakaru  |Kitakaru   RPL 18mm 1.25"|62|18.0|0|9.0|0|1.25|Multi other|0|4|0|FMC||
+Kitakaru  |Kitakaru   RPL 25mm 1.25"|62|25.0|0|14.0|0|1.25|Multi other|0|4|0|FMC||
+Kitakaru  |Kitakaru   RPL 30mm 2"|62|30.0|0|15.0|0|2.00|Multi other|0|4|0|FMC||
+Kitakaru  |Kitakaru   RPL 40mm 2"|65|40.0|0|20.0|0|2.00|Multi other|0|4|0|FMC||
+Kitakaru  |Kitakaru   RPL 45mm 2"|62|45.0|0|22.0|0|2.00|Multi other|0|4|0|FMC||
+Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 30mm 1.25"|43|30.0|0|17.0|0|1.25|Ortho|0|6|0|FMC||
+Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 40mm 1.25"|40|40.0|0|20.0|0|1.25|Ortho|0|6|0|FMC||
+Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 50mm 2"|45|50.0|0|23.0|0|2.00|Ortho|0|6|0|FMC||
+Kitakaruizawa Observatory|Kitakaruizawa Observatory Lavendura 63mm 2"|45|63.0|0|33.0|0|2.00|Ortho|0|6|0|FMC||
+KnightOwl|KnightOwl Enhanced Super Wide 6mm 1.25"|66|6.0|0|17.0|0|1.25|Multi other|0|6|0|FMC-BE||
+KnightOwl|KnightOwl Enhanced Super Wide 9mm 1.25"|66|9.0|0|17.0|0|1.25|Multi other|0|7|0|FMC-BE||
+KnightOwl|KnightOwl Enhanced Super Wide 15mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC-BE||
+KnightOwl|KnightOwl Enhanced Super Wide 20mm 1.25"|66|20.0|0|16.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 2.5mm 1.25"|58|2.5|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 3.2mm 1.25"|58|3.2|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 4mm 1.25"|58|4.0|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 5mm 1.25"|58|5.0|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 6mm 1.25"|58|6.0|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 7.5mm 1.25"|58|7.5|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Hi-Res Planetary 9mm 1.25"|58|9.0|0|14.0|0|1.25|Multi other|0|6|0|FMC-BE||
+KnightOwl|KnightOwl MC 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 6.5mm 1.25"|50|6.5|0|4.6|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 30mm 1.25"|50|30.0|0|21.0|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl MC 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
+KnightOwl|KnightOwl Ultra-Wide 11mm 1.25"|80|11.0|0|14.0|0|1.25|Multi other|0|5|0|FMC-BE||
+KnightOwl|KnightOwl Ultra-Wide 15mm 2"|80|15.0|0|20.0|0|2.00|Multi other|0|6|0|FMC-BE||
+KnightOwl|KnightOwl Ultra-Wide 16mm 1.25"|80|16.0|0|20.0|0|1.25|Multi other|0|6|0|FMC-BE||
+KnightOwl|KnightOwl Ultra-Wide 20mm 2"|80|20.0|0|24.0|0|2.00|Multi other|0|7|0|FMC-BE||
+KnightOwl|KnightOwl Ultra-Wide 30mm 2"|80|30.0|0|28.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Masuyama|Masuyama Masuyama 10mm 1.25"|85|10.0|0|6.5|0|1.25|Multi other|0|5|100|FMC-BE||
+Masuyama|Masuyama Masuyama 16mm 1.25"|85|16.0|0|10.0|0|1.25|Multi other|0|5|138|FMC-BE||
+Masuyama|Masuyama Masuyama 45mm 2"|53|45.0|32.0|12.0|0|2.00|Multi other|0|5|508|FMC-BE||
+Masuyama|Masuyama Masuyama 50mm 2"|53|50.0|40.0|12.0|0|2.00|Multi other|0|5|570|FMC-BE||
+Masuyama|Masuyama Masuyama 60mm 2"|46|60.0|46.5|18.0|0|2.00|Multi other|0|5|600|FMC-BE||
+Masuyama|Masuyama Masuyama 80mm 3.00"|52|80.0|70.0|0|0|3.00|Multi other|0|3|1700|FMC-BE||
+Masuyama|Masuyama Widefield 26mm 2"|85|26.0|38.4|16.0|0|2.00|Multi other|0|5|380|FMC-BE||
+Masuyama|Masuyama Widefield 32mm 2"|85|32.0|0|20.0|0|2.00|Multi other|0|5|450|FMC-BE||
+Meade|Meade Mega Wide Angle 5mm 1.25"|100|5.0|0|13.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Meade|Meade Mega Wide Angle 10mm 1.25"|100|10.0|0|19.7|0|1.25|Multi other|0|8|0|FMC-BE||
+Meade|Meade Mega Wide Angle 15mm 2"|100|15.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Meade|Meade Mega Wide Angle 21mm 2"|100|21.0|0|20.0|0|2.00|Multi other|0|7|0|FMC-BE||
+Meade|Meade Series 5000 HD-60  4.5mm 1.25"|60|4.5|0|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Meade|Meade Series 5000 HD-60  6.5mm 1.25"|60|6.5|0|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Meade|Meade Series 5000 HD-60  9mm 1.25"|60|9.0|0|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Meade|Meade Series 5000 HD-60  12mm 1.25"|60|12.0|0|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Meade|Meade Series 5000 HD-60  18mm 1.25"|60|18.0|0|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Meade|Meade Series 5000 HD-60  25mm 1.25"|60|25.0|0|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Meade|Meade Series 5000 Ultra Wide Angle 5.5mm 1.25"|82|5.5|0|13.2|0|1.25|Multi other|0|7|0|FMC-BE||
+Meade|Meade Series 5000 Ultra Wide Angle 8.8mm 1.25"|82|8.8|0|15.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Meade|Meade Series 5000 Ultra Wide Angle 14mm 1.25"|82|14.0|0|15.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Meade|Meade Series 5000 Ultra Wide Angle 20mm 2"|82|20.0|0|17.6|0|2.00|Multi other|0|7|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 6.4mm 1.25"|52|6.4|5.3|4.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 9.7mm 1.25"|52|9.7|7.7|6.8|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 12.4mm 1.25"|52|12.4|0|8.7|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 15mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 20mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 26mm 1.25"|52|26.0|22.0|18.2|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Meade|Meade Series4000SuperPlossl 56mm 2"|52|56.0|0|30.0|0|2.00|Plossl|0|4|0|FMC-BE||
+Moonfish|Moonfish Superview 15mm 1.25"|68|15.0|0|20.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Moonfish|Moonfish Superview 20mm 1.25"|68|20.0|0|20.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Moonfish|Moonfish Ultra Wide 15mm 2"|80|15.0|0|0|0|2.00|Multi other|0|6|260|FMC-BE||
+Moonfish|Moonfish Ultra Wide 30mm 2"|80|30.0|40.8|22.0|0|2.00|Multi other|0|5|570|FMC-BE||
+Nikon|Nikon NAV-HW 12.5mm 1.25"|102|12.5|22.5|16.0|0|1.25|Multi other|0|10|0|FMC-BE||
+Nikon|Nikon NAV-HW 17mm 2"|102|17.0|30.1|16.0|0|2.00|Multi other|0|10|0|FMC-BE||
+Nikon|Nikon NAV-SW 5mm 1.25"|72|5.0|6.3|18.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Nikon|Nikon NAV-SW 7mm 1.25"|72|7.0|8.8|17.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Nikon|Nikon NAV-SW 10mm 1.25"|72|10.0|12.5|19.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Nikon|Nikon NAV-SW 14mm 1.25"|72|14.0|17.6|18.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Nikon|Nikon NAV-SW 17.5mm 1.25"|72|17.5|22.0|26.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Noblex|Noblex UWA Astro Eyepiece 12.5mm 1.25"|84|12.5|19.2|18.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Oberwerk|Oberwerk Binocular Eyepieces (Sold in Pairs Only) 8mm 1.25"|70|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC-BE||
+Oberwerk|Oberwerk Binocular Eyepieces (Sold in Pairs Only) 12mm 1.25"|70|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Oberwerk|Oberwerk Binocular Eyepieces (Sold in Pairs Only) 16mm 1.25"|70|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Olivon |Olivon  70 degree Series 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|503|FMC-BE||
+Olivon |Olivon  70 degree Series 5mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|492|FMC-BE||
+Olivon |Olivon  70 degree Series 8mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|486|FMC-BE||
+Olivon |Olivon  70 degree Series 13mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|474|FMC-BE||
+Olivon |Olivon  70 degree Series 17mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|8|461|FMC-BE||
+Olivon |Olivon  70 degree Series 22mm 2"|70|22.0|0|20.0|0|2.00|Multi other|0|8|503|FMC-BE||
+Olivon |Olivon  70 degree Series 32mm 2"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|411|FMC-BE||
 Olivon |Olivon  HD (not in US) 3.8mm 1.25"|58|3.8|0|20.0|0|1.25|Multi other|0|5|0|FC||
-Olivon |Olivon  HD (not in US) 8.0mm 1.25"|58|8.0|0|20.0|0|1.25|Multi other|0|5|0|FC||
-Olivon |Olivon  HD (not in US) 9.0mm 1.25"|58|9.0|0|20.0|0|1.25|Multi other|0|5|0|FC||
+Olivon |Olivon  HD (not in US) 8mm 1.25"|58|8.0|0|20.0|0|1.25|Multi other|0|5|0|FC||
+Olivon |Olivon  HD (not in US) 9mm 1.25"|58|9.0|0|20.0|0|1.25|Multi other|0|5|0|FC||
 Olivon |Olivon  High Definition 2.5mm 1.25"|58|2.5|0|20.0|0|1.25|Multi other|0|5|179|FC||
-Olivon |Olivon  High Definition 4.0mm 1.25"|58|4.0|0|20.0|0|1.25|Multi other|0|5|179|FC||
-Olivon |Olivon  High Definition 5.0mm 1.25"|58|5.0|0|20.0|0|1.25|Multi other|0|5|176|FC||
-Olivon |Olivon  High Definition 6.0mm 1.25"|58|6.0|0|20.0|0|1.25|Multi other|0|5|170|FC||
-Olivon |Olivon  High Definition 7.0mm 1.25"|58|7.0|0|20.0|0|1.25|Multi other|0|5|166|FC||
-Olivon |Olivon  High Definition 15.0mm 1.25"|58|15.0|0|20.0|0|1.25|Multi other|0|5|168|FC||
-Olivon |Olivon  High Definition 20.0mm 1.25"|58|20.0|0|20.0|0|1.25|Multi other|0|5|173|FC||
-Olivon |Olivon  Plossl (not in US) 4.0mm 1.25"|50|4.0|0|2.9|0|1.25|Plossl|0|4|0|FMC||
+Olivon |Olivon  High Definition 4mm 1.25"|58|4.0|0|20.0|0|1.25|Multi other|0|5|179|FC||
+Olivon |Olivon  High Definition 5mm 1.25"|58|5.0|0|20.0|0|1.25|Multi other|0|5|176|FC||
+Olivon |Olivon  High Definition 6mm 1.25"|58|6.0|0|20.0|0|1.25|Multi other|0|5|170|FC||
+Olivon |Olivon  High Definition 7mm 1.25"|58|7.0|0|20.0|0|1.25|Multi other|0|5|166|FC||
+Olivon |Olivon  High Definition 15mm 1.25"|58|15.0|0|20.0|0|1.25|Multi other|0|5|168|FC||
+Olivon |Olivon  High Definition 20mm 1.25"|58|20.0|0|20.0|0|1.25|Multi other|0|5|173|FC||
+Olivon |Olivon  Plossl (not in US) 4mm 1.25"|50|4.0|0|2.9|0|1.25|Plossl|0|4|0|FMC||
 Olivon |Olivon  Plossl (not in US) 6.3mm 1.25"|50|6.3|0|4.5|0|1.25|Plossl|0|4|0|FMC||
 Olivon |Olivon  Plossl (not in US) 12.5mm 1.25"|50|12.5|0|9.0|0|1.25|Plossl|0|4|0|FMC||
-Olivon |Olivon  Plossl (not in US) 20.0mm 1.25"|50|20.0|0|14.4|0|1.25|Plossl|0|4|0|FMC||
-Olivon |Olivon  Plossl (not in US) 25.0mm 1.25"|50|25.0|0|18.0|0|1.25|Plossl|0|4|0|FMC||
-Olivon |Olivon  Plossl (not in US) 32.0mm 1.25"|50|32.0|0|23.0|0|1.25|Plossl|0|4|0|FMC||
-Olivon |Olivon  Plossl (not in US) 40.0mm 1.25"|40|40.0|0|28.8|0|1.25|Plossl|0|4|0|FMC||
-Olivon |Olivon  Superwide ED 11.0mm 1.25"|80|11.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Olivon |Olivon  Superwide ED 15.0mm 2.00"|80|15.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
-Olivon |Olivon  Superwide ED 16.0mm 1.25"|80|16.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Olivon |Olivon  Superwide ED 20.0mm 2.00"|80|20.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
-Olivon |Olivon  Superwide ED 30.0mm 2.00"|80|30.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
+Olivon |Olivon  Plossl (not in US) 20mm 1.25"|50|20.0|0|14.4|0|1.25|Plossl|0|4|0|FMC||
+Olivon |Olivon  Plossl (not in US) 25mm 1.25"|50|25.0|0|18.0|0|1.25|Plossl|0|4|0|FMC||
+Olivon |Olivon  Plossl (not in US) 32mm 1.25"|50|32.0|0|23.0|0|1.25|Plossl|0|4|0|FMC||
+Olivon |Olivon  Plossl (not in US) 40mm 1.25"|40|40.0|0|28.8|0|1.25|Plossl|0|4|0|FMC||
+Olivon |Olivon  Superwide ED 11mm 1.25"|80|11.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
+Olivon |Olivon  Superwide ED 15mm 2"|80|15.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
+Olivon |Olivon  Superwide ED 16mm 1.25"|80|16.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
+Olivon |Olivon  Superwide ED 20mm 2"|80|20.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
+Olivon |Olivon  Superwide ED 30mm 2"|80|30.0|0|16.0|0|2.00|Multi other|0|0|0|FMC||
 Omegon|Omegon Cronus 2.5mm 1.25"|58|2.5|0|16.0|0|1.25|Multi other|0|5|0|FC||
 Omegon|Omegon Cronus 3.2mm 1.25"|58|3.2|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Cronus 4.0mm 1.25"|58|4.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Cronus 5.0mm 1.25"|58|5.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Cronus 6.0mm 1.25"|58|6.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Cronus 7.0mm 1.25"|58|7.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Cronus 8.0mm 1.25"|58|8.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Cronus 9.0mm 1.25"|58|9.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
-Omegon|Omegon Flatfield 8.0mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon Flatfield 12.0mm 1.25"|60|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon Flatfield 16.0mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC||
-Omegon|Omegon Flatfield 19.0mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Flatfield 27.0mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Flatfield ED 5.0mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Omegon|Omegon Flatfield ED 8.0mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Omegon|Omegon Flatfield ED 12.0mm 1.25"|60|12.0|0|13.0|0|1.25|Multi other|0|6|0|FMC||
-Omegon|Omegon Flatfield ED 15.0mm 1.25"|60|15.0|0|15.0|0|1.25|Multi other|0|6|0|FMC||
-Omegon|Omegon Flatfield ED 18.0mm 1.25"|60|18.0|0|13.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Flatfield ED 25.0mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon LE Planetary 3.0mm 1.25"|55|3.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon LE Planetary 5.0mm 1.25"|55|5.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon LE Planetary 6.0mm 1.25"|55|6.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon LE Planetary 9.0mm 1.25"|55|9.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon LE Planetary 14.5mm 1.25"|55|14.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Omegon|Omegon LE Planetary 18.0mm 1.25"|55|18.0|0|20.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Oberon 7.0mm 1.25"|82|7.0|0|12.0|0|1.25|Multi other|0|0|0|FMC||
+Omegon|Omegon Cronus 4mm 1.25"|58|4.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Omegon|Omegon Cronus 5mm 1.25"|58|5.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Omegon|Omegon Cronus 6mm 1.25"|58|6.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Omegon|Omegon Cronus 7mm 1.25"|58|7.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Omegon|Omegon Cronus 8mm 1.25"|58|8.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Omegon|Omegon Cronus 9mm 1.25"|58|9.0|0|16.0|0|1.25|Multi other|0|5|0|FC||
+Omegon|Omegon Flatfield 8mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon Flatfield 12mm 1.25"|60|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon Flatfield 16mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Omegon|Omegon Flatfield 19mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon Flatfield 27mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon Flatfield ED 5mm 1.25"|60|5.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Omegon|Omegon Flatfield ED 8mm 1.25"|60|8.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Omegon|Omegon Flatfield ED 12mm 1.25"|60|12.0|0|13.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Omegon|Omegon Flatfield ED 15mm 1.25"|60|15.0|0|15.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Omegon|Omegon Flatfield ED 18mm 1.25"|60|18.0|0|13.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon Flatfield ED 25mm 1.25"|60|25.0|0|15.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon LE Planetary 3mm 1.25"|55|3.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon LE Planetary 5mm 1.25"|55|5.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon LE Planetary 6mm 1.25"|55|6.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon LE Planetary 9mm 1.25"|55|9.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon LE Planetary 14.5mm 1.25"|55|14.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon LE Planetary 18mm 1.25"|55|18.0|0|20.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon Oberon 7mm 1.25"|82|7.0|0|12.0|0|1.25|Multi other|0|0|0|FMC||
 Omegon|Omegon Oberon 10.00mm 1.25"|82|10.00|0|12.0|0|1.25|Multi other|0|0|0|FMC||
-Omegon|Omegon Oberon 15.0mm 1.25"|82|15.0|0|17.0|0|1.25|Multi other|0|0|0|FMC||
-Omegon|Omegon Oberon 19mm 2.00"|82|19|0|20.0|0|2.00|Multi other|0|0|0|FMC||
-Omegon|Omegon Oberon 23.0mm 2.00"|82|23.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
-Omegon|Omegon Oberon 32.0mm 2.00"|82|32.0|0|27.0|0|2.00|Multi other|0|0|0|FMC||
+Omegon|Omegon Oberon 15mm 1.25"|82|15.0|0|17.0|0|1.25|Multi other|0|0|0|FMC||
+Omegon|Omegon Oberon 19mm 2"|82|19|0|20.0|0|2.00|Multi other|0|0|0|FMC||
+Omegon|Omegon Oberon 23mm 2"|82|23.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
+Omegon|Omegon Oberon 32mm 2"|82|32.0|0|27.0|0|2.00|Multi other|0|0|0|FMC||
 Omegon|Omegon Ortho 10.50mm 1.25"|48|10.50|0|0|0|1.25|Ortho|0|4|0|FMC||
 Omegon|Omegon Ortho 16.80mm 1.25"|48|16.80|0|0|0|1.25|Ortho|0|4|0|FMC||
 Omegon|Omegon Ortho 24.00mm 1.25"|48|24.00|0|0|0|1.25|Ortho|0|4|0|FMC||
-Omegon|Omegon Panorama II 5.0mm 1.25"|100|5.0|0|13.0|0|1.25|Multi other|0|9|0|FMC||
-Omegon|Omegon Panorama II 10.0mm 1.25"|100|10.0|0|19.7|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Panorama II 15.0mm 2.00"|100|15.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Omegon|Omegon Panorama II 21.0mm 2.00"|100|21.0|0|20.0|0|2.00|Multi other|0|7|0|FMC||
-Omegon|Omegon Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Panorama II 5mm 1.25"|100|5.0|0|13.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Omegon|Omegon Panorama II 10mm 1.25"|100|10.0|0|19.7|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Panorama II 15mm 2"|100|15.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Panorama II 21mm 2"|100|21.0|0|20.0|0|2.00|Multi other|0|7|0|FMC-BE||
+Omegon|Omegon Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
 Omegon|Omegon Plossl 6.3mm 1.25"|50|6.3|0|4.4|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|FMC||
 Omegon|Omegon Plossl 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 17.0mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-Omegon|Omegon Redline 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Redline 5.0mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Redline 8.0mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Redline 13.0mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Redline 17.0mm 2.00"|70|17.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Omegon|Omegon Redline 22.0mm 2.00"|70|22.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Omegon|Omegon Redline 32.0mm 2.00"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Omegon|Omegon Super LE   9.0mm 1.25"|68|9.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Super LE   12.0mm 1.25"|68|12.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Super LE   14.5mm 1.25"|68|14.5|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Super LE   18.0mm 1.25"|68|18.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Super LE  (replaces 3.5 and 5mm) 7.0mm 1.25"|68|7.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Omegon|Omegon Super Plossl 4.0mm 1.25"|52|4.0|0|2.4|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Plossl 17mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
+Omegon|Omegon Redline 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Redline 5mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Redline 8mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Redline 13mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Redline 17mm 2"|70|17.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Redline 22mm 2"|70|22.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Redline 32mm 2"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Super LE   9mm 1.25"|68|9.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Super LE   12mm 1.25"|68|12.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Super LE   14.5mm 1.25"|68|14.5|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Super LE   18mm 1.25"|68|18.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Super LE  (replaces 3.5 and 5mm) 7mm 1.25"|68|7.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Omegon|Omegon Super Plossl 4mm 1.25"|52|4.0|0|2.4|0|1.25|Multi other|0|5|0|FMC||
 Omegon|Omegon Super Plossl 6.3mm 1.25"|52|6.3|0|3.8|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 10.0mm 1.25"|52|10.0|0|6.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 15.0mm 1.25"|52|15.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 17.0mm 1.25"|52|17.0|0|10.2|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 20.0mm 1.25"|52|20.0|0|12.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 26.0mm 1.25"|52|26.0|0|15.6|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 32.0mm 1.25"|50|32.0|0|19.2|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 40.0mm 1.25"|40|40.0|0|24.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon Super Plossl 56.0mm 2.00"|52|56.0|0|33.6|0|2.00|Plossl|0|4|0|FMC||
-Omegon|Omegon SWA 10.0mm 1.25"|70|10.0|0|8.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon SWA 15.0mm 1.25"|70|15.0|0|10.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon SWA 20.0mm 1.25"|70|20.0|0|10.0|0|1.25|Multi other|0|5|0|FMC||
-Omegon|Omegon SWA 26.0mm 2.00"|70|26.0|0|18.0|0|2.00|Multi other|0|5|0|FMC||
-Omegon|Omegon SWA 32.0mm 2.00"|70|32.0|0|20.0|0|2.00|Multi other|0|5|0|FMC||
-Omegon|Omegon SWA 38.0mm 2.00"|70|38.0|0|23.0|0|2.00|Multi other|0|5|0|FMC||
-Omegon|Omegon UWA 6.0mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|0|0|FMC||
-Omegon|Omegon UWA 9.0mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|0|0|FMC||
-Omegon|Omegon UWA 15.0mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|0|0|FMC||
-Omegon|Omegon UWA 20.0mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|0|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 4.0mm 1.25"|52|4.0|0|6.0|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 6.0mm 1.25"|52|6.0|0|5.0|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 9.0mm 1.25"|52|9.0|0|6.0|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 15.0mm 1.25"|52|15.0|0|13.0|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 20.0mm 1.25"|52|20.0|0|20.0|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) SuperView 15.0mm 1.25"|68|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) SuperView 20.0mm 1.25"|68|20.0|0|20.0|0|1.25|Multi other|0|4|0|FMC||
-TPO (from OPT)|TPO (from OPT) SuperView (Erfle) 30.0mm 2.00"|68|30.0|0|20.0|0|2.00|Multi other|0|5|0|FMC||
-TPO (from OPT)|TPO (from OPT) SuperView (Erfle) 42.0mm 2.00"|68|42.0|0|20.0|0|2.00|Multi other|0|5|0|FMC||
-TPO (from OPT)|TPO (from OPT) SuperView (Erfle) 50.0mm 2.00"|48|50.0|0|20.0|0|2.00|Multi other|0|5|0|FMC||
-Orion|Orion DeepView 28.0mm 2.00"|56|28.0|27.0|20.0|0|2.00|Multi other|0|3|0|MC||
-Orion|Orion DeepView 35.0mm 2.00"|56|35.0|37.0|20.0|0|2.00|Multi other|0|3|0|MC||
-Orion|Orion DeepView 42.0mm 2.00"|52|42.0|38.0|20.0|0|2.00|Multi other|0|3|0|MC||
-Orion|Orion Edge-On Planetary 3.0mm 1.25"|55|3.0|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion Edge-On Planetary 5.0mm 1.25"|55|5.0|5.6|20.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion Edge-On Planetary 6.0mm 1.25"|55|6.0|8.7|20.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion Edge-On Planetary 9.0mm 1.25"|55|9.0|9.3|20.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion Edge-On Planetary 12.5mm 1.25"|55|12.5|11.7|20.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion Edge-On Planetary 14.5mm 1.25"|55|14.5|15.6|20.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion EF 8.0mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion EF 12.0mm 1.25"|60|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC||
-Orion|Orion EF 16.0mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC||
-Orion|Orion EF 19.0mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC||
-Orion|Orion EF 27.0mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC||
-Orion|Orion E-Series 3.6mm 1.25"|40|3.6|0|5.0|0|1.25|Multi other|0|4|0|FC||
-Orion|Orion E-Series 6.3mm 1.25"|46|6.3|0|8.0|0|1.25|Multi other|0|3|0|FC||
-Orion|Orion Expanse 6.0mm 1.25"|66|6.0|8.0|14.8|0|1.25|Multi other|0|5|0|MC||
-Orion|Orion Expanse 9.0mm 1.25"|66|9.0|15.0|15.0|0|1.25|Multi other|0|6|0|MC||
-Orion|Orion Expanse 15.0mm 1.25"|66|15.0|17.0|13.0|0|1.25|Multi other|0|4|0|MC||
-Orion|Orion Expanse 20.0mm 1.25"|66|20.0|23.5|18.0|0|1.25|Multi other|0|4|0|MC||
-Orion|Orion LHD 4.0mm 1.25"|80|4.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion LHD 6.0mm 1.25"|80|6.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion LHD 9.0mm 1.25"|80|9.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion LHD 14.0mm 2.00"|80|14.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Orion|Orion LHD 20.0mm 2.00"|80|20.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Orion|Orion Q70 26.0mm 2.00"|70|26.0|32.3|20.0|0|2.00|Multi other|0|5|0|FMC||
-Orion|Orion Q70 32.0mm 2.00"|70|32.0|40.0|24.0|0|2.00|Multi other|0|5|0|FMC||
-Orion|Orion Q70 38.0mm 2.00"|70|38.0|45.7|28.0|0|2.00|Multi other|0|5|0|FMC||
-Orion|Orion Sirius 6.3mm 1.25"|52|6.3|5.0|4.1|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 7.5mm 1.25"|52|7.5|5.8|4.9|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 10.0mm 1.25"|52|10.0|8.0|6.5|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 12.5mm 1.25"|52|12.5|10.2|8.1|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 17.0mm 1.25"|52|17.0|17.1|11.0|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 20.0mm 1.25"|52|20.0|17.4|13.0|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 25.0mm 1.25"|52|25.0|24.1|16.9|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 32.0mm 1.25"|50|32.0|27.0|20.0|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Sirius 40.0mm 1.25"|40|40.0|27.0|28.0|0|1.25|Plossl|0|4|0|MC||
-Orion|Orion Stratus 3.5mm 1.25"|68|3.5|5.1|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion Stratus 5.0mm 1.25"|68|5.0|7.3|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion Stratus 8.0mm 1.25"|68|8.0|10.7|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion Stratus 13.0mm 1.25"|68|13.0|19.0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion Stratus 17.0mm 1.25"|68|17.0|23.0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Orion|Orion Ultra Flat 10.0mm 1.25"|65|10.0|14.7|16.0|0|1.25|Multi other|0|5|85|FMC||
-Orion|Orion Ultra Flat 15.0mm 1.25"|65|15.0|19.6|16.0|0|1.25|Multi other|0|8|142|FMC||
-Pentax|Pentax SMC-XW 3.5mm 1.25"|70|3.5|4.3|20.0|0|1.25|Multi other|0|8|405|FMC||
-Pentax|Pentax SMC-XW 5.0mm 1.25"|70|5.0|6.3|20.0|0|1.25|Multi other|0|8|395|FMC||
-Pentax|Pentax SMC-XW 7.0mm 1.25"|70|7.0|8.8|20.0|0|1.25|Multi other|0|8|390|FMC||
-Pentax|Pentax SMC-XW 10.0mm 1.25"|70|10.0|12.4|20.0|0|1.25|Multi other|0|7|390|FMC||
-Pentax|Pentax SMC-XW 14.0mm 1.25"|70|14.0|17.6|20.0|0|1.25|Multi other|0|7|365|FMC||
-Pentax|Pentax SMC-XW 20.0mm 1.25"|70|20.0|24.0|20.0|0|1.25|Multi other|0|6|355|FMC||
+Omegon|Omegon Super Plossl 10mm 1.25"|52|10.0|0|6.0|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 15mm 1.25"|52|15.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 17mm 1.25"|52|17.0|0|10.2|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 20mm 1.25"|52|20.0|0|12.0|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 26mm 1.25"|52|26.0|0|15.6|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 32mm 1.25"|50|32.0|0|19.2|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 40mm 1.25"|40|40.0|0|24.0|0|1.25|Multi other|0|5|0|FMC||
+Omegon|Omegon Super Plossl 56mm 2"|52|56.0|0|33.6|0|2.00|Plossl|0|4|0|FMC||
+Omegon|Omegon SWA 10mm 1.25"|70|10.0|0|8.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon SWA 15mm 1.25"|70|15.0|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon SWA 20mm 1.25"|70|20.0|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon SWA 26mm 2"|70|26.0|0|18.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon SWA 32mm 2"|70|32.0|0|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon SWA 38mm 2"|70|38.0|0|23.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Omegon|Omegon UWA 6mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|0|0|FMC||
+Omegon|Omegon UWA 9mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|0|0|FMC||
+Omegon|Omegon UWA 15mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|0|0|FMC||
+Omegon|Omegon UWA 20mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|0|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 4mm 1.25"|52|4.0|0|6.0|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 6mm 1.25"|52|6.0|0|5.0|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 9mm 1.25"|52|9.0|0|6.0|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 15mm 1.25"|52|15.0|0|13.0|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 20mm 1.25"|52|20.0|0|20.0|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
+TPO (from OPT)|TPO (from OPT) SuperView 15mm 1.25"|68|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC-BE||
+TPO (from OPT)|TPO (from OPT) SuperView 20mm 1.25"|68|20.0|0|20.0|0|1.25|Multi other|0|4|0|FMC-BE||
+TPO (from OPT)|TPO (from OPT) SuperView (Erfle) 30mm 2"|68|30.0|0|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+TPO (from OPT)|TPO (from OPT) SuperView (Erfle) 42mm 2"|68|42.0|0|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+TPO (from OPT)|TPO (from OPT) SuperView (Erfle) 50mm 2"|48|50.0|0|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Orion|Orion DeepView 28mm 2"|56|28.0|27.0|20.0|0|2.00|Multi other|0|3|0|MC-BE||
+Orion|Orion DeepView 35mm 2"|56|35.0|37.0|20.0|0|2.00|Multi other|0|3|0|MC-BE||
+Orion|Orion DeepView 42mm 2"|52|42.0|38.0|20.0|0|2.00|Multi other|0|3|0|MC-BE||
+Orion|Orion Edge-On Planetary 3mm 1.25"|55|3.0|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion Edge-On Planetary 5mm 1.25"|55|5.0|5.6|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion Edge-On Planetary 6mm 1.25"|55|6.0|8.7|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion Edge-On Planetary 9mm 1.25"|55|9.0|9.3|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion Edge-On Planetary 12.5mm 1.25"|55|12.5|11.7|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion Edge-On Planetary 14.5mm 1.25"|55|14.5|15.6|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion EF 8mm 1.25"|60|8.0|9.6|9.5|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion EF 12mm 1.25"|60|12.0|15.2|15.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Orion|Orion EF 16mm 1.25"|60|16.0|16.5|19.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Orion|Orion EF 19mm 1.25"|65|19.0|21.2|18.5|0|1.25|Multi other|0|5|0|FMC-BE||
+Orion|Orion EF 27mm 1.25"|53|27.0|24.4|23.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Orion|Orion E-Series 3.6mm 1.25"|40|3.6|0|5.0|0|1.25|Multi other|0|4|0|FC-BE||
+Orion|Orion E-Series 6.3mm 1.25"|46|6.3|0|8.0|0|1.25|Multi other|0|3|0|FC-BE||
+Orion|Orion Expanse 6mm 1.25"|66|6.0|8.0|14.8|0|1.25|Multi other|0|5|0|MC-BE||
+Orion|Orion Expanse 9mm 1.25"|66|9.0|15.0|15.0|0|1.25|Multi other|0|6|0|MC-BE||
+Orion|Orion Expanse 15mm 1.25"|66|15.0|17.0|13.0|0|1.25|Multi other|0|4|0|MC-BE||
+Orion|Orion Expanse 20mm 1.25"|66|20.0|23.5|18.0|0|1.25|Multi other|0|4|0|MC-BE||
+Orion|Orion LHD 4mm 1.25"|80|4.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion LHD 6mm 1.25"|80|6.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion LHD 9mm 1.25"|80|9.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion LHD 14mm 2"|80|14.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Orion|Orion LHD 20mm 2"|80|20.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Orion|Orion Q70 26mm 2"|70|26.0|32.3|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Orion|Orion Q70 32mm 2"|70|32.0|40.0|24.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Orion|Orion Q70 38mm 2"|70|38.0|45.7|28.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Orion|Orion Sirius 6.3mm 1.25"|52|6.3|5.0|4.1|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 7.5mm 1.25"|52|7.5|5.8|4.9|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 10mm 1.25"|52|10.0|8.0|6.5|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 12.5mm 1.25"|52|12.5|10.2|8.1|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 17mm 1.25"|52|17.0|17.1|11.0|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 20mm 1.25"|52|20.0|17.4|13.0|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 25mm 1.25"|52|25.0|24.1|16.9|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 32mm 1.25"|50|32.0|27.0|20.0|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Sirius 40mm 1.25"|40|40.0|27.0|28.0|0|1.25|Plossl|0|4|0|MC-BE||
+Orion|Orion Stratus 3.5mm 1.25"|68|3.5|5.1|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion Stratus 5mm 1.25"|68|5.0|7.3|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion Stratus 8mm 1.25"|68|8.0|10.7|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion Stratus 13mm 1.25"|68|13.0|19.0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion Stratus 17mm 1.25"|68|17.0|23.0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Orion|Orion Ultra Flat 10mm 1.25"|65|10.0|14.7|16.0|0|1.25|Multi other|0|5|85|FMC-BE||
+Orion|Orion Ultra Flat 15mm 1.25"|65|15.0|19.6|16.0|0|1.25|Multi other|0|8|142|FMC-BE||
+Pentax|Pentax SMC-XW 3.5mm 1.25"|70|3.5|4.3|20.0|0|1.25|Multi other|0|8|405|FMC-BE||
+Pentax|Pentax SMC-XW 5mm 1.25"|70|5.0|6.3|20.0|0|1.25|Multi other|0|8|395|FMC-BE||
+Pentax|Pentax SMC-XW 7mm 1.25"|70|7.0|8.8|20.0|0|1.25|Multi other|0|8|390|FMC-BE||
+Pentax|Pentax SMC-XW 10mm 1.25"|70|10.0|12.4|20.0|0|1.25|Multi other|0|7|390|FMC-BE||
+Pentax|Pentax SMC-XW 14mm 1.25"|70|14.0|17.6|20.0|0|1.25|Multi other|0|7|365|FMC-BE||
+Pentax|Pentax SMC-XW 20mm 1.25"|70|20.0|24.0|20.0|0|1.25|Multi other|0|6|355|FMC-BE||
 Pentax|Pentax XF ED 8.5mm 1.25"|60|8.5|8.8|18.0|0|1.25|Multi other|0|6|150|FMC||
-Pentax|Pentax XF ED 12.0mm 1.25"|60|12.0|12.8|18.0|0|1.25|Multi other|0|6|155|FMC||
-PrimaLuceLab|PrimaLuceLab LE Planetary 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-PrimaLuceLab|PrimaLuceLab LE Planetary 14.5mm 1.25"|55|14.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-PrimaLuceLab|PrimaLuceLab LE Planetary 18.0mm 1.25"|55|18.0|0|20.0|0|1.25|Multi other|0|5|167|FMC||
-Russell Optics|Russell Optics Plossl 50.0mm 1.25"|30|50.0|0|0|0|1.25|Plossl|0|4|0|FMC||
-Russell Optics|Russell Optics Research Grade Konig 7.0mm 2.00"|60|7.0|0|0|0|2.00|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics Research Grade Konig 10.0mm 1.25"|65|10.0|0|0|0|1.25|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics Research Grade Konig 12.0mm 2.00"|70|12.0|0|0|0|2.00|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics Research Grade Konig 18.0mm 1.25"|67|18.0|0|0|0|1.25|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics Research Grade Konig 18.0mm 2.00"|70|18.0|0|16.0|0|2.00|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics RKE 52.0mm 2.00"|51|52.0|0|0|0|2.00|Multi other|0|3|0|||
-Russell Optics|Russell Optics RKE 60.0mm 2.00"|45|60.0|0|0|0|2.00|Multi other|0|3|0|||
-Russell Optics|Russell Optics Super plossl 50.0mm 2.00"|50|50.0|0|30.0|0|2.00|Plossl|0|5|0|FMC||
-Russell Optics|Russell Optics Super plossl 56.0mm 2.00"|45|56.0|0|30.0|0|2.00|Plossl|0|5|0|FMC||
-Russell Optics|Russell Optics Super plossl 65.0mm 2.00"|40|65.0|0|35.0|0|2.00|Plossl|0|5|0|FMC||
-Russell Optics|Russell Optics Super plossl 72.0mm 2.00"|37|72.0|0|35.0|0|2.00|Plossl|0|5|0|FMC||
-Russell Optics|Russell Optics Super plossl 85.0mm 2.00"|31|85.0|0|35.0|0|2.00|Plossl|0|5|0|FMC||
+Pentax|Pentax XF ED 12mm 1.25"|60|12.0|12.8|18.0|0|1.25|Multi other|0|6|155|FMC||
+PrimaLuceLab|PrimaLuceLab LE Planetary 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+PrimaLuceLab|PrimaLuceLab LE Planetary 14.5mm 1.25"|55|14.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+PrimaLuceLab|PrimaLuceLab LE Planetary 18mm 1.25"|55|18.0|0|20.0|0|1.25|Multi other|0|5|167|FMC-BE||
+Russell Optics|Russell Optics Plossl 50mm 1.25"|30|50.0|0|0|0|1.25|Plossl|0|4|0|FMC||
+Russell Optics|Russell Optics Research Grade Konig 7mm 2"|60|7.0|0|0|0|2.00|Multi other|0|4|0|FMC||
+Russell Optics|Russell Optics Research Grade Konig 10mm 1.25"|65|10.0|0|0|0|1.25|Multi other|0|4|0|FMC||
+Russell Optics|Russell Optics Research Grade Konig 12mm 2"|70|12.0|0|0|0|2.00|Multi other|0|4|0|FMC||
+Russell Optics|Russell Optics Research Grade Konig 18mm 1.25"|67|18.0|0|0|0|1.25|Multi other|0|4|0|FMC||
+Russell Optics|Russell Optics Research Grade Konig 18mm 2"|70|18.0|0|16.0|0|2.00|Multi other|0|4|0|FMC||
+Russell Optics|Russell Optics RKE 52mm 2"|51|52.0|0|0|0|2.00|Multi other|0|3|0|||
+Russell Optics|Russell Optics RKE 60mm 2"|45|60.0|0|0|0|2.00|Multi other|0|3|0|||
+Russell Optics|Russell Optics Super plossl 50mm 2"|50|50.0|0|30.0|0|2.00|Plossl|0|5|0|FMC||
+Russell Optics|Russell Optics Super plossl 56mm 2"|45|56.0|0|30.0|0|2.00|Plossl|0|5|0|FMC||
+Russell Optics|Russell Optics Super plossl 65mm 2"|40|65.0|0|35.0|0|2.00|Plossl|0|5|0|FMC||
+Russell Optics|Russell Optics Super plossl 72mm 2"|37|72.0|0|35.0|0|2.00|Plossl|0|5|0|FMC||
+Russell Optics|Russell Optics Super plossl 85mm 2"|31|85.0|0|35.0|0|2.00|Plossl|0|5|0|FMC||
 Russell Optics|Russell Optics Super Wide Konig 6.7mm 1.25"|70|6.7|0|18.0|0|1.25|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics Super Wide Konig 10.5mm 2.00"|65|10.5|0|20.0|0|2.00|Multi other|0|6|0|FMC||
-Russell Optics|Russell Optics Super Wide Konig 13.0mm 2.00"|70|13.0|0|0|0|2.00|Multi other|0|6|0|FMC||
-Russell Optics|Russell Optics Super Wide Konig 19.0mm 1.25"|70|19.0|0|18.0|0|1.25|Multi other|0|4|0|FMC||
-Russell Optics|Russell Optics Super Wide Konig 19.0mm 2.00"|70|19.0|0|18.0|0|2.00|Multi other|0|0|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 4.0mm 1.25"|52|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 6.0mm 1.25"|52|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 9.0mm 1.25"|52|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 15.0mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 25.0mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Wide Field 50.0mm 2.00"|50|50.0|0|0|0|2.00|Multi other|0|5|0|FMC||
-Skywatcher|Skywatcher Aero ED 30.0mm 2.00"|68|30.0|0|16.7|0|2.00|Multi other|0|6|0|MC||
-Skywatcher|Skywatcher Aero ED 35.0mm 2.00"|68|35.0|0|17.5|0|2.00|Multi other|0|6|0|MC||
-Skywatcher|Skywatcher Aero ED 40.0mm 2.00"|68|40.0|0|20.0|0|2.00|Multi other|0|6|0|MC||
-Skywatcher|Skywatcher ExtraFlat Wide Angle 16.0mm 1.25"|60|16.0|0|17.0|0|1.25|Multi other|0|6|0|FMC||
-Skywatcher|Skywatcher ExtraFlat Wide Angle 19.0mm 1.25"|65|19.0|0|19.0|0|1.25|Multi other|0|5|0|FMC||
-Skywatcher|Skywatcher ExtraFlat Wide Angle 27.0mm 1.25"|53|27.0|0|23.0|0|1.25|Multi other|0|5|0|FMC||
-Skywatcher|Skywatcher LET 28.0mm 2.00"|56|28.0|0|20.0|0|2.00|Multi other|0|3|0|MC||
-Skywatcher|Skywatcher Myriad 3.5mm 1.25"|110|3.5|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-Skywatcher|Skywatcher Myriad 5.0mm 1.25"|110|5.0|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-Skywatcher|Skywatcher Myriad 9.0mm 1.25"|101|9.0|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-Skywatcher|Skywatcher Myriad 20.0mm 2.00"|100|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC||
-Skywatcher|Skywatcher Nirvana 82 4.0mm 1.25"|82|4.0|0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Skywatcher|Skywatcher Nirvana 82 7.0mm 1.25"|82|7.0|0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Skywatcher|Skywatcher Nirvana 82 16.0mm 1.25"|82|16.0|21.2|12.0|0|1.25|Multi other|0|7|0|FMC||
-Skywatcher|Skywatcher Nirvana 82 28.0mm 2.00"|82|28.0|38.6|18.0|0|2.00|Multi other|0|6|0|FMC||
-Skywatcher|Skywatcher PanaView 26.0mm 2.00"|70|26.0|0|20.0|0|2.00|Multi other|0|5|0|FMC||
-Skywatcher|Skywatcher PanaView 32.0mm 2.00"|70|32.0|0|24.0|0|2.00|Multi other|0|5|0|FMC||
-Skywatcher|Skywatcher PanaView 38.0mm 2.00"|70|38.0|0|28.0|0|2.00|Multi other|0|5|0|FMC||
+Russell Optics|Russell Optics Super Wide Konig 10.5mm 2"|65|10.5|0|20.0|0|2.00|Multi other|0|6|0|FMC||
+Russell Optics|Russell Optics Super Wide Konig 13mm 2"|70|13.0|0|0|0|2.00|Multi other|0|6|0|FMC||
+Russell Optics|Russell Optics Super Wide Konig 19mm 1.25"|70|19.0|0|18.0|0|1.25|Multi other|0|4|0|FMC||
+Russell Optics|Russell Optics Super Wide Konig 19mm 2"|70|19.0|0|18.0|0|2.00|Multi other|0|0|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 4mm 1.25"|52|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 6mm 1.25"|52|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 9mm 1.25"|52|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 15mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 25mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
+Sky Mentor (Khan Scope, Canada)|Sky Mentor (Khan Scope, Canada) Wide Field 50mm 2"|50|50.0|0|0|0|2.00|Multi other|0|5|0|FMC||
+Skywatcher|Skywatcher Aero ED 30mm 2"|68|30.0|0|16.7|0|2.00|Multi other|0|6|0|MC-BE||
+Skywatcher|Skywatcher Aero ED 35mm 2"|68|35.0|0|17.5|0|2.00|Multi other|0|6|0|MC-BE||
+Skywatcher|Skywatcher Aero ED 40mm 2"|68|40.0|0|20.0|0|2.00|Multi other|0|6|0|MC-BE||
+Skywatcher|Skywatcher ExtraFlat Wide Angle 16mm 1.25"|60|16.0|0|17.0|0|1.25|Multi other|0|6|0|FMC||
+Skywatcher|Skywatcher ExtraFlat Wide Angle 19mm 1.25"|65|19.0|0|19.0|0|1.25|Multi other|0|5|0|FMC||
+Skywatcher|Skywatcher ExtraFlat Wide Angle 27mm 1.25"|53|27.0|0|23.0|0|1.25|Multi other|0|5|0|FMC||
+Skywatcher|Skywatcher LET 28mm 2"|56|28.0|0|20.0|0|2.00|Multi other|0|3|0|MC-BE||
+Skywatcher|Skywatcher Myriad 3.5mm 1.25"|110|3.5|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Skywatcher|Skywatcher Myriad 5mm 1.25"|110|5.0|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Skywatcher|Skywatcher Myriad 9mm 1.25"|101|9.0|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Skywatcher|Skywatcher Myriad 20mm 2"|100|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC-BE||
+Skywatcher|Skywatcher Nirvana 82 4mm 1.25"|82|4.0|0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Skywatcher|Skywatcher Nirvana 82 7mm 1.25"|82|7.0|0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Skywatcher|Skywatcher Nirvana 82 16mm 1.25"|82|16.0|21.2|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Skywatcher|Skywatcher Nirvana 82 28mm 2"|82|28.0|38.6|18.0|0|2.00|Multi other|0|6|0|FMC-BE||
+Skywatcher|Skywatcher PanaView 26mm 2"|70|26.0|0|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Skywatcher|Skywatcher PanaView 32mm 2"|70|32.0|0|24.0|0|2.00|Multi other|0|5|0|FMC-BE||
+Skywatcher|Skywatcher PanaView 38mm 2"|70|38.0|0|28.0|0|2.00|Multi other|0|5|0|FMC-BE||
 Skywatcher|Skywatcher Planetary 2.5mm 1.25"|58|2.5|16.0|5|0|1.25|Multi other|0|0|0|58||
-Skywatcher|Skywatcher Planetary 4.0mm 1.25"|58|4.0|16.0|5|0|1.25|Multi other|0|0|0|58||
-Skywatcher|Skywatcher Planetary 5.0mm 1.25"|58|5.0|16.0|5|0|1.25|Multi other|0|0|0|58||
-Skywatcher|Skywatcher Planetary 6.0mm 1.25"|58|6.0|16.0|5|0|1.25|Multi other|0|0|0|58||
-Skywatcher|Skywatcher Planetary 7.0mm 1.25"|58|7.0|16.0|5|0|1.25|Multi other|0|0|0|58||
-Skywatcher|Skywatcher Planetary 9.0mm 1.25"|58|9.0|16.0|5|0|1.25|Multi other|0|0|0|58||
-Skywatcher|Skywatcher Sky Panorama 7.0mm 1.25"|82|7.0|0|0|0|1.25|Multi other|0|7|0|FMC||
-Skywatcher|Skywatcher Sky Panorama 15.0mm 1.25"|82|15.0|0|0|0|1.25|Multi other|0|7|0|FMC||
-Skywatcher|Skywatcher Sky Panorama 23.0mm 2.00"|82|23.0|0|0|0|2.00|Multi other|0|7|0|FMC||
+Skywatcher|Skywatcher Planetary 4mm 1.25"|58|4.0|16.0|5|0|1.25|Multi other|0|0|0|58||
+Skywatcher|Skywatcher Planetary 5mm 1.25"|58|5.0|16.0|5|0|1.25|Multi other|0|0|0|58||
+Skywatcher|Skywatcher Planetary 6mm 1.25"|58|6.0|16.0|5|0|1.25|Multi other|0|0|0|58||
+Skywatcher|Skywatcher Planetary 7mm 1.25"|58|7.0|16.0|5|0|1.25|Multi other|0|0|0|58||
+Skywatcher|Skywatcher Planetary 9mm 1.25"|58|9.0|16.0|5|0|1.25|Multi other|0|0|0|58||
+Skywatcher|Skywatcher Sky Panorama 7mm 1.25"|82|7.0|0|0|0|1.25|Multi other|0|7|0|FMC||
+Skywatcher|Skywatcher Sky Panorama 15mm 1.25"|82|15.0|0|0|0|1.25|Multi other|0|7|0|FMC||
+Skywatcher|Skywatcher Sky Panorama 23mm 2"|82|23.0|0|0|0|2.00|Multi other|0|7|0|FMC||
 Skywatcher|Skywatcher Super Lens (Super MA) 3.6mm 1.25"|40|3.6|0|0|0|1.25|Multi other|0|3|0|FC||
-Skywatcher|Skywatcher Super Lens (Super MA) 10.0mm 1.25"|52|10.0|0|0|0|1.25|Multi other|0|3|0|FC||
-Skywatcher|Skywatcher Super Lens (Super MA) 25.0mm 1.25"|50|25.0|0|0|0|1.25|Multi other|0|3|0|FC||
-Skywatcher|Skywatcher Super Plossl 6.3mm 1.25"|52|6.3|0|4.4|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 7.5mm 1.25"|52|7.5|0|5.3|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 10.0mm 1.25"|52|10.0|0|7.0|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 12.5mm 1.25"|52|12.5|0|8.8|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 17.0mm 1.25"|52|17.0|0|11.9|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 20.0mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 25.0mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher Super Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|MC||
-Skywatcher|Skywatcher SWA 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher SWA 5.0mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher SWA 8.0mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher SWA 13.0mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher SWA 17.0mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher SWA 22.0mm 2.00"|70|22.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher SWA 32.0mm 2.00"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 6.0mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|0|0|MC||
-Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 9.0mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|0|0|MC||
-Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 15.0mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|0|0|MC||
-Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 20.0mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|0|0|MC||
-Stellarvue|Stellarvue Optimus 3.6mm 1.25"|110|3.6|0|15.0|0|1.25|Multi other|0|8|0|FMC||
-Stellarvue|Stellarvue Optimus 4.7mm 1.25"|110|4.7|0|15.0|0|1.25|Multi other|0|8|0|FMC||
-Stellarvue|Stellarvue Optimus 9.0mm 1.25"|100|9.0|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-Stellarvue|Stellarvue Optimus 13.5mm 1.25"|100|13.5|0|15.0|0|1.25|Multi other|0|8|0|FMC||
-Stellarvue|Stellarvue Optimus 20.0mm 2.00"|100|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC||
-Stellarvue|Stellarvue Planetary  4.9mm 1.25"|53|4.9|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Stellarvue|Stellarvue Planetary  6.1mm 1.25"|53|6.1|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-Stellarvue|Stellarvue UWA 4.0mm 1.25"|82|4.0|7.5|12.0|0|1.25|Multi other|0|7|0|FMC||
-Stellarvue|Stellarvue UWA 8.0mm 1.25"|82|8.0|13.6|12.0|0|1.25|Multi other|0|7|0|FMC||
-Stellarvue|Stellarvue UWA 15.0mm 1.25"|82|15.0|25.0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 4.0mm 1.25"|55|4.0|0|2.4|0|1.25|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 6.0mm 1.25"|55|6.0|0|3.6|0|1.25|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 12.5mm 1.25"|55|12.5|0|7.5|0|1.25|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 17.0mm 1.25"|55|17.0|0|10.2|0|1.25|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 20.0mm 1.25"|55|20.0|0|12.0|0|1.25|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 25.0mm 1.25"|55|25.0|0|15.0|0|1.25|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 30.0mm 2.00"|55|30.0|0|18.0|0|2.00|Plossl|0|4|0|FMC||
-Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 40.0mm 2.00"|55|40.0|0|24.0|0|2.00|Plossl|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 4.00mm 1.25"|44|4.00|0|0|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 6.0mm 1.25"|44|6.0|0|4.8|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 9.0mm 1.25"|44|9.0|0|7.5|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 12.5mm 1.25"|44|12.5|0|10.0|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 18.0mm 1.25"|44|18.0|0|15.0|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 25.0mm 1.25"|44|25.0|0|22.0|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi Abbe Orthoscopic 32.0mm 1.25"|44|32.0|0|28.0|0|1.25|Ortho|0|4|0|FMC||
-Takahashi|Takahashi LE 5.0mm 1.25"|52|5.0|0|10.0|0|1.25|Multi other|0|5|0|FMC||
+Skywatcher|Skywatcher Super Lens (Super MA) 10mm 1.25"|52|10.0|0|0|0|1.25|Multi other|0|3|0|FC||
+Skywatcher|Skywatcher Super Lens (Super MA) 25mm 1.25"|50|25.0|0|0|0|1.25|Multi other|0|3|0|FC||
+Skywatcher|Skywatcher Super Plossl 6.3mm 1.25"|52|6.3|0|4.4|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 7.5mm 1.25"|52|7.5|0|5.3|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 10mm 1.25"|52|10.0|0|7.0|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 12.5mm 1.25"|52|12.5|0|8.8|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 17mm 1.25"|52|17.0|0|11.9|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 20mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 25mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher Super Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|MC-BE||
+Skywatcher|Skywatcher SWA 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher SWA 5mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher SWA 8mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher SWA 13mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher SWA 17mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher SWA 22mm 2"|70|22.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher SWA 32mm 2"|70|32.0|40.0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 6mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|0|0|MC||
+Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 9mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|0|0|MC||
+Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 15mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|0|0|MC||
+Skywatcher|Skywatcher Wide Angle(also called Ultrawide Angle) 20mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|0|0|MC||
+Stellarvue|Stellarvue Optimus 3.6mm 1.25"|110|3.6|0|15.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Stellarvue|Stellarvue Optimus 4.7mm 1.25"|110|4.7|0|15.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Stellarvue|Stellarvue Optimus 9mm 1.25"|100|9.0|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Stellarvue|Stellarvue Optimus 13.5mm 1.25"|100|13.5|0|15.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Stellarvue|Stellarvue Optimus 20mm 2"|100|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC-BE||
+Stellarvue|Stellarvue Planetary  4.9mm 1.25"|53|4.9|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Stellarvue|Stellarvue Planetary  6.1mm 1.25"|53|6.1|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Stellarvue|Stellarvue UWA 4mm 1.25"|82|4.0|7.5|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Stellarvue|Stellarvue UWA 8mm 1.25"|82|8.0|13.6|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Stellarvue|Stellarvue UWA 15mm 1.25"|82|15.0|25.0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 4mm 1.25"|55|4.0|0|2.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 6mm 1.25"|55|6.0|0|3.6|0|1.25|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 12.5mm 1.25"|55|12.5|0|7.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 17mm 1.25"|55|17.0|0|10.2|0|1.25|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 20mm 1.25"|55|20.0|0|12.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 25mm 1.25"|55|25.0|0|15.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 30mm 2"|55|30.0|0|18.0|0|2.00|Plossl|0|4|0|FMC-BE||
+Sterling (Smart Astronomy)|Sterling (Smart Astronomy) Plossl 40mm 2"|55|40.0|0|24.0|0|2.00|Plossl|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 4.00mm 1.25"|44|4.00|0|0|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 6mm 1.25"|44|6.0|0|4.8|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 9mm 1.25"|44|9.0|0|7.5|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 12.5mm 1.25"|44|12.5|0|10.0|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 18mm 1.25"|44|18.0|0|15.0|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 25mm 1.25"|44|25.0|0|22.0|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi Abbe Orthoscopic 32mm 1.25"|44|32.0|0|28.0|0|1.25|Ortho|0|4|0|FMC-BE||
+Takahashi|Takahashi LE 5mm 1.25"|52|5.0|0|10.0|0|1.25|Multi other|0|5|0|FMC||
 Takahashi|Takahashi LE 7.5mm 1.25"|52|7.5|6.8|10.0|0|1.25|Multi other|0|5|0|FMC||
-Takahashi|Takahashi LE 10.0mm 1.25"|52|10.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
+Takahashi|Takahashi LE 10mm 1.25"|52|10.0|0|9.0|0|1.25|Multi other|0|5|0|FMC||
 Takahashi|Takahashi LE 12.5mm 1.25"|52|12.5|11.0|9.0|0|1.25|Multi other|0|5|0|FMC||
-Takahashi|Takahashi LE 18.0mm 1.25"|52|18.0|15.9|13.0|0|1.25|Multi other|0|5|0|FMC||
-Takahashi|Takahashi LE 24.0mm 1.25"|52|24.0|21.3|17.0|0|1.25|Multi other|0|5|0|FMC||
-Takahashi|Takahashi LE 30.0mm 1.25"|52|30.0|0|20.0|0|1.25|Multi other|0|5|0|FMC||
-Takahashi|Takahashi LE 40.0mm 2.00"|50|40.0|0|30.0|0|2.00|Multi other|0|5|0|FMC||
-Takahashi|Takahashi LE 50.0mm 2.00"|50|50.0|43.0|40.0|0|2.00|Multi other|0|5|0|FMC||
-Takahashi|Takahashi TOE 2.5mm 1.25"|52|2.5|0|10.0|0|1.25|Multi other|0|6|0|FMC||
-Takahashi|Takahashi TOE 3.3mm 1.25"|52|3.3|0|10.0|0|1.25|Multi other|0|6|0|FMC||
-Takahashi|Takahashi TOE 4.0mm 1.25"|52|4.0|0|10.0|0|1.25|Multi other|0|6|0|FMC||
-Takahashi|Takahashi Ultra Wide/Flat Field 3.3mm 1.25"|90|3.3|0|12.0|0|1.25|Multi other|0|10|0|FMC||
-Takahashi|Takahashi Ultra Wide/Flat Field 5.7mm 1.25"|90|5.7|0|12.0|0|1.25|Multi other|0|10|0|FMC||
-Takahashi|Takahashi Ultra Wide/Flat Field 7.0mm 1.25"|90|7.0|0|12.0|0|1.25|Multi other|0|8|0|FMC||
-Takahashi|Takahashi Ultra Wide/Flat Field 10.0mm 1.25"|90|10.0|0|12.0|0|1.25|Multi other|0|8|0|FMC||
+Takahashi|Takahashi LE 18mm 1.25"|52|18.0|15.9|13.0|0|1.25|Multi other|0|5|0|FMC||
+Takahashi|Takahashi LE 24mm 1.25"|52|24.0|21.3|17.0|0|1.25|Multi other|0|5|0|FMC||
+Takahashi|Takahashi LE 30mm 1.25"|52|30.0|0|20.0|0|1.25|Multi other|0|5|0|FMC||
+Takahashi|Takahashi LE 40mm 2"|50|40.0|0|30.0|0|2.00|Multi other|0|5|0|FMC||
+Takahashi|Takahashi LE 50mm 2"|50|50.0|43.0|40.0|0|2.00|Multi other|0|5|0|FMC||
+Takahashi|Takahashi TOE 2.5mm 1.25"|52|2.5|0|10.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Takahashi|Takahashi TOE 3.3mm 1.25"|52|3.3|0|10.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Takahashi|Takahashi TOE 4mm 1.25"|52|4.0|0|10.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Takahashi|Takahashi Ultra Wide/Flat Field 3.3mm 1.25"|90|3.3|0|12.0|0|1.25|Multi other|0|10|0|FMC-BE||
+Takahashi|Takahashi Ultra Wide/Flat Field 5.7mm 1.25"|90|5.7|0|12.0|0|1.25|Multi other|0|10|0|FMC-BE||
+Takahashi|Takahashi Ultra Wide/Flat Field 7mm 1.25"|90|7.0|0|12.0|0|1.25|Multi other|0|8|0|FMC-BE||
+Takahashi|Takahashi Ultra Wide/Flat Field 10mm 1.25"|90|10.0|0|12.0|0|1.25|Multi other|0|8|0|FMC-BE||
 TAL|TAL SuperPlossl 6.3mm 1.25"|45|6.3|0|6.0|0|1.25|Plossl|0|4|0|MC||
 TAL|TAL SuperPlossl 12.5mm 1.25"|45|12.5|0|10.0|0|1.25|Plossl|0|4|0|MC||
-TAL|TAL SuperPlossl 20.0mm 1.25"|45|20.0|0|14.0|0|1.25|Plossl|0|4|0|MC||
-TAL|TAL SuperPlossl 25.0mm 1.25"|45|25.0|0|18.7|0|1.25|Plossl|0|4|0|MC||
-TAL|TAL SuperPlossl 32.0mm 1.25"|45|32.0|0|22.0|0|1.25|Plossl|0|4|0|MC||
-TAL|TAL SuperWideAngle 10.0mm 1.25"|65|10.0|0|6.5|0|1.25|Multi other|0|6|0|MC||
-TAL|TAL SuperWideAngle 15.0mm 1.25"|65|15.0|0|9.8|0|1.25|Multi other|0|6|0|MC||
-TAL|TAL SuperWideAngle 20.0mm 1.25"|65|20.0|0|13.0|0|1.25|Multi other|0|6|0|MC||
-TAL|TAL UltraWideAngle 15.0mm 1.25"|82|15.0|0|7.3|0|1.25|Multi other|0|6|0|MC||
-Telescope Service|Telescope Service ED 3.2mm 1.25"|60|3.2|0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service ED 5.0mm 1.25"|60|5.0|0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service ED 8.0mm 1.25"|60|8.0|0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service ED 12.0mm 1.25"|60|12.0|0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service ED 15.0mm 1.25"|60|15.0|0|16.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service ED 18.0mm 1.25"|60|18.0|0|16.0|0|1.25|Multi other|0|5|0|FMC||
-Telescope Service|Telescope Service ED 25.0mm 1.25"|60|25.0|0|16.0|0|1.25|Multi other|0|5|0|FMC||
-Telescope Service|Telescope Service Edge-On Flat Field 8.0mm 1.25"|60|8.0|9.0|9.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service Edge-On Flat Field 12.0mm 1.25"|60|12.0|13.0|12.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service Edge-On Flat Field 16.0mm 1.25"|60|16.0|16.6|17.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service Edge-On Flat Field 19.0mm 1.25"|65|19.0|21.3|17.0|0|1.25|Multi other|0|5|0|FMC||
-Telescope Service|Telescope Service Edge-On Flat Field 27.0mm 1.25"|53|27.0|24.4|21.0|0|1.25|Multi other|0|5|0|FMC||
+TAL|TAL SuperPlossl 20mm 1.25"|45|20.0|0|14.0|0|1.25|Plossl|0|4|0|MC||
+TAL|TAL SuperPlossl 25mm 1.25"|45|25.0|0|18.7|0|1.25|Plossl|0|4|0|MC||
+TAL|TAL SuperPlossl 32mm 1.25"|45|32.0|0|22.0|0|1.25|Plossl|0|4|0|MC||
+TAL|TAL SuperWideAngle 10mm 1.25"|65|10.0|0|6.5|0|1.25|Multi other|0|6|0|MC||
+TAL|TAL SuperWideAngle 15mm 1.25"|65|15.0|0|9.8|0|1.25|Multi other|0|6|0|MC||
+TAL|TAL SuperWideAngle 20mm 1.25"|65|20.0|0|13.0|0|1.25|Multi other|0|6|0|MC||
+TAL|TAL UltraWideAngle 15mm 1.25"|82|15.0|0|7.3|0|1.25|Multi other|0|6|0|MC||
+Telescope Service|Telescope Service ED 3.2mm 1.25"|60|3.2|0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service ED 5mm 1.25"|60|5.0|0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service ED 8mm 1.25"|60|8.0|0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service ED 12mm 1.25"|60|12.0|0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service ED 15mm 1.25"|60|15.0|0|16.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service ED 18mm 1.25"|60|18.0|0|16.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Telescope Service|Telescope Service ED 25mm 1.25"|60|25.0|0|16.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Telescope Service|Telescope Service Edge-On Flat Field 8mm 1.25"|60|8.0|9.0|9.0|0|1.25|Multi other|0|6|0|FMC||
+Telescope Service|Telescope Service Edge-On Flat Field 12mm 1.25"|60|12.0|13.0|12.0|0|1.25|Multi other|0|6|0|FMC||
+Telescope Service|Telescope Service Edge-On Flat Field 16mm 1.25"|60|16.0|16.6|17.0|0|1.25|Multi other|0|6|0|FMC||
+Telescope Service|Telescope Service Edge-On Flat Field 19mm 1.25"|65|19.0|21.3|17.0|0|1.25|Multi other|0|5|0|FMC||
+Telescope Service|Telescope Service Edge-On Flat Field 27mm 1.25"|53|27.0|24.4|21.0|0|1.25|Multi other|0|5|0|FMC||
 Telescope Service|Telescope Service Expanse ED 3.5mm 1.25"|70|3.5|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Expanse ED 5.0mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Expanse ED 8.0mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Expanse ED 13.0mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Expanse ED 17.0mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Expanse ED 22.0mm 2.00"|70|22.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Paragon ED 30.0mm 2.00"|69|30.0|0|16.7|0|2.00|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service Paragon ED 35.0mm 2.00"|69|35.0|0|17.5|0|2.00|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service Planetary HR 2.5mm 1.25"|60|2.5|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 3.2mm 1.25"|60|3.2|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 4.0mm 1.25"|60|4.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 5.0mm 1.25"|60|5.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 6.0mm 1.25"|60|6.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 7.0mm 1.25"|60|7.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 8.0mm 1.25"|60|8.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 9.0mm 1.25"|60|9.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 15.0mm 1.25"|60|15.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 20.0mm 1.25"|60|20.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Planetary HR 25.0mm 1.25"|60|25.0|0|16.0|0|1.25|Multi other|0|0|0|FMC||
+Telescope Service|Telescope Service Expanse ED 5mm 1.25"|70|5.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
+Telescope Service|Telescope Service Expanse ED 8mm 1.25"|70|8.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
+Telescope Service|Telescope Service Expanse ED 13mm 1.25"|70|13.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
+Telescope Service|Telescope Service Expanse ED 17mm 1.25"|70|17.0|0|20.0|0|1.25|Multi other|0|0|0|FMC||
+Telescope Service|Telescope Service Expanse ED 22mm 2"|70|22.0|0|20.0|0|2.00|Multi other|0|0|0|FMC||
+Telescope Service|Telescope Service Paragon ED 30mm 2"|69|30.0|0|16.7|0|2.00|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service Paragon ED 35mm 2"|69|35.0|0|17.5|0|2.00|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 2.5mm 1.25"|60|2.5|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 3.2mm 1.25"|60|3.2|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 4mm 1.25"|60|4.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 5mm 1.25"|60|5.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 6mm 1.25"|60|6.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 7mm 1.25"|60|7.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 8mm 1.25"|60|8.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 9mm 1.25"|60|9.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 15mm 1.25"|60|15.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 20mm 1.25"|60|20.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Planetary HR 25mm 1.25"|60|25.0|0|16.0|0|1.25|Multi other|0|0|0|FMC-BE||
 Telescope Service|Telescope Service RKE 3.6mm 1.25"|45|3.6|0|12.0|0|1.25|Multi other|0|3|0|FC||
-Telescope Service|Telescope Service RKE 10.0mm 1.25"|52|10.0|0|14.0|0|1.25|Multi other|0|3|0|FC||
-Telescope Service|Telescope Service RKE 25.0mm 1.25"|52|25.0|0|20.0|0|1.25|Multi other|0|3|0|FC||
-Telescope Service|Telescope Service Standard Plossl 4.0mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service RKE 10mm 1.25"|52|10.0|0|14.0|0|1.25|Multi other|0|3|0|FC||
+Telescope Service|Telescope Service RKE 25mm 1.25"|52|25.0|0|20.0|0|1.25|Multi other|0|3|0|FC||
+Telescope Service|Telescope Service Standard Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|SC||
 Telescope Service|Telescope Service Standard Plossl 6.3mm 1.25"|50|6.3|0|4.4|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 10.0mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Standard Plossl 10mm 1.25"|50|10.0|0|7.0|0|1.25|Plossl|0|4|0|SC||
 Telescope Service|Telescope Service Standard Plossl 12.5mm 1.25"|50|12.5|0|8.8|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 15.0mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 17.0mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 20.0mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 25.0mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Standard Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|SC||
-Telescope Service|Telescope Service Super Plossl 4.0mm 1.25"|52|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 6.0mm 1.25"|52|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 9.0mm 1.25"|52|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 12.0mm 1.25"|52|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 15.0mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 20.0mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 25.0mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 32.0mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service Super Plossl 40.0mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC||
-Telescope Service|Telescope Service SWA 5.0mm 1.25"|100|5.0|0|13.0|0|1.25|Multi other|0|9|0|FMC||
-Telescope Service|Telescope Service SWA 10.0mm 1.25"|100|10.0|0|19.7|0|1.25|Multi other|0|8|0|FMC||
-Telescope Service|Telescope Service SWA 15.0mm 2.00"|100|15.0|0|20.0|0|2.00|Multi other|0|8|0|FMC||
-Telescope Service|Telescope Service SWA 21.0mm 2.00"|100|21.0|0|20.0|0|2.00|Multi other|0|7|0|FMC||
-Telescope Service|Telescope Service UWA 6.0mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|5|0|FMC||
-Telescope Service|Telescope Service UWA 9.0mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|6|0|FMC||
-Telescope Service|Telescope Service UWA 15.0mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC||
-Telescope Service|Telescope Service UWA 20.0mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|5|0|FMC||
-Telescope Service|Telescope Service UWA 82 4.0mm 1.25"|82|4.0|0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Telescope Service|Telescope Service UWA 82 7.0mm 1.25"|82|7.0|0|12.0|0|1.25|Multi other|0|7|0|FMC||
-Telescope Service|Telescope Service UWA 82 16.0mm 1.25"|82|16.0|21.2|12.0|0|1.25|Multi other|0|7|0|FMC||
-Telescope Service|Telescope Service Wide Angle 8.0mm 1.25"|70|8.0|11.0|9.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Wide Angle 12.0mm 1.25"|70|12.0|13.0|10.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Wide Angle 17.0mm 1.25"|70|17.0|20.0|15.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Wide Angle 20.0mm 1.25"|70|20.0|25.0|17.0|0|1.25|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Wide Angle 26.0mm 2.00"|70|26.0|33.0|20.0|0|2.00|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Wide Angle 32.0mm 2.00"|70|32.0|40.0|24.0|0|2.00|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service Wide Angle 38.0mm 2.00"|70|38.0|46.0|28.0|0|2.00|Multi other|0|0|0|FMC||
-Telescope Service|Telescope Service XWA 3.5mm 1.25"|110|3.5|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-Telescope Service|Telescope Service XWA 5.0mm 1.25"|110|5.0|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-Telescope Service|Telescope Service XWA 9.0mm 1.25"|100|9.0|15.7|15.0|0|1.25|Multi other|0|9|0|FMC||
-Telescope Service|Telescope Service XWA 20.0mm 2.00"|100|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC||
-TeleVue|TeleVue DeLite 3.0mm 1.25"|62|3.0|3.2|20.0|0|1.25|Multi other|0|0|221|FMC||
-TeleVue|TeleVue DeLite 4.0mm 1.25"|62|4.0|4.3|20.0|0|1.25|Multi other|0|0|215|FMC||
-TeleVue|TeleVue DeLite 5.0mm 1.25"|62|5.0|5.3|20.0|0|1.25|Multi other|0|0|215|FMC||
-TeleVue|TeleVue DeLite 7.0mm 1.25"|62|7.0|7.5|20.0|0|1.25|Multi other|0|0|215|FMC||
-TeleVue|TeleVue DeLite 9.0mm 1.25"|62|9.0|9.6|20.0|0|1.25|Multi other|0|0|207|FMC||
-TeleVue|TeleVue DeLite 11.0mm 1.25"|62|11.0|11.7|20.0|0|1.25|Multi other|0|0|201|FMC||
-TeleVue|TeleVue DeLite 13.0mm 1.25"|62|13.0|13.8|20.0|0|1.25|Multi other|0|0|221|FMC||
-TeleVue|TeleVue DeLite 15.0mm 1.25"|62|15.0|16.0|20.0|0|1.25|Multi other|0|0|215|FMC||
-TeleVue|TeleVue DeLite 18.2mm 1.25"|62|18.2|19.1|20.0|0|1.25|Multi other|0|0|207|FMC||
-TeleVue|TeleVue Delos 3.5mm 1.25"|72|3.5|4.4|20.0|0|1.25|Multi other|0|0|499|FMC||
-TeleVue|TeleVue Delos 4.5mm 1.25"|72|4.5|5.6|20.0|0|1.25|Multi other|0|0|499|FMC||
-TeleVue|TeleVue Delos 6.0mm 1.25"|72|6.0|7.6|20.0|0|1.25|Multi other|0|0|454|FMC||
-TeleVue|TeleVue Delos 8.0mm 1.25"|72|8.0|9.9|20.0|0|1.25|Multi other|0|0|454|FMC||
-TeleVue|TeleVue Delos 10.0mm 1.25"|72|10.0|12.7|20.0|0|1.25|Multi other|0|0|409|FMC||
-TeleVue|TeleVue Delos 12.0mm 1.25"|72|12.0|15.0|20.0|0|1.25|Multi other|0|0|409|FMC||
-TeleVue|TeleVue Delos 14.0mm 1.25"|72|14.0|17.3|20.0|0|1.25|Multi other|0|0|409|FMC||
-TeleVue|TeleVue Delos 17.3mm 1.25"|72|17.3|21.2|20.0|0|1.25|Multi other|0|0|409|FMC||
-TeleVue|TeleVue Ethos 6.0mm 1.25"|100|6.0|10.4|15.0|0|1.25|Multi other|0|0|440|FMC||
-TeleVue|TeleVue Ethos 8.0mm 1.25"|100|8.0|13.9|15.0|0|1.25|Multi other|0|0|431|FMC||
-TeleVue|TeleVue Ethos 10.0mm 1.25"|100|10.0|17.7|15.0|0|1.25|Multi other|0|0|499|FMC||
-TeleVue|TeleVue Ethos 13.0mm 1.25"|100|13.0|22.3|15.0|0|1.25|Multi other|0|9|590|FMC||
-TeleVue|TeleVue Ethos 17.0mm 2.00"|100|17.0|29.6|15.0|0|2.00|Multi other|0|0|704|FMC||
-TeleVue|TeleVue Ethos 21.0mm 2.00"|100|21.0|36.2|15.0|0|2.00|Multi other|0|0|1021|FMC||
-TeleVue|TeleVue Ethos SX 3.7mm 1.25"|110|3.7|7.0|15.0|0|1.25|Multi other|0|0|499|FMC||
-TeleVue|TeleVue Ethos SX 4.7mm 1.25"|110|4.7|8.9|15.0|0|1.25|Multi other|0|0|590|FMC||
-TeleVue|TeleVue Nagler4 17.0mm 2.00"|82|17.0|24.3|17.0|0|2.00|Multi other|0|7|726|FMC||
-TeleVue|TeleVue Nagler4 22.0mm 2.00"|82|22.0|31.1|19.0|0|2.00|Multi other|0|7|681|FMC||
-TeleVue|TeleVue Nagler5 16.0mm 1.25"|82|16.0|22.1|10.0|0|1.25|Multi other|0|6|202|FMC||
-TeleVue|TeleVue Nagler5 31.0mm 2.00"|82|31.0|42.0|19.0|0|2.00|Multi other|0|6|998|FMC||
-TeleVue|TeleVue Nagler6 3.5mm 1.25"|82|3.5|4.8|12.0|0|1.25|Multi other|0|7|241|FMC||
-TeleVue|TeleVue Nagler6 5.0mm 1.25"|82|5.0|7.0|12.0|0|1.25|Multi other|0|7|224|FMC||
-TeleVue|TeleVue Nagler6 7.0mm 1.25"|82|7.0|9.7|12.0|0|1.25|Multi other|0|7|227|FMC||
-TeleVue|TeleVue Nagler6 9.0mm 1.25"|82|9.0|12.4|12.0|0|1.25|Multi other|0|7|190|FMC||
-TeleVue|TeleVue Nagler6 13.0mm 1.25"|82|13.0|17.6|12.0|0|1.25|Multi other|0|7|182|FMC||
-TeleVue|TeleVue Apollo 11 Commemorative 11.0mm 1.25"|85|11.0|16.2|19.0|0|1.25|Multi other|0|0|613|FMC||
-TeleVue|TeleVue Panoptic 19.0mm 1.25"|68|19.0|21.3|13.0|0|1.25|Multi other|0|6|188|FMC||
-TeleVue|TeleVue Panoptic 24.0mm 1.25"|68|24.0|27.0|15.0|0|1.25|Multi other|0|6|233|FMC||
-TeleVue|TeleVue Panoptic 27.0mm 2.00"|68|27.0|30.5|19.0|0|2.00|Multi other|0|6|465|FMC||
-TeleVue|TeleVue Panoptic 35.0mm 2.00"|68|35.0|38.7|24.0|0|2.00|Multi other|0|6|726|FMC||
-TeleVue|TeleVue Panoptic 41.0mm 2.00"|68|41.0|46.0|27.0|0|2.00|Multi other|0|6|953|FMC||
-TeleVue|TeleVue Plossl 8.0mm 1.25"|50|8.0|6.5|6.0|0|1.25|Plossl|0|4|51|FMC||
-TeleVue|TeleVue Plossl 11.0mm 1.25"|50|11.0|9.0|8.0|0|1.25|Plossl|0|4|63|FMC||
-TeleVue|TeleVue Plossl 15.0mm 1.25"|50|15.0|12.5|10.0|0|1.25|Plossl|0|4|74|FMC||
-TeleVue|TeleVue Plossl 20.0mm 1.25"|50|20.0|17.1|14.0|0|1.25|Plossl|0|4|85|FMC||
-TeleVue|TeleVue Plossl 25.0mm 1.25"|50|25.0|21.2|17.0|0|1.25|Plossl|0|4|122|FMC||
-TeleVue|TeleVue Plossl 32.0mm 1.25"|50|32.0|26.9|22.0|0|1.25|Plossl|0|4|176|FMC||
-TeleVue|TeleVue Plossl 40.0mm 1.25"|40|40.0|27.3|28.0|0|1.25|Plossl|0|4|193|FMC||
-TeleVue|TeleVue Plossl 55.0mm 2.00"|50|55.0|46.0|38.0|0|2.00|Plossl|0|4|513|FMC||
-Vixen|Vixen HR 1.6mm 1.25"|42|1.6|0|10.0|0|1.25|Multi other|0|5|0|FMC||
-Vixen|Vixen HR 2.0mm 1.25"|42|2.0|0|10.0|0|1.25|Multi other|0|5|0|FMC||
-Vixen|Vixen HR 2.4mm 1.25"|42|2.4|1.8|10.0|0|1.25|Multi other|0|5|115|FMC||
-Vixen|Vixen HR 3.4mm 1.25"|42|3.4|0|10.0|0|1.25|Multi other|0|5|0|FMC||
+Telescope Service|Telescope Service Standard Plossl 15mm 1.25"|50|15.0|0|10.5|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Standard Plossl 17mm 1.25"|50|17.0|0|11.9|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Standard Plossl 20mm 1.25"|50|20.0|0|14.0|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Standard Plossl 25mm 1.25"|50|25.0|0|17.5|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Standard Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Standard Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|SC||
+Telescope Service|Telescope Service Super Plossl 4mm 1.25"|52|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 6mm 1.25"|52|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 9mm 1.25"|52|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 12mm 1.25"|52|12.0|0|8.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 15mm 1.25"|52|15.0|0|10.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 20mm 1.25"|52|20.0|0|14.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 25mm 1.25"|52|25.0|0|17.5|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 32mm 1.25"|50|32.0|0|22.4|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service Super Plossl 40mm 1.25"|40|40.0|0|28.0|0|1.25|Plossl|0|4|0|FMC-BE||
+Telescope Service|Telescope Service SWA 5mm 1.25"|100|5.0|0|13.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Telescope Service|Telescope Service SWA 10mm 1.25"|100|10.0|0|19.7|0|1.25|Multi other|0|8|0|FMC-BE||
+Telescope Service|Telescope Service SWA 15mm 2"|100|15.0|0|20.0|0|2.00|Multi other|0|8|0|FMC-BE||
+Telescope Service|Telescope Service SWA 21mm 2"|100|21.0|0|20.0|0|2.00|Multi other|0|7|0|FMC-BE||
+Telescope Service|Telescope Service UWA 6mm 1.25"|66|6.0|0|14.8|0|1.25|Multi other|0|5|0|FMC-BE||
+Telescope Service|Telescope Service UWA 9mm 1.25"|66|9.0|0|15.0|0|1.25|Multi other|0|6|0|FMC-BE||
+Telescope Service|Telescope Service UWA 15mm 1.25"|66|15.0|0|13.0|0|1.25|Multi other|0|4|0|FMC-BE||
+Telescope Service|Telescope Service UWA 20mm 1.25"|66|20.0|0|18.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Telescope Service|Telescope Service UWA 82 4mm 1.25"|82|4.0|0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Telescope Service|Telescope Service UWA 82 7mm 1.25"|82|7.0|0|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Telescope Service|Telescope Service UWA 82 16mm 1.25"|82|16.0|21.2|12.0|0|1.25|Multi other|0|7|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 8mm 1.25"|70|8.0|11.0|9.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 12mm 1.25"|70|12.0|13.0|10.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 17mm 1.25"|70|17.0|20.0|15.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 20mm 1.25"|70|20.0|25.0|17.0|0|1.25|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 26mm 2"|70|26.0|33.0|20.0|0|2.00|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 32mm 2"|70|32.0|40.0|24.0|0|2.00|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service Wide Angle 38mm 2"|70|38.0|46.0|28.0|0|2.00|Multi other|0|0|0|FMC-BE||
+Telescope Service|Telescope Service XWA 3.5mm 1.25"|110|3.5|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Telescope Service|Telescope Service XWA 5mm 1.25"|110|5.0|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Telescope Service|Telescope Service XWA 9mm 1.25"|100|9.0|15.7|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+Telescope Service|Telescope Service XWA 20mm 2"|100|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC-BE||
+TeleVue|TeleVue DeLite 3mm 1.25"|62|3.0|3.2|20.0|0|1.25|Multi other|0|0|221|FMC-BE||
+TeleVue|TeleVue DeLite 4mm 1.25"|62|4.0|4.3|20.0|0|1.25|Multi other|0|0|215|FMC-BE||
+TeleVue|TeleVue DeLite 5mm 1.25"|62|5.0|5.3|20.0|0|1.25|Multi other|0|0|215|FMC-BE||
+TeleVue|TeleVue DeLite 7mm 1.25"|62|7.0|7.5|20.0|0|1.25|Multi other|0|0|215|FMC-BE||
+TeleVue|TeleVue DeLite 9mm 1.25"|62|9.0|9.6|20.0|0|1.25|Multi other|0|0|207|FMC-BE||
+TeleVue|TeleVue DeLite 11mm 1.25"|62|11.0|11.7|20.0|0|1.25|Multi other|0|0|201|FMC-BE||
+TeleVue|TeleVue DeLite 13mm 1.25"|62|13.0|13.8|20.0|0|1.25|Multi other|0|0|221|FMC-BE||
+TeleVue|TeleVue DeLite 15mm 1.25"|62|15.0|16.0|20.0|0|1.25|Multi other|0|0|215|FMC-BE||
+TeleVue|TeleVue DeLite 18.2mm 1.25"|62|18.2|19.1|20.0|0|1.25|Multi other|0|0|207|FMC-BE||
+TeleVue|TeleVue Delos 3.5mm 1.25"|72|3.5|4.4|20.0|0|1.25|Multi other|0|0|499|FMC-BE||
+TeleVue|TeleVue Delos 4.5mm 1.25"|72|4.5|5.6|20.0|0|1.25|Multi other|0|0|499|FMC-BE||
+TeleVue|TeleVue Delos 6mm 1.25"|72|6.0|7.6|20.0|0|1.25|Multi other|0|0|454|FMC-BE||
+TeleVue|TeleVue Delos 8mm 1.25"|72|8.0|9.9|20.0|0|1.25|Multi other|0|0|454|FMC-BE||
+TeleVue|TeleVue Delos 10mm 1.25"|72|10.0|12.7|20.0|0|1.25|Multi other|0|0|409|FMC-BE||
+TeleVue|TeleVue Delos 12mm 1.25"|72|12.0|15.0|20.0|0|1.25|Multi other|0|0|409|FMC-BE||
+TeleVue|TeleVue Delos 14mm 1.25"|72|14.0|17.3|20.0|0|1.25|Multi other|0|0|409|FMC-BE||
+TeleVue|TeleVue Delos 17.3mm 1.25"|72|17.3|21.2|20.0|0|1.25|Multi other|0|0|409|FMC-BE||
+TeleVue|TeleVue Ethos 6mm 1.25"|100|6.0|10.4|15.0|0|1.25|Multi other|0|0|440|FMC-BE||
+TeleVue|TeleVue Ethos 8mm 1.25"|100|8.0|13.9|15.0|0|1.25|Multi other|0|0|431|FMC-BE||
+TeleVue|TeleVue Ethos 10mm 1.25"|100|10.0|17.7|15.0|0|1.25|Multi other|0|0|499|FMC-BE||
+TeleVue|TeleVue Ethos 13mm 1.25"|100|13.0|22.3|15.0|0|1.25|Multi other|0|9|590|FMC-BE||
+TeleVue|TeleVue Ethos 17mm 2"|100|17.0|29.6|15.0|0|2.00|Multi other|0|0|704|FMC-BE||
+TeleVue|TeleVue Ethos 21mm 2"|100|21.0|36.2|15.0|0|2.00|Multi other|0|0|1021|FMC-BE||
+TeleVue|TeleVue Ethos SX 3.7mm 1.25"|110|3.7|7.0|15.0|0|1.25|Multi other|0|0|499|FMC-BE||
+TeleVue|TeleVue Ethos SX 4.7mm 1.25"|110|4.7|8.9|15.0|0|1.25|Multi other|0|0|590|FMC-BE||
+TeleVue|TeleVue Nagler4 17mm 2"|82|17.0|24.3|17.0|0|2.00|Multi other|0|7|726|FMC-BE||
+TeleVue|TeleVue Nagler4 22mm 2"|82|22.0|31.1|19.0|0|2.00|Multi other|0|7|681|FMC-BE||
+TeleVue|TeleVue Nagler5 16mm 1.25"|82|16.0|22.1|10.0|0|1.25|Multi other|0|6|202|FMC-BE||
+TeleVue|TeleVue Nagler5 31mm 2"|82|31.0|42.0|19.0|0|2.00|Multi other|0|6|998|FMC-BE||
+TeleVue|TeleVue Nagler6 3.5mm 1.25"|82|3.5|4.8|12.0|0|1.25|Multi other|0|7|241|FMC-BE||
+TeleVue|TeleVue Nagler6 5mm 1.25"|82|5.0|7.0|12.0|0|1.25|Multi other|0|7|224|FMC-BE||
+TeleVue|TeleVue Nagler6 7mm 1.25"|82|7.0|9.7|12.0|0|1.25|Multi other|0|7|227|FMC-BE||
+TeleVue|TeleVue Nagler6 9mm 1.25"|82|9.0|12.4|12.0|0|1.25|Multi other|0|7|190|FMC-BE||
+TeleVue|TeleVue Nagler6 13mm 1.25"|82|13.0|17.6|12.0|0|1.25|Multi other|0|7|182|FMC-BE||
+TeleVue|TeleVue Apollo 11 Commemorative 11mm 1.25"|85|11.0|16.2|19.0|0|1.25|Multi other|0|0|613|FMC-BE||
+TeleVue|TeleVue Panoptic 19mm 1.25"|68|19.0|21.3|13.0|0|1.25|Multi other|0|6|188|FMC-BE||
+TeleVue|TeleVue Panoptic 24mm 1.25"|68|24.0|27.0|15.0|0|1.25|Multi other|0|6|233|FMC-BE||
+TeleVue|TeleVue Panoptic 27mm 2"|68|27.0|30.5|19.0|0|2.00|Multi other|0|6|465|FMC-BE||
+TeleVue|TeleVue Panoptic 35mm 2"|68|35.0|38.7|24.0|0|2.00|Multi other|0|6|726|FMC-BE||
+TeleVue|TeleVue Panoptic 41mm 2"|68|41.0|46.0|27.0|0|2.00|Multi other|0|6|953|FMC-BE||
+TeleVue|TeleVue Plossl 8mm 1.25"|50|8.0|6.5|6.0|0|1.25|Plossl|0|4|51|FMC-BE||
+TeleVue|TeleVue Plossl 11mm 1.25"|50|11.0|9.0|8.0|0|1.25|Plossl|0|4|63|FMC-BE||
+TeleVue|TeleVue Plossl 15mm 1.25"|50|15.0|12.5|10.0|0|1.25|Plossl|0|4|74|FMC-BE||
+TeleVue|TeleVue Plossl 20mm 1.25"|50|20.0|17.1|14.0|0|1.25|Plossl|0|4|85|FMC-BE||
+TeleVue|TeleVue Plossl 25mm 1.25"|50|25.0|21.2|17.0|0|1.25|Plossl|0|4|122|FMC-BE||
+TeleVue|TeleVue Plossl 32mm 1.25"|50|32.0|26.9|22.0|0|1.25|Plossl|0|4|176|FMC-BE||
+TeleVue|TeleVue Plossl 40mm 1.25"|40|40.0|27.3|28.0|0|1.25|Plossl|0|4|193|FMC-BE||
+TeleVue|TeleVue Plossl 55mm 2"|50|55.0|46.0|38.0|0|2.00|Plossl|0|4|513|FMC-BE||
+Vixen|Vixen HR 1.6mm 1.25"|42|1.6|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Vixen|Vixen HR 2mm 1.25"|42|2.0|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
+Vixen|Vixen HR 2.4mm 1.25"|42|2.4|1.8|10.0|0|1.25|Multi other|0|5|115|FMC-BE||
+Vixen|Vixen HR 3.4mm 1.25"|42|3.4|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
 Vixen|Vixen NPL 4.00mm 1.25"|50|4.00|0|2.3|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 6.0mm 1.25"|50|6.0|0|3.0|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 8.0mm 1.25"|50|8.0|0|4.5|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 10.0mm 1.25"|50|10.0|0|6.5|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 15.0mm 1.25"|50|15.0|0|11.0|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 20.0mm 1.25"|50|20.0|0|15.0|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 25.0mm 1.25"|50|25.0|0|19.5|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 30.0mm 1.25"|50|30.0|0|24.0|0|1.25|Plossl|0|4|0|FMC||
-Vixen|Vixen NPL 40.0mm 1.25"|40|40.0|0|36.0|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 6mm 1.25"|50|6.0|0|3.0|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 8mm 1.25"|50|8.0|0|4.5|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 10mm 1.25"|50|10.0|0|6.5|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 15mm 1.25"|50|15.0|0|11.0|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 20mm 1.25"|50|20.0|0|15.0|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 25mm 1.25"|50|25.0|0|19.5|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 30mm 1.25"|50|30.0|0|24.0|0|1.25|Plossl|0|4|0|FMC||
+Vixen|Vixen NPL 40mm 1.25"|40|40.0|0|36.0|0|1.25|Plossl|0|4|0|FMC||
 Vixen|Vixen SLV 2.5mm 1.25"|50|2.5|0|20.0|0|1.25|Multi other|0|8|157|FMC||
-Vixen|Vixen SLV 4.0mm 1.25"|50|4.0|0|20.0|0|1.25|Multi other|0|7|152|FMC||
-Vixen|Vixen SLV 5.0mm 1.25"|50|5.0|0|20.0|0|1.25|Multi other|0|7|149|FMC||
-Vixen|Vixen SLV 6.0mm 1.25"|50|6.0|0|20.0|0|1.25|Multi other|0|7|149|FMC||
-Vixen|Vixen SLV 9.0mm 1.25"|50|9.0|0|20.0|0|1.25|Multi other|0|7|158|FMC||
-Vixen|Vixen SLV 10.0mm 1.25"|50|10.0|0|20.0|0|1.25|Multi other|0|7|153|FMC||
-Vixen|Vixen SLV 12.0mm 1.25"|50|12.0|0|20.0|0|1.25|Multi other|0|7|152|FMC||
-Vixen|Vixen SLV 15.0mm 1.25"|50|15.0|0|20.0|0|1.25|Multi other|0|7|140|FMC||
-Vixen|Vixen SLV 20.0mm 1.25"|50|20.0|0|20.0|0|1.25|Multi other|0|6|131|FMC||
-Vixen|Vixen SLV 25.0mm 1.25"|50|25.0|0|20.0|0|1.25|Multi other|0|5|128|FMC||
-Vixen|Vixen SSW 3.5mm 1.25"|83|3.5|0|13.0|0|1.25|Multi other|0|7|230|FMC||
-Vixen|Vixen SSW 5.0mm 1.25"|83|5.0|0|13.0|0|1.25|Multi other|0|7|230|FMC||
-Vixen|Vixen SSW 7.0mm 1.25"|83|7.0|0|13.0|0|1.25|Multi other|0|7|225|FMC||
-Vixen|Vixen SSW 10.0mm 1.25"|83|10.0|0|13.0|0|1.25|Multi other|0|7|220|FMC||
-Vixen|Vixen SSW 14.0mm 1.25"|83|14.0|0|13.0|0|1.25|Multi other|0|7|210|FMC||
-William Optics|William Optics SPL (Super Planetary Long ER) 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC||
-William Optics|William Optics Swan 9.0mm 1.25"|72|9.0|13.0|8.0|0|1.25|Multi other|0|5|0|FMC||
-William Optics|William Optics Swan 20.0mm 1.25"|72|20.0|26.0|17.0|0|1.25|Multi other|0|5|0|FMC||
-William Optics|William Optics Swan 25.0mm 2.00"|72|25.0|33.0|18.0|0|2.00|Multi other|0|5|0|FMC||
-William Optics|William Optics Swan 33.0mm 2.00"|72|33.0|41.0|20.0|0|2.00|Multi other|0|5|0|FMC||
-William Optics|William Optics Swan 40.0mm 2.00"|70|40.0|46.0|23.0|0|2.00|Multi other|0|5|0|FMC||
-William Optics|William Optics XWA 3.5mm 1.25"|110|3.5|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-William Optics|William Optics XWA 5.0mm 1.25"|110|5.0|0|15.0|0|1.25|Multi other|0|9|0|FMC||
-William Optics|William Optics XWA 20.0mm 2.00"|101|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC||
+Vixen|Vixen SLV 4mm 1.25"|50|4.0|0|20.0|0|1.25|Multi other|0|7|152|FMC||
+Vixen|Vixen SLV 5mm 1.25"|50|5.0|0|20.0|0|1.25|Multi other|0|7|149|FMC||
+Vixen|Vixen SLV 6mm 1.25"|50|6.0|0|20.0|0|1.25|Multi other|0|7|149|FMC||
+Vixen|Vixen SLV 9mm 1.25"|50|9.0|0|20.0|0|1.25|Multi other|0|7|158|FMC||
+Vixen|Vixen SLV 10mm 1.25"|50|10.0|0|20.0|0|1.25|Multi other|0|7|153|FMC||
+Vixen|Vixen SLV 12mm 1.25"|50|12.0|0|20.0|0|1.25|Multi other|0|7|152|FMC||
+Vixen|Vixen SLV 15mm 1.25"|50|15.0|0|20.0|0|1.25|Multi other|0|7|140|FMC||
+Vixen|Vixen SLV 20mm 1.25"|50|20.0|0|20.0|0|1.25|Multi other|0|6|131|FMC||
+Vixen|Vixen SLV 25mm 1.25"|50|25.0|0|20.0|0|1.25|Multi other|0|5|128|FMC||
+Vixen|Vixen SSW 3.5mm 1.25"|83|3.5|0|13.0|0|1.25|Multi other|0|7|230|FMC-BE||
+Vixen|Vixen SSW 5mm 1.25"|83|5.0|0|13.0|0|1.25|Multi other|0|7|230|FMC-BE||
+Vixen|Vixen SSW 7mm 1.25"|83|7.0|0|13.0|0|1.25|Multi other|0|7|225|FMC-BE||
+Vixen|Vixen SSW 10mm 1.25"|83|10.0|0|13.0|0|1.25|Multi other|0|7|220|FMC-BE||
+Vixen|Vixen SSW 14mm 1.25"|83|14.0|0|13.0|0|1.25|Multi other|0|7|210|FMC-BE||
+William Optics|William Optics SPL (Super Planetary Long ER) 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
+William Optics|William Optics Swan 9mm 1.25"|72|9.0|13.0|8.0|0|1.25|Multi other|0|5|0|FMC-BE||
+William Optics|William Optics Swan 20mm 1.25"|72|20.0|26.0|17.0|0|1.25|Multi other|0|5|0|FMC-BE||
+William Optics|William Optics Swan 25mm 2"|72|25.0|33.0|18.0|0|2.00|Multi other|0|5|0|FMC-BE||
+William Optics|William Optics Swan 33mm 2"|72|33.0|41.0|20.0|0|2.00|Multi other|0|5|0|FMC-BE||
+William Optics|William Optics Swan 40mm 2"|70|40.0|46.0|23.0|0|2.00|Multi other|0|5|0|FMC-BE||
+William Optics|William Optics XWA 3.5mm 1.25"|110|3.5|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+William Optics|William Optics XWA 5mm 1.25"|110|5.0|0|15.0|0|1.25|Multi other|0|9|0|FMC-BE||
+William Optics|William Optics XWA 20mm 2"|101|20.0|0|15.0|0|2.00|Multi other|0|9|0|FMC-BE||
