@@ -4,6 +4,7 @@
 
 ScopeBox::Telescopebox::Telescopebox(const bool userdataonly) : m_userdataonly(userdataonly)
 {
+	m_smodel = Gtk::make_managed<Gtk::ComboBox>(true);
 	m_frame.set_hexpand(false);
 	m_frame.set_vexpand(false);
     m_frame.set_label_widget(m_framelabel);
@@ -12,7 +13,7 @@ ScopeBox::Telescopebox::Telescopebox(const bool userdataonly) : m_userdataonly(u
    
     Uidefs::set_ui_spacing<Gtk::Grid>(m_grid);
     
-	m_smodel.set_tooltip_text(_("Select a telescope from the list of preset models," 
+	m_smodel->set_tooltip_text(_("Select a telescope from the list of preset models," 
 								" or use the values below to customise settings."));
 	m_sflen.set_tooltip_text(_("The focal length of the eyepiece in mm."));
 	m_sfratio.set_tooltip_markup(_("The speed of the telescope. Expressed as <i>f</i>/# ." 
@@ -31,7 +32,7 @@ ScopeBox::Telescopebox::Telescopebox(const bool userdataonly) : m_userdataonly(u
 Gtk::Frame &ScopeBox::Telescopebox::create_telescope_grid()
 {
 	m_grid.attach(m_smodellabel, 0, 0, 2, 1);
-	m_grid.attach(m_smodel, 0, 2, 2, 1);
+	m_grid.attach(*m_smodel, 0, 2, 2, 1);
 	m_grid.attach(m_sflenlabel, 0, 3, 1, 1);
 	m_grid.attach(m_sflen, 1, 3, 1, 1);
 	m_grid.attach(m_saperturelabel, 0, 4, 1, 1);
@@ -51,7 +52,7 @@ Gtk::Frame &ScopeBox::Telescopebox::create_telescope_grid()
 	
 	
 	fileIO::dbfileIO db;
-	db.load_scope_data(m_smodel, m_scombomodel, m_userdataonly);
+	db.load_scope_data(*m_smodel, m_scombomodel, m_userdataonly);
 
 	set_default_values();
 
@@ -63,7 +64,7 @@ Gtk::Frame &ScopeBox::Telescopebox::create_telescope_grid()
 	m_sflen.signal_value_changed().connect( sigc::mem_fun(*this, &Telescopebox::update_sfratio));
 	m_saperture.signal_value_changed().connect( sigc::mem_fun(*this, &Telescopebox::update_sfratio));
 	m_sfratio.signal_value_changed().connect( sigc::mem_fun(*this, &Telescopebox::set_sflen));
-	m_smodel.signal_changed().connect(sigc::mem_fun(*this, &Telescopebox::scope_changed));
+	m_smodel->signal_changed().connect(sigc::mem_fun(*this, &Telescopebox::scope_changed));
 	m_stype.signal_changed().connect(sigc::mem_fun(*this, &Telescopebox::scope_type_changed));	
 
 	m_frame.add(m_grid);

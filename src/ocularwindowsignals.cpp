@@ -44,11 +44,11 @@ void OcularWindow::set_signal_handlers()
     for (auto &iter: objlist)
         iter.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 
-  epbox->m_emodel.signal_changed().connect([this]() {
+  epbox->m_emodel->signal_changed().connect([this]() {
    ocular_changed();
   });
 
-  scopebox->m_smodel.signal_changed().connect([this]() {
+  scopebox->m_smodel->signal_changed().connect([this]() {
     ocular_changed();
   });
 

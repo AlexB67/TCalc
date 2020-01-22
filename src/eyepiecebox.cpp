@@ -5,6 +5,7 @@
 
 EpBox::Eyepiecebox::Eyepiecebox(const bool userdataonly) : m_userdataonly(userdataonly)
 {
+	m_emodel = Gtk::make_managed<Gtk::ComboBox>(true);
 	m_frame.set_hexpand(false);
 	m_frame.set_vexpand(false);
     m_framelabel.set_markup(_("<b>Eyepiece properties</b>"));
@@ -12,7 +13,7 @@ EpBox::Eyepiecebox::Eyepiecebox(const bool userdataonly) : m_userdataonly(userda
     m_frame.set_label_align(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER);
     
     Uidefs::set_ui_spacing<Gtk::Grid>(m_grid);
-	m_emodel.set_tooltip_text(_("Select an eyepiece from the list of preset models, " 
+	m_emodel->set_tooltip_text(_("Select an eyepiece from the list of preset models, " 
 								"or use the values below to customise settings."));
 	m_eflen.set_tooltip_text(_("The focal length of the eyepiece in mm."));
 	m_efstop.set_tooltip_text(_("The field stop diameter of the eyepiece in mm. set to 0 if unknown."));
@@ -29,7 +30,7 @@ EpBox::Eyepiecebox::Eyepiecebox(const bool userdataonly) : m_userdataonly(userda
 Gtk::Frame &EpBox::Eyepiecebox::create_eyepiece_grid()
 {
 	m_grid.attach(m_emodellabel, 0, 0, 2, 1);
-	m_grid.attach(m_emodel, 0, 1, 2, 1);
+	m_grid.attach(*m_emodel, 0, 1, 2, 1);
 	m_grid.attach(m_efovlabel, 0, 2, 1, 1);
 	m_grid.attach(m_efov, 1, 2, 1, 1);
 	m_grid.attach(m_eflenlabel, 0, 3, 1, 1);
@@ -48,11 +49,11 @@ Gtk::Frame &EpBox::Eyepiecebox::create_eyepiece_grid()
 	m_etype.insert(2, _("Multi other"));
 	
 	fileIO::dbfileIO db;
-	db.load_ep_data(m_emodel, m_ecombomodel, m_userdataonly);		
+	db.load_ep_data(*m_emodel, m_ecombomodel, m_userdataonly);		
 
 	set_default_values();
 
-	m_emodel.signal_changed().connect(sigc::mem_fun(*this, &Eyepiecebox::ep_changed));
+	m_emodel->signal_changed().connect(sigc::mem_fun(*this, &Eyepiecebox::ep_changed));
 
 	create_epmodel_connection();
 

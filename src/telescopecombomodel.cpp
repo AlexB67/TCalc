@@ -166,12 +166,14 @@ void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
     m_scopecombo->set_model(m_scopetreemodel);
     m_scopecombo->set_row_separator_func(sigc::mem_fun(*this, &ScopeCombomodel::on_separator));
     
-    m_scopecombo->pack_start(m_scopecols.m_smodel);
+  //  m_scopecombo->pack_start(m_scopecols.m_smodel);
+    m_scopecombo->set_entry_text_column(0);
     m_scopecombo->set_active(0);
-
-    auto renderer = static_cast<Gtk::CellRendererText*>(m_scopecombo->get_first_cell());
-    renderer->property_ellipsize() = Pango::ELLIPSIZE_END;
-    renderer->set_fixed_size(300, -1);
+    auto *entry = static_cast<Gtk::Entry *>(m_scopecombo->get_entry());
+    entry->property_width_chars() = 32;
+    entry->property_editable() = false;
+    auto it = m_scopecombo->get_active();
+    entry->set_text((*it)[m_scopecols.m_smodel]);
 }
 
 void ScopeCombomodel::set_scope_completion_model(Gtk::SearchEntry& scopesearch)

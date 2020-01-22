@@ -10,9 +10,9 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
     m_button_moveup.signal_clicked().connect(sigc::bind( sigc::mem_fun(*this, &EditTelescopes::swap_rows), false));
 
 
-    m_smodel.signal_changed().connect([this]() {
+    m_smodel->signal_changed().connect([this]() {
 
-        Gtk::TreeModel::iterator iter = m_smodel.get_active();
+        Gtk::TreeModel::iterator iter = m_smodel->get_active();
         if (iter)
         {
             const auto row = *iter;
@@ -42,17 +42,17 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
             }
         }
 
-        if (m_smodel.get_model()->children().size() - 1 == static_cast<size_t>(m_smodel.get_active_row_number()))
+        if (m_smodel->get_model()->children().size() - 1 == static_cast<size_t>(m_smodel->get_active_row_number()))
             m_button_movedown.set_sensitive(false);
         else
             m_button_movedown.set_sensitive(true);
 
-        if (0 == m_smodel.get_active_row_number())
+        if (0 == m_smodel->get_active_row_number())
             m_button_moveup.set_sensitive(false);
         else
             m_button_moveup.set_sensitive(true);
 
-        if(0 == m_smodel.get_model()->children().size())
+        if(0 == m_smodel->get_model()->children().size())
         {
             m_button_moveup.set_sensitive(false);
             m_button_movedown.set_sensitive(false);
@@ -71,7 +71,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         m_button_movedown.set_sensitive(false);
         m_button_new.set_sensitive(false);
         m_smodellabel.set_label(_("Enter a telescope description"));
-        m_smodel.set_visible(false);
+        m_smodel->set_visible(false);
         m_smodelentry.set_visible(true);
         m_smodelentry.set_text("");
         updatemode = false;
@@ -86,9 +86,9 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         m_button_moveup.set_sensitive(false);
         m_button_movedown.set_sensitive(false);
         m_smodellabel.set_label(_("Enter a Telescope description"));
-        m_smodel.hide();
+        m_smodel->hide();
         m_smodelentry.show();
-        Gtk::TreeModel::iterator iter = m_smodel.get_active();
+        Gtk::TreeModel::iterator iter = m_smodel->get_active();
         auto row = *iter;
         m_smodelentry.set_text(row[m_scombomodel.m_scopecols.m_smodel]);
         updatemode = true;
@@ -98,7 +98,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         enable_widgets(false);
         init();
         m_smodellabel.set_label(_("Select telescope"));
-        m_smodel.set_visible(true);
+        m_smodel->set_visible(true);
         scope_changed();
         m_sobstruct.set_sensitive(false); // since scope_changed actrivates it for reflectors SCT/Mak
     });
@@ -114,7 +114,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         }
 
         std::tuple<Glib::ustring, double, double, double, double, int> scopedata;
-        unsigned int size = m_smodel.get_model()->children().size();
+        unsigned int size = m_smodel->get_model()->children().size();
 
         if ( 0 == size && false == updatemode) // is it the first new entry ? then we prepend
         {                                      //  a separator (but not in the editor window)
@@ -167,7 +167,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         }
 
         fileIO::dbfileIO db;
-        db.write_scope_user_data(m_smodel, m_scombomodel);
+        db.write_scope_user_data(*m_smodel, m_scombomodel);
 
         init();
         enable_widgets(false);
@@ -177,7 +177,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
     m_button_del.signal_clicked().connect([this]() {
 
         Glib::ustring message ( _("You are about to delete:\n") + 
-                                m_smodel.get_active()->get_value(m_scombomodel.m_scopecols.m_smodel) +
+                                m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel) +
                                 _("\nCick Yes to proceed or No to cancel."));
 
         Gtk::MessageDialog  message_dialog(message, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_YES_NO, true);
@@ -190,14 +190,14 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
             return;
         }
         Glib::ustring scopemodelname = 
-        static_cast<Glib::ustring>(m_smodel.get_active()->get_value(m_scombomodel.m_scopecols.m_smodel));
+        static_cast<Glib::ustring>(m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel));
         
         m_scombomodel.remove_scope_from_model(scopemodelname);
         std::get<0>(AppGlobals::scopedata) = scopemodelname;
         AppGlobals::del_scope_data.emit();
 
         fileIO::dbfileIO db;
-        db.write_scope_user_data(m_smodel, m_scombomodel);
+        db.write_scope_user_data(*m_smodel, m_scombomodel);
 
         init();
         enable_widgets(false);
@@ -208,13 +208,13 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 void ScopeBox::EditTelescopes::swap_rows(const bool movedown)
 {
 
-    Glib::ustring scopemodelname = m_smodel.get_active()->get_value(m_scombomodel.m_scopecols.m_smodel);
+    Glib::ustring scopemodelname = m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel);
 
     m_scombomodel.swap_scope_rows(scopemodelname, movedown);
     std::get<0>(AppGlobals::scopedata) = scopemodelname;
     (true == movedown) ? AppGlobals::move_scope_row_down.emit() : AppGlobals::move_scope_row_up.emit();
     
     fileIO::dbfileIO db;
-    db.write_scope_user_data(m_smodel, m_scombomodel);
+    db.write_scope_user_data(*m_smodel, m_scombomodel);
     AppGlobals::app_notify(_("User telescopes updated."), m_app, "tcalc_edit");
 };

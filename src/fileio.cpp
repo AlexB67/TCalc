@@ -195,20 +195,10 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 {
 	std::ifstream file(path.c_str(), std::ifstream::in);
 
-	std::tuple<Glib::ustring, double, double, double, double, double, double, 
+	std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, double, double, 
 			   Glib::ustring, int, int, double, Glib::ustring, Glib::ustring> epdata;
 
 	std::string line, tmp;
-	unsigned int size = epcombomodel.get_epmodel()->children().size();
-
-	if ( size )
-	{
-		epdata= {	
-					"", 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, "separator", 
-					0, 0, 0.0, "", ""
-				}; // type reused as separator
-		epcombomodel.append_ep_to_model(epdata);
-	}
 
 	while (file.good())
 	{
@@ -222,10 +212,15 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 		{
 			if ('#' == tmp.c_str()[0])
 				continue; // comment line
-
+			if (current_brand != static_cast<Glib::ustring>(tmp))
+			{
+				current_brand = static_cast<Glib::ustring>(tmp);
+				std::get<0>(epdata) = static_cast<Glib::ustring>(tmp);
+				epcombomodel.append_ep_to_model(epdata); // parent
+			}
 			std::get<0>(epdata) = static_cast<Glib::ustring>(tmp);
 			getline(tokens, tmp, '|');
-			std::get<1>(epdata) = std::stod(tmp);
+			std::get<1>(epdata) = static_cast<Glib::ustring>(tmp);
 			getline(tokens, tmp, '|');
 			std::get<2>(epdata) = std::stod(tmp);
 			getline(tokens, tmp, '|');
@@ -237,19 +232,20 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 			getline(tokens, tmp, '|');
 			std::get<6>(epdata) = std::stod(tmp);
 			getline(tokens, tmp, '|');
-			std::get<7>(epdata) = static_cast<Glib::ustring>(tmp);
+			std::get<7>(epdata) = std::stod(tmp);
 			getline(tokens, tmp, '|');
-			std::get<8>(epdata) = std::stoi(tmp);
+			std::get<8>(epdata) = static_cast<Glib::ustring>(tmp);
 			getline(tokens, tmp, '|');
 			std::get<9>(epdata) = std::stoi(tmp);
 			getline(tokens, tmp, '|');
-			std::get<10>(epdata) = std::stod(tmp);
+			std::get<10>(epdata) = std::stoi(tmp);
 			getline(tokens, tmp, '|');
-			std::get<11>(epdata) = static_cast<Glib::ustring>(tmp);
+			std::get<11>(epdata) = std::stod(tmp);
 			getline(tokens, tmp, '|');
 			std::get<12>(epdata) = static_cast<Glib::ustring>(tmp);
-
-			epcombomodel.append_ep_to_model(epdata);
+			getline(tokens, tmp, '|');
+			std::get<13>(epdata) = static_cast<Glib::ustring>(tmp);
+			epcombomodel.append_ep_to_model(epdata, true); // child
 		}
 	}
 
@@ -267,7 +263,8 @@ void fileIO::dbfileIO::write_ep_user_data(	const Gtk::ComboBox& epcombobox,
 
         for (auto& iter : epcombobox.get_model()->children())
         {
-            outfile << iter->get_value(epcombomodel.m_epcols.m_epmodel)  << sep
+            outfile << iter->get_value(epcombomodel.m_epcols.m_epbrand)  << sep
+					<< iter->get_value(epcombomodel.m_epcols.m_epmodel)  << sep
                     << iter->get_value(epcombomodel.m_epcols.m_epfov)    << sep
                     << iter->get_value(epcombomodel.m_epcols.m_epflen)   << sep
                     << iter->get_value(epcombomodel.m_epcols.m_epfstop)  << sep

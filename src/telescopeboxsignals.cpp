@@ -71,7 +71,7 @@ void ScopeBox::Telescopebox::scope_changed()
   using GlibUtils::dtostr;
   using namespace Astrocalc;
   bool flag = AppGlobals::LOGFLAG;
-  const Gtk::TreeModel::iterator iter = m_smodel.get_active();
+  const Gtk::TreeModel::iterator iter = m_smodel->get_active();
   
   if(iter)
   {

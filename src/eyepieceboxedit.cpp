@@ -33,7 +33,7 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
                                      "Allowed range 0.96\" to 3\"."));
 
     sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
-    sizegroup->add_widget(m_emodel);
+    sizegroup->add_widget(*m_emodel);
     sizegroup->add_widget(m_emodelentry);
 
     sizegroup2 = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
@@ -128,16 +128,16 @@ void EpBox::EditEyepieces::init()
     // call this after widgets are shown
 
     m_emodelentry.set_visible(false);
-    m_emodel.set_visible(true);
+    m_emodel->set_visible(true);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
     m_button_movedown.set_sensitive(false);
     m_button_save.set_sensitive(false);
     m_button_new.set_sensitive(true);
 
-    if (m_emodel.get_model()->children().size() > 0)
+    if (m_emodel->get_model()->children().size() > 0)
     {
-        m_emodel.set_active(m_emodel.get_model()->children().size() - 1); // section 1
+        m_emodel->set_active(m_emodel->get_model()->children().size() - 1); // section 1
         m_button_edit.set_sensitive(true);
     }
 
@@ -148,7 +148,7 @@ void EpBox::EditEyepieces::init()
         set_default_values();
     }
 
-    if (m_emodel.get_model()->children().size() > 1) // there must be at least two items for row swap to be active
+    if (m_emodel->get_model()->children().size() > 1) // there must be at least two items for row swap to be active
     {
         m_button_moveup.set_sensitive(true);
         m_button_movedown.set_sensitive(false); // section1  becuase the last row will be set

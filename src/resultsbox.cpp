@@ -228,8 +228,8 @@ void Resultsbox::init_property_names()
 
 void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset)
 {
-    const auto iter = epbox->m_emodel.get_active();
-    
+    const Gtk::TreeModel::iterator iter = epbox->m_emodel->get_active();
+
     if(!iter) return;
 
     const auto row = *iter;
@@ -291,7 +291,7 @@ void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, c
 
 void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &scopebox, const int resultsset)
 {
-    const auto iter = scopebox->m_smodel.get_active();
+    const auto iter = scopebox->m_smodel->get_active();
 
     if(!iter) return;
     

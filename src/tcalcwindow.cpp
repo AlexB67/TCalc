@@ -54,6 +54,7 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    epbox->init();
    scopebox->init();
    magbox->set_default_mode();
+   calcbox->m_calcbutton.grab_focus();
 
    AppGlobals::LOGFLAG = true;
 

@@ -33,7 +33,7 @@ public:
   virtual void set_default_values();
   void frame_can_expand(const bool expand) { m_frame.set_vexpand(expand); }
 
-  Gtk::ComboBox m_smodel;
+  Gtk::ComboBox *m_smodel;
   ScopeCombo::ScopeCombomodel m_scombomodel;
   Gtk::ComboBoxText m_stype;
   Ui::SpinEntry m_sflen;

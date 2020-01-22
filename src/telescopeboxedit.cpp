@@ -38,7 +38,7 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
 
 
     sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
-    sizegroup->add_widget(m_smodel);
+    sizegroup->add_widget(*m_smodel);
     sizegroup->add_widget(m_smodelentry);
 
     sizegroup2 = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
@@ -127,16 +127,16 @@ void ScopeBox::EditTelescopes::enable_widgets(const bool enable)
 void ScopeBox::EditTelescopes::init()
 {
     m_smodelentry.set_visible(false);
-    m_smodel.set_visible(true);
+    m_smodel->set_visible(true);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
     m_button_movedown.set_sensitive(false);
     m_button_save.set_sensitive(false);
     m_button_new.set_sensitive(true);
 
-    if (m_smodel.get_model()->children().size() > 0)
+    if (m_smodel->get_model()->children().size() > 0)
     {
-        m_smodel.set_active(m_smodel.get_model()->children().size() - 1); // section 1
+        m_smodel->set_active(m_smodel->get_model()->children().size() - 1); // section 1
         m_button_edit.set_sensitive(true);
     }
 
@@ -147,7 +147,7 @@ void ScopeBox::EditTelescopes::init()
         set_default_values();
     }
 
-    if (m_smodel.get_model()->children().size() > 1) // there must be at least two items for row swap to be active
+    if (m_smodel->get_model()->children().size() > 1) // there must be at least two items for row swap to be active
     {
         m_button_moveup.set_sensitive(true);
         m_button_movedown.set_sensitive(false); // section1  becuase the last row will be set

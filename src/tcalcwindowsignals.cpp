@@ -245,7 +245,7 @@ void TcalcWindow::create_results()
 
 	resultsbox->append_row(_("Airy disk diam"), 1000.0 * dtmp, 3, _("&#x03BC;m"), set);
 
-	Gtk::TreeModel::iterator iter = scopebox->m_smodel.get_active();
+	Gtk::TreeModel::iterator iter = scopebox->m_smodel->get_active();
 	auto row = *iter;
 	double strehl = row[scopebox->m_scombomodel.m_scopecols.m_sstrehl];
 	
@@ -316,6 +316,10 @@ void TcalcWindow::search()
 
 void TcalcWindow::equipment()
 {
+	Gtk::MessageDialog  message_dialog("Disabled for now", false, Gtk::MESSAGE_INFO, Gtk::BUTTONS_OK, true);
+	message_dialog.run();
+	return;
+
 	if (!equipwindow)
 	{
 		equipwindow = std::make_unique<EquipWindow>(m_app);

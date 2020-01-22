@@ -24,6 +24,7 @@ namespace fileIO
                                 const  ScopeCombo::ScopeCombomodel &scopecombomodel) const;
 
   private:
+    Glib::ustring current_brand = "";
     void read_ep_file(const Gtk::ComboBox &epcombobox,
                       const Glib::ustring &path,
                       EpCombo::EpCombomodel &epcombomodel);
