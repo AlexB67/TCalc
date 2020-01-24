@@ -1,42 +1,34 @@
 #include "telescopecombomodel.hpp"
 #include <iostream>
+#include <glibmm/i18n.h>
 
 using namespace ScopeCombo;
 
 void ScopeCombomodel::create_scope_model()
 {
-    m_scopetreemodel = Gtk::ListStore::create(m_scopecols);
+    m_scopetreemodel = Gtk::TreeStore::create(m_scopecols);
+    m_scopelistmodel = Gtk::ListStore::create(m_scopecompletioncols);
 }
 
-bool ScopeCombomodel::on_separator(const Glib::RefPtr<Gtk::TreeModel>& model, const Gtk::TreeModel::iterator& iter)
-{
-    if (iter)
-    {
-        const auto row = *iter;
-        if (100 == row[m_scopecols.m_stype]) return true; // 100 represents a separator
-    }
-
-    return false;
-}
-
-void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename, bool movedown) const
+void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
 {
     Gtk::TreeModel::iterator iter;
     Gtk::TreeModel::iterator previousiter;
+    Gtk::TreeModel::iterator parentiter;
 
-    for (iter = m_scopetreemodel->children().begin(); iter != m_scopetreemodel->children().end(); ++iter)
+    
+    for(parentiter = m_scopetreemodel->children().begin(); parentiter != m_scopetreemodel->children().end(); ++parentiter)
+        if ((*parentiter)[m_scopecols.m_sbrand] == _("User")) break;
+
+    for (iter = parentiter->children().begin(); iter != parentiter->children().end(); ++iter)
     {
         if (scopename == iter->get_value(m_scopecols.m_smodel))
         {
             previousiter = iter;
+            iter--;
             break;
         }
     }
-
-    if (true == movedown) 
-        iter++; 
-    else 
-        iter--;
 
     const Gtk::TreeRow prow = *previousiter;
     const Gtk::TreeRow row = *iter;
@@ -48,7 +40,7 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename, bool moved
         prow[m_scopecols.m_sreflect],  prow[m_scopecols.m_stype],  prow[m_scopecols.m_smirrorcoating],
         prow[m_scopecols.m_smirrormaterial], prow[m_scopecols.m_slenscoating], prow[m_scopecols.m_slensmaterial],
         prow[m_scopecols.m_sstrehl], prow[m_scopecols.m_sweight] 
-    }; // note, we omit the model name 
+    }; // note, we omit the model name and brand
 
     if (iter && previousiter) // swap values of the two rows
     {
@@ -77,36 +69,90 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename, bool moved
         row[m_scopecols.m_slensmaterial] = std::get<8>(scopedata);
         row[m_scopecols.m_sstrehl] = std::get<9>(scopedata);
         row[m_scopecols.m_sweight] = std::get<10>(scopedata);
-
-        m_scopecombo->set_active(previousiter);
     }
 }
 
 
-void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, double, double, double, double, int, 
+void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                                             Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                            double, double>& scopedata) const
+                                            double, double>& scopedata, bool ischild)
 {
-    const auto row = *(m_scopetreemodel->append());
-    tuple_to_model(row, scopedata);
+    if (true == ischild)
+    {
+        const auto childrow = *(m_scopetreemodel->append(parent_row.children()));
+       // brand is omitted for children row, 
+        childrow[m_scopecols.m_smodel] = std::get<1>(scopedata);;
+        childrow[m_scopecols.m_saperture] = std::get<2>(scopedata);
+        childrow[m_scopecols.m_sflen] = std::get<3>(scopedata);
+        childrow[m_scopecols.m_sobstruct] = std::get<4>(scopedata);
+        childrow[m_scopecols.m_sreflect] = std::get<5>(scopedata);
+        childrow[m_scopecols.m_stype] = std::get<6>(scopedata);
+        childrow[m_scopecols.m_smirrorcoating] = std::get<7>(scopedata);
+        childrow[m_scopecols.m_smirrormaterial] = std::get<8>(scopedata);
+        childrow[m_scopecols.m_slenscoating] = std::get<9>(scopedata);
+        childrow[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
+        childrow[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
+        childrow[m_scopecols.m_sweight] = std::get<12>(scopedata);
+    }
+    else
+    {
+        parent_row = *(m_scopetreemodel->append());
+        // Parent holds the brand name and will be appended by child rows above.
+        parent_row[m_scopecols.m_sbrand] = std::get<0>(scopedata);
+        parent_row[m_scopecols.m_smodel] = ""; // stops text != NULL warnings
+    }
+
+   const auto listrow = *(m_scopelistmodel->append());
+   listrow[m_scopecols.m_sbrand] = std::get<0>(scopedata);
+   listrow[m_scopecols.m_smodel] = std::get<1>(scopedata);
 }
 
-void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, double, double, double, double, int, 
+
+void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                                         Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                        double, double>& scopedata, bool append) const
+                                        double, double>& scopedata, bool append) const // Used by equipment editor
 {
-
     Gtk::TreeModel::iterator iter;
+    bool found = false;
+    
+    if(m_scopetreemodel->children().size() > 0)
+    {
+        for (iter = m_scopetreemodel->children().begin(); iter !=m_scopetreemodel->children().end(); ++iter)
+        {
+            if (iter->get_value(m_scopecols.m_sbrand) == _("User")) 
+            {
+                found = true;
+                break;
+            }
+        }
+    }
+    
+    if (false == found) // No user eyeieces were aded yet so add the "User" category
+    {
+        const Gtk::TreeRow row = *(m_scopetreemodel->prepend());
+        row[m_scopecols.m_sbrand] = _("User");
+        row[m_scopecols.m_smodel] = ""; // stops text != NULL warnings
+    }
 
-    for (iter = m_scopetreemodel->children().begin(); iter != m_scopetreemodel->children().end(); ++iter)
-        if (100 == (*iter)[m_scopecols.m_stype]) break;
-
+    if (false == found) iter = m_scopetreemodel->children().begin();
+    
     if (iter)
     {
-        Gtk::TreeRow row;
-        (true == append) ? row = *(m_scopetreemodel->append()) : row = *(m_scopetreemodel->insert(*iter));
-        tuple_to_model(row, scopedata);
+        const Gtk::TreeRow row = *(m_scopetreemodel->append(iter->children()));
+        row[m_scopecols.m_smodel] = std::get<1>(scopedata);
+        row[m_scopecols.m_saperture] = std::get<2>(scopedata);
+        row[m_scopecols.m_sflen] = std::get<3>(scopedata);
+        row[m_scopecols.m_sobstruct] = std::get<4>(scopedata);
+        row[m_scopecols.m_sreflect] = std::get<5>(scopedata);
+        row[m_scopecols.m_stype] = std::get<6>(scopedata);
+        row[m_scopecols.m_smirrorcoating] = std::get<7>(scopedata);
+        row[m_scopecols.m_smirrormaterial] = std::get<8>(scopedata);
+        row[m_scopecols.m_slenscoating] = std::get<9>(scopedata);
+        row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
+        row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
+        row[m_scopecols.m_sweight] = std::get<12>(scopedata);
     }
+    
 }
 
 void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &epname) const
@@ -122,65 +168,72 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &epname) const
     }
 }
 
-void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, double, double, double, double, int, 
+void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                                         Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
                                         double, double>& scopedata) const
 {
-
-    // TODO create a std::map of index to name in the combo model to avoid searching like this, this is temporary.
-
     Gtk::TreeModel::iterator iter;
+    Gtk::TreeModel::iterator iter2;
 
-    for (iter = m_scopetreemodel->children().begin(); iter != m_scopetreemodel->children().end(); ++iter)
-        if (std::get<0>(scopedata) == iter->get_value(m_scopecols.m_smodel))
+    for (iter = m_scopetreemodel->children().begin(); iter !=m_scopetreemodel->children().end(); ++iter)
+        if (iter->get_value(m_scopecols.m_sbrand) == _("User")) break;
+
+    for (iter2 = iter->children().begin(); iter2 != iter->children().end(); ++iter2)
+        if (std::get<1>(scopedata) == iter2->get_value(m_scopecols.m_smodel))
             break;
 
-    if (iter)
+    if (iter2)
     {
-        auto row = *(m_scopetreemodel->append());
-        tuple_to_model(row, scopedata);
+        const auto row = *iter2;
+        if (row)
+        {
+            row[m_scopecols.m_smodel] = std::get<1>(scopedata);
+            row[m_scopecols.m_saperture] = std::get<2>(scopedata);
+            row[m_scopecols.m_sflen] = std::get<3>(scopedata);
+            row[m_scopecols.m_sobstruct] = std::get<4>(scopedata);
+            row[m_scopecols.m_sreflect] = std::get<5>(scopedata);
+            row[m_scopecols.m_stype] = std::get<6>(scopedata);
+            row[m_scopecols.m_smirrorcoating] = std::get<7>(scopedata);
+            row[m_scopecols.m_smirrormaterial] = std::get<8>(scopedata);
+            row[m_scopecols.m_slenscoating] = std::get<9>(scopedata);
+            row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
+            row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
+            row[m_scopecols.m_sweight] = std::get<12>(scopedata);
+        }
     }
-}
-
-void ScopeCombomodel::tuple_to_model(const Gtk::TreeRow& row, const std::tuple<Glib::ustring, double, double, 
-                          double, double, int, Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                          double, double>& scopedata) const
-{
-    row[m_scopecols.m_smodel] = std::get<0>(scopedata);
-    row[m_scopecols.m_saperture] = std::get<1>(scopedata);
-    row[m_scopecols.m_sflen] = std::get<2>(scopedata);
-    row[m_scopecols.m_sobstruct] = std::get<3>(scopedata);
-    row[m_scopecols.m_sreflect] = std::get<4>(scopedata);
-    row[m_scopecols.m_stype] = std::get<5>(scopedata);
-    row[m_scopecols.m_smirrorcoating] = std::get<6>(scopedata);
-    row[m_scopecols.m_smirrormaterial] = std::get<7>(scopedata);
-    row[m_scopecols.m_slenscoating] = std::get<8>(scopedata);
-    row[m_scopecols.m_slensmaterial] = std::get<9>(scopedata);
-    row[m_scopecols.m_sstrehl] = std::get<10>(scopedata);
-    row[m_scopecols.m_sweight] = std::get<11>(scopedata);
 }
 
 void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
 {
     m_scopecombo = &scopecombo;
     m_scopecombo->set_model(m_scopetreemodel);
-    m_scopecombo->set_row_separator_func(sigc::mem_fun(*this, &ScopeCombomodel::on_separator));
-    
-  //  m_scopecombo->pack_start(m_scopecols.m_smodel);
-    m_scopecombo->set_entry_text_column(0);
-    m_scopecombo->set_active(0);
+    m_scopecombo->pack_start(m_scopecols.m_sbrand);
+    m_scopecombo->set_entry_text_column(1);
     auto *entry = static_cast<Gtk::Entry *>(m_scopecombo->get_entry());
     entry->property_width_chars() = 32;
     entry->property_editable() = false;
-    auto it = m_scopecombo->get_active();
-    entry->set_text((*it)[m_scopecols.m_smodel]);
+    entry->set_placeholder_text("Select model");
+    m_scopecombo->set_active(0);
+
+     // set the first telescope we find;
+    if (m_scopetreemodel->children().size() > 0)
+    {
+
+        Gtk::TreeIter it = m_scopetreemodel->children().begin();
+        if(it->children().size() > 0)
+        { 
+            auto it2 = it->children().begin();
+            m_scopecombo->set_active(it2);
+            entry->set_text((*it2)[m_scopecols.m_smodel]);
+        }
+    }
 }
 
 void ScopeCombomodel::set_scope_completion_model(Gtk::SearchEntry& scopesearch)
 {
     m_scopesearch = &scopesearch;
     scopeentrycompletion = Gtk::EntryCompletion::create();
-    scopeentrycompletion->set_model(m_scopetreemodel);
+    scopeentrycompletion->set_model(m_scopelistmodel);
     scopeentrycompletion->set_text_column(m_scopecols.m_smodel);
     scopeentrycompletion->set_minimum_key_length(2);
     scopeentrycompletion->set_popup_completion(true);
@@ -195,8 +248,24 @@ bool ScopeCombomodel::on_scope_selected(const Gtk::TreeModel::iterator& iter)
     if (iter)
     {
         const auto row = *iter;
-        m_scopecombo->set_active(row);
-        m_scopesearch->set_text(row[m_scopecols.m_smodel]);
+        m_scopesearch->set_text(row[m_scopecompletioncols.m_smodel]);
+
+        Gtk::TreeModel::iterator it;
+
+        for(it = m_scopetreemodel->children().begin(); it != m_scopetreemodel->children().end(); ++it)
+        {
+             if ((*it)[m_scopecols.m_sbrand] == row[m_scopecompletioncols.m_sbrand]) break;
+        }
+           
+        for(Gtk::TreeModel::iterator it2 = it->children().begin(); it2 != it->children().end(); ++it2)
+        {
+            if (row[m_scopecompletioncols.m_smodel] == it2->get_value(m_scopecols.m_smodel)) 
+            {
+                m_scopecombo->set_active(*it2);
+                break;
+            }
+        }
+
         return true;
     }
 

@@ -5,10 +5,7 @@
 
 void ScopeBox::EditTelescopes::set_signal_handlers()
 {
-
-    m_button_movedown.signal_clicked().connect(sigc::bind( sigc::mem_fun(*this, &EditTelescopes::swap_rows), true));
-    m_button_moveup.signal_clicked().connect(sigc::bind( sigc::mem_fun(*this, &EditTelescopes::swap_rows), false));
-
+    m_button_moveup.signal_clicked().connect(sigc::mem_fun(*this, &EditTelescopes::swap_rows));
 
     m_smodel->signal_changed().connect([this]() {
 
@@ -42,21 +39,14 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
             }
         }
 
-        if (m_smodel->get_model()->children().size() - 1 == static_cast<size_t>(m_smodel->get_active_row_number()))
-            m_button_movedown.set_sensitive(false);
-        else
-            m_button_movedown.set_sensitive(true);
+        if(m_smodel->get_model()->children().size() == 0) return;
 
-        if (0 == m_smodel->get_active_row_number())
+        if(m_smodel->get_active() == m_smodel->get_model()->children().begin()->children().begin())
+            m_button_moveup.set_sensitive(false);
+        else if (0 == m_smodel->get_model()->children().begin()->children().size())
             m_button_moveup.set_sensitive(false);
         else
             m_button_moveup.set_sensitive(true);
-
-        if(0 == m_smodel->get_model()->children().size())
-        {
-            m_button_moveup.set_sensitive(false);
-            m_button_movedown.set_sensitive(false);
-        }
     });
     
     m_button_new.signal_clicked().connect([this]() 
@@ -68,7 +58,6 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         m_button_edit.set_sensitive(false);
         m_button_del.set_sensitive(false);
         m_button_moveup.set_sensitive(false);
-        m_button_movedown.set_sensitive(false);
         m_button_new.set_sensitive(false);
         m_smodellabel.set_label(_("Enter a telescope description"));
         m_smodel->set_visible(false);
@@ -84,7 +73,6 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         m_button_edit.set_sensitive(false);
         m_button_del.set_sensitive(true);
         m_button_moveup.set_sensitive(false);
-        m_button_movedown.set_sensitive(false);
         m_smodellabel.set_label(_("Enter a Telescope description"));
         m_smodel->hide();
         m_smodelentry.show();
@@ -109,55 +97,47 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
         if (false == validate_scope_data())
         {
-            init();
+           // init();
             return;
         }
 
-        std::tuple<Glib::ustring, double, double, double, double, int> scopedata;
-        unsigned int size = m_smodel->get_model()->children().size();
-
-        if ( 0 == size && false == updatemode) // is it the first new entry ? then we prepend
-        {                                      //  a separator (but not in the editor window)
-           // telescope type reused as separator
-           AppGlobals::scopedata = {"", 0.0, 0.0, 0.0 , 0.0, 100, "", "", "", "", 0.0, 0.0 }; // separator = 100
-           AppGlobals::new_scope_data.emit();
-        }; 
-
-        std::get<0>(AppGlobals::scopedata) = m_smodelentry.get_text();
-        std::get<1>(AppGlobals::scopedata) = m_saperture.get_value();
-        std::get<2>(AppGlobals::scopedata) = m_sflen.get_value();
-        std::get<3>(AppGlobals::scopedata) = m_sobstruct.get_value();
-        std::get<4>(AppGlobals::scopedata) = m_sreflect.get_value();
-        std::get<5>(AppGlobals::scopedata) = m_stype.get_active_row_number();
+        std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int> scopedata;
+        std::get<0>(AppGlobals::scopedata) = _("User");
+        std::get<1>(AppGlobals::scopedata) = m_smodelentry.get_text();
+        std::get<2>(AppGlobals::scopedata) = m_saperture.get_value();
+        std::get<3>(AppGlobals::scopedata) = m_sflen.get_value();
+        std::get<4>(AppGlobals::scopedata) = m_sobstruct.get_value();
+        std::get<5>(AppGlobals::scopedata) = m_sreflect.get_value();
+        std::get<6>(AppGlobals::scopedata) = m_stype.get_active_row_number();
 
         (_("unknown") == m_smirrorcoating.get_active_text()) ?
-        std::get<6>(AppGlobals::scopedata) = "" :
-        std::get<6>(AppGlobals::scopedata) = m_smirrorcoating.get_active_text();
+        std::get<7>(AppGlobals::scopedata) = "" :
+        std::get<7>(AppGlobals::scopedata) = m_smirrorcoating.get_active_text();
 
         (_("unknown") == m_smirrormaterial.get_active_text()) ?
-        std::get<7>(AppGlobals::scopedata) = "" :
-        std::get<7>(AppGlobals::scopedata) = m_smirrormaterial.get_active_text();
+        std::get<8>(AppGlobals::scopedata) = "" :
+        std::get<8>(AppGlobals::scopedata) = m_smirrormaterial.get_active_text();
 
         (_("unknown") == m_slenscoating.get_active_text()) ?
-        std::get<8>(AppGlobals::scopedata) = "" :
-        std::get<8>(AppGlobals::scopedata) = m_slenscoating.get_active_text();
+        std::get<9>(AppGlobals::scopedata) = "" :
+        std::get<9>(AppGlobals::scopedata) = m_slenscoating.get_active_text();
 
         (_("unknown") == m_slensmaterial.get_active_text()) ?
-        std::get<9>(AppGlobals::scopedata) = "" :
-        std::get<9>(AppGlobals::scopedata) = m_slensmaterial.get_active_text();
+        std::get<10>(AppGlobals::scopedata) = "" :
+        std::get<10>(AppGlobals::scopedata) = m_slensmaterial.get_active_text();
 
         (m_sstrehl.get_value() < Astrocalc::astrocalc::tSMALL) ? 
-        std::get<10>(AppGlobals::scopedata) = 0 : 
-        std::get<10>(AppGlobals::scopedata) = m_sstrehl.get_value();
+        std::get<11>(AppGlobals::scopedata) = 0 : 
+        std::get<11>(AppGlobals::scopedata) = m_sstrehl.get_value();
 
         (m_sweight.get_value() < Astrocalc::astrocalc::tSMALL) ? 
-        std::get<11>(AppGlobals::scopedata) = 0 : 
-        std::get<11>(AppGlobals::scopedata) = m_sweight.get_value();
+        std::get<12>(AppGlobals::scopedata) = 0 : 
+        std::get<12>(AppGlobals::scopedata) = m_sweight.get_value();
 
 
         if (false == updatemode) // it's a new telescope
         {
-            m_scombomodel.append_scope_to_model(AppGlobals::scopedata);
+            m_scombomodel.add_scope_to_model(AppGlobals::scopedata);
             AppGlobals::new_scope_data.emit();
         }
         else // it's an existing telescope update
@@ -192,8 +172,13 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         Glib::ustring scopemodelname = 
         static_cast<Glib::ustring>(m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel));
         
+        auto model = m_smodel->get_model();
+        m_smodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
         m_scombomodel.remove_scope_from_model(scopemodelname);
-        std::get<0>(AppGlobals::scopedata) = scopemodelname;
+        m_smodel->set_model(model);
+
+        m_scombomodel.remove_scope_from_model(scopemodelname);
+        std::get<1>(AppGlobals::scopedata) = scopemodelname;
         AppGlobals::del_scope_data.emit();
 
         fileIO::dbfileIO db;
@@ -205,14 +190,14 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
     });
 }
 
-void ScopeBox::EditTelescopes::swap_rows(const bool movedown)
+void ScopeBox::EditTelescopes::swap_rows()
 {
 
     Glib::ustring scopemodelname = m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel);
 
-    m_scombomodel.swap_scope_rows(scopemodelname, movedown);
-    std::get<0>(AppGlobals::scopedata) = scopemodelname;
-    (true == movedown) ? AppGlobals::move_scope_row_down.emit() : AppGlobals::move_scope_row_up.emit();
+    m_scombomodel.swap_scope_rows(scopemodelname);
+    std::get<1>(AppGlobals::scopedata) = scopemodelname;
+    AppGlobals::move_scope_row_up.emit();
     
     fileIO::dbfileIO db;
     db.write_scope_user_data(*m_smodel, m_scombomodel);

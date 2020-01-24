@@ -43,7 +43,6 @@ private:
     Gtk::Button m_button_save{_("Save")};
     Gtk::Button m_button_cancel{_("Cancel")};
     Gtk::Button m_button_moveup{_("Move up")};
-    Gtk::Button m_button_movedown{_("Move down")};
     Gtk::Separator m_sep;
     Glib::RefPtr<Gtk::SizeGroup> sizegroup;
     Glib::RefPtr<Gtk::SizeGroup> sizegroup2;
@@ -51,7 +50,7 @@ private:
     void set_signal_handlers();
     void enable_widgets(const bool enable = true);
     bool validate_ep_data() const;
-    void swap_rows(const bool movedown);
+    void swap_rows();
     void create_epmodel_connection() override {}
 };
 } // namespace EpBox

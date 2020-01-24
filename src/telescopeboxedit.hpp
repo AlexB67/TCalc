@@ -36,7 +36,6 @@ namespace ScopeBox
             Gtk::Button m_button_save{_("Save")};
             Gtk::Button m_button_cancel{_("Cancel")};
             Gtk::Button m_button_moveup{_("Move up")};
-            Gtk::Button m_button_movedown{_("Move down")};
             Gtk::ComboBoxText m_smirrorcoating;
             Gtk::ComboBoxText m_smirrormaterial;
             Gtk::ComboBoxText m_slenscoating;
@@ -50,7 +49,7 @@ namespace ScopeBox
             void set_signal_handlers();
             void enable_widgets(const bool enable = true);
             bool validate_scope_data() const;
-            void swap_rows(const bool movedown);
+            void swap_rows();
             void create_scopemodel_connection() override {}
     };
 }

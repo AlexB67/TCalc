@@ -1,3 +1,6 @@
+# Format: brand, model name, fov, focal length, field stop, eye relief, transmission, barrel size, type,
+#number of groups, number of elements, weight, coatings, material
+# delimiter is the |  character.
 365 Astronomy|365 Astronomy Andromeda Extra Flat 8mm 1.25"|60|8.0|0|0|0|1.25|Multi other|0|0|0|FMC||
 365 Astronomy|365 Astronomy Andromeda Extra Flat 12mm 1.25"|60|12.0|0|0|0|1.25|Multi other|0|0|0|FMC||
 365 Astronomy|365 Astronomy Andromeda Extra Flat 16mm 1.25"|60|16.0|0|0|0|1.25|Multi other|0|0|0|FMC||

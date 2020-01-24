@@ -10,8 +10,6 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     m_button_del.set_always_show_image(true);
     m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::ICON_SIZE_BUTTON, true);
     m_button_save.set_always_show_image(true);
-    m_button_movedown.set_image_from_icon_name("go-down-symbolic.symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_movedown.set_always_show_image(true);
     m_button_moveup.set_image_from_icon_name("go-up-symbolic.symbolic", Gtk::ICON_SIZE_BUTTON, true);
     m_button_moveup.set_always_show_image(true);
     m_button_new.set_image_from_icon_name("document-new-symbolic", Gtk::ICON_SIZE_BUTTON, true);
@@ -21,8 +19,7 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     m_button_edit.set_image_from_icon_name("document-edit-symbolic", Gtk::ICON_SIZE_BUTTON, true);
     m_button_edit.set_always_show_image(true);
 
-    m_button_movedown.set_tooltip_text(_("Move the selected model down the list by one row"));
-    m_button_moveup.set_tooltip_text(_("Move the selected model up the list by one row"));
+    m_button_moveup.set_tooltip_text(_("Move the selected model up the list by one row. Useful or reordering."));
     m_button_save.set_tooltip_text(_("save eyepiece model information."));
     m_button_edit.set_tooltip_text(_("Edit eyepiece model information for the current selection."));
     m_button_del.set_tooltip_text(_("Remove eyepiece model information for the current selection."));
@@ -46,7 +43,6 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     sizegroup2->add_widget(m_button_new);
     sizegroup2->add_widget(m_button_edit);
     sizegroup2->add_widget(m_button_moveup);
-    sizegroup2->add_widget(m_button_movedown);
 
     m_sep.set_margin_top(Uidefs::BORDER_WIDTH_SMALL);
     m_sep.set_margin_bottom(Uidefs::BORDER_WIDTH_SMALL);
@@ -70,9 +66,8 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     m_grid.attach(m_button_edit, 1, 10, 1, 1);
     m_grid.attach(m_button_del, 0, 11, 1, 1);
     m_grid.attach(m_button_cancel, 1, 11, 1, 1);
-    m_grid.attach(m_button_movedown, 0, 12, 1, 1);
     m_grid.attach(m_button_moveup, 1, 12, 1, 1);
-    m_grid.attach(m_button_save, 0, 13, 2, 1);
+    m_grid.attach(m_button_save, 0, 12, 1, 1);
 
     m_ematerial.insert(0, _("ED Glass"));
     m_ematerial.insert(1, _("Lanthanum"));
@@ -131,90 +126,107 @@ void EpBox::EditEyepieces::init()
     m_emodel->set_visible(true);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
-    m_button_movedown.set_sensitive(false);
     m_button_save.set_sensitive(false);
     m_button_new.set_sensitive(true);
+
+    Gtk::TreeNodeChildren::size_type size;
 
     if (m_emodel->get_model()->children().size() > 0)
     {
         m_emodel->set_active(m_emodel->get_model()->children().size() - 1); // section 1
-        m_button_edit.set_sensitive(true);
-    }
 
+        const Gtk::TreeIter it = m_emodel->get_model()->children().begin(); // First parent is "User" category
+
+        for (auto it2 = it->children().begin(); it2 != it2->children().end(); ++it2)
+        {
+            if (static_cast<Glib::ustring>((*it2)[m_ecombomodel.m_epcols.m_epmodel]).length() > 0)
+            {
+                m_emodel->set_active(it2);
+                size = (*it).children().size();
+                break;
+            }
+        }
+
+        if ( size > 0 ) 
+        {
+            m_button_edit.set_sensitive(true);
+            m_button_del.set_sensitive(true);
+        }
+    }
     else
     {
         m_button_edit.set_sensitive(false); // there are no items yet so there is nothing to edit
         m_button_del.set_sensitive(false);
+        m_emodel->set_visible(false);
+        m_emodelentry.set_visible(true);
         set_default_values();
     }
 
-    if (m_emodel->get_model()->children().size() > 1) // there must be at least two items for row swap to be active
-    {
-        m_button_moveup.set_sensitive(true);
-        m_button_movedown.set_sensitive(false); // section1  becuase the last row will be set
-    }
+    if (size > 1) // there must be at least two items for row swap to be active
+        m_button_moveup.set_sensitive(false);
 }
 
 bool EpBox::EditEyepieces::validate_ep_data() const
 {
     bool flag = true;
-    Glib::ustring message = _("The following errors were encountered.") + '\n';
-    message += _("Update the following fields:" + '\n' + '\n') ;
+    Glib::ustring title = _("The following errors were encountered. Please correct the following: \r\n");
+    Glib::ustring message;
 
     if (m_emodelentry.get_text_length() > (guint16)40)
     {
-        message += _("Error: Description too long") + '\n';
+        message += _("Error: Description too long.\n");
         flag = false;
     }
 
     if (Glib::ustring::npos != m_emodelentry.get_text().find("|"))
     {
-        message += _("Error: the \"|\" character is not allowed" + '\n');
+        message += _("Error: the \"|\" character is not allowed\r\n");
         flag = false;
     }
 
     if (m_emodelentry.get_text_length() < (guint16)2)
     {
-        message += _("Error: Description empty or too short.") + '\n' + '\n';
-        message += _("Hint: Model name, model identifier, focal length, barrel size") + '\n';
-        message += _("Example: ");
-        message += _("Pentax XF XF12 12mm 1.25\"") + '\n';
+        message += _("Error: Description empty or too short.\r\n");
+        message += _("Hint: Model name, model identifier, focal length, barrel size \n");
+        message += _("Example: Pentax XF XF12 12mm 1.25\" \n\n");
         flag = false;
     }
 
     if (m_eflen.get_value() != std::clamp<double>(m_eflen.get_value(), 2.0, 100.0))
     {
-        message += _("Focal length out of range, allowed range 2mm to a 100mm") + '\n';
+        message += _("Error: Focal length out of range, allowed range 2mm to a 100mm. \n\n");
         flag = false;
     }
 
     if (m_efstop.get_value() != std::clamp<double>(m_efstop.get_value(), 0.0, 100.0))
     {
-        message += _("Field stop out of range, allowed range: 0mm to 100mm. Set 0 if unknown.") + '\n';
+        message += _("Error: Field stop out of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n\n");
         flag = false;
     }
 
     if (m_erelief.get_value() != std::clamp<double>(m_erelief.get_value(), 0.0, 100.0))
     {
-        message += _("Eye relief of range, allowed range: 0mm to 100mm. Set 0 if unknown.") + '\n';
+        message += _("Error: Eye relief of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n\n");
         flag = false;
     }
 
-    if (m_etrans.get_value() != std::clamp<double>(m_etrans.get_value(), 50.0, 100.0))
+    else if (m_ebarrelsize.get_value() != std::clamp<double>(m_ebarrelsize.get_value(), 0.96, 6.0))
     {
-        message += _("Transmission out of range: allowed range: 50% to 100%. Set to 0 if unknown") + '\n';
+        message += _("Error: Barrel size out of range: allowed range: 0.96 inches to 6 inches.\n\n");
         flag = false;
     }
 
-    else if (m_ebarrelsize.get_value() != std::clamp<double>(m_ebarrelsize.get_value(), 0.96, 3.0))
+    if (m_etrans.get_value() != std::clamp<double>(m_etrans.get_value(), 0.0, 100.0))
     {
-        message += _("Barrel size out of range: allowed range: 0.96 inches to 3 inches." + '\n');
+        message += _("Transmssion out of range, ");
+        message += _("allowed range: 0% to 100%. Set 0% if unknown.")  + '\n';
         flag = false;
     }
 
     if (false == flag)
     {
-        Gtk::MessageDialog message_dialog(message, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_CLOSE, true);
+        Gtk::MessageDialog message_dialog(title, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_CLOSE, true);
+        message_dialog.set_secondary_text(message);
         message_dialog.run();
     }
 

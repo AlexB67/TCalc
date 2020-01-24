@@ -28,7 +28,6 @@ public:
   virtual void init() { ep_changed(); } // call this afer all widgets are shown
   virtual void set_default_values();
   void enable_fstop(const bool is_enabled) { m_efstop.set_sensitive(is_enabled); }
-
   Gtk::ComboBox *m_emodel;
   EpCombo::EpCombomodel m_ecombomodel;
   Gtk::ComboBoxText m_etype;

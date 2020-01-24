@@ -1,5 +1,6 @@
 #include "eyepiececombomodel.hpp"
 #include <iostream>
+#include <glibmm/i18n.h>
 
 using namespace EpCombo;
 
@@ -9,24 +10,25 @@ void EpCombomodel::create_ep_model()
     m_eplistmodel = Gtk::ListStore::create(m_epcompletioncols); // use a list model for auto completion.
 }
 
-void EpCombomodel::swap_ep_rows(const Glib::ustring& epname, bool movedown) const
+void EpCombomodel::swap_ep_rows(const Glib::ustring& epname) const
 {
     Gtk::TreeModel::iterator iter;
     Gtk::TreeModel::iterator previousiter;
+    Gtk::TreeModel::iterator parentiter;
 
-    for (iter = m_eptreemodel->children().begin(); iter != m_eptreemodel->children().end(); ++iter)
+
+    for(parentiter = m_eptreemodel->children().begin(); parentiter != m_eptreemodel->children().end(); ++parentiter)
+        if ((*parentiter)[m_epcols.m_epbrand] == _("User")) break;
+
+    for (iter = parentiter->children().begin(); iter != parentiter->children().end(); ++iter)
     {
         if (epname == iter->get_value(m_epcols.m_epmodel))
         {
             previousiter = iter;
+            iter--;
             break;
         }
     }
-
-    if (true == movedown) 
-        iter++; 
-    else 
-        iter--;
 
     const Gtk::TreeRow prow = *previousiter;
     const Gtk::TreeRow row = *iter;
@@ -38,7 +40,7 @@ void EpCombomodel::swap_ep_rows(const Glib::ustring& epname, bool movedown) cons
         prow[m_epcols.m_eptrans], prow[m_epcols.m_epbarrel], prow[m_epcols.m_eptype], prow[m_epcols.m_epgroups],
         prow[m_epcols.m_epelements], prow[m_epcols.m_epweight], prow[m_epcols.m_epcoating], 
         prow[m_epcols.m_epmaterial]
-    }; // note, we omit the model name 
+    }; // note, we omit the model name and brand
 
     if (iter && previousiter) // swap values of the two rows
     {
@@ -69,18 +71,17 @@ void EpCombomodel::swap_ep_rows(const Glib::ustring& epname, bool movedown) cons
         row[m_epcols.m_epweight] = std::get<9>(epdata);
         row[m_epcols.m_epcoating] = std::get<10>(epdata);
         row[m_epcols.m_epmaterial] = std::get<11>(epdata);
-        m_epcombo->set_active(previousiter);
     }
 }
 
 void EpCombomodel::append_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                                         double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                                        Glib::ustring>& epdata, bool ischild)
+                                        Glib::ustring>& epdata, bool ischild) // used for loading
 {
     if (true == ischild)
     {
         const auto childrow = *(m_eptreemodel->append(parent_row.children()));
-      //  childrow[m_epcols.m_epbrand] = std::get<0>(epdata);
+       // brand is omitted for children row, otherwise they appear in the combo popup 2nd column .. unwanted
         childrow[m_epcols.m_epmodel] = std::get<1>(epdata);
         childrow[m_epcols.m_epfov] = std::get<2>(epdata);
         childrow[m_epcols.m_epflen] = std::get<3>(epdata);
@@ -98,6 +99,7 @@ void EpCombomodel::append_ep_to_model(const std::tuple<Glib::ustring, Glib::ustr
     else
     {
         parent_row = *(m_eptreemodel->append());
+        // Parent holds the brand name and will be appended by child rows above.
         parent_row[m_epcols.m_epbrand] = std::get<0>(epdata);
         parent_row[m_epcols.m_epmodel] = ""; // stops text != NULL warnings
     }
@@ -109,19 +111,36 @@ void EpCombomodel::append_ep_to_model(const std::tuple<Glib::ustring, Glib::ustr
 
 void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                                     double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                                    Glib::ustring>& epdata, bool append) const
+                                    Glib::ustring>& epdata) const // Used by equipment editor
 {
 
     Gtk::TreeModel::iterator iter;
+    bool found = false;
+    
+    if(m_eptreemodel->children().size() > 0)
+    {
+        for (iter = m_eptreemodel->children().begin(); iter !=m_eptreemodel->children().end(); ++iter)
+        {
+            if (iter->get_value(m_epcols.m_epbrand) == _("User")) 
+            {
+                found = true;
+                break;
+            }
+        }
+    }
+    
+    if (false == found) // No user eyeieces were aded yet so add the "User" category
+    {
+        const Gtk::TreeRow row = *(m_eptreemodel->prepend());
+        row[m_epcols.m_epbrand] = _("User");
+        row[m_epcols.m_epmodel] = ""; // stops text != NULL warnings
+    }
 
-    for (iter = m_eptreemodel->children().begin(); iter != m_eptreemodel->children().end(); ++iter)
-        if ("separator" == (*iter)[m_epcols.m_eptype]) break;
-
+    if (false == found) iter = m_eptreemodel->children().begin();
+    
     if (iter)
     {
-        Gtk::TreeRow row;
-        (true == append) ? row = *(m_eptreemodel->append()) : row = *(m_eptreemodel->insert(*iter));
-        row[m_epcols.m_epbrand] = std::get<0>(epdata);
+        const Gtk::TreeRow row = *(m_eptreemodel->append(iter->children()));
         row[m_epcols.m_epmodel] = std::get<1>(epdata);
         row[m_epcols.m_epfov] = std::get<2>(epdata);
         row[m_epcols.m_epflen] = std::get<3>(epdata);
@@ -140,45 +159,60 @@ void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring
 
 void EpCombomodel::remove_ep_from_model(const Glib::ustring &epname) const
 {
-    for (auto &i : m_eptreemodel->children())
+
+    Gtk::TreeModel::iterator iter;
+
+    if (0 == m_eptreemodel->children().size()) return;
+
+    for (iter = m_eptreemodel->children().begin(); iter !=m_eptreemodel->children().end(); ++iter)
+        if (iter->get_value(m_epcols.m_epbrand) == _("User")) break;
+
+    for (auto iter2 : iter->children())
     {
-        if (epname == i->get_value(m_epcols.m_epmodel))
+        if (epname == (*iter2)->get_value(m_epcols.m_epmodel))
         {
-            m_eptreemodel->erase(i);
+            if(iter2) m_eptreemodel->erase(iter2);
             break;
         }
-    } 
+    }
+
+    // If there are no more user eyepieces left delete the User category (parent)
+    if (0 == iter->children().size()) m_eptreemodel->erase(iter);
 }
 
 void EpCombomodel::update_ep_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                                     double, double, Glib::ustring, int, int, double, Glib::ustring, 
                                     Glib::ustring>& epdata) const
 {
-
-    // TODO create a std::map of index to name in the combo model to avoid searching like this, this is temporary.
-
     Gtk::TreeModel::iterator iter;
+    Gtk::TreeModel::iterator iter2;
 
-    for (iter = m_eptreemodel->children().begin(); iter != m_eptreemodel->children().end(); ++iter)
-        if (std::get<1>(epdata) == iter->get_value(m_epcols.m_epmodel)) break;
+    for (iter = m_eptreemodel->children().begin(); iter !=m_eptreemodel->children().end(); ++iter)
+        if (iter->get_value(m_epcols.m_epbrand) == _("User")) break;
 
-    if(iter)
+    for (iter2 = iter->children().begin(); iter2 != iter->children().end(); ++iter2)
+        if (std::get<1>(epdata) == iter2->get_value(m_epcols.m_epmodel))
+            break;
+
+    if(iter2)
     {
-        const auto row = *iter;
-        row[m_epcols.m_epbrand] = std::get<0>(epdata);
-        row[m_epcols.m_epmodel] = std::get<1>(epdata);
-        row[m_epcols.m_epfov] = std::get<2>(epdata);
-        row[m_epcols.m_epflen] = std::get<3>(epdata);
-        row[m_epcols.m_epfstop] = std::get<4>(epdata);
-        row[m_epcols.m_eprelief] = std::get<5>(epdata);
-        row[m_epcols.m_eptrans] = std::get<6>(epdata);
-        row[m_epcols.m_epbarrel] = std::get<7>(epdata);
-        row[m_epcols.m_eptype] = std::get<8>(epdata);
-        row[m_epcols.m_epgroups] = std::get<9>(epdata);
-        row[m_epcols.m_epelements] = std::get<10>(epdata);
-        row[m_epcols.m_epweight] = std::get<11>(epdata);
-        row[m_epcols.m_epcoating] = std::get<12>(epdata);
-        row[m_epcols.m_epmaterial] = std::get<13>(epdata);
+        const auto row = *iter2;
+        if(row)
+        {
+            row[m_epcols.m_epmodel] = std::get<1>(epdata);
+            row[m_epcols.m_epfov] = std::get<2>(epdata);
+            row[m_epcols.m_epflen] = std::get<3>(epdata);
+            row[m_epcols.m_epfstop] = std::get<4>(epdata);
+            row[m_epcols.m_eprelief] = std::get<5>(epdata);
+            row[m_epcols.m_eptrans] = std::get<6>(epdata);
+            row[m_epcols.m_epbarrel] = std::get<7>(epdata);
+            row[m_epcols.m_eptype] = std::get<8>(epdata);
+            row[m_epcols.m_epgroups] = std::get<9>(epdata);
+            row[m_epcols.m_epelements] = std::get<10>(epdata);
+            row[m_epcols.m_epweight] = std::get<11>(epdata);
+            row[m_epcols.m_epcoating] = std::get<12>(epdata);
+            row[m_epcols.m_epmaterial] = std::get<13>(epdata);
+        }
     }
 }
 
@@ -186,7 +220,6 @@ void EpCombomodel::setup_ep_combo_model(Gtk::ComboBox &epcombo)
 {
     m_epcombo = &epcombo;
     m_epcombo->set_model(m_eptreemodel);
-  //  m_epcombo->set_row_separator_func(sigc::mem_fun(*this, &EpCombomodel::on_separator));
     m_epcombo->pack_start(m_epcols.m_epbrand);
     m_epcombo->set_entry_text_column(1);
     m_epcombo->set_popup_fixed_width(false);
@@ -196,16 +229,16 @@ void EpCombomodel::setup_ep_combo_model(Gtk::ComboBox &epcombo)
     entry->set_placeholder_text("Select model");
     m_epcombo->set_active(0);
 
-    // set the first eyepiece we find
-    const Gtk::TreeIter it = m_eptreemodel->children().begin();
-
-    for (auto it2 = it->children().begin(); it2 != it2->children().end(); ++it2)
+    // set the first eyepiece we find;
+    if (m_eptreemodel->children().size() > 0)
     {
-        if (static_cast<Glib::ustring>((*it2)[m_epcols.m_epmodel]).length() > 0)
-        {
+
+        Gtk::TreeIter it = m_eptreemodel->children().begin();
+        if(it->children().size() > 0)
+        { 
+            auto it2 = it->children().begin();
             m_epcombo->set_active(it2);
             entry->set_text((*it2)[m_epcols.m_epmodel]);
-            break;
         }
     }
 }
@@ -251,16 +284,6 @@ bool EpCombomodel::on_ep_selected(const Gtk::TreeModel::iterator &iter)
     }
 
     return false;
-
-    // if (iter)
-    // {
-    //     const auto row = *iter;
-    //     m_epcombo->set_active(row);
-    //     m_epsearch->set_text(row[m_epcols.m_epmodel]);
-    //     return true;
-    // }
-
-    // return false;
 }
 
 void EpCombomodel::set_case_sensitive(const bool case_sensitive)

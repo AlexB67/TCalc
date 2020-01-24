@@ -8,9 +8,7 @@ using GlibUtils::dtostr;
 
 void EpBox::EditEyepieces::set_signal_handlers()
 {
-
-    m_button_movedown.signal_clicked().connect(sigc::bind( sigc::mem_fun(*this, &EditEyepieces::swap_rows), true));
-    m_button_moveup.signal_clicked().connect(sigc::bind( sigc::mem_fun(*this, &EditEyepieces::swap_rows), false));
+    m_button_moveup.signal_clicked().connect(sigc::mem_fun(*this, &EditEyepieces::swap_rows));
 
     m_emodel->signal_changed().connect([this]() {
         Gtk::TreeModel::iterator iter = m_emodel->get_active();
@@ -37,21 +35,14 @@ void EpBox::EditEyepieces::set_signal_handlers()
             }
         }
 
-        if (m_emodel->get_model()->children().size() - 1 == static_cast<size_t>(m_emodel->get_active_row_number()))
-            m_button_movedown.set_sensitive(false);
-        else
-            m_button_movedown.set_sensitive(true);
+        if(m_emodel->get_model()->children().size() == 0) return;
 
-        if (0 == m_emodel->get_active_row_number())
+        if(m_emodel->get_active() == m_emodel->get_model()->children().begin()->children().begin())
+            m_button_moveup.set_sensitive(false);
+        else if (0 == m_emodel->get_model()->children().begin()->children().size())
             m_button_moveup.set_sensitive(false);
         else
             m_button_moveup.set_sensitive(true);
-
-        if(0 == m_emodel->get_model()->children().size())
-        {
-            m_button_moveup.set_sensitive(false);
-            m_button_movedown.set_sensitive(false);
-        }
     });
 
     m_button_new.signal_clicked().connect([this]() {
@@ -63,7 +54,6 @@ void EpBox::EditEyepieces::set_signal_handlers()
         m_button_edit.set_sensitive(false);
         m_button_del.set_sensitive(false);
         m_button_moveup.set_sensitive(false);
-        m_button_movedown.set_sensitive(false);
         m_emodellabel.set_label(_("Enter an eyepiece description"));
         m_emodel->set_visible(false);
         m_emodelentry.set_visible(true);
@@ -78,13 +68,12 @@ void EpBox::EditEyepieces::set_signal_handlers()
         m_button_edit.set_sensitive(false);
         m_button_del.set_sensitive(false);
         m_button_moveup.set_sensitive(false);
-        m_button_movedown.set_sensitive(false);
         m_emodellabel.set_label(_("Enter an eyepiece description"));
         m_emodel->set_visible(false);
         m_emodelentry.set_visible(true);
 
         Gtk::TreeModel::iterator iter = m_emodel->get_active();
-        auto row = *iter;
+        const auto row = *iter;
         m_emodelentry.set_text(row[m_ecombomodel.m_epcols.m_epmodel]);
         updatemode = true;
     });
@@ -102,18 +91,9 @@ void EpBox::EditEyepieces::set_signal_handlers()
 
         if (false == validate_ep_data())
         {
-            init();
+           // init();
             return;
         }
-
-        unsigned int size = m_emodel->get_model()->children().size();
-
-	    if ( 0 == size && false == updatemode) // is it the first new entry ? then we add
-        {                                      //  a separator (but not in the editor window)
-            // type column reused as a separator
-            AppGlobals::epdata = {"", "", 0.0, 0.0, 0.0 , 0.0, 0.0, 0.0, "separator", 0, 0, 0.0 , "", ""};
-            AppGlobals::new_ep_data.emit();   
-        };
 
         std::get<0>(AppGlobals::epdata) = _("User");
         std::get<1>(AppGlobals::epdata) = m_emodelentry.get_text();
@@ -141,7 +121,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
 
         if (false == updatemode) // it's a new eyepiece
         {
-            m_ecombomodel.append_ep_to_model(AppGlobals::epdata);
+            m_ecombomodel.add_ep_to_model(AppGlobals::epdata);
             AppGlobals::new_ep_data.emit();
         }
         else // it's an existing  eyepiece update
@@ -178,8 +158,12 @@ void EpBox::EditEyepieces::set_signal_handlers()
         Glib::ustring epmodelname = 
         static_cast<Glib::ustring>(m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel));
         
+        auto model = m_emodel->get_model();
+        m_emodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
         m_ecombomodel.remove_ep_from_model(epmodelname);
-        std::get<0>(AppGlobals::epdata) = epmodelname;
+        m_emodel->set_model(model);
+      
+        std::get<1>(AppGlobals::epdata) = epmodelname;
         AppGlobals::del_ep_data.emit();
 
         fileIO::dbfileIO db;
@@ -191,15 +175,15 @@ void EpBox::EditEyepieces::set_signal_handlers()
     });
 }
 
-void EpBox::EditEyepieces::swap_rows(const bool movedown)
+void EpBox::EditEyepieces::swap_rows()
 {
 
     Glib::ustring epmodelname = 
     static_cast<Glib::ustring>(m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel));
 
-    m_ecombomodel.swap_ep_rows(epmodelname, movedown);
-    std::get<0>(AppGlobals::epdata) = epmodelname;
-    (true == movedown) ? AppGlobals::move_ep_row_down.emit() : AppGlobals::move_ep_row_up.emit();
+    m_ecombomodel.swap_ep_rows(epmodelname);
+    std::get<1>(AppGlobals::epdata) = epmodelname;
+    AppGlobals::move_ep_row_up.emit();
 
     fileIO::dbfileIO db;
     db.write_ep_user_data(*m_emodel, m_ecombomodel);

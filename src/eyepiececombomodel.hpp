@@ -68,14 +68,14 @@ namespace EpCombo
 
       void add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                           double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                          Glib::ustring>& epdata, bool append = true) const;
+                          Glib::ustring>& epdata) const;
      
       void update_ep_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                           double, double, Glib::ustring, int, int, double, Glib::ustring, 
                           Glib::ustring>& epdata) const;
       
       void remove_ep_from_model(const Glib::ustring& epname) const;
-      void swap_ep_rows(const Glib::ustring& epname, bool movedown = true) const;
+      void swap_ep_rows(const Glib::ustring& epname) const;
       void setup_ep_combo_model(Gtk::ComboBox &epcombo);
       void set_ep_completion_model(Gtk::SearchEntry& epsearch);
       void set_case_sensitive(const bool case_sensitive);

@@ -10,8 +10,6 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_button_del.set_always_show_image(true);
     m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::ICON_SIZE_BUTTON, true);
     m_button_save.set_always_show_image(true);
-    m_button_movedown.set_image_from_icon_name("go-down-symbolic.symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_movedown.set_always_show_image(true);
     m_button_moveup.set_image_from_icon_name("go-up-symbolic.symbolic", Gtk::ICON_SIZE_BUTTON, true);
     m_button_moveup.set_always_show_image(true);
     m_button_new.set_image_from_icon_name("document-new-symbolic", Gtk::ICON_SIZE_BUTTON, true);
@@ -21,7 +19,6 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_button_edit.set_image_from_icon_name("document-edit-symbolic", Gtk::ICON_SIZE_BUTTON, true);
     m_button_edit.set_always_show_image(true);
 
-    m_button_movedown.set_tooltip_text(_("Move the selected model down the list by one row"));
     m_button_moveup.set_tooltip_text(_("Move the selected model up the list by one row"));
     m_button_save.set_tooltip_text(_("save telescope model information."));
     m_button_edit.set_tooltip_text(_("Edit telescope model information for the current selection."));
@@ -53,7 +50,6 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     sizegroup2->add_widget(m_button_new);
     sizegroup2->add_widget(m_button_edit);
     sizegroup2->add_widget(m_button_moveup);
-    sizegroup2->add_widget(m_button_movedown);
 
     m_sep.set_margin_top(Uidefs::BORDER_WIDTH_SMALL);
     m_sep.set_margin_bottom(Uidefs::BORDER_WIDTH_SMALL);
@@ -78,9 +74,8 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_grid.attach(m_button_edit, 1, 10, 1, 1);
     m_grid.attach(m_button_del, 0, 11, 1, 1);
     m_grid.attach(m_button_cancel, 1, 11, 1, 1);
-    m_grid.attach(m_button_movedown, 0, 12, 1, 1);
     m_grid.attach(m_button_moveup, 1, 12, 1, 1);
-    m_grid.attach(m_button_save, 0, 13, 2, 1);
+    m_grid.attach(m_button_save, 0, 12, 1, 1);
 
     m_smirrorcoating.insert(0, _("Hilux"));
     m_smirrorcoating.insert(1, _("Silicon monoxide"));
@@ -130,27 +125,40 @@ void ScopeBox::EditTelescopes::init()
     m_smodel->set_visible(true);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
-    m_button_movedown.set_sensitive(false);
     m_button_save.set_sensitive(false);
     m_button_new.set_sensitive(true);
+
+    Gtk::TreeNodeChildren::size_type size;
 
     if (m_smodel->get_model()->children().size() > 0)
     {
         m_smodel->set_active(m_smodel->get_model()->children().size() - 1); // section 1
-        m_button_edit.set_sensitive(true);
-    }
 
+        const Gtk::TreeIter it = m_smodel->get_model()->children().begin(); // First parent is "User" category
+
+        for (auto it2 = it->children().begin(); it2 != it2->children().end(); ++it2)
+        {
+            if (static_cast<Glib::ustring>((*it2)[m_scombomodel.m_scopecols.m_smodel]).length() > 0)
+            {
+                m_smodel->set_active(it2);
+                size = (*it).children().size();
+                break;
+            }
+        }
+
+        if ( size > 0 ) 
+        {
+            m_button_edit.set_sensitive(true);
+            m_button_del.set_sensitive(true);
+        }
+    }
     else
     {
         m_button_edit.set_sensitive(false); // there are no items yet so there is nothing to edit
         m_button_del.set_sensitive(false);
+        m_smodel->set_visible(false);
+        m_smodelentry.set_visible(true);
         set_default_values();
-    }
-
-    if (m_smodel->get_model()->children().size() > 1) // there must be at least two items for row swap to be active
-    {
-        m_button_moveup.set_sensitive(true);
-        m_button_movedown.set_sensitive(false); // section1  becuase the last row will be set
     }
 }
 
@@ -172,12 +180,12 @@ void ScopeBox::EditTelescopes::set_default_values()
 bool ScopeBox::EditTelescopes::validate_scope_data() const
 {
     bool flag = true;
-    Glib::ustring message = _("The following errors were encountered.") + '\n';
-    message += _("Update the following fields:" + '\n' + '\n') ;
+    Glib::ustring title = _("The following errors were encountered. Please correct the following: \r\n");
+    Glib::ustring message;
 
     if (m_smodelentry.get_text_length() > (guint16)40)
     {
-        message += _("Error: Description too long") + '\n';
+        message += _("Error: Description too long.\n");
         flag = false;
     }
 
@@ -189,41 +197,41 @@ bool ScopeBox::EditTelescopes::validate_scope_data() const
 
     if (m_smodelentry.get_text_length() < (guint16)2)
     {
-        message += _("Error: Description empty or too short.") + '\n' + '\n';
-        message += _("Hint: Model name, model identifier, focal length, barrel size") + '\n';
-        message += _("Example: ");
-        message += _("Orion US 10\" Dob\"") + '\n' + '\n';
+        message += _("Error: Description empty or too short.\n");
+        message += _("Hint: Model name, model identifier, focal length, barrel size.\n");
+        message += _("Example: Orion US SkyQuest 10\" Dob\n\n");
         flag = false;
     }
 
     if (m_sflen.get_value() != std::clamp<double>(m_sflen.get_value(), 10.0, 4000.0))
     {
-        message += _("Focal length out of range, allowed range 2mm to a 100mm") + '\n';
+        message += _("Focal length out of range, allowed range 2mm to a 100mm.\n\n");
         flag = false;
     }
 
     if (m_saperture.get_value() != std::clamp<double>(m_saperture.get_value(), 10.0, 1000.0))
     {
-        message += _("Aperture out of range, allowed range: 0mm to 100mm. Set 0 if unknown.") + '\n';
+        message += _("Aperture out of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n\n");
         flag = false;
     }
 
     if (m_sreflect.get_value() != std::clamp<double>(m_sreflect.get_value(), 0.0, 100.0))
     {
-        message += _("Reflectivity and/or transmssion out of range, ") + '\n';
-        message += _("allowed range: 0% to 100%. Set 0% if unknown.")  + '\n';
+        message += _("Reflectivity and/or transmssion out of range.\n");
+        message += _("Allowed range: 0% to 100%. Set 0% if unknown.\n\n");
         flag = false;
     }
 
     if (m_sobstruct.get_value() != std::clamp<double>(m_sobstruct.get_value(), 0.0, 100.0))
     {
-        message += _("Transmission out of range: allowed range: 0% to 100%. Set to 0 if unknown") + '\n';
+        message += _("Transmission out of range: allowed range: 0% to 100%. Set to 0 if unknown.\n");
         flag = false;
     }
 
     if (false == flag)
     {
-        Gtk::MessageDialog message_dialog(message, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_CLOSE, true);
+        Gtk::MessageDialog message_dialog(title, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_CLOSE, true);
+        message_dialog.set_secondary_text(message);
         message_dialog.run();
     }
 

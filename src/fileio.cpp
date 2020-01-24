@@ -129,23 +129,16 @@ void fileIO::dbfileIO::load_dso_data(Gtk::ComboBox &dsocombobox, DSOCombomodel &
 
 void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox, 
                             			const Glib::ustring &path, 
-                            			const ScopeCombo::ScopeCombomodel &scopecombomodel)
+                            			ScopeCombo::ScopeCombomodel &scopecombomodel)
 {
 	std::ifstream file(path.c_str(), std::ifstream::in);
 
-    std::tuple<	Glib::ustring, double, double, double, double, int, 
+    std::tuple<	Glib::ustring, Glib::ustring, double, double, double, double, int, 
             	Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
             	double, double> scopedata;
 
     std::string line, tmp;
-	unsigned int size = scopecombomodel.get_scopemodel()->children().size();
-
-	if ( size)
-	{
-		scopedata = {"", 0.0, 0.0, 0.0 , 0.0, 100, "", "", "", "", 0.0, 0.0}; // separator = 100
-		scopecombomodel.append_scope_to_model(scopedata);
-	}
-    
+	
     while (file.good())
 	{
 	    getline(file, line);
@@ -158,9 +151,16 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
 			if('#' == tmp.c_str()[0])
 				continue;  // comment line
 			
+			if (current_brand != static_cast<Glib::ustring>(tmp))
+			{
+				current_brand = static_cast<Glib::ustring>(tmp);
+				std::get<0>(scopedata) = static_cast<Glib::ustring>(tmp);
+				scopecombomodel.append_scope_to_model(scopedata); // parent
+			}
+			
 			std::get<0>(scopedata) = static_cast<Glib::ustring>(tmp);
-	        getline(tokens, tmp, '|');
-			std::get<1>(scopedata) = std::stod(tmp);
+			getline(tokens, tmp, '|');
+			std::get<1>(scopedata) = static_cast<Glib::ustring>(tmp);
 	        getline(tokens, tmp, '|');
 			std::get<2>(scopedata) = std::stod(tmp);
 	        getline(tokens, tmp, '|');
@@ -168,21 +168,22 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
 	        getline(tokens, tmp, '|');
 			std::get<4>(scopedata) = std::stod(tmp);
 	        getline(tokens, tmp, '|');
-			std::get<5>(scopedata) = std::stoi(tmp);
-			getline(tokens, tmp, '|');
-			std::get<6>(scopedata) = static_cast<Glib::ustring>(tmp);
+			std::get<5>(scopedata) = std::stod(tmp);
 	        getline(tokens, tmp, '|');
+			std::get<6>(scopedata) = std::stoi(tmp);
+			getline(tokens, tmp, '|');
 			std::get<7>(scopedata) = static_cast<Glib::ustring>(tmp);
 	        getline(tokens, tmp, '|');
 			std::get<8>(scopedata) = static_cast<Glib::ustring>(tmp);
 	        getline(tokens, tmp, '|');
 			std::get<9>(scopedata) = static_cast<Glib::ustring>(tmp);
-			getline(tokens, tmp, '|');
-			std::get<10>(scopedata) = std::stod(tmp);
 	        getline(tokens, tmp, '|');
+			std::get<10>(scopedata) = static_cast<Glib::ustring>(tmp);
+			getline(tokens, tmp, '|');
 			std::get<11>(scopedata) = std::stod(tmp);
-	    
-	        scopecombomodel.append_scope_to_model(scopedata);
+	        getline(tokens, tmp, '|');
+			std::get<12>(scopedata) = std::stod(tmp);
+	        scopecombomodel.append_scope_to_model(scopedata, true);  // child
 	    } 	       
 	}
    
@@ -212,6 +213,7 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 		{
 			if ('#' == tmp.c_str()[0])
 				continue; // comment line
+
 			if (current_brand != static_cast<Glib::ustring>(tmp))
 			{
 				current_brand = static_cast<Glib::ustring>(tmp);
@@ -249,6 +251,8 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 		}
 	}
 
+	current_brand.clear();
+
 	file.close();
 };
 
@@ -263,23 +267,25 @@ void fileIO::dbfileIO::write_ep_user_data(	const Gtk::ComboBox& epcombobox,
 
         for (auto& iter : epcombobox.get_model()->children())
         {
+			for(auto &iter2 : iter->children())
             outfile << iter->get_value(epcombomodel.m_epcols.m_epbrand)  << sep
-					<< iter->get_value(epcombomodel.m_epcols.m_epmodel)  << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_epfov)    << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_epflen)   << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_epfstop)  << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_eprelief) << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_eptrans)  << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_epbarrel) << sep
-                    << iter->get_value(epcombomodel.m_epcols.m_eptype)   << sep
-					<< iter->get_value(epcombomodel.m_epcols.m_epgroups) << sep
-					<< iter->get_value(epcombomodel.m_epcols.m_epelements) << sep
-					<< iter->get_value(epcombomodel.m_epcols.m_epweight)   << sep
-					<< iter->get_value(epcombomodel.m_epcols.m_epcoating)  << sep
-					<< iter->get_value(epcombomodel.m_epcols.m_epmaterial) << sep << '\n';
+					<< iter2->get_value(epcombomodel.m_epcols.m_epmodel)  << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_epfov)    << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_epflen)   << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_epfstop)  << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_eprelief) << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_eptrans)  << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_epbarrel) << sep
+                    << iter2->get_value(epcombomodel.m_epcols.m_eptype)   << sep
+					<< iter2->get_value(epcombomodel.m_epcols.m_epgroups) << sep
+					<< iter2->get_value(epcombomodel.m_epcols.m_epelements) << sep
+					<< iter2->get_value(epcombomodel.m_epcols.m_epweight)   << sep
+					<< iter2->get_value(epcombomodel.m_epcols.m_epcoating)  << sep
+					<< iter2->get_value(epcombomodel.m_epcols.m_epmaterial) << sep << '\n';
         }
 
         outfile.close();
+		if (0 == epcombobox.get_model()->children().size()) std::remove(pathuser.c_str());
 }
 
 void fileIO::dbfileIO::write_scope_user_data(const Gtk::ComboBox& scopecombobox,
@@ -292,18 +298,20 @@ void fileIO::dbfileIO::write_scope_user_data(const Gtk::ComboBox& scopecombobox,
 
         for (auto& iter : scopecombobox.get_model()->children())
         {
-            outfile << iter->get_value(scopecombomodel.m_scopecols.m_smodel)  	<< sep
-                    << iter->get_value(scopecombomodel.m_scopecols.m_saperture)	<< sep
-                    << iter->get_value(scopecombomodel.m_scopecols.m_sflen)   	<< sep
-                    << iter->get_value(scopecombomodel.m_scopecols.m_sobstruct)	<< sep
-                    << iter->get_value(scopecombomodel.m_scopecols.m_sreflect) 	<< sep
-                    << iter->get_value(scopecombomodel.m_scopecols.m_stype)   	<< sep
-					<< iter->get_value(scopecombomodel.m_scopecols.m_smirrorcoating)  << sep
-    				<< iter->get_value(scopecombomodel.m_scopecols.m_smirrormaterial) << sep
-    				<< iter->get_value(scopecombomodel.m_scopecols.m_slenscoating)  << sep
-    				<< iter->get_value(scopecombomodel.m_scopecols.m_slensmaterial) << sep
-    				<< iter->get_value(scopecombomodel.m_scopecols.m_sstrehl) << sep
-    				<< iter->get_value(scopecombomodel.m_scopecols.m_sweight) << sep << '\n';
+			for(auto &iter2 : iter->children())
+            outfile << iter->get_value(scopecombomodel.m_scopecols.m_sbrand)  	<< sep
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_smodel)  	<< sep
+                    << iter2->get_value(scopecombomodel.m_scopecols.m_saperture)	<< sep
+                    << iter2->get_value(scopecombomodel.m_scopecols.m_sflen)   	<< sep
+                    << iter2->get_value(scopecombomodel.m_scopecols.m_sobstruct)	<< sep
+                    << iter2->get_value(scopecombomodel.m_scopecols.m_sreflect) 	<< sep
+                    << iter2->get_value(scopecombomodel.m_scopecols.m_stype)   	<< sep
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_smirrorcoating)  << sep
+    				<< iter2->get_value(scopecombomodel.m_scopecols.m_smirrormaterial) << sep
+    				<< iter2->get_value(scopecombomodel.m_scopecols.m_slenscoating)  << sep
+    				<< iter2->get_value(scopecombomodel.m_scopecols.m_slensmaterial) << sep
+    				<< iter2->get_value(scopecombomodel.m_scopecols.m_sstrehl) << sep
+    				<< iter2->get_value(scopecombomodel.m_scopecols.m_sweight) << sep << '\n';
         }
 
         outfile.close();

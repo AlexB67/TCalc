@@ -10,22 +10,19 @@ void EpBox::Eyepiecebox::create_epmodel_connection()
 {
     AppGlobals::update_ep_data.connect([this](){
        m_ecombomodel.update_ep_model(AppGlobals::epdata);
+       ep_changed();
     });
 
     AppGlobals::new_ep_data.connect([this](){
-       m_ecombomodel.add_ep_to_model(AppGlobals::epdata, false);
+       m_ecombomodel.add_ep_to_model(AppGlobals::epdata);
     });
 
     AppGlobals::del_ep_data.connect([this](){
-      m_ecombomodel.remove_ep_from_model(std::get<0>(AppGlobals::epdata));
-    });
-
-    AppGlobals::move_ep_row_down.connect([this](){
-      m_ecombomodel.swap_ep_rows(std::get<0>(AppGlobals::epdata), true);
+      m_ecombomodel.remove_ep_from_model(std::get<1>(AppGlobals::epdata));
     });
 
      AppGlobals::move_ep_row_up.connect([this](){
-      m_ecombomodel.swap_ep_rows(std::get<0>(AppGlobals::epdata), false);
+      m_ecombomodel.swap_ep_rows(std::get<1>(AppGlobals::epdata));
     });
 }
 

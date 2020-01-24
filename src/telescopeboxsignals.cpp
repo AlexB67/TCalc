@@ -11,6 +11,7 @@ void ScopeBox::Telescopebox::create_scopemodel_connection()
 {
     AppGlobals::update_scope_data.connect([this](){
        m_scombomodel.update_scope_model(AppGlobals::scopedata);
+       scope_changed();
     });
 
     AppGlobals::new_scope_data.connect([this](){
@@ -18,15 +19,11 @@ void ScopeBox::Telescopebox::create_scopemodel_connection()
     });
 
     AppGlobals::del_scope_data.connect([this](){
-      m_scombomodel.remove_scope_from_model(std::get<0>(AppGlobals::scopedata));
-    });
-
-    AppGlobals::move_scope_row_down.connect([this](){
-      m_scombomodel.swap_scope_rows(std::get<0>(AppGlobals::scopedata), true);
+      m_scombomodel.remove_scope_from_model(std::get<1>(AppGlobals::scopedata));
     });
 
      AppGlobals::move_scope_row_up.connect([this](){
-      m_scombomodel.swap_scope_rows(std::get<0>(AppGlobals::scopedata), false);
+      m_scombomodel.swap_scope_rows(std::get<1>(AppGlobals::scopedata));
     });
 }
 

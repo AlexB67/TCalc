@@ -31,7 +31,7 @@ namespace fileIO
 
     void read_scope_file(const Gtk::ComboBox &scopecombobox,
                          const Glib::ustring &path,
-                         const ScopeCombo::ScopeCombomodel &scopecombomodel);
+                         ScopeCombo::ScopeCombomodel &scopecombomodel);
   };
 
   void set_app_data();

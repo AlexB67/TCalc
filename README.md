@@ -20,6 +20,9 @@ To uninstall
 
 $sudo ninja uninstall
 
+If you have used the software before please delete your user eyepiecesuser.TCalc and telescopesuser.TCalc files, \ 
+if they exist. Found in /home/your_username/.config/gnome-tcalc
+
 This will add the application to /user/local and appear in the applications list as GNOME TCalc.
 
 Note: this is a vscode project but works equally well in gnome-builder, just point builder to the TCalc folder and open it.

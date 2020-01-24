@@ -26,9 +26,9 @@ namespace AppGlobals
     inline Glib::ustring dsolistfilename        = datadir + "skyobjects.TCalc"; //dsos
     inline Glib::ustring configpath             = userconfigdir + "tcalc.conf";
     inline Glib::ustring telescopesfilename     = datadir + "telescopes.TCalc";
-    inline Glib::ustring telescopesfilenameuser = userconfigdir + "telescopesuser-temp.TCalc";
+    inline Glib::ustring telescopesfilenameuser = userconfigdir + "telescopesuser.TCalc";
     inline Glib::ustring eyepiecesfilename      = datadir + "eyepieces.TCalc";  
-    inline Glib::ustring eyepiecesfilenameuser  = userconfigdir + "eyepiecesuser-temp.TCalc";
+    inline Glib::ustring eyepiecesfilenameuser  = userconfigdir + "eyepiecesuser.TCalc";
 
     inline void get_keyfile_config(Gtk::Frame &frame)
     {   
@@ -65,7 +65,7 @@ namespace AppGlobals
                     double, double, Glib::ustring, int, int, double, Glib::ustring, 
                     Glib::ustring> epdata;
 
-    inline std::tuple<Glib::ustring, double, double, double, double, int, 
+    inline std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                     Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
                     double, double> scopedata;
 
@@ -77,14 +77,11 @@ namespace AppGlobals
     inline sigc::signal<void()> new_ep_data;
     inline sigc::signal<void()> del_ep_data;
     inline sigc::signal<void()> move_ep_row_up;
-    inline sigc::signal<void()> move_ep_row_down;
-
 
     inline sigc::signal<void()> update_scope_data;
     inline sigc::signal<void()> new_scope_data;
     inline sigc::signal<void()> del_scope_data;
     inline sigc::signal<void()> move_scope_row_up;
-    inline sigc::signal<void()> move_scope_row_down;
 
     inline sigc::signal<void(const Glib::ustring&)> update_graphthemes;
 

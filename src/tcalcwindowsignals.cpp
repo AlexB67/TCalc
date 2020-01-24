@@ -316,10 +316,6 @@ void TcalcWindow::search()
 
 void TcalcWindow::equipment()
 {
-	Gtk::MessageDialog  message_dialog("Disabled for now", false, Gtk::MESSAGE_INFO, Gtk::BUTTONS_OK, true);
-	message_dialog.run();
-	return;
-
 	if (!equipwindow)
 	{
 		equipwindow = std::make_unique<EquipWindow>(m_app);
@@ -337,7 +333,7 @@ void TcalcWindow::about()
 
 	aboutdialog.set_logo(Gdk::Pixbuf::create_from_resource("/org/gnome/TCalc/resources/tcalc.png", 128, 128, true));
 	aboutdialog.set_program_name(_("GNOME TCalc"));
-	aboutdialog.set_version("0.0.6");
+	aboutdialog.set_version("0.0.8");
 	aboutdialog.set_copyright("Alexander Borro");
 	aboutdialog.set_comments(_("An astronomy tool for telescopes and eyepieces for Gnome. " 
 								"\nThe brother of the Qt version TCalc."));

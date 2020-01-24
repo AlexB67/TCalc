@@ -1,5 +1,5 @@
 project('tcalc', ['cpp', 'c'], 
-        version: '0.0.6',
+        version: '0.0.8',
   meson_version: '>= 0.47.0',
 )
 
