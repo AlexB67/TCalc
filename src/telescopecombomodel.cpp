@@ -152,10 +152,15 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
         row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
         row[m_scopecols.m_sweight] = std::get<12>(scopedata);
     }
+
+     // Update completion list
+    const auto listrow = *(m_scopelistmodel->append());
+    listrow[m_scopecompletioncols.m_sbrand] = _("User");
+    listrow[m_scopecompletioncols.m_smodel] = std::get<1>(scopedata);
     
 }
 
-void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &epname) const
+void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &scopename) const
 {
      Gtk::TreeModel::iterator iter;
 
@@ -166,7 +171,7 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &epname) const
 
     for (auto iter2 : iter->children())
     {
-        if (epname == (*iter2)->get_value(m_scopecols.m_smodel))
+        if (scopename == (*iter2)->get_value(m_scopecols.m_smodel))
         {
             if(iter2) m_scopetreemodel->erase(iter2);
             break;
@@ -175,11 +180,21 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &epname) const
 
     // If there are no more user eyepieces left delete the User category (parent)
     if (0 == iter->children().size()) m_scopetreemodel->erase(iter);
+
+    // remove from completion list
+    for (auto &i : m_scopelistmodel->children())
+    {
+        if (scopename == i->get_value(m_scopecompletioncols.m_smodel))
+        {
+            m_scopelistmodel->erase(i);
+            break;
+        }
+    }
 }
 
 void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                                         Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                        double, double>& scopedata) const
+                                        double, double>& scopedata, const Glib::ustring& oldname) const
 {
     Gtk::TreeModel::iterator iter;
     Gtk::TreeModel::iterator iter2;
@@ -188,7 +203,7 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
         if (iter->get_value(m_scopecols.m_sbrand) == _("User")) break;
 
     for (iter2 = iter->children().begin(); iter2 != iter->children().end(); ++iter2)
-        if (std::get<1>(scopedata) == iter2->get_value(m_scopecols.m_smodel))
+        if (oldname == iter2->get_value(m_scopecols.m_smodel))
             break;
 
     if (iter2)

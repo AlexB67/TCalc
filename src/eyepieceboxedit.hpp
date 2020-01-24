@@ -21,6 +21,7 @@ public:
     void set_default_values() override;
 
 private:
+    Glib::ustring old_model_name;
     Gtk::Entry m_emodelentry;
     Glib::RefPtr<Gtk::Application> m_app;
     Gtk::Label m_ebarrelsizelabel{_("Barrel size/inches"), Gtk::ALIGN_START};

@@ -22,6 +22,7 @@ namespace ScopeBox
             void set_default_values() override;
 
         private:
+            Glib::ustring old_model_name;
             Gtk::Entry m_smodelentry;
             Glib::RefPtr<Gtk::Application> m_app;
             Gtk::Label m_smirrorcoatinglabel{_("Mirror coating"), Gtk::ALIGN_START};

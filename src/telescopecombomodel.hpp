@@ -72,7 +72,7 @@ namespace ScopeCombo
 
       void update_scope_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                               Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                              double, double>& scopedata) const;
+                              double, double>& scopedata, const Glib::ustring& oldname) const;
 
       void add_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                               Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 

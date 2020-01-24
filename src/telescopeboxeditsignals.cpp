@@ -79,6 +79,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         Gtk::TreeModel::iterator iter = m_smodel->get_active();
         auto row = *iter;
         m_smodelentry.set_text(row[m_scombomodel.m_scopecols.m_smodel]);
+        old_model_name = row[m_scombomodel.m_scopecols.m_smodel];
         updatemode = true;
     });
 
@@ -142,8 +143,8 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         }
         else // it's an existing telescope update
         {
-            m_scombomodel.update_scope_model(AppGlobals::scopedata);
-            AppGlobals::update_scope_data.emit();
+            m_scombomodel.update_scope_model(AppGlobals::scopedata, old_model_name);
+            AppGlobals::update_scope_data.emit(old_model_name);
         }
 
         fileIO::dbfileIO db;

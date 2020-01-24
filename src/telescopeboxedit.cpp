@@ -128,7 +128,7 @@ void ScopeBox::EditTelescopes::init()
     m_button_save.set_sensitive(false);
     m_button_new.set_sensitive(true);
 
-    Gtk::TreeNodeChildren::size_type size;
+    Gtk::TreeNodeChildren::size_type size = 0;
 
     if (m_smodel->get_model()->children().size() > 0)
     {

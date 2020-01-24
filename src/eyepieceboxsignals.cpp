@@ -8,8 +8,8 @@ using AppGlobals::log_msg;
 
 void EpBox::Eyepiecebox::create_epmodel_connection()
 {
-    AppGlobals::update_ep_data.connect([this](){
-       m_ecombomodel.update_ep_model(AppGlobals::epdata);
+    AppGlobals::update_ep_data.connect([this](const Glib::ustring& oldname){
+       m_ecombomodel.update_ep_model(AppGlobals::epdata, oldname);
        ep_changed();
     });
 
@@ -18,11 +18,11 @@ void EpBox::Eyepiecebox::create_epmodel_connection()
     });
 
     AppGlobals::del_ep_data.connect([this](){
-      m_ecombomodel.remove_ep_from_model(std::get<1>(AppGlobals::epdata));
+        m_ecombomodel.remove_ep_from_model(std::get<1>(AppGlobals::epdata));
     });
 
      AppGlobals::move_ep_row_up.connect([this](){
-      m_ecombomodel.swap_ep_rows(std::get<1>(AppGlobals::epdata));
+        m_ecombomodel.swap_ep_rows(std::get<1>(AppGlobals::epdata));
     });
 }
 
@@ -41,7 +41,8 @@ void EpBox::Eyepiecebox::ep_changed()
         if (row)
         {
             log_msg.emit(flag, LogView::tINFO, row[m_ecombomodel.m_epcols.m_epmodel] + _(" selected."));
-            
+            auto *entry = m_emodel->get_entry();
+            entry->set_text(row[m_ecombomodel.m_epcols.m_epmodel]);
             m_efov.set_value(row[m_ecombomodel.m_epcols.m_epfov]);
             m_eflen.set_value(row[m_ecombomodel.m_epcols.m_epflen]);
             m_etype.set_active(get_eyepiece_type(row));

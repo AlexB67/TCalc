@@ -108,7 +108,7 @@ void EpBox::EditEyepieces::set_default_values()
     m_efstop.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
     m_erelief.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
     m_etrans.set_spin_entry(0.0, 0.0, 100.0, 0.5, 2, true);
-    m_ebarrelsize.set_spin_entry(0.0, 0.0, 3.0, 0.01, 2, true);
+    m_ebarrelsize.set_spin_entry(0.0, 0.0, 6.0, 0.01, 2, true);
     m_egroups.set_spin_entry(0.0, 0.0, 10.0, 1.0, 0, true);
     m_elements.set_spin_entry(0.0, 0.0, 30.0, 1.0, 0, true);
     m_eweight.set_spin_entry(0.0, 0.0, 10000.0, 1.0, 2, true);
@@ -129,7 +129,7 @@ void EpBox::EditEyepieces::init()
     m_button_save.set_sensitive(false);
     m_button_new.set_sensitive(true);
 
-    Gtk::TreeNodeChildren::size_type size;
+    Gtk::TreeNodeChildren::size_type size = 0;
 
     if (m_emodel->get_model()->children().size() > 0)
     {

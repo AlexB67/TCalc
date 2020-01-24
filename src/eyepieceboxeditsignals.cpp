@@ -75,6 +75,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
         Gtk::TreeModel::iterator iter = m_emodel->get_active();
         const auto row = *iter;
         m_emodelentry.set_text(row[m_ecombomodel.m_epcols.m_epmodel]);
+        old_model_name = row[m_ecombomodel.m_epcols.m_epmodel];
         updatemode = true;
     });
 
@@ -126,8 +127,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
         }
         else // it's an existing  eyepiece update
         {
-            m_ecombomodel.update_ep_model(AppGlobals::epdata);
-            AppGlobals::update_ep_data.emit();
+            m_ecombomodel.update_ep_model(AppGlobals::epdata, old_model_name);
+            AppGlobals::update_ep_data.emit(old_model_name);
         }
 
         fileIO::dbfileIO db;

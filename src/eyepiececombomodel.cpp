@@ -129,7 +129,7 @@ void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring
         }
     }
     
-    if (false == found) // No user eyeieces were aded yet so add the "User" category
+    if (false == found) // No user eyepieces were aded yet so add the "User" category
     {
         const Gtk::TreeRow row = *(m_eptreemodel->prepend());
         row[m_epcols.m_epbrand] = _("User");
@@ -155,6 +155,11 @@ void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring
         row[m_epcols.m_epcoating] = std::get<12>(epdata);
         row[m_epcols.m_epmaterial] = std::get<13>(epdata);
     }
+
+    // Update completion list
+    const auto listrow = *(m_eplistmodel->append());
+    listrow[m_epcompletioncols.m_epbrand] = _("User");
+    listrow[m_epcompletioncols.m_epmodel] = std::get<1>(epdata);
 }
 
 void EpCombomodel::remove_ep_from_model(const Glib::ustring &epname) const
@@ -178,11 +183,21 @@ void EpCombomodel::remove_ep_from_model(const Glib::ustring &epname) const
 
     // If there are no more user eyepieces left delete the User category (parent)
     if (0 == iter->children().size()) m_eptreemodel->erase(iter);
+
+     // remove from completion list
+    for (auto &i : m_eplistmodel->children())
+    {
+        if (epname == i->get_value(m_epcompletioncols.m_epmodel))
+        {
+            m_eplistmodel->erase(i);
+            break;
+        }
+    }
 }
 
 void EpCombomodel::update_ep_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                                     double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                                    Glib::ustring>& epdata) const
+                                    Glib::ustring>& epdata, const Glib::ustring& oldname) const
 {
     Gtk::TreeModel::iterator iter;
     Gtk::TreeModel::iterator iter2;
@@ -191,7 +206,7 @@ void EpCombomodel::update_ep_model(const std::tuple<Glib::ustring, Glib::ustring
         if (iter->get_value(m_epcols.m_epbrand) == _("User")) break;
 
     for (iter2 = iter->children().begin(); iter2 != iter->children().end(); ++iter2)
-        if (std::get<1>(epdata) == iter2->get_value(m_epcols.m_epmodel))
+        if (oldname == iter2->get_value(m_epcols.m_epmodel))
             break;
 
     if(iter2)

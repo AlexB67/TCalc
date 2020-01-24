@@ -63,22 +63,22 @@ namespace AppGlobals
 
     inline std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                     double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                    Glib::ustring> epdata;
+                    Glib::ustring> epdata; // TO DO we can get rid of this and pass as argument via signal instead.
 
     inline std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                     Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                    double, double> scopedata;
+                    double, double> scopedata; // TO DO we can get rid of this and pass as argument via signal instead.
 
     inline sigc::signal<void(const bool, const int, const Glib::ustring&)> log_msg;
 
     inline sigc::signal<void(const Gtk::ShadowType)> frame_style;
 
-    inline sigc::signal<void()> update_ep_data;
+    inline sigc::signal<void(const Glib::ustring&)> update_ep_data;
     inline sigc::signal<void()> new_ep_data;
     inline sigc::signal<void()> del_ep_data;
     inline sigc::signal<void()> move_ep_row_up;
 
-    inline sigc::signal<void()> update_scope_data;
+    inline sigc::signal<void(const Glib::ustring&)> update_scope_data;
     inline sigc::signal<void()> new_scope_data;
     inline sigc::signal<void()> del_scope_data;
     inline sigc::signal<void()> move_scope_row_up;
