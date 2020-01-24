@@ -157,15 +157,24 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
 
 void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &epname) const
 {
-    // TODO create a std::map of index to name in the combo model to avoid searching like this, this is temporary.
-    for (auto &i : m_scopetreemodel->children())
+     Gtk::TreeModel::iterator iter;
+
+    if (0 == m_scopetreemodel->children().size()) return;
+
+    for (iter = m_scopetreemodel->children().begin(); iter != m_scopetreemodel->children().end(); ++iter)
+        if (iter->get_value(m_scopecols.m_sbrand) == _("User")) break;
+
+    for (auto iter2 : iter->children())
     {
-        if (epname == i->get_value(m_scopecols.m_smodel))
+        if (epname == (*iter2)->get_value(m_scopecols.m_smodel))
         {
-            m_scopetreemodel->erase(i);
+            if(iter2) m_scopetreemodel->erase(iter2);
             break;
         }
     }
+
+    // If there are no more user eyepieces left delete the User category (parent)
+    if (0 == iter->children().size()) m_scopetreemodel->erase(iter);
 }
 
 void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
