@@ -33,7 +33,6 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
                               "typically 0.80 - 0.98"));
     m_sweight.set_tooltip_text(_("The weight of the telescope in kilograms (including mount)."));
 
-
     sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
     sizegroup->add_widget(*m_smodel);
     sizegroup->add_widget(m_smodelentry);

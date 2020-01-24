@@ -14,12 +14,12 @@ bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, bool keyboard
     if(false == m_resultsview.get_path_at_pos(binx, biny, path, column, cellx, celly))
         return false;
 
-    Gtk::TreeIter iter(m_resultsModel->get_iter(path));
+    const Gtk::TreeIter iter(m_resultsModel->get_iter(path));
 
     if(!iter)
         return false;
 
-    auto row = *iter;
+    const auto row = *iter;
 
     if (row[m_resultCols.m_results_property] == m_proplistnames[0]) // speed, see m_proplistnames below
         tooltip->set_markup(_("The speed of the telescope. Expressed as <i>f</i>/# . The focal length devided by the aperture."));
@@ -108,12 +108,12 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_t
     if(false == m_scopeview.get_path_at_pos(binx, biny, path, column, cellx, celly))
         return false;
 
-    Gtk::TreeIter iter(m_scopeModel->get_iter(path));
+    const Gtk::TreeIter iter(m_scopeModel->get_iter(path));
 
     if(!iter)
         return false;
 
-    auto row = *iter;
+    const auto row = *iter;
 
     if (row[m_scopeCols.m_results_property] == m_scopelistnames[0])
     {
@@ -187,12 +187,12 @@ bool ResultsBox::Resultsbox::set_ep_row_tooltip(int x, int y, bool keyboard_tool
     if(false == m_epview.get_path_at_pos(binx, biny, path, column, cellx, celly))
         return false;
 
-    Gtk::TreeIter iter(m_epModel->get_iter(path));
+    const Gtk::TreeIter iter(m_epModel->get_iter(path));
 
     if(!iter)
         return false;
 
-    auto row = *iter;
+    const auto row = *iter;
 
     if (row[m_epCols.m_results_property] == m_eplistnames[0])
     {
@@ -241,7 +241,8 @@ bool ResultsBox::Resultsbox::set_ep_row_tooltip(int x, int y, bool keyboard_tool
     else if (row[m_epCols.m_results_property] == m_eplistnames[10])
         tooltip->set_markup(_("The weight in grams of the eyepiece."));
     else if (row[m_epCols.m_results_property] == m_eplistnames[11])
-        tooltip->set_markup(_("The type of coating used on optical elements."));
+        tooltip->set_markup(_("The type of coating used on optical elements. " 
+        "FMC is fully multi coated. FMC-BE is fully multicoated with blackened edges. MC Multi coated. SC single coat etc."));
     else if (row[m_epCols.m_results_property] == m_eplistnames[12])
         tooltip->set_markup(_("The type of glass used for lens construction."));
     else

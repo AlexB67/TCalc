@@ -215,6 +215,12 @@ ATC (Czech)|ATC (Czech) Wide field 5.5mm 1.25"|68|5.5|0|0|0|1.25|Multi other|0|6
 ATC (Czech)|ATC (Czech) Wide field 7mm 1.25"|68|7.0|0|0|0|1.25|Multi other|0|6|0|||
 ATC (Czech)|ATC (Czech) Wide field 8mm 1.25"|68|8.0|0|0|0|1.25|Multi other|0|6|0|||
 ATC (Czech)|ATC (Czech) Wide field 10mm 1.25"|64|10.0|0|0|0|1.25|Multi other|0|6|0|||
+Baader|Baader BGO ortho 5mm 1.25"|40|5|3.40|4.05|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader|Baader BGO ortho 6mm 1.25"|40|6|4.20|4.91|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader|Baader BGO ortho 7mm 1.25"|40|7|4.87|6.07|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader|Baader BGO ortho 9mm 1.25"|40|9|6.30|7.61|98|1.25|Ortho|2|4|86|Phantom MC||
+Baader|Baader BGO ortho 12.5mm 1.25"|40|12.5|9.20|10.41|98|1.25|Ortho|2|4|0|Phantom MC||
+Baader|Baader BGO ortho 18mm 1.25"|40|18|12.5|15.21|98|1.25|Ortho|2|4|0|Phantom MC||
 Baader Planetarium|Baader Planetarium Classic Ortho 6mm 1.25"|49|6.0|5.0|4.5|0|1.25|Ortho|0|4|40|FMC||
 Baader Planetarium|Baader Planetarium Classic Ortho 10mm 1.25"|50|10.0|8.7|7.5|0|1.25|Ortho|0|4|52|FMC||
 Baader Planetarium|Baader Planetarium Classic Ortho 18mm 1.25"|53|18.0|16.8|13.5|0|1.25|Ortho|0|4|85|FMC||
@@ -370,14 +376,14 @@ Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 20mm 1.25"|7
 Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 25mm 2"|70|25.0|0|0|0|2.00|Multi other|0|5|0|FMC-BE||
 Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 30mm 2"|70|30.0|0|0|0|2.00|Multi other|0|5|0|FMC-BE||
 Explore Scientific (Bresser)|Explore Scientific (Bresser) 70 Series 35mm 2"|70|35.0|0|0|0|2.00|Multi other|0|5|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 4mm 1.25"|42|4.0|2.6|3.4|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 5mm 1.25"|42|5.0|3.4|4.0|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 6mm 1.25"|42|6.0|4.2|4.9|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 7mm 1.25"|42|7.0|4.8|6.1|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 9mm 1.25"|42|9.0|6.3|7.6|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 18mm 1.25"|42|18.0|12.5|15.2|0|1.25|Ortho|0|4|0|FMC-BE||
-Fujiyama|Fujiyama HD Orthoscopic 25mm 1.25"|42|25.0|17.4|22.2|0|1.25|Ortho|0|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 4mm 1.25"|42|4.0|2.6|3.4|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 5mm 1.25"|42|5.0|3.4|4.0|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 6mm 1.25"|42|6.0|4.2|4.9|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 7mm 1.25"|42|7.0|4.8|6.1|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 9mm 1.25"|42|9.0|6.3|7.6|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 12.5mm 1.25"|42|12.5|9.2|10.4|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 18mm 1.25"|42|18.0|12.5|15.2|0|1.25|Ortho|2|4|0|FMC-BE||
+Fujiyama|Fujiyama HD Orthoscopic 25mm 1.25"|42|25.0|17.4|22.2|0|1.25|Ortho|2|4|0|FMC-BE||
 GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 4mm 1.25"|50|4.0|0|2.8|0|1.25|Plossl|0|4|0|FMC-BE||
 GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 6mm 1.25"|50|6.0|0|4.2|0|1.25|Plossl|0|4|0|FMC-BE||
 GSO (Guan Sheng Optical)|GSO (Guan Sheng Optical) Plossl 9mm 1.25"|50|9.0|0|6.3|0|1.25|Plossl|0|4|0|FMC-BE||
@@ -770,6 +776,7 @@ Pentax|Pentax SMC-XW 7mm 1.25"|70|7.0|8.8|20.0|0|1.25|Multi other|0|8|390|FMC-BE
 Pentax|Pentax SMC-XW 10mm 1.25"|70|10.0|12.4|20.0|0|1.25|Multi other|0|7|390|FMC-BE||
 Pentax|Pentax SMC-XW 14mm 1.25"|70|14.0|17.6|20.0|0|1.25|Multi other|0|7|365|FMC-BE||
 Pentax|Pentax SMC-XW 20mm 1.25"|70|20.0|24.0|20.0|0|1.25|Multi other|0|6|355|FMC-BE||
+Pentax|Pentax SMC-XW 30mm 2"|70|30|36.2|20|98|2.0|Multi other|0|0|0|||
 Pentax|Pentax XF ED 8.5mm 1.25"|60|8.5|8.8|18.0|0|1.25|Multi other|0|6|150|FMC||
 Pentax|Pentax XF ED 12mm 1.25"|60|12.0|12.8|18.0|0|1.25|Multi other|0|6|155|FMC||
 PrimaLuceLab|PrimaLuceLab LE Planetary 12.5mm 1.25"|55|12.5|0|20.0|0|1.25|Multi other|0|7|0|FMC-BE||
@@ -1023,6 +1030,18 @@ TeleVue|TeleVue Plossl 25mm 1.25"|50|25.0|21.2|17.0|0|1.25|Plossl|0|4|122|FMC-BE
 TeleVue|TeleVue Plossl 32mm 1.25"|50|32.0|26.9|22.0|0|1.25|Plossl|0|4|176|FMC-BE||
 TeleVue|TeleVue Plossl 40mm 1.25"|40|40.0|27.3|28.0|0|1.25|Plossl|0|4|193|FMC-BE||
 TeleVue|TeleVue Plossl 55mm 2"|50|55.0|46.0|38.0|0|2.00|Plossl|0|4|513|FMC-BE||
+Vixen|Vixen NLV 2.5mm 1.25"|45|2.5|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 4mm 1.25"|45|4|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 5mm 1.25"|45|5|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 6mm 1.25"|45|6|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 9mm 1.25"|50|9|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 10mm 1.25"|50|10|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 12mm 1.25"|50|12|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 15mm 1.25"|50|15|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 20mm 1.25"|50|20|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 25mm 1.25"|50|25|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 30mm 1.25"|50|30|0|20|0|1.25|Multi other|0|0|0|||
+Vixen|Vixen NLV 40mm 1.25"|42|40|0|32|0|1.25|Multi other|0|0|0|||
 Vixen|Vixen HR 1.6mm 1.25"|42|1.6|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
 Vixen|Vixen HR 2mm 1.25"|42|2.0|0|10.0|0|1.25|Multi other|0|5|0|FMC-BE||
 Vixen|Vixen HR 2.4mm 1.25"|42|2.4|1.8|10.0|0|1.25|Multi other|0|5|115|FMC-BE||

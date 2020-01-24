@@ -102,7 +102,6 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
             return;
         }
 
-        std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int> scopedata;
         std::get<0>(AppGlobals::scopedata) = _("User");
         std::get<1>(AppGlobals::scopedata) = m_smodelentry.get_text();
         std::get<2>(AppGlobals::scopedata) = m_saperture.get_value();
