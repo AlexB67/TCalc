@@ -93,6 +93,11 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
         childrow[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
         childrow[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
         childrow[m_scopecols.m_sweight] = std::get<12>(scopedata);
+
+        // used by search completion
+        const auto listrow = *(m_scopelistmodel->append());
+        listrow[m_scopecompletioncols.m_sbrand] = std::get<0>(scopedata);
+        listrow[m_scopecompletioncols.m_smodel] = std::get<1>(scopedata);
     }
     else
     {
@@ -101,10 +106,6 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
         parent_row[m_scopecols.m_sbrand] = std::get<0>(scopedata);
         parent_row[m_scopecols.m_smodel] = ""; // stops text != NULL warnings
     }
-
-   const auto listrow = *(m_scopelistmodel->append());
-   listrow[m_scopecols.m_sbrand] = std::get<0>(scopedata);
-   listrow[m_scopecols.m_smodel] = std::get<1>(scopedata);
 }
 
 
@@ -223,6 +224,17 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
             row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
             row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
             row[m_scopecols.m_sweight] = std::get<12>(scopedata);
+        }
+    }
+
+    // Update completion model
+    for (auto &i : m_scopelistmodel->children())
+    {
+        if (oldname == (*i)->get_value(m_scopecompletioncols.m_smodel))
+        {
+            const auto row = *i;
+            row[m_scopecompletioncols.m_smodel] =  std::get<1>(scopedata);
+            break;
         }
     }
 }

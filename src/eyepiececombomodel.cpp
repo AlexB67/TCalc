@@ -95,6 +95,11 @@ void EpCombomodel::append_ep_to_model(const std::tuple<Glib::ustring, Glib::ustr
         childrow[m_epcols.m_epweight] = std::get<11>(epdata);
         childrow[m_epcols.m_epcoating] = std::get<12>(epdata);
         childrow[m_epcols.m_epmaterial] = std::get<13>(epdata);
+
+        // used by search completion
+        const auto listrow = *(m_eplistmodel->append());
+        listrow[m_epcompletioncols.m_epbrand] = std::get<0>(epdata);
+        listrow[m_epcompletioncols.m_epmodel] = std::get<1>(epdata);
     }
     else
     {
@@ -103,10 +108,6 @@ void EpCombomodel::append_ep_to_model(const std::tuple<Glib::ustring, Glib::ustr
         parent_row[m_epcols.m_epbrand] = std::get<0>(epdata);
         parent_row[m_epcols.m_epmodel] = ""; // stops text != NULL warnings
     }
-
-    const auto listrow = *(m_eplistmodel->append());
-    listrow[m_epcols.m_epbrand] = std::get<0>(epdata);
-    listrow[m_epcols.m_epmodel] = std::get<1>(epdata);
 }
 
 void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
@@ -227,6 +228,17 @@ void EpCombomodel::update_ep_model(const std::tuple<Glib::ustring, Glib::ustring
             row[m_epcols.m_epweight] = std::get<11>(epdata);
             row[m_epcols.m_epcoating] = std::get<12>(epdata);
             row[m_epcols.m_epmaterial] = std::get<13>(epdata);
+        }
+    }
+
+    // Update completion model
+    for (auto &i : m_eplistmodel->children())
+    {
+        if (oldname == (*i)->get_value(m_epcompletioncols.m_epmodel))
+        {
+            const auto row = *i;
+            row[m_epcompletioncols.m_epmodel] =  std::get<1>(epdata);
+            break;
         }
     }
 }
