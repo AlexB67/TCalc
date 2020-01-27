@@ -39,8 +39,8 @@ You can cancel the New operation at any time using the cancel button.</p>
 <p>Use the Delete button to remove an eyepiece. You will be prompted before applying the change.</p>
 </item>
 <item>
-<p>Use the "Move up" or "Move down" buttons to change the order in which models appear in the selection list. As you add eyepieces, new models will be appended to the list by the default.
- "Move up" moves the current model up by one row, "Move down" moves the current model down by one row.</p>
+<p>Use the "Move up" changes the order in which models appear in the selection list. As you add eyepieces, new models will be appended to the list by the default.
+ "Move up" moves the current model up by one row.</p>
 </item>
 </list>
 </page>

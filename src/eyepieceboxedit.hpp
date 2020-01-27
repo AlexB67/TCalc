@@ -34,8 +34,8 @@ private:
     Ui::SpinEntry m_egroups;
     Ui::SpinEntry m_elements; 
     Ui::SpinEntry m_eweight;
-    Gtk::ComboBoxText   m_ecoatings;
-    Gtk::ComboBoxText   m_ematerial;
+    Gtk::ComboBoxText   m_ecoatings{true};
+    Gtk::ComboBoxText   m_ematerial{true};
     Gtk::Entry          m_ecoatingsentry;
     Gtk::Entry          m_ematerialentry;
     Gtk::Button m_button_new{_("New")};
@@ -46,7 +46,6 @@ private:
     Gtk::Button m_button_moveup{_("Move up")};
     Gtk::Separator m_sep;
     Glib::RefPtr<Gtk::SizeGroup> sizegroup;
-    Glib::RefPtr<Gtk::SizeGroup> sizegroup2;
     bool updatemode = false;
     void set_signal_handlers();
     void enable_widgets(const bool enable = true);

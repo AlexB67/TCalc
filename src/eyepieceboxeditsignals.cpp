@@ -65,6 +65,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
         enable_widgets(true);
         m_button_save.set_sensitive(true);
         m_button_cancel.set_sensitive(true);
+        m_button_new.set_sensitive(false);
         m_button_edit.set_sensitive(false);
         m_button_del.set_sensitive(false);
         m_button_moveup.set_sensitive(false);
@@ -96,39 +97,43 @@ void EpBox::EditEyepieces::set_signal_handlers()
             return;
         }
 
-        std::get<0>(AppGlobals::epdata) = _("User");
-        std::get<1>(AppGlobals::epdata) = m_emodelentry.get_text();
-        std::get<2>(AppGlobals::epdata) = m_efov.get_value();
-        std::get<3>(AppGlobals::epdata) = m_eflen.get_value();
-        std::get<4>(AppGlobals::epdata) = m_efstop.get_value();
-        std::get<5>(AppGlobals::epdata) = m_erelief.get_value();
-        std::get<6>(AppGlobals::epdata) = m_etrans.get_value();
-        std::get<7>(AppGlobals::epdata) = m_ebarrelsize.get_value();
-        std::get<8>(AppGlobals::epdata) = m_etype.get_active_text(); 
-        std::get<9>(AppGlobals::epdata) = m_egroups.get_value_as_int();
-        std::get<10>(AppGlobals::epdata) = m_elements.get_value_as_int();
+        std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
+                double, double, Glib::ustring, int, int, double, Glib::ustring, 
+                Glib::ustring> epdata;
+
+        std::get<0>(epdata) = _("User");
+        std::get<1>(epdata) = m_emodelentry.get_text();
+        std::get<2>(epdata) = m_efov.get_value();
+        std::get<3>(epdata) = m_eflen.get_value();
+        std::get<4>(epdata) = m_efstop.get_value();
+        std::get<5>(epdata) = m_erelief.get_value();
+        std::get<6>(epdata) = m_etrans.get_value();
+        std::get<7>(epdata) = m_ebarrelsize.get_value();
+        std::get<8>(epdata) = m_etype.get_active_text(); 
+        std::get<9>(epdata) = m_egroups.get_value_as_int();
+        std::get<10>(epdata) = m_elements.get_value_as_int();
 
         (m_eweight.get_value() < Astrocalc::astrocalc::tSMALL) ? 
-        std::get<11>(AppGlobals::epdata) = 0: 
-        std::get<11>(AppGlobals::epdata) = m_eweight.get_value();
+        std::get<11>(epdata) = 0: 
+        std::get<11>(epdata) = m_eweight.get_value();
 
         (_("unknown") == m_ecoatings.get_active_text()) ?
-        std::get<12>(AppGlobals::epdata) = "" :
-        std::get<12>(AppGlobals::epdata) = m_ecoatings.get_active_text();
+        std::get<12>(epdata) = "" :
+        std::get<12>(epdata) = m_ecoatings.get_active_text();
 
         (_("unknown") == m_ematerial.get_active_text()) ?
-        std::get<13>(AppGlobals::epdata) = "" :
-        std::get<13>(AppGlobals::epdata) = m_ematerial.get_active_text();
+        std::get<13>(epdata) = "" :
+        std::get<13>(epdata) = m_ematerial.get_active_text();
 
         if (false == updatemode) // it's a new eyepiece
         {
-            m_ecombomodel.add_ep_to_model(AppGlobals::epdata);
-            AppGlobals::new_ep_data.emit();
+            m_ecombomodel.add_ep_to_model(epdata);
+            AppGlobals::new_ep_data.emit(epdata);
         }
         else // it's an existing  eyepiece update
         {
-            m_ecombomodel.update_ep_model(AppGlobals::epdata, old_model_name);
-            AppGlobals::update_ep_data.emit(old_model_name);
+            m_ecombomodel.update_ep_model(epdata, old_model_name);
+            AppGlobals::update_ep_data.emit(epdata, old_model_name);
         }
 
         fileIO::dbfileIO db;
@@ -163,9 +168,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
         m_emodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
         m_ecombomodel.remove_ep_from_model(epmodelname);
         m_emodel->set_model(model);
-      
-        std::get<1>(AppGlobals::epdata) = epmodelname;
-        AppGlobals::del_ep_data.emit();
+
+        AppGlobals::del_ep_data.emit(epmodelname);
 
         fileIO::dbfileIO db;
         db.write_ep_user_data(*m_emodel, m_ecombomodel);
@@ -183,8 +187,7 @@ void EpBox::EditEyepieces::swap_rows()
     static_cast<Glib::ustring>(m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel));
 
     m_ecombomodel.swap_ep_rows(epmodelname);
-    std::get<1>(AppGlobals::epdata) = epmodelname;
-    AppGlobals::move_ep_row_up.emit();
+    AppGlobals::move_ep_row_up.emit(epmodelname);
 
     fileIO::dbfileIO db;
     db.write_ep_user_data(*m_emodel, m_ecombomodel);

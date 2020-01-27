@@ -37,24 +37,11 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     sizegroup->add_widget(*m_smodel);
     sizegroup->add_widget(m_smodelentry);
 
-    sizegroup2 = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
-    sizegroup2->add_widget(m_smirrorcoating);
-    sizegroup2->add_widget(m_smirrormaterial);
-    sizegroup2->add_widget(m_slenscoating);
-    sizegroup2->add_widget(m_slensmaterial);
-    sizegroup2->add_widget(m_sstrehl);
-    sizegroup2->add_widget(m_sweight);
-    sizegroup2->add_widget(m_button_cancel);
-    sizegroup2->add_widget(m_button_del);
-    sizegroup2->add_widget(m_button_new);
-    sizegroup2->add_widget(m_button_edit);
-    sizegroup2->add_widget(m_button_moveup);
-
     m_sep.set_margin_top(Uidefs::BORDER_WIDTH_SMALL);
     m_sep.set_margin_bottom(Uidefs::BORDER_WIDTH_SMALL);
-
     m_grid.set_column_spacing(Uidefs::COLUMN_PADDING * 3);
-
+    m_grid.set_column_homogeneous(true);
+    
     m_grid.attach(m_smodelentry, 0, 1, 2, 1);
     m_grid.attach(m_smirrorcoatinglabel, 2, 3);
     m_grid.attach(m_smirrorcoating, 3, 3);

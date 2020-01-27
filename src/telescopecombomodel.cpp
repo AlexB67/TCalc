@@ -111,7 +111,7 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
 
 void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                                         Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                        double, double>& scopedata, bool append) const // Used by equipment editor
+                                        double, double>& scopedata) const // Used by equipment editor
 {
     Gtk::TreeModel::iterator iter;
     bool found = false;

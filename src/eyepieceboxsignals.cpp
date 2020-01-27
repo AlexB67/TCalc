@@ -8,21 +8,27 @@ using AppGlobals::log_msg;
 
 void EpBox::Eyepiecebox::create_epmodel_connection()
 {
-    AppGlobals::update_ep_data.connect([this](const Glib::ustring& oldname){
-       m_ecombomodel.update_ep_model(AppGlobals::epdata, oldname);
+    AppGlobals::update_ep_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
+                                double, double, Glib::ustring, int, int, double, Glib::ustring, 
+                                Glib::ustring>& epdata, const Glib::ustring& oldname)
+    {
+       m_ecombomodel.update_ep_model(epdata, oldname);
        ep_changed();
     });
 
-    AppGlobals::new_ep_data.connect([this](){
-       m_ecombomodel.add_ep_to_model(AppGlobals::epdata);
+    AppGlobals::new_ep_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
+                                double, double, Glib::ustring, int, int, double, Glib::ustring, 
+                                Glib::ustring>& epdata)
+    {
+       m_ecombomodel.add_ep_to_model(epdata);
     });
 
-    AppGlobals::del_ep_data.connect([this](){
-        m_ecombomodel.remove_ep_from_model(std::get<1>(AppGlobals::epdata));
+    AppGlobals::del_ep_data.connect([this](const Glib::ustring& model_name){
+        m_ecombomodel.remove_ep_from_model(model_name);
     });
 
-     AppGlobals::move_ep_row_up.connect([this](){
-        m_ecombomodel.swap_ep_rows(std::get<1>(AppGlobals::epdata));
+     AppGlobals::move_ep_row_up.connect([this](const Glib::ustring& model_name){
+        m_ecombomodel.swap_ep_rows(model_name);
     });
 }
 

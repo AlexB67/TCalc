@@ -9,21 +9,27 @@ using AppGlobals::log_msg;
 
 void ScopeBox::Telescopebox::create_scopemodel_connection()
 {
-    AppGlobals::update_scope_data.connect([this](const Glib::ustring& oldname){
-       m_scombomodel.update_scope_model(AppGlobals::scopedata, oldname);
+    AppGlobals::update_scope_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
+                                                Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
+                                                double, double>& scopedata, const Glib::ustring& oldname)
+    {
+       m_scombomodel.update_scope_model(scopedata, oldname);
        scope_changed();
     });
 
-    AppGlobals::new_scope_data.connect([this](){
-       m_scombomodel.add_scope_to_model(AppGlobals::scopedata, false);
+    AppGlobals::new_scope_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
+                                              Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
+                                              double, double>& scopedata)
+    {
+       m_scombomodel.add_scope_to_model(scopedata);
     });
 
-    AppGlobals::del_scope_data.connect([this](){
-      m_scombomodel.remove_scope_from_model(std::get<1>(AppGlobals::scopedata));
+    AppGlobals::del_scope_data.connect([this](const Glib::ustring& scopemodelname){
+      m_scombomodel.remove_scope_from_model(scopemodelname);
     });
 
-     AppGlobals::move_scope_row_up.connect([this](){
-      m_scombomodel.swap_scope_rows(std::get<1>(AppGlobals::scopedata));
+     AppGlobals::move_scope_row_up.connect([this](const Glib::ustring& scopemodelname){
+      m_scombomodel.swap_scope_rows(scopemodelname);
     });
 }
 

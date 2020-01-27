@@ -21,7 +21,7 @@
 
 <p>
 The equipment editor window can be used to add or remove user equipment. Once equipment has been added, new telescope (or eyepiece models)
-will be shown at the top of the model selection list, and shown above a separator in the combobox pull down list for convenient access. User added models can be used in the same way as already included models to perform calculations.
+will be shown at the top of the model selection list in the user category (for convenient access). User added models can be used in the same way as already included models to perform calculations.
  Note that the models already provided by the application cannot be edited.</p> 
 
 <p>Use the buttons on the top of the headerbar to select a relevant mode, "edit eyepieces" or "edit telescopes". For further details 

@@ -33,21 +33,11 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     sizegroup->add_widget(*m_emodel);
     sizegroup->add_widget(m_emodelentry);
 
-    sizegroup2 = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
-    sizegroup2->add_widget(m_eweight);
-    sizegroup2->add_widget(m_elements);
-    sizegroup2->add_widget(m_egroups);
-    sizegroup2->add_widget(m_ebarrelsize);
-    sizegroup2->add_widget(m_button_cancel);
-    sizegroup2->add_widget(m_button_del);
-    sizegroup2->add_widget(m_button_new);
-    sizegroup2->add_widget(m_button_edit);
-    sizegroup2->add_widget(m_button_moveup);
-
     m_sep.set_margin_top(Uidefs::BORDER_WIDTH_SMALL);
     m_sep.set_margin_bottom(Uidefs::BORDER_WIDTH_SMALL);
-
-    m_grid.set_column_spacing(Uidefs::COLUMN_PADDING * 2);
+    m_grid.set_column_spacing(Uidefs::COLUMN_PADDING * 3);
+    m_grid.set_column_homogeneous(true);
+    
     m_grid.attach(m_emodelentry, 0, 1, 2, 1);
     m_grid.attach(m_ebarrelsizelabel, 2, 2);
     m_grid.attach(m_egroupslabel, 2, 3);
@@ -101,23 +91,6 @@ void EpBox::EditEyepieces::enable_widgets(const bool enable)
     m_ematerial.set_sensitive(enable);
 }
 
-void EpBox::EditEyepieces::set_default_values()
-{
-    m_eflen.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
-    m_efov.set_spin_entry(0.0, 0.0, 120.0, 0.1, 2, true);
-    m_efstop.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
-    m_erelief.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
-    m_etrans.set_spin_entry(0.0, 0.0, 100.0, 0.5, 2, true);
-    m_ebarrelsize.set_spin_entry(0.0, 0.0, 6.0, 0.01, 2, true);
-    m_egroups.set_spin_entry(0.0, 0.0, 10.0, 1.0, 0, true);
-    m_elements.set_spin_entry(0.0, 0.0, 30.0, 1.0, 0, true);
-    m_eweight.set_spin_entry(0.0, 0.0, 10000.0, 1.0, 2, true);
-
-    m_etype.set_active(2);
-    m_ecoatings.set_active(4);
-    m_ematerial.set_active(3);
-}
-
 void EpBox::EditEyepieces::init()
 {
     // call this after widgets are shown
@@ -164,6 +137,23 @@ void EpBox::EditEyepieces::init()
 
     if (size > 1) // there must be at least two items for row swap to be active
         m_button_moveup.set_sensitive(false);
+}
+
+void EpBox::EditEyepieces::set_default_values()
+{
+    m_eflen.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
+    m_efov.set_spin_entry(0.0, 0.0, 120.0, 0.1, 2, true);
+    m_efstop.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
+    m_erelief.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
+    m_etrans.set_spin_entry(0.0, 0.0, 100.0, 0.5, 2, true);
+    m_ebarrelsize.set_spin_entry(0.0, 0.0, 6.0, 0.01, 2, true);
+    m_egroups.set_spin_entry(0.0, 0.0, 10.0, 1.0, 0, true);
+    m_elements.set_spin_entry(0.0, 0.0, 30.0, 1.0, 0, true);
+    m_eweight.set_spin_entry(0.0, 0.0, 10000.0, 1.0, 2, true);
+
+    m_etype.set_active(2);
+    m_ecoatings.set_active(4);
+    m_ematerial.set_active(3);
 }
 
 bool EpBox::EditEyepieces::validate_ep_data() const

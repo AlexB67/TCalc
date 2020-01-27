@@ -335,11 +335,14 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
     stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrormaterial];
     set_row(stmp, "", 7, resultsset);
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_slenscoating];
-    set_row(stmp, "", 8, resultsset);
+    if(scopebox->m_stype.get_active_row_number() != Astrocalc::astrocalc::REFLECTOR) 
+    {
+        stmp = row[scopebox->m_scombomodel.m_scopecols.m_slenscoating];
+        set_row(stmp, "", 8, resultsset);
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_slensmaterial];
-    set_row(stmp, "", 9, resultsset);
+         stmp = row[scopebox->m_scombomodel.m_scopecols.m_slensmaterial];
+        set_row(stmp, "", 9, resultsset);
+    }
 
     stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_sstrehl], 2);
     (row[scopebox->m_scombomodel.m_scopecols.m_sstrehl] < Astrocalc::astrocalc::tSMALL) ?
