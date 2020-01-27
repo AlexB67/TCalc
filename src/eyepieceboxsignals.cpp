@@ -25,6 +25,18 @@ void EpBox::Eyepiecebox::create_epmodel_connection()
 
     AppGlobals::del_ep_data.connect([this](const Glib::ustring& model_name){
         m_ecombomodel.remove_ep_from_model(model_name);
+        
+        // set the first eyepiece we find after deletion;
+        if (m_ecombomodel.get_epmodel()->children().size() > 0)
+        {
+
+            Gtk::TreeIter it = m_ecombomodel.get_epmodel()->children().begin();
+            if(it->children().size() > 0)
+            { 
+                auto it2 = it->children().begin();
+                m_emodel->set_active(it2);
+            }
+        }
     });
 
      AppGlobals::move_ep_row_up.connect([this](const Glib::ustring& model_name){

@@ -265,7 +265,6 @@ void EpCombomodel::setup_ep_combo_model(Gtk::ComboBox &epcombo)
         { 
             auto it2 = it->children().begin();
             m_epcombo->set_active(it2);
-            entry->set_text((*it2)[m_epcols.m_epmodel]);
         }
     }
 }

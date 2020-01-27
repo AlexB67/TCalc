@@ -26,6 +26,18 @@ void ScopeBox::Telescopebox::create_scopemodel_connection()
 
     AppGlobals::del_scope_data.connect([this](const Glib::ustring& scopemodelname){
       m_scombomodel.remove_scope_from_model(scopemodelname);
+
+      // set the first eyepiece we find after deletion;
+        if (m_scombomodel.get_scopemodel()->children().size() > 0)
+        {
+
+            Gtk::TreeIter it = (m_scombomodel.get_scopemodel()->children().begin());
+            if(it->children().size() > 0)
+            { 
+                auto it2 = it->children().begin();
+                m_smodel->set_active(it2);
+            }
+        }
     });
 
      AppGlobals::move_scope_row_up.connect([this](const Glib::ustring& scopemodelname){

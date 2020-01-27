@@ -260,7 +260,6 @@ void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
         { 
             auto it2 = it->children().begin();
             m_scopecombo->set_active(it2);
-            entry->set_text((*it2)[m_scopecols.m_smodel]);
         }
     }
 }

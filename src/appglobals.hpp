@@ -61,10 +61,11 @@ namespace AppGlobals
         frame.set_shadow_type(type);
     }
 
-    // eyepiece  data signals
+    
     inline sigc::signal<void(const bool, const int, const Glib::ustring&)> log_msg;
     inline sigc::signal<void(const Gtk::ShadowType)> frame_style;
 
+    // eyepiece  data signals
     inline sigc::signal<void(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                                 double, double, Glib::ustring, int, int, double, Glib::ustring, 
                                 Glib::ustring>& epdata, const Glib::ustring&)> update_ep_data;
