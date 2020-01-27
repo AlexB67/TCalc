@@ -75,7 +75,6 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         m_button_del.set_sensitive(true);
         m_button_moveup.set_sensitive(false);
         m_smodellabel.set_label(_("Enter a Telescope description"));
-        m_smodel->get_entry()->property_editable().set_value(true);
         m_smodel->hide();
         m_smodelentry.show();
         Gtk::TreeModel::iterator iter = m_smodel->get_active();
