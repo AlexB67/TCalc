@@ -100,6 +100,7 @@ void EpBox::EditEyepieces::init()
 
     m_emodelentry.set_visible(false);
     m_emodel->set_visible(true);
+    m_emodel->get_entry()->set_can_focus(false);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
     m_button_save.set_sensitive(false);

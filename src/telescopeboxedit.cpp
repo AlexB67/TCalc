@@ -32,6 +32,10 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_sstrehl.set_tooltip_text(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
                               "typically 0.80 - 0.98"));
     m_sweight.set_tooltip_text(_("The weight of the telescope in kilograms (including mount)."));
+    m_smount_weight.set_tooltip_text(_("The weight of the mount in kilograms."));
+    m_smount_type.set_tooltip_text(_("The type of mount, for example, Dobsonian, EQ, alt-azimuth, etc."));
+    m_sfocuser_type.set_tooltip_text(_("Focuser model details"));
+    m_sfinder_type.set_tooltip_text(_("The type of finder, for example, red dot finder, finder scope, etc."));
 
     sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
     sizegroup->add_widget(*m_smodel);
@@ -141,6 +145,7 @@ void ScopeBox::EditTelescopes::enable_widgets(const bool enable)
 void ScopeBox::EditTelescopes::init()
 {
     m_smodelentry.set_visible(false);
+    m_smodel->get_entry()->set_can_focus(false);
     m_smodel->set_visible(true);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
