@@ -104,7 +104,8 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         }
 
         std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-        Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double> scopedata;
+        Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double, 
+        Glib::ustring, Glib::ustring, Glib::ustring> scopedata;
 
         std::get<0>(scopedata) = _("User");
         std::get<1>(scopedata) = m_smodelentry.get_text();
@@ -137,7 +138,22 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         (m_sweight.get_value() < Astrocalc::astrocalc::tSMALL) ? 
         std::get<12>(scopedata) = 0 : 
         std::get<12>(scopedata) = m_sweight.get_value();
+        
+        (m_smount_weight.get_value() < Astrocalc::astrocalc::tSMALL) ? 
+        std::get<13>(scopedata) = 0 : 
+        std::get<13>(scopedata) = m_smount_weight.get_value();
 
+        (_("unknown") == m_smount_type.get_active_text()) ?
+        std::get<14>(scopedata) = "" :
+        std::get<14>(scopedata) = m_smount_type.get_active_text();
+
+        (_("unknown") == m_sfocuser_type.get_active_text()) ?
+        std::get<15>(scopedata) = "" :
+        std::get<15>(scopedata) = m_sfocuser_type.get_active_text();
+
+        (_("unknown") == m_sfinder_type.get_active_text()) ?
+        std::get<16>(scopedata) = "" :
+        std::get<16>(scopedata) = m_sfinder_type.get_active_text();
 
         if (false == updatemode) // it's a new telescope
         {

@@ -26,9 +26,10 @@ namespace ScopeCombo
       Gtk::TreeModelColumn<Glib::ustring> m_slensmaterial;
       Gtk::TreeModelColumn<double> m_sstrehl;
       Gtk::TreeModelColumn<double> m_sweight;
-
-
-
+      Gtk::TreeModelColumn<double> m_smount_weight;
+      Gtk::TreeModelColumn<Glib::ustring> m_smount_type;
+      Gtk::TreeModelColumn<Glib::ustring> m_sfocuser_type;
+      Gtk::TreeModelColumn<Glib::ustring> m_sfinder_type;
       
       Scopemodelcols()
       {
@@ -45,6 +46,10 @@ namespace ScopeCombo
         add(m_slensmaterial);
         add(m_sstrehl);
         add(m_sweight);
+        add(m_smount_weight);
+        add(m_smount_type);
+        add(m_sfocuser_type);
+        add(m_sfinder_type);
       }
       
   };
@@ -67,16 +72,16 @@ namespace ScopeCombo
       void create_scope_model();
 
       void append_scope_to_model (const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                  double, double>& scopedata, bool ischild = false);
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, bool ischild = false);
 
       void update_scope_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                              Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                              double, double>& scopedata, const Glib::ustring& oldname) const;
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, const Glib::ustring& oldname) const;
 
       void add_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                              Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                              double, double>& scopedata) const;
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata) const;
       
       void remove_scope_from_model(const Glib::ustring &scopename) const;
       void swap_scope_rows(const Glib::ustring& scopename) const;

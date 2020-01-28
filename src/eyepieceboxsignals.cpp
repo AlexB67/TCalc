@@ -23,11 +23,17 @@ void EpBox::Eyepiecebox::create_epmodel_connection()
        m_ecombomodel.add_ep_to_model(epdata);
     });
 
-    AppGlobals::del_ep_data.connect([this](const Glib::ustring& model_name){
+    AppGlobals::del_ep_data.connect([this](const Glib::ustring& model_name)
+    {
+        bool updatecombo = false;
+
+        if (m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel) == model_name) 
+            updatecombo = true;
+        
         m_ecombomodel.remove_ep_from_model(model_name);
         
-        // set the first eyepiece we find after deletion;
-        if (m_ecombomodel.get_epmodel()->children().size() > 0)
+        // set the first eyepiece we find after deletion if it was the active one;
+        if (m_ecombomodel.get_epmodel()->children().size() > 0 && true == updatecombo)
         {
 
             Gtk::TreeIter it = m_ecombomodel.get_epmodel()->children().begin();

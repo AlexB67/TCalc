@@ -30,6 +30,7 @@ private:
     Gtk::Label m_eweightlabel{_("Weight/grams"), Gtk::ALIGN_START};
     Gtk::Label m_ecoatingslabel{_("Optical coating"), Gtk::ALIGN_START};
     Gtk::Label m_emateriallabel{_("Optical material"), Gtk::ALIGN_START};
+    Gtk::Label dummy1, dummy2, dummy3; // to act as spacers
     Ui::SpinEntry m_ebarrelsize;
     Ui::SpinEntry m_egroups;
     Ui::SpinEntry m_elements; 

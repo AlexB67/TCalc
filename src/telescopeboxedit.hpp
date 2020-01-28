@@ -30,7 +30,11 @@ namespace ScopeBox
             Gtk::Label m_slenscoatinglabel{_("Lens coating"), Gtk::ALIGN_START};
             Gtk::Label m_slensmateriallabel{_("Lens material"), Gtk::ALIGN_START};
             Gtk::Label m_ssthrellabel{_("Strehl ratio"), Gtk::ALIGN_START};
-            Gtk::Label m_sweightlabel{_("Weight/kg"), Gtk::ALIGN_START};
+            Gtk::Label m_sweightlabel{_("Total Weight/kg"), Gtk::ALIGN_START};
+            Gtk::Label m_smount_weight_label{_("Mount weight/kg"), Gtk::ALIGN_START};
+            Gtk::Label m_smount_type_label{_("Mount type"), Gtk::ALIGN_START};
+            Gtk::Label m_sfocuser_type_label{_("Focuser details"), Gtk::ALIGN_START};
+            Gtk::Label m_sfinder_type_label{_("Finder type"), Gtk::ALIGN_START};
             Gtk::Button m_button_new{_("New")};
             Gtk::Button m_button_edit{_("Edit")};
             Gtk::Button m_button_del{_("Delete")};
@@ -41,8 +45,12 @@ namespace ScopeBox
             Gtk::ComboBoxText m_smirrormaterial{true};
             Gtk::ComboBoxText m_slenscoating{true};
             Gtk::ComboBoxText m_slensmaterial{true};
+            Gtk::ComboBoxText m_smount_type{true};
+            Gtk::ComboBoxText m_sfocuser_type{true};
+            Gtk::ComboBoxText m_sfinder_type{true};
             Ui::SpinEntry   m_sstrehl;
             Ui::SpinEntry   m_sweight;
+            Ui::SpinEntry   m_smount_weight;
             Gtk::Separator m_sep;
             Glib::RefPtr<Gtk::SizeGroup> sizegroup;
             bool updatemode = false;

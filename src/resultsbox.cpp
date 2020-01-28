@@ -203,8 +203,9 @@ void Resultsbox::init_property_names()
         _("<i>Model</i> :"), _("<i>Aperture</i> :"), _("<i>Focal length</i> :"),
         _("<i>Reflectivity</i> :"), _("<i>Obstruction size</i> :"), 
         _("<i>Type</i> :"), _("<i>Mirror coating</i> :"), _("<i>Mirror material</i> :"),
-        _("<i>Lens coating</i> :"), _("<i>Lens material</i> :"),
-        _("<i>Strehl Ratio</i> :"), _("<i>Weight</i> :")
+        _("<i>Lens coating</i> :"), _("<i>Lens material</i> :"), _("<i>Strehl Ratio</i> :"), 
+        _("<i>Total weight</i> :"), _("<i>Mount weight</i> :"), _("<i>Mount type</i> :"), 
+        _("<i>Focuser details</i> :"), _("<i>Finder details</i> :") 
     };
 
     for (auto& iter: m_proplistnames)
@@ -349,9 +350,22 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
     m_scopeModel->children()[10].set_value<Glib::ustring>(resultsset, _("unknown")) :
     m_scopeModel->children()[10].set_value<Glib::ustring>(resultsset, stmp + "");
 
-   stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_sweight], 2);
+    stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_sweight], 2);
     (row[scopebox->m_scombomodel.m_scopecols.m_sweight] < Astrocalc::astrocalc::tSMALL) ?
     m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, _("unknown")) :
     m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
+    stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_smount_weight], 2);
+    (row[scopebox->m_scombomodel.m_scopecols.m_sweight] < Astrocalc::astrocalc::tSMALL) ?
+    m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, _("unknown")) :
+    m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
+
+    stmp = row[scopebox->m_scombomodel.m_scopecols.m_smount_type];
+    set_row(stmp, "", 13, resultsset);
+
+    stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfocuser_type];
+    set_row(stmp, "", 14, resultsset);
+
+    stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfinder_type];
+    set_row(stmp, "", 15, resultsset);
 }

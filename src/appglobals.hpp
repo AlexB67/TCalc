@@ -80,11 +80,12 @@ namespace AppGlobals
     // telescope data signals
     inline sigc::signal<void(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
                                 Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                double, double>& scopedata, const Glib::ustring&)> update_scope_data;
+                                double, double, double, Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, 
+                                const Glib::ustring&)> update_scope_data;
 
     inline sigc::signal<void(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                double, double>& scopedata)> new_scope_data;
+                                Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double, 
+                                Glib::ustring, Glib::ustring, Glib::ustring>& scopedata)> new_scope_data;
 
     inline sigc::signal<void(const Glib::ustring&)> del_scope_data;
     inline sigc::signal<void(const Glib::ustring&)> move_scope_row_up;

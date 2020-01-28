@@ -25,9 +25,10 @@ EquipWindow::EquipWindow(const Glib::RefPtr<Gtk::Application> &app)
   scopeedit = std::make_unique<ScopeBox::EditTelescopes>(app);
 
   scopegrid.attach(scopeedit->create_telescope_grid(), 0, 0); // create extra grid containers 
-  epgrid.attach(epedit->create_eyepiece_grid(), 0, 0);        // to keep GtkStack happy with child property_ids                                              
+  epgrid.attach(epedit->create_eyepiece_grid(), 0, 0);        // to keep GtkStack happy with child property_ids
+  stack.add(scopegrid, "Edittelescopes", _("Edit telescopes"));                
   stack.add(epgrid, "Editeyepieces", _("Edit eyepieces"));
-  stack.add(scopegrid, "Edittelescopes", _("Edit telescopes"));
+ 
 
   switcher.set_hexpand(false);
   stack.set_vexpand(true);

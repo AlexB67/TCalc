@@ -165,6 +165,80 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_t
                               "typically 0.80 - 0.98"));
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[11])
         tooltip->set_markup(_("The weight of the telescope in kilograms (including mount)."));
+    else if (row[m_scopeCols.m_results_property] == m_scopelistnames[12])
+        tooltip->set_markup(_("The weight of the mount in kilograms."));
+    else if (row[m_scopeCols.m_results_property] == m_scopelistnames[13])
+    {
+        Glib::ustring tip = _("The type of mount. Dobsonian, EQ, alt-azimuth, etc");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
+    else if (row[m_scopeCols.m_results_property] == m_scopelistnames[14])
+    {
+        Glib::ustring tip = _("Details of the focuser model");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
+    else if (row[m_scopeCols.m_results_property] == m_scopelistnames[15])
+    {
+        Glib::ustring tip = _("Details of the finder");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
     else
         tooltip->set_markup(_("No tooltip available."));
     

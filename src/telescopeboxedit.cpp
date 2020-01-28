@@ -39,6 +39,7 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
 
     m_sep.set_margin_top(Uidefs::BORDER_WIDTH_SMALL);
     m_sep.set_margin_bottom(Uidefs::BORDER_WIDTH_SMALL);
+    m_sep.set_vexpand(false);
     m_grid.set_column_spacing(Uidefs::COLUMN_PADDING * 3);
     m_grid.set_column_homogeneous(true);
     
@@ -55,13 +56,21 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_grid.attach(m_sstrehl, 3, 7);
     m_grid.attach(m_sweightlabel, 2, 8);
     m_grid.attach(m_sweight, 3, 8);
-    m_grid.attach(m_sep, 0, 9, 4, 1);
-    m_grid.attach(m_button_new, 0, 10, 1, 1);
-    m_grid.attach(m_button_edit, 1, 10, 1, 1);
-    m_grid.attach(m_button_del, 0, 11, 1, 1);
-    m_grid.attach(m_button_cancel, 1, 11, 1, 1);
-    m_grid.attach(m_button_moveup, 1, 12, 1, 1);
-    m_grid.attach(m_button_save, 0, 12, 1, 1);
+    m_grid.attach(m_sfocuser_type_label, 0, 9);
+    m_grid.attach(m_sfocuser_type, 1, 9);
+    m_grid.attach(m_sfinder_type_label, 0, 10);
+    m_grid.attach(m_sfinder_type, 1, 10);
+    m_grid.attach(m_smount_weight_label, 2, 9);
+    m_grid.attach(m_smount_weight, 3, 9);
+    m_grid.attach(m_smount_type_label, 2, 10);
+    m_grid.attach(m_smount_type, 3, 10);
+    m_grid.attach(m_sep, 0, 11, 4, 1);
+    m_grid.attach(m_button_new, 0, 12, 1, 1);
+    m_grid.attach(m_button_edit, 1, 12, 1, 1);
+    m_grid.attach(m_button_del, 0, 13, 1, 1);
+    m_grid.attach(m_button_cancel, 1, 13, 1, 1);
+    m_grid.attach(m_button_moveup, 1, 14, 1, 1);
+    m_grid.attach(m_button_save, 0, 14, 1, 1);
 
     m_smirrorcoating.insert(0, _("Hilux"));
     m_smirrorcoating.insert(1, _("Silicon monoxide"));
@@ -85,6 +94,26 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_slenscoating.insert(4, _("other"));
     m_slenscoating.insert(5, _("unknown"));
 
+    m_sfinder_type.insert(0, _("Red dot"));
+    m_sfinder_type.insert(1, _("Finder scope"));
+    m_sfinder_type.insert(2, _("Rigel"));
+    m_sfinder_type.insert(3, _("Telrad"));
+    m_sfinder_type.insert(4, _("unknown"));
+
+    m_sfocuser_type.insert(0, _("Crayford 1.25\"/2\" single speed."));
+    m_sfocuser_type.insert(1, _("Rack and pinion"));
+    m_sfocuser_type.insert(2, _("Dual speed 1.25/2\""));
+    m_sfocuser_type.insert(3, _("unknown"));
+
+    m_smount_type.insert(0, _("Dobsonian"));
+    m_smount_type.insert(1, _("EQ1"));
+    m_smount_type.insert(2, _("EQ2"));
+    m_smount_type.insert(3, _("EQ5"));
+    m_smount_type.insert(4, _("Tripod"));
+    m_smount_type.insert(5, _("Alt-azimuth"));
+    m_smount_type.insert(6, _("unknown"));
+
+
     enable_widgets(false);
     set_signal_handlers();
 }
@@ -103,6 +132,10 @@ void ScopeBox::EditTelescopes::enable_widgets(const bool enable)
     m_slenscoating.set_sensitive(enable);
     m_sstrehl.set_sensitive(enable);
     m_sweight.set_sensitive(enable);
+    m_smount_weight.set_sensitive(enable);
+    m_sfocuser_type.set_sensitive(enable);
+    m_smount_type.set_sensitive(enable);
+    m_sfinder_type.set_sensitive(enable);
 }
 
 void ScopeBox::EditTelescopes::init()
@@ -156,11 +189,15 @@ void ScopeBox::EditTelescopes::set_default_values()
     m_sreflect.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
     m_sobstruct.set_spin_entry(0, 0.0, 50.0, 0.1, 2, true);
     m_sweight.set_spin_entry(0.0, 0.0, 1000.0, 0.1, 2, true);
+    m_smount_weight.set_spin_entry(0.0, 0.0, 1000.0, 0.1, 2, true);
     m_sstrehl.set_spin_entry(0.0, 0.0, 1.0, 0.01, 2, true);
     m_smirrormaterial.set_active(2);
     m_smirrorcoating.set_active(4);
     m_slensmaterial.set_active(3);
     m_slenscoating.set_active(5);
+    m_smount_type.set_active(6);
+    m_sfinder_type.set_active(4);
+    m_sfocuser_type.set_active(3);
 }
 
 bool ScopeBox::EditTelescopes::validate_scope_data() const

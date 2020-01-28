@@ -135,7 +135,7 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
 
     std::tuple<	Glib::ustring, Glib::ustring, double, double, double, double, int, 
             	Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-            	double, double> scopedata;
+            	double, double, double, Glib::ustring, Glib::ustring, Glib::ustring > scopedata;
 
     std::string line, tmp;
 	
@@ -157,7 +157,6 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
 				std::get<0>(scopedata) = static_cast<Glib::ustring>(tmp);
 				scopecombomodel.append_scope_to_model(scopedata); // parent
 			}
-			
 			std::get<0>(scopedata) = static_cast<Glib::ustring>(tmp);
 			getline(tokens, tmp, '|');
 			std::get<1>(scopedata) = static_cast<Glib::ustring>(tmp);
@@ -180,9 +179,17 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
 	        getline(tokens, tmp, '|');
 			std::get<10>(scopedata) = static_cast<Glib::ustring>(tmp);
 			getline(tokens, tmp, '|');
-			std::get<11>(scopedata) = std::stod(tmp);
+			std::get<11>(scopedata) = std::stod(tmp); // strehl
 	        getline(tokens, tmp, '|');
-			std::get<12>(scopedata) = std::stod(tmp);
+			std::get<12>(scopedata) = std::stod(tmp); // weight
+			getline(tokens, tmp, '|');
+			std::get<13>(scopedata) = std::stod(tmp); // mount weight
+			getline(tokens, tmp, '|');
+			std::get<14>(scopedata) = static_cast<Glib::ustring>(tmp); // mount type
+			getline(tokens, tmp, '|');
+			std::get<15>(scopedata) = static_cast<Glib::ustring>(tmp); // focuser type
+			getline(tokens, tmp, '|');
+			std::get<16>(scopedata) = static_cast<Glib::ustring>(tmp); // finder type
 	        scopecombomodel.append_scope_to_model(scopedata, true);  // child
 	    } 	       
 	}
@@ -311,7 +318,11 @@ void fileIO::dbfileIO::write_scope_user_data(const Gtk::ComboBox& scopecombobox,
     				<< iter2->get_value(scopecombomodel.m_scopecols.m_slenscoating)  << sep
     				<< iter2->get_value(scopecombomodel.m_scopecols.m_slensmaterial) << sep
     				<< iter2->get_value(scopecombomodel.m_scopecols.m_sstrehl) << sep
-    				<< iter2->get_value(scopecombomodel.m_scopecols.m_sweight) << sep << '\n';
+    				<< iter2->get_value(scopecombomodel.m_scopecols.m_sweight) << sep 
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_smount_weight) << sep
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_smount_type) << sep
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_sfocuser_type) << sep
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_sfinder_type) << sep << '\n';
         }
 
         outfile.close();

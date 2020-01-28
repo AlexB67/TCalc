@@ -33,13 +33,14 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
     const Gtk::TreeRow prow = *previousiter;
     const Gtk::TreeRow row = *iter;
 
-    const std::tuple<double, double, double, double, int, Glib::ustring, Glib::ustring, Glib::ustring, 
-                    Glib::ustring, double, double> scopedata = 
+    std::tuple<double, double, double, double, int, Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+            Glib::ustring, Glib::ustring, Glib::ustring> scopedata =  
     {
         prow[m_scopecols.m_saperture], prow[m_scopecols.m_sflen],  prow[m_scopecols.m_sobstruct], 
         prow[m_scopecols.m_sreflect],  prow[m_scopecols.m_stype],  prow[m_scopecols.m_smirrorcoating],
         prow[m_scopecols.m_smirrormaterial], prow[m_scopecols.m_slenscoating], prow[m_scopecols.m_slensmaterial],
-        prow[m_scopecols.m_sstrehl], prow[m_scopecols.m_sweight] 
+        prow[m_scopecols.m_sstrehl], prow[m_scopecols.m_sweight], prow[m_scopecols.m_smount_weight] , prow[m_scopecols.m_smount_type],
+        prow[m_scopecols.m_sfocuser_type], prow[m_scopecols.m_sfinder_type]
     }; // note, we omit the model name and brand
 
     if (iter && previousiter) // swap values of the two rows
@@ -56,6 +57,10 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         prow[m_scopecols.m_slensmaterial] = static_cast<Glib::ustring>(row[m_scopecols.m_slensmaterial]);
         prow[m_scopecols.m_sstrehl] = static_cast<double>(row[m_scopecols.m_sstrehl]);
         prow[m_scopecols.m_sweight] = static_cast<double>(row[m_scopecols.m_sweight]);
+        prow[m_scopecols.m_smount_weight] = static_cast<double>(row[m_scopecols.m_sweight]);
+        prow[m_scopecols.m_smount_type] = static_cast<Glib::ustring>(row[m_scopecols.m_smount_type]);
+        prow[m_scopecols.m_sfocuser_type] = static_cast<Glib::ustring>(row[m_scopecols.m_sfocuser_type]);
+        prow[m_scopecols.m_sfinder_type] = static_cast<Glib::ustring>(row[m_scopecols.m_sfinder_type]);
 
         row[m_scopecols.m_smodel] = scopename;
         row[m_scopecols.m_saperture] = std::get<0>(scopedata);
@@ -69,13 +74,17 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         row[m_scopecols.m_slensmaterial] = std::get<8>(scopedata);
         row[m_scopecols.m_sstrehl] = std::get<9>(scopedata);
         row[m_scopecols.m_sweight] = std::get<10>(scopedata);
-    }
+        row[m_scopecols.m_smount_weight] = std::get<11>(scopedata);
+        row[m_scopecols.m_smount_type] = std::get<12>(scopedata);
+        row[m_scopecols.m_sfocuser_type] = std::get<13>(scopedata);
+        row[m_scopecols.m_sfinder_type] = std::get<14>(scopedata); 
+    }   
 }
 
 
 void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                            Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                            double, double>& scopedata, bool ischild)
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, bool ischild)
 {
     if (true == ischild)
     {
@@ -93,6 +102,10 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
         childrow[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
         childrow[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
         childrow[m_scopecols.m_sweight] = std::get<12>(scopedata);
+        childrow[m_scopecols.m_smount_weight] = std::get<13>(scopedata);
+        childrow[m_scopecols.m_smount_type] = std::get<14>(scopedata);
+        childrow[m_scopecols.m_sfocuser_type] = std::get<15>(scopedata);
+        childrow[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
 
         // used by search completion
         const auto listrow = *(m_scopelistmodel->append());
@@ -110,8 +123,8 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
 
 
 void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                        Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                        double, double>& scopedata) const // Used by equipment editor
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata) const // Used by equipment editor
 {
     Gtk::TreeModel::iterator iter;
     bool found = false;
@@ -152,6 +165,10 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
         row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
         row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
         row[m_scopecols.m_sweight] = std::get<12>(scopedata);
+        row[m_scopecols.m_smount_weight] = std::get<13>(scopedata);
+        row[m_scopecols.m_smount_type] = std::get<14>(scopedata);
+        row[m_scopecols.m_sfocuser_type] = std::get<15>(scopedata);
+        row[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
     }
 
      // Update completion list
@@ -194,8 +211,8 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &scopename) co
 }
 
 void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                        Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                        double, double>& scopedata, const Glib::ustring& oldname) const
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, const Glib::ustring& oldname) const
 {
     Gtk::TreeModel::iterator iter;
     Gtk::TreeModel::iterator iter2;
@@ -224,6 +241,10 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
             row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
             row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
             row[m_scopecols.m_sweight] = std::get<12>(scopedata);
+            row[m_scopecols.m_smount_weight] = std::get<13>(scopedata);
+            row[m_scopecols.m_smount_type] = std::get<14>(scopedata);
+            row[m_scopecols.m_sfocuser_type] = std::get<15>(scopedata);
+            row[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
         }
     }
 

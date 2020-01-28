@@ -10,25 +10,32 @@ using AppGlobals::log_msg;
 void ScopeBox::Telescopebox::create_scopemodel_connection()
 {
     AppGlobals::update_scope_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                                Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                                double, double>& scopedata, const Glib::ustring& oldname)
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, const Glib::ustring& oldname)
     {
        m_scombomodel.update_scope_model(scopedata, oldname);
        scope_changed();
     });
 
     AppGlobals::new_scope_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                              Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, 
-                                              double, double>& scopedata)
+                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata)
     {
        m_scombomodel.add_scope_to_model(scopedata);
     });
 
-    AppGlobals::del_scope_data.connect([this](const Glib::ustring& scopemodelname){
+    AppGlobals::del_scope_data.connect([this](const Glib::ustring& scopemodelname)
+    {
+
+       bool updatecombo = false;
+
+        if (m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel) == scopemodelname) 
+            updatecombo = true;
+
       m_scombomodel.remove_scope_from_model(scopemodelname);
 
-      // set the first eyepiece we find after deletion;
-        if (m_scombomodel.get_scopemodel()->children().size() > 0)
+        // set the first telescope we find after deletion.
+        if (m_scombomodel.get_scopemodel()->children().size() > 0 && true == updatecombo)
         {
 
             Gtk::TreeIter it = (m_scombomodel.get_scopemodel()->children().begin());

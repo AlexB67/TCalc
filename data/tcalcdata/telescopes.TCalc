@@ -1,53 +1,54 @@
 # Format: brand, model name, aperture, focal length, obstruction size, transmission, type
-# mirror coating, mirrormaterial, lens cooating, lens material, strehl, weight, focuser details, 
+# mirror coating, mirrormaterial, lens cooating, lens material, strehl, weight, mount weight
+# mount type, focuser details, finder details
 # delimiter is the |  character. 0 = reflector, 1 = refractor, 2 = SCT/Maksutov.
-Astrolux|Astrolux 76 3" Newt|76|700|0|0|0|Skywatcher DELUXE||||0|0|1.25 rack & pinion|
-Bresser|Bresser Dob N 130/650|130|650|0|0|0|||||0|0|1.25| 
-Bresser|Bresser MC 152/1900|152|1900|29.61|0|2|||||0|0|2.5|
-Bresser|Bresser Messier 5" Dob|130|650|0|0|0||optical glass|||0.8|0|1.25" rack & pinion|
-Bresser|Bresser Messier 8" Dob|203|1213|0|0|0||H-PZ33 glass|||0.8|0|Single Speed Hex 2"/1.25"|
-Celestron|Celestron NexStar 6SE|150.0|1500|37.0|89|2|Starbright XLT||||0|9.53|2.0|
-Celestron|Celestron NexStar 8SE|203.2|2032|31.0|89|2|Starbright XLT||||0|11|2.0|
-Guan Sheng Optics|Revelation GSD200C 8" Dob|200|1200|25|92|0|||||0|0|Crayford 2"/1.25"|
-Guan Sheng Optics|Revelation GS880 10" Dob|250|1250|25|92|0|||||0|0|2|
-Guan Sheng Optics|Revelation GSD300C 12" Dob|300|1500|23.3|92|0|||||0|0|2|
-Meade|Meade 12" Lightbridge Dob|318|1524|0|0|0|||||0|0|0|2|
-Meade|Meade 16" Lightbridge Dob|406.4|1829|0|0|0|||||0|0|0|2|
-Meade|Meade Maksutov MC 127/1900 UHTC LX65|127|1900|0|0|2|UHTC|Borosilicate glass|||0|0|2|
-Orion (US)|Orion SkyQuest XT6 Classic Dob|150|1200|0|90|0||borosilicate glass|||0|16.0|1.25|
-Orion (US)|Orion SkyQuest XT8 Classic Dob|203|1200|23|90|0||borosilicate glass|||0|18.6|2.0|
-Orion (US)|Orion SkyQuest XT10 Classic Dob|254|1200|0|90|0||borosilicate glass|||0|0|2.0|
-Orion (UK)|Orion UK VX6 6" Dob|152|750|32.89|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX6L 6" Dob|150|1200|24.66|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX8 8" Dob|200|900|31.5|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX8L 8" Dob|200|1200|25.0|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX10 10" Dob|250|1200|25.2|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX10L 10" Dob|250|1600|20.0|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX12 12" Dob|300|1200|25.0|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX12L 12" Dob|300|1600|21.0|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX14 14" Dob|350|1600|21.42|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX16 16" Dob|400|1600|20.5|97|0|||||0|0|2.0|
-Orion (UK)|Orion UK VX20 20" Dob|500|2000|20.0|97|0|||||0|0|2.0|
-Skywatcher|Skyhawk 114P Parabolic Newt|114|500|0|0|0|||||0|0|1.25|
-Skywatcher|Skyliner 150P 6" Parabolic Dob|153|1200|22.54|90|0|||||0|0|2.0|
-Skywatcher|Skyliner 200P 8" Parabolic Dob|203|1200|23.15|90|0|||||0|0|2.0|
-Skywatcher|Skyliner 250PX 10" Parabolic Dob|254|1200|22.83|90|0|||||0|0|2.0|
-Skywatcher|Skyliner 300PX 12" Parabolic Dob|305|1500|17.05|90|0|||||0|0|2.0|
-Skywatcher|Skyliner 350P 14" Flextube Dob|355|1600|0|90|0|||||0|0|2.0|
-Skywatcher|Skyliner 400P 16" Flextube Dob|406|1800|0|90|0|||||0|0|2.0|
-Skywatcher|Skywatcher Evostar 120|120|1000|0|0|1|||||0|0|2.0|
-Skywatcher|Skywatcher Evostar 150|150|1200|0|0|1|||||0|0|2.0|  
-Skywatcher|SkyWatcher Explorer 130P Supra AUTO|130|650|27|90|0|||||0|0|0|
-Skywatcher|SkyWatcher Explorer 130P Newt|130|650|0|90|0|||||0|0|0|
-Skywatcher|SkyWatcher Explorer 150P Newt|150|750|0|90|0|||||0|0|0|
-Skywatcher|SkyWatcher Explorer 150PL Newt|150|1200|0|90|0|||||0|0|0|
-Skywatcher|SkyWatcher Explorer 200P Newt|200|1000|0|90|0|||||0|0|0|
-Skywatcher|SkyWatcher Explorer 200PDS Newt|200|1000|28.57|90|0|||||0|0|0|
-Skywatcher|SkyWatcher Explorer 250P Newt|254|1200|0|90|0|||||0|0|0|
-Skywatcher|Skywatcher Heritage 76 3" Mini Dob|76|300|0|90|0|||||0|0|0|
-Skywatcher|Skywatcher Heritage 130P Flex Dob|130|650|26.54|90|0|||||0|0|1.25|
-Skywatcher|SkyWatcher Startravel 80|80|400|0|0|1|||||0|0|1.25|
-Skywatcher|SkyWatcher Startravel 120T|120|600|0|0|1|||||0|0|2.0|
-Skywatcher|SkyWatcher Startravel 150|150|750|0|0|1|||||0|0|2.0|
-Skywatcher|Skywatcher AC 102/500 Starquest EQ|102|500|0|0|1|||||0|0|0|
-Vixen|Vixen ED 81S APO|81|625|0|0|1|||||0|0|2.0|
+Astrolux|Astrolux 76 3" Newt|76|700|0|0|0|Skywatcher DELUXE||||0|0|0|EQ1|1.25 rack & pinion||
+Bresser|Bresser Dob N 130/650|130|650|0|0|0|||||0|0|0|Dobsonian|1.25 rack & pinion||
+Bresser|Bresser MC 152/1900|152|1900|29.61|0|2|||||0|0|0||||
+Bresser|Bresser Messier 5" Dob|130|650|0|0|0||optical glass|||0.8|0|0|Dobsonian|1.25 rack & pinion||
+Bresser|Bresser Messier 8" Dob|203|1213|0|0|0||H-PZ33 glass|||0.8|0|0|Dobsonian|Single speed Hex 1.25/2"||
+Celestron|Celestron NexStar 6SE|150.0|1500|37.0|89|2|Starbright XLT||||0|9.53|0|Dobsonian|||
+Celestron|Celestron NexStar 8SE|203.2|2032|31.0|89|2|Starbright XLT||||0|11|0|Dobsonian|||
+Guan Sheng Optics|Revelation GSD200C 8" Dob|200|1200|25|92|0|||||0|0|0|Dobsonian|Crayford 1.25/2"||
+Guan Sheng Optics|Revelation GS880 10" Dob|250|1250|25|92|0|||||0|0|0|Dobsonian|Crayford 1.25/2"||
+Guan Sheng Optics|Revelation GSD300C 12" Dob|300|1500|23.3|92|0|||||0|0|0|Dobsonian|Crayford 1.25/2"||
+Meade|Meade 12" Lightbridge Dob|318|1524|0|0|0|||||0|0|0|0|Dobsonian|Crayford 1.25/2"||
+Meade|Meade 16" Lightbridge Dob|406.4|1829|0|0|0|||||0|0|0|0|Dobsonian|||
+Meade|Meade Maksutov MC 127/1900 UHTC LX65|127|1900|0|0|2|UHTC|Borosilicate glass|||0|0|0||||
+Orion (US)|Orion SkyQuest XT6 Classic Dob|150|1200|0|90|0||borosilicate glass|||0|16.0|0||||
+Orion (US)|Orion SkyQuest XT8 Classic Dob|203|1200|23|90|0||borosilicate glass|||0|18.6|0||||
+Orion (US)|Orion SkyQuest XT10 Classic Dob|254|1200|0|90|0||borosilicate glass|||0|0|0||||
+Orion (UK)|Orion UK VX6 6" Dob|152|750|32.89|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX6L 6" Dob|150|1200|24.66|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX8 8" Dob|200|900|31.5|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX8L 8" Dob|200|1200|25.0|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX10 10" Dob|250|1200|25.2|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX10L 10" Dob|250|1600|20.0|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX12 12" Dob|300|1200|25.0|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX12L 12" Dob|300|1600|21.0|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX14 14" Dob|350|1600|21.42|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX16 16" Dob|400|1600|20.5|97|0|||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX20 20" Dob|500|2000|20.0|97|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skyhawk 114P Parabolic Newt|114|500|0|0|0|||||0|0|0|EQ1|||
+Skywatcher|Skyliner 150P 6" Parabolic Dob|153|1200|22.54|90|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 200P 8" Parabolic Dob|203|1200|23.15|90|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 250PX 10" Parabolic Dob|254|1200|22.83|90|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 300PX 12" Parabolic Dob|305|1500|17.05|90|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 350P 14" Flextube Dob|355|1600|0|90|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 400P 16" Flextube Dob|406|1800|0|90|0|||||0|0|0|Dobsonian|||
+Skywatcher|Skywatcher Evostar 120|120|1000|0|0|1|||||0|0|0||||
+Skywatcher|Skywatcher Evostar 150|150|1200|0|0|1|||||0|0|0|||| 
+Skywatcher|SkyWatcher Explorer 130P Supra AUTO|130|650|27|90|0|||||0|0|0||||
+Skywatcher|SkyWatcher Explorer 130P Newt|130|650|0|90|0|||||0|0|0|0||||
+Skywatcher|SkyWatcher Explorer 150P Newt|150|750|0|90|0|||||0|0|0|0||||
+Skywatcher|SkyWatcher Explorer 150PL Newt|150|1200|0|90|0|||||0|0|0||||
+Skywatcher|SkyWatcher Explorer 200P Newt|200|1000|0|90|0|||||0|0|0||||
+Skywatcher|SkyWatcher Explorer 200PDS Newt|200|1000|28.57|90|0|||||0|0|0||||
+Skywatcher|SkyWatcher Explorer 250P Newt|254|1200|0|90|0|||||0|0|0||||
+Skywatcher|Skywatcher Heritage 76 3" Mini Dob|76|300|0|90|0|||||0|0|0|Dobsonian||Red dot|
+Skywatcher|Skywatcher Heritage 130P Flex Dob|130|650|26.54|90|0|||||0|0|0|Dobsonian||Red dot|
+Skywatcher|SkyWatcher Startravel 80|80|400|0|0|1|||||0|0|0||||
+Skywatcher|SkyWatcher Startravel 120T|120|600|0|0|1|||||0|0|0||||
+Skywatcher|SkyWatcher Startravel 150|150|750|0|0|1|||||0|0|0||||
+Skywatcher|Skywatcher AC 102/500 Starquest EQ|102|500|0|0|1|||||0|0|0||||
+Vixen|Vixen ED 81S APO|81|625|0|0|1|||||0|0|0||||

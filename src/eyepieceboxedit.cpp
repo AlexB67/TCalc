@@ -51,13 +51,16 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     m_grid.attach(m_eweight, 3, 5);
     m_grid.attach(m_ecoatings, 3, 6);
     m_grid.attach(m_ematerial, 3, 7); 
-    m_grid.attach(m_sep, 0, 9, 4, 1);
-    m_grid.attach(m_button_new, 0, 10, 1, 1);
-    m_grid.attach(m_button_edit, 1, 10, 1, 1);
-    m_grid.attach(m_button_del, 0, 11, 1, 1);
-    m_grid.attach(m_button_cancel, 1, 11, 1, 1);
-    m_grid.attach(m_button_moveup, 1, 12, 1, 1);
-    m_grid.attach(m_button_save, 0, 12, 1, 1);
+    m_grid.attach(m_sep, 0, 8, 4, 1);
+    m_grid.attach(dummy1, 0, 9);
+    m_grid.attach(dummy2, 0, 10);
+    m_grid.attach(dummy3, 0, 11);
+    m_grid.attach(m_button_new, 0, 12, 1, 1);
+    m_grid.attach(m_button_edit, 1, 12, 1, 1);
+    m_grid.attach(m_button_del, 0, 13, 1, 1);
+    m_grid.attach(m_button_cancel, 1, 13, 1, 1);
+    m_grid.attach(m_button_moveup, 1, 14, 1, 1);
+    m_grid.attach(m_button_save, 0, 14, 1, 1);
 
     m_ematerial.insert(0, _("ED Glass"));
     m_ematerial.insert(1, _("Lanthanum"));
