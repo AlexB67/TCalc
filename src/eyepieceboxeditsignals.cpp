@@ -84,6 +84,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
         enable_widgets(false);
         init();
         m_emodellabel.set_label(_("Select eyepiece"));
+        m_emodel->set_visible(true);
+        m_emodelentry.set_visible(false);
         ep_changed();
     });
 

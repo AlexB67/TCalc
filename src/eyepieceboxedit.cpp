@@ -27,7 +27,12 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     m_button_cancel.set_tooltip_text(_("Cancel editing or adding a new eyepiece."));
     m_emodelentry.set_tooltip_text(_("Enter the model description."));
     m_ebarrelsize.set_tooltip_text(_("The barrel size (diameter) of the eyepiece in inches, usually 1.25, or 2 \","
-                                     "Allowed range 0.96\" to 3\"."));
+                                     "Allowed range 0.96\" to 6\"."));
+    m_ecoatings.set_tooltip_text(_("The type of optical coating used on lenses."));
+    m_ematerial.set_tooltip_text(_("The type of glass used for lens construction."));
+    m_eweight.set_tooltip_text(_("The weight of the eyepiece in grams."));
+    m_egroups.set_tooltip_text(_("The number of optical groups. Leave at 0 if unknown."));
+    m_elements.set_tooltip_text(_("The total number of optical elements. Leave at zero if unknown."));
 
     sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
     sizegroup->add_widget(*m_emodel);
@@ -134,8 +139,8 @@ void EpBox::EditEyepieces::init()
     {
         m_button_edit.set_sensitive(false); // there are no items yet so there is nothing to edit
         m_button_del.set_sensitive(false);
-        m_emodel->set_visible(false);
-        m_emodelentry.set_visible(true);
+        m_emodel->set_visible(true);
+        m_emodelentry.set_visible(false);
         set_default_values();
     }
 

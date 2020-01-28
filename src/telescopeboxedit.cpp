@@ -30,9 +30,9 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_slenscoating.set_tooltip_text(_("The type of lens coating."));
     m_slensmaterial.set_tooltip_text(_("The material (or glass) used for construction of lenses."));
     m_sstrehl.set_tooltip_text(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
-                              "typically 0.80 - 0.98"));
-    m_sweight.set_tooltip_text(_("The weight of the telescope in kilograms (including mount)."));
-    m_smount_weight.set_tooltip_text(_("The weight of the mount in kilograms."));
+                              "typically 0.80 - 0.98. Leave at 0 if unknown."));
+    m_sweight.set_tooltip_text(_("The weight of the telescope in kilograms (including mount). Leave at 0 if unknown."));
+    m_smount_weight.set_tooltip_text(_("The weight of the mount in kilograms. Leave at 0 if unknown."));
     m_smount_type.set_tooltip_text(_("The type of mount, for example, Dobsonian, EQ, alt-azimuth, etc."));
     m_sfocuser_type.set_tooltip_text(_("Focuser model details"));
     m_sfinder_type.set_tooltip_text(_("The type of finder, for example, red dot finder, finder scope, etc."));
@@ -180,8 +180,8 @@ void ScopeBox::EditTelescopes::init()
     {
         m_button_edit.set_sensitive(false); // there are no items yet so there is nothing to edit
         m_button_del.set_sensitive(false);
-        m_smodel->set_visible(false);
-        m_smodelentry.set_visible(true);
+        m_smodel->set_visible(true);
+        m_smodelentry.set_visible(false);
         set_default_values();
     }
 }
@@ -203,6 +203,7 @@ void ScopeBox::EditTelescopes::set_default_values()
     m_smount_type.set_active(6);
     m_sfinder_type.set_active(4);
     m_sfocuser_type.set_active(3);
+    m_stype.set_active(0);
 }
 
 bool ScopeBox::EditTelescopes::validate_scope_data() const

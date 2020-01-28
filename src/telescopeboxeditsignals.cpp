@@ -36,6 +36,21 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
                 (row[m_scombomodel.m_scopecols.m_sweight] < Astrocalc::astrocalc::tSMALL) ? 
                 m_sweight.set_value(0.0) : m_sweight.set_value(row[m_scombomodel.m_scopecols.m_sweight]);
+
+                (row[m_scombomodel.m_scopecols.m_smount_weight] < Astrocalc::astrocalc::tSMALL) ? 
+                m_sstrehl.set_value(0.0) : m_smount_weight.set_value(row[m_scombomodel.m_scopecols.m_smount_weight]);
+
+                tmp = static_cast<Glib::ustring>(row[m_scombomodel.m_scopecols.m_smount_type]);
+                (false == tmp.empty()) ? m_smount_type.set_active_text(tmp) : 
+                                         m_smount_type.set_active_text(_("unknown"));
+                
+                tmp = static_cast<Glib::ustring>(row[m_scombomodel.m_scopecols.m_sfocuser_type]);
+                (false == tmp.empty()) ? m_sfocuser_type.set_active_text(tmp) : 
+                                         m_sfocuser_type.set_active_text(_("unknown"));
+                
+                tmp = static_cast<Glib::ustring>(row[m_scombomodel.m_scopecols.m_sfinder_type]);
+                (false == tmp.empty()) ? m_sfinder_type.set_active_text(tmp) : 
+                                         m_sfinder_type.set_active_text(_("unknown"));
             }
         }
 
@@ -89,6 +104,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         init();
         m_smodellabel.set_label(_("Select telescope"));
         m_smodel->set_visible(true);
+        m_smodelentry.set_visible(false);
         scope_changed();
         m_sobstruct.set_sensitive(false); // since scope_changed actrivates it for reflectors SCT/Mak
     });
