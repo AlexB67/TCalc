@@ -356,7 +356,7 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
     m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
     stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_smount_weight], 2);
-    (row[scopebox->m_scombomodel.m_scopecols.m_sweight] < Astrocalc::astrocalc::tSMALL) ?
+    (row[scopebox->m_scombomodel.m_scopecols.m_smount_weight] < Astrocalc::astrocalc::tSMALL) ?
     m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, _("unknown")) :
     m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
