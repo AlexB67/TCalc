@@ -17,9 +17,9 @@ Gtk::Frame &Resultsbox::create_results_grid()
     Uidefs::set_ui_spacing(m_resultsgrid);
     m_resultsframe.set_hexpand(true);
 
-    create_model_view(_("Calculated"), m_resultsview, m_resultsModel, m_resultCols);
-    create_model_view(_("Eyepiece data"), m_epview, m_epModel, m_epCols);
-    create_model_view(_("Telescope data"), m_scopeview, m_scopeModel, m_scopeCols);
+    create_model_view(_("Calculated"), m_resultsview, m_resultsModel, m_resultCols, true);
+    create_model_view(_("Eyepiece data"), m_epview, m_epModel, m_epCols, false);
+    create_model_view(_("Telescope data"), m_scopeview, m_scopeModel, m_scopeCols, false);
 
     m_scrollwin.set_policy(Gtk::PolicyType::POLICY_NEVER, Gtk::PolicyType::POLICY_ALWAYS);
     m_scrollwin.set_can_focus(false);
@@ -77,7 +77,7 @@ Gtk::Frame &Resultsbox::create_results_grid()
 }
 
 void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& view, 
-                                    Glib::RefPtr<Gtk::ListStore>& model, const ModelCols& cols)
+                                    Glib::RefPtr<Gtk::ListStore>& model, const ModelCols& cols, const bool set_sort_column)
 {
     model = Gtk::ListStore::create(cols);
     view.set_model(model);
@@ -90,9 +90,14 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
     view.set_property("has-tooltip", true);
     view.append_column(header, m_renderertext);
     view.get_column(0)->add_attribute(m_renderertext.property_markup(), m_resultCols.m_results_property);
-    view.get_column(0)->set_sort_column(0);
+    
+    if(true == set_sort_column)
+    {
+        view.get_column(0)->set_sort_column(0);
+        view.get_column(0)->set_sort_indicator(true); 
+    }
+    
     view.get_column(0)->set_resizable(true);
-    view.get_column(0)->set_sort_indicator(true);
     view.get_column(0)->set_min_width(180);
     view.get_column(0)->set_expand(true);
 
@@ -120,30 +125,51 @@ void Resultsbox::append_row(const Glib::ustring &propertyname, const double valu
 
     Glib::ustring stmp = dtostr<double>(value, precision);
 
-    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
-    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(resultsset, prefix + stmp + postfix);
-    ++rowcount;
+    size_t index = 0;
+    for(auto &i : m_resultsModel->children())
+    {
+        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
+        ++index;
+    }
+
+    m_resultsModel->children()[index].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
+    m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset, prefix + stmp + postfix);
+  //  ++rowcount;
 }
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset)
 {
     if (rowcount > m_proplistnames.size() || resultsset < 1 || resultsset > 2) return; 
 
-    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
-    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(resultsset,  text);
-    ++rowcount;
+    size_t index = 0;
+    for(auto &i : m_resultsModel->children())
+    {
+        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
+        ++index;
+    }
+
+    m_resultsModel->children()[index].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
+    m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset,  text);
+    //++rowcount;
 }
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
-                                        const int precision,  const Glib::ustring &postfix, const int resultsset)
+                            const int precision,  const Glib::ustring &postfix, const int resultsset)
 {
     if (rowcount > m_proplistnames.size() || resultsset < 1 || resultsset > 2 ) return;
 
     Glib::ustring stmp = dtostr<double>(value, precision);
 
-    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
-    m_resultsModel->children()[rowcount].set_value<Glib::ustring>(resultsset, stmp + postfix);
-    ++rowcount;
+    size_t index = 0;
+    for(auto &i : m_resultsModel->children())
+    {
+        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
+        ++index;
+    }
+
+    m_resultsModel->children()[index].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
+    m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset, stmp + postfix);
+   // ++rowcount;
 }
 
 void Resultsbox::clear(bool reset)

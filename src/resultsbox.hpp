@@ -87,7 +87,7 @@ namespace ResultsBox
         void init_property_names();
 
         void create_model_view( const Glib::ustring& header, Gtk::TreeView& view, 
-                                Glib::RefPtr<Gtk::ListStore>& model, const ModelCols& cols);
+                                Glib::RefPtr<Gtk::ListStore>& model, const ModelCols& cols, const bool set_sort_column);
 
         bool set_results_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
         bool set_scope_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
