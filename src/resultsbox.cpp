@@ -93,6 +93,7 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
     
     if(true == set_sort_column)
     {
+        view.set_reorderable(true);
         view.get_column(0)->set_sort_column(0);
         view.get_column(0)->set_sort_indicator(true); 
     }
@@ -120,62 +121,42 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
                             const int precision,  const Glib::ustring &prefix, 
                             const Glib::ustring &postfix, const int resultsset)
-{
-    if (rowcount > m_proplistnames.size() || resultsset < 1 || resultsset > 2) return; 
+{ 
+    size_t index = get_index(propertyname, m_resultsModel);
+   
+    if (index > m_proplistnames.size() || resultsset < 1 || resultsset > 2) return;
 
     Glib::ustring stmp = dtostr<double>(value, precision);
-
-    size_t index = 0;
-    for(auto &i : m_resultsModel->children())
-    {
-        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
-        ++index;
-    }
-
     m_resultsModel->children()[index].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
     m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset, prefix + stmp + postfix);
-  //  ++rowcount;
 }
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset)
 {
-    if (rowcount > m_proplistnames.size() || resultsset < 1 || resultsset > 2) return; 
+    size_t index = get_index(propertyname, m_resultsModel);
 
-    size_t index = 0;
-    for(auto &i : m_resultsModel->children())
-    {
-        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
-        ++index;
-    }
+    if (index > m_proplistnames.size() || resultsset < 1 || resultsset > 2) return; 
 
     m_resultsModel->children()[index].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
     m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset,  text);
-    //++rowcount;
 }
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
                             const int precision,  const Glib::ustring &postfix, const int resultsset)
 {
-    if (rowcount > m_proplistnames.size() || resultsset < 1 || resultsset > 2 ) return;
+
+    size_t index = get_index(propertyname, m_resultsModel);
+    
+    if (index > m_proplistnames.size() || resultsset < 1 || resultsset > 2 ) return;
 
     Glib::ustring stmp = dtostr<double>(value, precision);
 
-    size_t index = 0;
-    for(auto &i : m_resultsModel->children())
-    {
-        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
-        ++index;
-    }
-
     m_resultsModel->children()[index].set_value<Glib::ustring>(0, "<i>" + propertyname + "</i> :");
     m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset, stmp + postfix);
-   // ++rowcount;
 }
 
 void Resultsbox::clear(bool reset)
 {
-    rowcount = 0;
-
     if (true == reset)
     {
         for (auto &iter : m_resultsModel->children())
@@ -229,8 +210,8 @@ void Resultsbox::init_property_names()
         _("<i>Model</i> :"), _("<i>Aperture</i> :"), _("<i>Focal length</i> :"),
         _("<i>Reflectivity</i> :"), _("<i>Obstruction size</i> :"), 
         _("<i>Type</i> :"), _("<i>Mirror coating</i> :"), _("<i>Mirror material</i> :"),
-        _("<i>Lens coating</i> :"), _("<i>Lens material</i> :"), _("<i>Strehl Ratio</i> :"), 
-        _("<i>Total weight</i> :"), _("<i>Mount weight</i> :"), _("<i>Mount type</i> :"), 
+        _("<i>Lens coating</i> :"), _("<i>Lens material</i> :"), _("<i>Strehl</i> :"), 
+        _("<i>Total weight</i> :"), _("<i>Tube weight</i> :"), _("<i>Mount type</i> :"), 
         _("<i>Focuser details</i> :"), _("<i>Finder details</i> :") 
     };
 
@@ -381,8 +362,8 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
     m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, _("unknown")) :
     m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
-    stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_smount_weight], 2);
-    (row[scopebox->m_scombomodel.m_scopecols.m_smount_weight] < Astrocalc::astrocalc::tSMALL) ?
+    stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_stube_weight], 2);
+    (row[scopebox->m_scombomodel.m_scopecols.m_stube_weight] < Astrocalc::astrocalc::tSMALL) ?
     m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, _("unknown")) :
     m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
@@ -394,4 +375,16 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
 
     stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfinder_type];
     set_row(stmp, "", 15, resultsset);
+}
+
+size_t Resultsbox::get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore)
+{
+    size_t index = 0;
+    for(auto &i : liststore->children())
+    {
+        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
+        ++index;
+    }
+
+    return index;
 }

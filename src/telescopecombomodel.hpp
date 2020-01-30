@@ -26,7 +26,7 @@ namespace ScopeCombo
       Gtk::TreeModelColumn<Glib::ustring> m_slensmaterial;
       Gtk::TreeModelColumn<double> m_sstrehl;
       Gtk::TreeModelColumn<double> m_sweight;
-      Gtk::TreeModelColumn<double> m_smount_weight;
+      Gtk::TreeModelColumn<double> m_stube_weight;
       Gtk::TreeModelColumn<Glib::ustring> m_smount_type;
       Gtk::TreeModelColumn<Glib::ustring> m_sfocuser_type;
       Gtk::TreeModelColumn<Glib::ustring> m_sfinder_type;
@@ -46,7 +46,7 @@ namespace ScopeCombo
         add(m_slensmaterial);
         add(m_sstrehl);
         add(m_sweight);
-        add(m_smount_weight);
+        add(m_stube_weight);
         add(m_smount_type);
         add(m_sfocuser_type);
         add(m_sfinder_type);

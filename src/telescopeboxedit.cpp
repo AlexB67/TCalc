@@ -32,7 +32,7 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_sstrehl.set_tooltip_text(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
                               "typically 0.80 - 0.98. Leave at 0 if unknown."));
     m_sweight.set_tooltip_text(_("The weight of the telescope in kilograms (including mount). Leave at 0 if unknown."));
-    m_smount_weight.set_tooltip_text(_("The weight of the mount in kilograms. Leave at 0 if unknown."));
+    m_stube_weight.set_tooltip_text(_("The weight of the mount in kilograms. Leave at 0 if unknown."));
     m_smount_type.set_tooltip_text(_("The type of mount, for example, Dobsonian, EQ, alt-azimuth, etc."));
     m_sfocuser_type.set_tooltip_text(_("Focuser model details"));
     m_sfinder_type.set_tooltip_text(_("The type of finder, for example, red dot finder, finder scope, etc."));
@@ -64,8 +64,8 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_grid.attach(m_sfocuser_type, 1, 9);
     m_grid.attach(m_sfinder_type_label, 0, 10);
     m_grid.attach(m_sfinder_type, 1, 10);
-    m_grid.attach(m_smount_weight_label, 2, 9);
-    m_grid.attach(m_smount_weight, 3, 9);
+    m_grid.attach(m_stube_weight_label, 2, 9);
+    m_grid.attach(m_stube_weight, 3, 9);
     m_grid.attach(m_smount_type_label, 2, 10);
     m_grid.attach(m_smount_type, 3, 10);
     m_grid.attach(m_sep, 0, 11, 4, 1);
@@ -136,7 +136,7 @@ void ScopeBox::EditTelescopes::enable_widgets(const bool enable)
     m_slenscoating.set_sensitive(enable);
     m_sstrehl.set_sensitive(enable);
     m_sweight.set_sensitive(enable);
-    m_smount_weight.set_sensitive(enable);
+    m_stube_weight.set_sensitive(enable);
     m_sfocuser_type.set_sensitive(enable);
     m_smount_type.set_sensitive(enable);
     m_sfinder_type.set_sensitive(enable);
@@ -194,7 +194,7 @@ void ScopeBox::EditTelescopes::set_default_values()
     m_sreflect.set_spin_entry(0.0, 0.0, 100.0, 0.1, 2, true);
     m_sobstruct.set_spin_entry(0, 0.0, 50.0, 0.1, 2, true);
     m_sweight.set_spin_entry(0.0, 0.0, 1000.0, 0.1, 2, true);
-    m_smount_weight.set_spin_entry(0.0, 0.0, 1000.0, 0.1, 2, true);
+    m_stube_weight.set_spin_entry(0.0, 0.0, 1000.0, 0.1, 2, true);
     m_sstrehl.set_spin_entry(0.0, 0.0, 1.0, 0.01, 2, true);
     m_smirrormaterial.set_active(2);
     m_smirrorcoating.set_active(4);
@@ -254,6 +254,18 @@ bool ScopeBox::EditTelescopes::validate_scope_data() const
     if (m_sobstruct.get_value() != std::clamp<double>(m_sobstruct.get_value(), 0.0, 100.0))
     {
         message += _("Transmission out of range: allowed range: 0% to 100%. Set to 0 if unknown.\n");
+        flag = false;
+    }
+
+    if (m_sfocuser_type.get_active_text().find('&') != Glib::ustring::npos)
+    {
+        message += _("Focuser type: & is not allowed.\n");
+        flag = false;
+    }
+
+    if (m_smount_type.get_active_text().find('&') != Glib::ustring::npos)
+    {
+        message += _("Mount type: & is not allowed.\n");
         flag = false;
     }
 

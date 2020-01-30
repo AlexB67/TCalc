@@ -21,7 +21,6 @@
 #include "ocularwindow.hpp"
 #include "equipwindow.hpp"
 #include "searchwindow.hpp"
-#include "helpwindow.hpp"
 
 class TcalcWindow : public Gtk::ApplicationWindow
 {
@@ -48,7 +47,6 @@ private:
   std::unique_ptr<MagBox::Magbox> magbox;
   std::unique_ptr<OptionsBox::Optionsbox> optionsbox;
   std::unique_ptr<ResultsBox::Resultsbox> resultsbox;
-  std::unique_ptr<HelpWindow> helpwindow;
   Gtk::ShortcutsWindow *shortcutswindow = nullptr;
   Gtk::Grid   windowgrid;
   Gtk::Grid   gridright;

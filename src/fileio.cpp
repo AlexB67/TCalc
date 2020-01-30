@@ -319,7 +319,7 @@ void fileIO::dbfileIO::write_scope_user_data(const Gtk::ComboBox& scopecombobox,
     				<< iter2->get_value(scopecombomodel.m_scopecols.m_slensmaterial) << sep
     				<< iter2->get_value(scopecombomodel.m_scopecols.m_sstrehl) << sep
     				<< iter2->get_value(scopecombomodel.m_scopecols.m_sweight) << sep 
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_smount_weight) << sep
+					<< iter2->get_value(scopecombomodel.m_scopecols.m_stube_weight) << sep
 					<< iter2->get_value(scopecombomodel.m_scopecols.m_smount_type) << sep
 					<< iter2->get_value(scopecombomodel.m_scopecols.m_sfocuser_type) << sep
 					<< iter2->get_value(scopecombomodel.m_scopecols.m_sfinder_type) << sep << '\n';

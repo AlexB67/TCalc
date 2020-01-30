@@ -82,11 +82,6 @@ void TcalcWindow::create_menu_and_shortcuts()
    });
 
    add_action("help", [this]() {
-  //  if (!helpwindow)
-   //      helpwindow = std::make_unique<HelpWindow>(m_app);
-      
-   //   helpwindow->present();
-   //     Gio::AppInfo::launch_default_for_uri("file:///home/afb/Documents/boolean.page");
       Gio::AppInfo::launch_default_for_uri("help:tcalc");
    });
 

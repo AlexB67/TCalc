@@ -40,7 +40,6 @@ tcalc_sources = [
   'ocularwindowsignals.cpp',
   'searchwindow.cpp',
   'equipwindow.cpp',
-  'helpwindow.cpp',
   'dsocombomodel.cpp',
   'plotlib/plotter.cpp',
   'plotlib/plotterlabels.cpp',
@@ -55,7 +54,6 @@ tcalc_sources = [
 
 tcalc_deps = [
   dependency('gtkmm-3.0', version: '>= 3.24'),
-  dependency('webkit2gtk-4.0', version: '>= 2.2'),
 ]
 
 tcalc_sources += gnome.compile_resources(

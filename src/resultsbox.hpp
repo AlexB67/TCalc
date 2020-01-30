@@ -13,9 +13,11 @@
 #include <glibmm/i18n.h>
 #include <gtkmm/progressbar.h>
 #include <gtkmm/combobox.h>
+#include <gtkmm/menu.h>
 #include "loggerbox.hpp"
 #include "eyepiecebox.hpp"
 #include "telescopebox.hpp"
+#include "gtkmmcustomutils.hpp"
 
 namespace ResultsBox
 {
@@ -60,6 +62,7 @@ namespace ResultsBox
         void clear(bool reset = false);
         void get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset);
         void get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox>& scopebox, const int resultsset);
+        Glib::RefPtr<Gtk::ListStore> get_results_model() const { return m_resultsModel;}
 
     private:
         Gtk::ScrolledWindow m_scrollwin;
@@ -70,6 +73,7 @@ namespace ResultsBox
         Gtk::TreeView       m_resultsview;
         Gtk::TreeView       m_epview;
         Gtk::TreeView       m_scopeview;
+        Gtk::Menu           m_menu;
         ModelCols           m_resultCols;
         ModelCols           m_epCols;
         ModelCols           m_scopeCols;
@@ -85,14 +89,13 @@ namespace ResultsBox
         std::vector<Glib::ustring>      m_eplistnames;
         std::vector<Glib::ustring>      m_scopelistnames;
         void init_property_names();
-
         void create_model_view( const Glib::ustring& header, Gtk::TreeView& view, 
                                 Glib::RefPtr<Gtk::ListStore>& model, const ModelCols& cols, const bool set_sort_column);
 
         bool set_results_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
         bool set_scope_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
         bool set_ep_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
-        size_t rowcount{0};
+        size_t get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore);
     };
 
 } // namespace ResultsBox

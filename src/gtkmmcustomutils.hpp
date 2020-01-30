@@ -2,6 +2,8 @@
 #include <gtkmm/widget.h>
 #include <gtkmm/spinbutton.h>
 #include <gtkmm/label.h>
+#include <gtkmm/treeview.h>
+#include <gtkmm/liststore.h>
 
 namespace Ui
 {
@@ -11,7 +13,6 @@ namespace Ui
       void set_spin_entry(double value, double min, double max, double incr, int digits, bool isnumeric);
   };
 }
-
 
 namespace Uidefs
 {
@@ -36,4 +37,5 @@ namespace Uidefs
     obj.set_column_spacing(Uidefs::BORDER_WIDTH_SMALL);
   }
 }
+
 

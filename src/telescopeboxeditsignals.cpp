@@ -37,8 +37,8 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
                 (row[m_scombomodel.m_scopecols.m_sweight] < Astrocalc::astrocalc::tSMALL) ? 
                 m_sweight.set_value(0.0) : m_sweight.set_value(row[m_scombomodel.m_scopecols.m_sweight]);
 
-                (row[m_scombomodel.m_scopecols.m_smount_weight] < Astrocalc::astrocalc::tSMALL) ? 
-                m_sstrehl.set_value(0.0) : m_smount_weight.set_value(row[m_scombomodel.m_scopecols.m_smount_weight]);
+                (row[m_scombomodel.m_scopecols.m_stube_weight] < Astrocalc::astrocalc::tSMALL) ? 
+                m_sstrehl.set_value(0.0) : m_stube_weight.set_value(row[m_scombomodel.m_scopecols.m_stube_weight]);
 
                 tmp = static_cast<Glib::ustring>(row[m_scombomodel.m_scopecols.m_smount_type]);
                 (false == tmp.empty()) ? m_smount_type.set_active_text(tmp) : 
@@ -155,9 +155,9 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
         std::get<12>(scopedata) = 0 : 
         std::get<12>(scopedata) = m_sweight.get_value();
         
-        (m_smount_weight.get_value() < Astrocalc::astrocalc::tSMALL) ? 
+        (m_stube_weight.get_value() < Astrocalc::astrocalc::tSMALL) ? 
         std::get<13>(scopedata) = 0 : 
-        std::get<13>(scopedata) = m_smount_weight.get_value();
+        std::get<13>(scopedata) = m_stube_weight.get_value();
 
         (_("unknown") == m_smount_type.get_active_text()) ?
         std::get<14>(scopedata) = "" :

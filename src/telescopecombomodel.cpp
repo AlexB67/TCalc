@@ -39,7 +39,7 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         prow[m_scopecols.m_saperture], prow[m_scopecols.m_sflen],  prow[m_scopecols.m_sobstruct], 
         prow[m_scopecols.m_sreflect],  prow[m_scopecols.m_stype],  prow[m_scopecols.m_smirrorcoating],
         prow[m_scopecols.m_smirrormaterial], prow[m_scopecols.m_slenscoating], prow[m_scopecols.m_slensmaterial],
-        prow[m_scopecols.m_sstrehl], prow[m_scopecols.m_sweight], prow[m_scopecols.m_smount_weight] , prow[m_scopecols.m_smount_type],
+        prow[m_scopecols.m_sstrehl], prow[m_scopecols.m_sweight], prow[m_scopecols.m_stube_weight] , prow[m_scopecols.m_smount_type],
         prow[m_scopecols.m_sfocuser_type], prow[m_scopecols.m_sfinder_type]
     }; // note, we omit the model name and brand
 
@@ -57,7 +57,7 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         prow[m_scopecols.m_slensmaterial] = static_cast<Glib::ustring>(row[m_scopecols.m_slensmaterial]);
         prow[m_scopecols.m_sstrehl] = static_cast<double>(row[m_scopecols.m_sstrehl]);
         prow[m_scopecols.m_sweight] = static_cast<double>(row[m_scopecols.m_sweight]);
-        prow[m_scopecols.m_smount_weight] = static_cast<double>(row[m_scopecols.m_sweight]);
+        prow[m_scopecols.m_stube_weight] = static_cast<double>(row[m_scopecols.m_sweight]);
         prow[m_scopecols.m_smount_type] = static_cast<Glib::ustring>(row[m_scopecols.m_smount_type]);
         prow[m_scopecols.m_sfocuser_type] = static_cast<Glib::ustring>(row[m_scopecols.m_sfocuser_type]);
         prow[m_scopecols.m_sfinder_type] = static_cast<Glib::ustring>(row[m_scopecols.m_sfinder_type]);
@@ -74,7 +74,7 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         row[m_scopecols.m_slensmaterial] = std::get<8>(scopedata);
         row[m_scopecols.m_sstrehl] = std::get<9>(scopedata);
         row[m_scopecols.m_sweight] = std::get<10>(scopedata);
-        row[m_scopecols.m_smount_weight] = std::get<11>(scopedata);
+        row[m_scopecols.m_stube_weight] = std::get<11>(scopedata);
         row[m_scopecols.m_smount_type] = std::get<12>(scopedata);
         row[m_scopecols.m_sfocuser_type] = std::get<13>(scopedata);
         row[m_scopecols.m_sfinder_type] = std::get<14>(scopedata); 
@@ -102,7 +102,7 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
         childrow[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
         childrow[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
         childrow[m_scopecols.m_sweight] = std::get<12>(scopedata);
-        childrow[m_scopecols.m_smount_weight] = std::get<13>(scopedata);
+        childrow[m_scopecols.m_stube_weight] = std::get<13>(scopedata);
         childrow[m_scopecols.m_smount_type] = std::get<14>(scopedata);
         childrow[m_scopecols.m_sfocuser_type] = std::get<15>(scopedata);
         childrow[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
@@ -165,7 +165,7 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
         row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
         row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
         row[m_scopecols.m_sweight] = std::get<12>(scopedata);
-        row[m_scopecols.m_smount_weight] = std::get<13>(scopedata);
+        row[m_scopecols.m_stube_weight] = std::get<13>(scopedata);
         row[m_scopecols.m_smount_type] = std::get<14>(scopedata);
         row[m_scopecols.m_sfocuser_type] = std::get<15>(scopedata);
         row[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
@@ -241,7 +241,7 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
             row[m_scopecols.m_slensmaterial] = std::get<10>(scopedata);
             row[m_scopecols.m_sstrehl] = std::get<11>(scopedata);
             row[m_scopecols.m_sweight] = std::get<12>(scopedata);
-            row[m_scopecols.m_smount_weight] = std::get<13>(scopedata);
+            row[m_scopecols.m_stube_weight] = std::get<13>(scopedata);
             row[m_scopecols.m_smount_type] = std::get<14>(scopedata);
             row[m_scopecols.m_sfocuser_type] = std::get<15>(scopedata);
             row[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
