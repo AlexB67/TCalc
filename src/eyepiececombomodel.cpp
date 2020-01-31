@@ -250,6 +250,7 @@ void EpCombomodel::setup_ep_combo_model(Gtk::ComboBox &epcombo)
     m_epcombo->pack_start(m_epcols.m_epbrand);
     m_epcombo->set_entry_text_column(1);
     m_epcombo->set_popup_fixed_width(false);
+    m_epcombo->set_wrap_width(1);
     auto *entry = static_cast<Gtk::Entry *>(m_epcombo->get_entry());
     entry->property_width_chars() = 32;
     entry->property_editable() = false;

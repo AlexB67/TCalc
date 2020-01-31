@@ -94,13 +94,17 @@ void OcularWindow::create_ocular_info_box()
   ocularfov.set_width_chars(16);
   ocularfov.set_editable(false);
   ocularfov.set_can_focus(false);
+  ocularfov.set_tooltip_text(_("The field of view in degrees (arc min) resulting from the eyepiece and telescope combination."));
   ocularexitpupil.set_width_chars(7);
   ocularexitpupil.set_editable(false);
   ocularexitpupil.set_can_focus(false);
+  ocularexitpupil.set_tooltip_text(_("The exit pupil in mm resulting from the eyepiece and telescope combination."));
   ocularmag.set_width_chars(7);
-  obscontrast.set_max_width_chars(7);
   ocularmag.set_editable(false);
   ocularmag.set_can_focus(false);
+  ocularmag.set_tooltip_text(_("The magnification resulting from the eyepiece and telescope combination."));
+  obscontrast.set_max_width_chars(7);
+  obscontrast.set_tooltip_text(_("The visibility treshold resulting from the eyepiece and telescope combination."));
   obscontrastlabel.set_markup(_("log(<i>C</i>/<i>C</i><sub>o</sub>)"));
 
   Uidefs::set_ui_spacing(ocularinfogrid);

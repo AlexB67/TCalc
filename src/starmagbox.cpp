@@ -62,6 +62,7 @@ MagBox::Magbox::Magbox()
     m_dsotypelabel.set_label(_("DSO type"));
     m_dsotype.set_width_chars(12);
     m_dsotype.set_can_focus(false);
+    m_dsotype.set_tooltip_text(("Short desciption for the selected DSO."));
     m_dsocontrastindexlabel.set_halign(Gtk::ALIGN_START);
     m_dsocontrastindexlabel.set_label(_("Contrast index"));
     m_dsobrightnesslabel.set_halign(Gtk::ALIGN_START);
@@ -89,7 +90,7 @@ MagBox::Magbox::Magbox()
     m_zenith.set_tooltip_text(_("Zenith angle, 0 degrees is right above. 90 degrees the horizon."));
     m_age.set_tooltip_text(_("Calculates eye pupil size based on age."));
     m_pupilsize.set_tooltip_text(_("The eye pupil size of the observer. Use the slider above to estimate pupil size if unknown."));
-
+    m_dsocombo.set_tooltip_text(_("Select a DSO object."));
     m_grid.set_hexpand(false);
     m_grid.set_vexpand(false);
     m_grid.set_margin_top(0);

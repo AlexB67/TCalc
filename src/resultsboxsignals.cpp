@@ -153,13 +153,101 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_t
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[5])
         tooltip->set_markup(_("The type of telescope. Reflector, refractor or SCT/Mak."));
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[6])
-        tooltip->set_markup(_("The coating used on mirrors."));
+    {
+        Glib::ustring tip = _("The coating used on mirrors");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[7])
-        tooltip->set_markup(_("The material used for mirror construction."));
+    {
+        Glib::ustring tip = _("The material used for mirror construction");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[8])
-        tooltip->set_markup(_("The type of lens coating."));
+    {
+        Glib::ustring tip = _("The type of lens coating");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[9])
-        tooltip->set_markup(_("The material (or glass) used for construction of lenses."));
+       {
+        Glib::ustring tip = _("The material (or glass) used for construction of lenses");
+        if (column->get_title() == _("Telescope data"))
+        {
+           tooltip->set_markup(tip + _("."));
+           m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+           return true;
+        }
+        else if (column->get_title() == _("Set 1"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set1]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set1]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+        else if (column->get_title() == _("Set 2"))
+        {
+            (static_cast<Glib::ustring>(row[m_scopeCols.m_results_set2]).length()) ? 
+            tooltip->set_markup(row[m_scopeCols.m_results_set2]) : tooltip->set_markup(tip + _("."));
+            m_scopeview.set_tooltip_cell(tooltip, &path, nullptr, nullptr);
+            return true;
+        }
+    }
     else if (row[m_scopeCols.m_results_property] == m_scopelistnames[10])
         tooltip->set_markup(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
                               "typically 0.80 - 0.98"));

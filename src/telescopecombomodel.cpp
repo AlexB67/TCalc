@@ -266,6 +266,8 @@ void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
     m_scopecombo->set_model(m_scopetreemodel);
     m_scopecombo->pack_start(m_scopecols.m_sbrand);
     m_scopecombo->set_entry_text_column(1);
+    m_scopecombo->set_popup_fixed_width(false);
+    m_scopecombo->set_wrap_width(1);
     auto *entry = static_cast<Gtk::Entry *>(m_scopecombo->get_entry());
     entry->property_width_chars() = 32;
     entry->property_editable() = false;
