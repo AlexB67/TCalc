@@ -27,8 +27,7 @@ This will add the application to /user/local and appear in the applications list
 
 Note: this is a vscode project but works equally well in gnome-builder, just point builder to the TCalc folder and open it.
 
-Neither are required to build or install the project.
-To be build as an rpm package in future. 
+Neither are required to build or install the project. To be build as an rpm package in future. 
 
 The following packages are required to build the software natively.\
 gettext\
@@ -37,4 +36,4 @@ gtkmm developmen libraries\
 meson\
 ninja build system\
 
-Consult/search your distribution for the above packages and install them with. Flatpak builds will download the relevant packages automatically.
+Consult/search your distribution for the above packages and install them if required. Flatpak builds will download the relevant packages automatically.
