@@ -37,4 +37,4 @@ gtkmm developmen libraries\
 meson\
 ninja build system\
 
-Consult/search your distribution or the above and install. Flatpak builds will download the relevant packages automatically.
+Consult/search your distribution for the above packages and install them with. Flatpak builds will download the relevant packages automatically.
