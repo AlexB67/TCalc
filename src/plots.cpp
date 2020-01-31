@@ -96,7 +96,7 @@ void GraphsWindow::plot2()
     legends[1] = (_("<i>M</i> = ") + GlibUtils::dtostr<double>(mag[1], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = 4mm"));
     legends[2] = (_("<i>M</i> = ") + GlibUtils::dtostr<double>(mag[2], 2) + _("x,") + _(" <i>D</i><sub>e</sub> = 2mm"));
 
-    graphbox->add_multi_legends(legends, 0.0, 0.80);
+    graphbox->add_multi_legends(legends, 0.0, 0.775);
     magbox->set_dso_mode(false);
     graphbox->update_graph();
 }
