@@ -72,6 +72,9 @@ public:
     double calc_nelm_threshold_method(const double surfacebrightness) const noexcept;
     double calc_nelm_brightness(const double nelm) const noexcept;
     double calc_pv_from_strehl(const double strehl) const noexcept;
+    double calc_bgsky_in_scope(const double magnification, const int scopetype, const double scopeaperture,
+                                        const double scopeobstruct, const double scopereflect, const double etrans,
+                                        const double dirt, const double eyepupilsize, const double nelm) const noexcept;
 
     std::pair<double, double> calc_dso_contrast_in_scope(const double magnification, const int scopetype, const double aperture,
                                       const double scopeobstruct, const double scopereflect, const double etrans,

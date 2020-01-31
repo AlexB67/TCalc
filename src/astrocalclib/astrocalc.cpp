@@ -678,6 +678,43 @@ double astrocalc::calc_thrconls(const double angle, const double sb) const noexc
     return pow(10.0, x);
 }
 
+double  astrocalc::calc_bgsky_in_scope(const double magnification, const int scopetype, const double scopeaperture,
+                                        const double scopeobstruct, const double scopereflect, const double etrans,
+                                        const double dirt, const double eyepupilsize, const double nelm) const noexcept
+{
+    double fl = 0.0;
+    double fd = 0.0;
+    double metrans = etrans;
+
+    if (REFLECTOR == scopetype) // reflectors
+    {
+        fl = pow(scopereflect, 2);        // reflectivity effciency due to primary and secondary.
+        fd = 1.0 - pow(scopeobstruct, 2); // net effect due to obstruction.
+    }
+
+    if (REFRACTOR == scopetype) // refractors
+    {
+        fd = 1.0;
+        fl = pow(scopereflect, 4);
+    }
+
+    if (SCTMAK == scopetype)
+    {
+        fd = 1.0 - pow(scopeobstruct, 2);
+        fl = pow(SCOPETRANS / 100.0 * scopereflect, 2); // SCT Mak modify tcalc app to call this correctly, make little diff though.
+    }
+
+    if (REFLECTOR != scopetype)
+        metrans = metrans * 0.97; // we'll assume the added diagonal has 97% reflectivity
+
+    metrans *= 1 - dirt;           // effect of dirt on transmission
+    double ft = fl * fd * metrans; // net transmission
+
+    double bg_brightness = calc_nelm_brightness_threshold_method(nelm); // sky background
+    double scopefactor = -5.0 * log10((sqrt(ft) / eyepupilsize) * (scopeaperture / magnification));
+
+    return (bg_brightness + scopefactor); 
+}
 std::pair<double, double> astrocalc::calc_dso_contrast_in_scope(const double magnification, const int scopetype, const double scopeaperture,
                                                                 const double scopeobstruct, const double scopereflect, const double etrans,
                                                                 const double dirt, const double eyepupilsize, const double nelm, const double dsovmag,

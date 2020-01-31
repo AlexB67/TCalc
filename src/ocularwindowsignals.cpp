@@ -104,7 +104,10 @@ void OcularWindow::set_contrast_info()
 
   obscontrast.set_text(GlibUtils::dtostr<double>(threshold, 4));
   ocularbox.obscontrast = threshold;
-  ocularbox.skybrightness = magbox->m_bgsky.get_value();
+  ocularbox.skyscopebrightness = m_calc.calc_bgsky_in_scope(ocularbox.magnification, scopebox->m_stype.get_active_row_number(), scopebox->m_saperture.get_value(),
+                                        scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0,
+                                        epbox->m_etrans.get_value() / 100.0, magbox->get_optical_dirt_level(), magbox->m_pupilsize.get_value(),
+                                        magbox->m_nelm1.get_value());
 }
 
 void OcularWindow::set_ocular_info()

@@ -31,12 +31,12 @@ bool Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
   double scale = fovscale * m_imagesize  * h / (m_tfov * m_image->get_height());
 
   // approx for visual effect
-  double bgcolour = (27 - skybrightness) / (27.0 * 2.55);
+  double bgcolour = 0.25 * (27 - skyscopebrightness) / 27.0; // sky in scope arbitrarily scaled for monitor
 
   cr->scale(w, h);
   cr->set_line_width(0);
   cr->arc(0.5, 0.5, 0.5, 0.0, 2.0 * pi<double>());
-  cr->set_source_rgba(0.25 * bgcolour, 0.25 * bgcolour, bgcolour, 1.00); // blue tinted
+  cr->set_source_rgba(bgcolour, bgcolour, bgcolour, 1.00);
   cr->fill_preserve();
   cr->clip_preserve();
 
@@ -44,9 +44,8 @@ bool Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
   Gdk::Cairo::set_source_pixbuf(cr, m_image,  (-m_image->get_width()  + w  / scale) / 2,
                                               (-m_image->get_height() + h  / scale) / 2);
  // cr->paint_with_alpha(pow(exitpupil / 7.0, 0.88)); // just for visual effect.
-  double tmp = obscontrast; // uses treshold valuefor visibility.
+  double tmp = 0.5 * obscontrast; // uses treshold value for visibility (scaled for effect by 0.5).
   if (tmp < 0) tmp = 0;
-  else if (tmp > 0.8) tmp = 0.8; // arbitray cutoff for visual effect.
   cr->paint_with_alpha(tmp);
   cr->scale(w / scale, h / scale);
   cr->begin_new_path(); // draw the fov ring

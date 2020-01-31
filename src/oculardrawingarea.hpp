@@ -15,7 +15,7 @@ class Ocular : public Gtk::DrawingArea
         double exitpupil;
         double magnification;
         double obscontrast;
-        double skybrightness;
+        double skyscopebrightness;
         
     protected:
         bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
