@@ -21,22 +21,22 @@
 
 namespace ResultsBox
 {
-    class ModelCols : public Gtk::TreeModel::ColumnRecord
-    {
-    public:
+    // class ModelCols : public Gtk::TreeModel::ColumnRecord
+    // {
+    // public:
 
 
-        Gtk::TreeModelColumn<Glib::ustring> m_results_property;
-        Gtk::TreeModelColumn<Glib::ustring> m_results_set1;
-        Gtk::TreeModelColumn<Glib::ustring> m_results_set2;
+    //     Gtk::TreeModelColumn<Glib::ustring> m_results_property;
+    //     Gtk::TreeModelColumn<Glib::ustring> m_results_set1;
+    //     Gtk::TreeModelColumn<Glib::ustring> m_results_set2;
 
-        ModelCols()
-        {
-            add(m_results_property);
-            add(m_results_set1);
-            add(m_results_set2);
-        }
-    };
+    //     ModelCols()
+    //     {
+    //         add(m_results_property);
+    //         add(m_results_set1);
+    //         add(m_results_set2);
+    //     }
+    // };
 
     class Resultsbox
     {
@@ -53,15 +53,15 @@ namespace ResultsBox
         
         Gtk::Frame &create_results_grid();
         void append_row(const Glib::ustring &propertyname, const double value, 
-                        const int precision,  const Glib::ustring &postfix, const int resultsset);
+                        const int precision,  const Glib::ustring &postfix, const int resultsset) const;
 
         void append_row(const Glib::ustring &propertyname, const double value,  const int precision,  
-                        const Glib::ustring &prefix, const Glib::ustring &postfix, const int resultsset);
+                        const Glib::ustring &prefix, const Glib::ustring &postfix, const int resultsset) const;
         
-        void append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset);
-        void clear(bool reset = false);
-        void get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset);
-        void get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox>& scopebox, const int resultsset);
+        void append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset) const;
+        void clear(bool reset = false) const;
+        void get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset) const;
+        void get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox>& scopebox, const int resultsset) const;
         Glib::RefPtr<Gtk::ListStore> get_results_model() const { return m_resultsModel;}
 
     private:
@@ -73,7 +73,21 @@ namespace ResultsBox
         Gtk::TreeView       m_resultsview;
         Gtk::TreeView       m_epview;
         Gtk::TreeView       m_scopeview;
-        Gtk::Menu           m_menu;
+
+        struct ModelCols : public Gtk::TreeModel::ColumnRecord
+        {
+                Gtk::TreeModelColumn<Glib::ustring> m_results_property;
+                Gtk::TreeModelColumn<Glib::ustring> m_results_set1;
+                Gtk::TreeModelColumn<Glib::ustring> m_results_set2;
+
+            ModelCols()
+            {
+                add(m_results_property);
+                add(m_results_set1);
+                add(m_results_set2);
+            }
+        };
+
         ModelCols           m_resultCols;
         ModelCols           m_epCols;
         ModelCols           m_scopeCols;
@@ -95,7 +109,7 @@ namespace ResultsBox
         bool set_results_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
         bool set_scope_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
         bool set_ep_row_tooltip(int x, int y, bool keyboard_tooltip, const Glib::RefPtr<Gtk::Tooltip>& tooltip);
-        size_t get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore);
+        size_t get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore) const;
     };
 
 } // namespace ResultsBox

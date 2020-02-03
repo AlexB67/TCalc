@@ -120,7 +120,7 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
                             const int precision,  const Glib::ustring &prefix, 
-                            const Glib::ustring &postfix, const int resultsset)
+                            const Glib::ustring &postfix, const int resultsset) const
 { 
     size_t index = get_index(propertyname, m_resultsModel);
    
@@ -131,7 +131,7 @@ void Resultsbox::append_row(const Glib::ustring &propertyname, const double valu
     m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset, prefix + stmp + postfix);
 }
 
-void Resultsbox::append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset)
+void Resultsbox::append_row(const Glib::ustring &propertyname, const Glib::ustring &text, const int resultsset) const
 {
     size_t index = get_index(propertyname, m_resultsModel);
 
@@ -142,7 +142,7 @@ void Resultsbox::append_row(const Glib::ustring &propertyname, const Glib::ustri
 }
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
-                            const int precision,  const Glib::ustring &postfix, const int resultsset)
+                            const int precision,  const Glib::ustring &postfix, const int resultsset) const
 {
 
     size_t index = get_index(propertyname, m_resultsModel);
@@ -155,7 +155,7 @@ void Resultsbox::append_row(const Glib::ustring &propertyname, const double valu
     m_resultsModel->children()[index].set_value<Glib::ustring>(resultsset, stmp + postfix);
 }
 
-void Resultsbox::clear(bool reset)
+void Resultsbox::clear(bool reset) const
 {
     if (true == reset)
     {
@@ -234,7 +234,7 @@ void Resultsbox::init_property_names()
     }
 }
 
-void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset)
+void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset) const
 {
     const Gtk::TreeModel::iterator iter = epbox->m_emodel->get_active();
 
@@ -297,7 +297,7 @@ void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, c
     set_row(stmp, "", 12, resultsset);
 }
 
-void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &scopebox, const int resultsset)
+void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &scopebox, const int resultsset) const
 {
     const auto iter = scopebox->m_smodel->get_active();
 
@@ -337,11 +337,14 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
 
     m_scopeModel->children()[5].set_value<Glib::ustring>(resultsset, scopebox->m_stype.get_active_text());
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrorcoating];
-    set_row(stmp, "", 6, resultsset);
+    if(scopebox->m_stype.get_active_row_number() != Astrocalc::astrocalc::REFRACTOR) 
+    {
+        stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrorcoating];
+        set_row(stmp, "", 6, resultsset);
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrormaterial];
-    set_row(stmp, "", 7, resultsset);
+        stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrormaterial];
+        set_row(stmp, "", 7, resultsset);
+    }
 
     if(scopebox->m_stype.get_active_row_number() != Astrocalc::astrocalc::REFLECTOR) 
     {
@@ -377,7 +380,7 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
     set_row(stmp, "", 15, resultsset);
 }
 
-size_t Resultsbox::get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore)
+size_t Resultsbox::get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore) const
 {
     size_t index = 0;
     for(auto &i : liststore->children())

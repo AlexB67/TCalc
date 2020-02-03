@@ -5,8 +5,10 @@
 Astrolux|Astrolux 76 3" Newt|76|700|0|0|0|Skywatcher DELUXE||||0|0|0|EQ1|1.25 rack and pinion||
 Bresser|Bresser Dob N 130/650|130|650|0|0|0|||||0|0|0|Dobsonian|1.25 rack and pinion||
 Bresser|Bresser MC 152/1900|152|1900|29.61|0|2|||||0|0|0||||
-Bresser|Bresser Messier 5" Dob|130|650|0|0|0||optical glass|||0.8|0|0|Dobsonian|1.25 rack and pinion||
-Bresser|Bresser Messier 8" Dob|203|1213|0|0|0||H-PZ33 glass|||0.8|0|0|Dobsonian|Single speed Hex 1.25/2"||
+Bresser|Bresser Messier 5" Dob|130|650|36.15|0|0||optical glass|||0.8|6.6|3.1|Dobsonian|1.25 rack and pinion|LED Red Dot Finder|
+Bresser|Bresser Messier 6" Dob|150|750|36.67|0|0||optical glass|||0.8|9.2|4.7|Dobsonian|1.25 rack and pinion|LED Red Dot Finder|
+Bresser|Bresser Messier 8" Dob|203|1213|28.07|0|0||H-PZ33 glass|||0.8|21|11.5|Dobsonian|Single speed Hex 1.25/2"|6x30 finder scope|
+Bresser|Bresser Messier 10" Dob|254|1270|29.13|0|0||H-PZ33 glass|||0.8|27.9|13.0|Dobsonian|Single speed Hex 1.25/2"|6x30 finder scope|
 Celestron|Celestron NexStar 6SE|150.0|1500|37.0|89|2|Starbright XLT||||0|9.53|0|Alt-Azimuth auto|||
 Celestron|Celestron NexStar 8SE|203.2|2032|31.0|89|2|Starbright XLT||||0|11|0|Alt-Azimuth auto|||
 Guan Sheng Optics|Revelation GSD200C 8" Dob|200|1200|25|92|0|||||0|0|0|Dobsonian|Crayford 1.25/2"||
@@ -18,17 +20,17 @@ Meade|Meade Maksutov MC 127/1900 UHTC LX65|127|1900|0|0|2|UHTC|Borosilicate glas
 Orion (US)|Orion SkyQuest XT6 Classic Dob|150|1200|0|92|0|Aluminum, Silicon Dioxide|borosilicate glass|||0|15.6|6.1|Dobsonian|R and P 1.25"|EZ Finder II|
 Orion (US)|Orion SkyQuest XT8 Classic Dob|203|1200|23|92|0|Aluminum, Silicon Dioxide|borosilicate glass|||0|18.6|9.2|Dobsonian|Crayford 1.25"/2"|EZ Finder II|
 Orion (US)|Orion SkyQuest XT10 Classic Dob|254|1200|0|92|0|Aluminum, Silicon Dioxide|borosilicate glass|||0|24.2|14|Dobsonian|Crayford 1.25"/2"|EZ Finder II|
-Orion (UK)|Orion UK VX6 6" Dob|152|750|32.89|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX6L 6" Dob|150|1200|24.66|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX8 8" Dob|200|900|31.5|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX8L 8" Dob|200|1200|25.0|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX10 10" Dob|250|1200|25.2|97|0|Hilux||||0|0|11|Dobsonian|||
-Orion (UK)|Orion UK VX10L 10" Dob|250|1600|20.0|97|0|Hilux||||0|0|12|Dobsonian|||
-Orion (UK)|Orion UK VX12 12" Dob|300|1200|25.0|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX12L 12" Dob|300|1600|21.0|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX14 14" Dob|350|1600|21.42|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX16 16" Dob|400|1600|20.5|97|0|Hilux||||0|0|0|Dobsonian|||
-Orion (UK)|Orion UK VX20 20" Dob|500|2000|20.0|97|0|Hilux||||0|0|0|Dobsonian|||
+Orion (UK)|Orion UK VX6 6" Dob|152|750|32.89|97|0|Hilux|Schott Borosilicate Suprax|||0|0|4.5|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX6L 6" Dob|150|1200|24.66|97|0|Hilux|Schott Borosilicate Suprax|||0|0|5.0|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX8 8" Dob|200|900|31.5|97|0|Hilux|Schott Borosilicate Suprax|||0|0|7.0|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX8L 8" Dob|200|1200|25.0|97|0|Hilux|Schott Borosilicate Suprax|||0|0|8.0|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX10 10" Dob|250|1200|25.2|97|0|Hilux|Schott Borosilicate Suprax|||0|0|11|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX10L 10" Dob|250|1600|20.0|97|0|Hilux|Schott Borosilicate Suprax|||0|0|12|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX12 12" Dob|300|1200|25.0|97|0|Hilux|Schott Borosilicate Suprax|||0|0|14|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX12L 12" Dob|300|1600|21.0|97|0|Hilux|Schott Borosilicate Suprax|||0|0|16|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX14 14" Dob|350|1600|21.42|97|0|Hilux|Schott Borosilicate Suprax|||0|0|20|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX16 16" Dob|400|1600|20.5|97|0|Hilux|Schott Borosilicate Suprax|||0|0|29|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
+Orion (UK)|Orion UK VX20 20" Dob|500|2000|20.0|97|0|Hilux|Schott Borosilicate Suprax|||0|0|40|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
 Skywatcher|Skyhawk 114P Parabolic Newt|114|500|0|0|0|||||0|0|0|EQ1|||
 Skywatcher|Skyliner 150P 6" Parabolic Dob|153|1200|22.54|92|0|Pyrex|Silicon dioxide|||0|0|5.78|Dobsonian|R and P 2"/1.25"|6x30 finder|
 Skywatcher|Skyliner 200P 8" Parabolic Dob|203|1200|23.15|92|0|Pyrex|Silicin dioxide|||0|0|11.0|Dobsonian|Crayord 2"/1,25"|9x50 finder|
@@ -36,8 +38,8 @@ Skywatcher|Skyliner 250PX 10" Parabolic Dob|254|1200|22.83|92|0|Pyrex|Silicon di
 Skywatcher|Skyliner 300PX 12" Parabolic Dob|305|1500|17.05|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|||
 Skywatcher|Skyliner 350P 14" Flextube Dob|355|1600|0|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|||
 Skywatcher|Skyliner 400P 16" Flextube Dob|406|1800|0|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|||
-Skywatcher|Skywatcher Evostar 120|120|1000|0|0|1|||||0|0|0||||
-Skywatcher|Skywatcher Evostar 150|150|1200|0|0|1|||||0|0|0|||| 
+Skywatcher|Skywatcher Evostar-120 achromat|120|1000|0|0|1|||Multi coated||0|0|0|EQ3-2|Dual-Fit 1.25"/2"|6x30 finder scope|
+Skywatcher|Skywatcher Evostar-150 achromat|150|1200|0|0|1|||||0|0|0|||| 
 Skywatcher|SkyWatcher Explorer 130P Supra AUTO|130|650|27|92|0|||||0|0|0||||
 Skywatcher|SkyWatcher Explorer 130P Newt|130|650|0|90|0|||||0|0|0|0||||
 Skywatcher|SkyWatcher Explorer 150P Newt|150|750|0|90|0|||||0|0|0|0||||
