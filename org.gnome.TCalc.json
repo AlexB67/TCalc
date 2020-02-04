@@ -5,6 +5,7 @@
     "sdk" : "org.gnome.Sdk",
     "command" : "tcalc",
     "tags": ["devel", "development", "nightly"],
+    "rename-icon" : "tcalc",
     "finish-args" : [
         "--share=network",
         "--share=ipc",
