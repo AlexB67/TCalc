@@ -21,22 +21,19 @@
 
 namespace ResultsBox
 {
-    // class ModelCols : public Gtk::TreeModel::ColumnRecord
-    // {
-    // public:
+    struct ModelCols : public Gtk::TreeModel::ColumnRecord
+    {
+        Gtk::TreeModelColumn<Glib::ustring> m_results_property;
+        Gtk::TreeModelColumn<Glib::ustring> m_results_set1;
+        Gtk::TreeModelColumn<Glib::ustring> m_results_set2;
 
-
-    //     Gtk::TreeModelColumn<Glib::ustring> m_results_property;
-    //     Gtk::TreeModelColumn<Glib::ustring> m_results_set1;
-    //     Gtk::TreeModelColumn<Glib::ustring> m_results_set2;
-
-    //     ModelCols()
-    //     {
-    //         add(m_results_property);
-    //         add(m_results_set1);
-    //         add(m_results_set2);
-    //     }
-    // };
+        ModelCols()
+        {
+            add(m_results_property);
+            add(m_results_set1);
+            add(m_results_set2);
+        }
+    };
 
     class Resultsbox
     {
@@ -73,21 +70,6 @@ namespace ResultsBox
         Gtk::TreeView       m_resultsview;
         Gtk::TreeView       m_epview;
         Gtk::TreeView       m_scopeview;
-
-        struct ModelCols : public Gtk::TreeModel::ColumnRecord
-        {
-                Gtk::TreeModelColumn<Glib::ustring> m_results_property;
-                Gtk::TreeModelColumn<Glib::ustring> m_results_set1;
-                Gtk::TreeModelColumn<Glib::ustring> m_results_set2;
-
-            ModelCols()
-            {
-                add(m_results_property);
-                add(m_results_set1);
-                add(m_results_set2);
-            }
-        };
-
         ModelCols           m_resultCols;
         ModelCols           m_epCols;
         ModelCols           m_scopeCols;

@@ -187,7 +187,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify("User telescopes updated.", m_app, "tcalc-edit");
+        AppGlobals::app_notify("User telescopes updated.", m_app, "GNOME TCalc edit");
     });
 
     m_button_del.signal_clicked().connect([this]() {
@@ -220,7 +220,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify(_("User telescopes updated."), m_app, "tcalc_edit");
+        AppGlobals::app_notify(_("User telescopes updated."), m_app);
     });
 }
 

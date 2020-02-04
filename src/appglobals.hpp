@@ -51,7 +51,7 @@ namespace AppGlobals
         if (!app)
             return;
 
-        auto note = Gio::Notification::create(_("gnome-tcalc"));
+        auto note = Gio::Notification::create(_("GNOME-TCalc"));
         note->set_body(message);
         app->send_notification(messageid, note);
     }

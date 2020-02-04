@@ -178,7 +178,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
 
         init();
         enable_widgets(false);
-        AppGlobals::app_notify(_("User eyepieces updated."), m_app, "tcalc_edit");
+        AppGlobals::app_notify(_("User eyepieces updated."), m_app);
     });
 }
 

@@ -9,9 +9,59 @@
 
 namespace EpCombo
 {
+  struct Epmodelcols : public Gtk::TreeModel::ColumnRecord
+  {
+    Gtk::TreeModelColumn<Glib::ustring> m_epbrand;
+    Gtk::TreeModelColumn<Glib::ustring> m_epmodel;
+    Gtk::TreeModelColumn<double> m_epfov;
+    Gtk::TreeModelColumn<double> m_epflen;
+    Gtk::TreeModelColumn<double> m_epfstop;
+    Gtk::TreeModelColumn<double> m_eprelief;
+    Gtk::TreeModelColumn<double> m_eptrans;
+    Gtk::TreeModelColumn<double> m_epbarrel;
+    Gtk::TreeModelColumn<Glib::ustring> m_eptype;
+    Gtk::TreeModelColumn<int> m_epgroups;
+    Gtk::TreeModelColumn<int> m_epelements;
+    Gtk::TreeModelColumn<double> m_epweight;
+    Gtk::TreeModelColumn<Glib::ustring> m_epcoating;
+    Gtk::TreeModelColumn<Glib::ustring> m_epmaterial;
+
+    Epmodelcols()
+    {
+      add(m_epbrand);
+      add(m_epmodel);
+      add(m_epfov);
+      add(m_epflen);
+      add(m_epfstop);
+      add(m_eprelief);
+      add(m_eptrans);
+      add(m_epbarrel);
+      add(m_eptype);
+      add(m_epgroups);
+      add(m_epelements);
+      add(m_epweight);
+      add(m_epcoating);
+      add(m_epmaterial);
+    }
+  };
+
+  struct Eplistcols : public Gtk::TreeModel::ColumnRecord
+  {
+    Gtk::TreeModelColumn<Glib::ustring> m_epbrand;
+    Gtk::TreeModelColumn<Glib::ustring> m_epmodel;
+    Eplistcols()
+    {
+      add(m_epbrand);
+      add(m_epmodel);
+    }
+  };
+
   class EpCombomodel  // ep stands for eyepiece
   {
     public:
+      Epmodelcols m_epcols;
+      Eplistcols m_epcompletioncols;
+
       void create_ep_model();
       void append_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
                               double, double, Glib::ustring, int, int, double, Glib::ustring, 
@@ -33,53 +83,6 @@ namespace EpCombo
       const Glib::RefPtr<Gtk::TreeStore>& get_epmodel() const { return m_eptreemodel;}
 
     private:
-      struct Epmodelcols : public Gtk::TreeModel::ColumnRecord
-      {
-        Gtk::TreeModelColumn<Glib::ustring> m_epbrand;
-        Gtk::TreeModelColumn<Glib::ustring> m_epmodel;
-        Gtk::TreeModelColumn<double> m_epfov;
-        Gtk::TreeModelColumn<double> m_epflen;
-        Gtk::TreeModelColumn<double> m_epfstop;
-        Gtk::TreeModelColumn<double> m_eprelief;
-        Gtk::TreeModelColumn<double> m_eptrans;
-        Gtk::TreeModelColumn<double> m_epbarrel;
-        Gtk::TreeModelColumn<Glib::ustring> m_eptype;
-        Gtk::TreeModelColumn<int> m_epgroups;
-        Gtk::TreeModelColumn<int> m_epelements;
-        Gtk::TreeModelColumn<double> m_epweight;
-        Gtk::TreeModelColumn<Glib::ustring> m_epcoating;
-        Gtk::TreeModelColumn<Glib::ustring> m_epmaterial;
-        
-        Epmodelcols()
-        {
-          add(m_epbrand);
-          add(m_epmodel);
-          add(m_epfov);
-          add(m_epflen); 
-          add(m_epfstop);
-          add(m_eprelief);
-          add(m_eptrans);
-          add(m_epbarrel);
-          add(m_eptype);
-          add(m_epgroups);
-          add(m_epelements);
-          add(m_epweight);
-          add(m_epcoating);
-          add(m_epmaterial);
-        }
-      };
-
-      class Eplistcols : public Gtk::TreeModel::ColumnRecord
-      {
-        public:
-          Gtk::TreeModelColumn<Glib::ustring> m_epbrand;
-          Gtk::TreeModelColumn<Glib::ustring> m_epmodel;
-          Eplistcols()
-          {
-            add(m_epbrand);
-            add(m_epmodel);
-          }
-      };
       Glib::RefPtr<Gtk::TreeStore> m_eptreemodel;
       Glib::RefPtr<Gtk::ListStore> m_eplistmodel;
       Glib::RefPtr<Gtk::EntryCompletion> epentrycompletion;
@@ -87,10 +90,6 @@ namespace EpCombo
       Gtk::ComboBox*    m_epcombo   = nullptr;
       Gtk::SearchEntry* m_epsearch  = nullptr;
       bool m_case_sensitive = false;
-    
-    public:
-        Epmodelcols m_epcols;
-        Eplistcols m_epcompletioncols;
 
     protected:
       bool on_ep_selected(const Gtk::TreeModel::iterator& iter);
