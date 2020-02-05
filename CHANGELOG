@@ -10,4 +10,4 @@ Fixes, enhancements and help documentation added. Flatpak build support from gno
 
 24 / 01 / 2020 0.0.8
 
-Enhancements. Over a 1000 eyepieces, broken into categories by brand.
+Enhancements. Over a 1000 eyepieces, broken into categories by brand. gtk-webkit is no longer required.

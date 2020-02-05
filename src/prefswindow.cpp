@@ -104,7 +104,7 @@ void PrefsWindow::create_appearance_page()
     graphthemes.insert(4, _("Dark"));
     graphthemes.insert(5, _("Desktop theme"));
 
-    graphthemes.set_active(0);
+    graphthemes.set_active(1);
     graphthemes.set_tooltip_text(_("Customise the graph colours. This will reset if the" 
     "desktop theme changes, or if prefer darkmode is swithed on or off."));
 
@@ -138,7 +138,6 @@ void PrefsWindow::create_appearance_page()
     });
 
     drawframes->property_active().signal_changed().connect([this](){
-			//AppGlobals::set_frame_style.emit();
             (true == drawframes->get_active())  ? AppGlobals::frame_style.emit(Gtk::SHADOW_ETCHED_IN)
                                                 : AppGlobals::frame_style.emit(Gtk::SHADOW_NONE);
 

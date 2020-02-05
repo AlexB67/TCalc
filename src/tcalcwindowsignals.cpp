@@ -203,6 +203,8 @@ void TcalcWindow::create_results()
 	
 	resultsbox->append_row(_("Brightness factor"), dtmp, 4, "", set);
 
+	if(dtmp > 1.0) logbox->setlogtext(flag, LogView::tWARN, _("brightness factor exceeds 1. light loss."));
+
 	dtmp = tFOV * Astrocalc::astrocalc::DEGTOARCMIN / (0.2507);
 	resultsbox->append_row(_("Drift time"), dtmp, 1, "s", set);
 
@@ -235,6 +237,11 @@ void TcalcWindow::create_results()
 			magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).first;
 
 	resultsbox->append_row(_("Visibility threshold"), dtmp, 4, "", set);
+
+	if (dtmp < 0.0) logbox->setlogtext(flag, LogView::tWARN, _("DSO close to threshold, probably invisible."));
+	else if (dtmp > 0.0 && dtmp < 0.1) logbox->setlogtext(flag, LogView::tINFO, _("DSO visibility challenging."));
+	else if (dtmp > 0.1 && dtmp < 0.5) logbox->setlogtext(flag, LogView::tINFO, _("DSO visible."));
+	else logbox->setlogtext(flag, LogView::tINFO, _("DSO easily visibile."));
 
 	dtmp = m_astrocalc.calc_contrast_factor(scopebox->m_sobstruct.get_value() / 100.0);
 

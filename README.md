@@ -7,7 +7,7 @@ Clone the Tcalc repo, at the comand prompt -
 
 $git clone https://github.com/AlexB67/TCalc.git
 
-From the command line
+From the command line.
 
 $cd TCalc\
 $mkdir build\
@@ -30,9 +30,10 @@ Note: this is a vscode project but works equally well in gnome-builder, just poi
 Neither are required to build or install the project. To be build as an rpm package in future. 
 
 The following packages are required to build the software natively.\
+git\
 gettext\
 appstream-util\
-gtkmm developmen libraries\
+gtkmm development libraries\
 meson\
 ninja build system\
 
