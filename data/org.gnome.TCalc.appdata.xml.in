@@ -19,6 +19,7 @@
     <screenshot type="default">
       <caption>Main application window</caption>
       <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/TCalc-window.png</image>
+    </screenshot>
      <screenshot>
        <caption>Graphs window</caption>
       <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/graphs-window.png</image>
