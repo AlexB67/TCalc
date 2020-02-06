@@ -17,19 +17,18 @@
 	</description>
 	<screenshots>
     <screenshot type="default">
-       <caption>Main application window</caption>
-      <image>https://github.com/AlexB67/TCalc/tree/master/data/screenshots/TCalc-mainwindow.png</image>
-    </screenshot>
+      <caption>Main application window</caption>
+      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/TCalc-window.png</image>
      <screenshot>
        <caption>Graphs window</caption>
-      <image>https://github.com/AlexB67/TCalc/tree/master/data/screenshots/graphs-window.png</image>
+      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/graphs-window.png</image>
     </screenshot>
 	</screenshots>
   <releases>
 	  <release version="0.0.8" date="2020-02-04" type="release">
       <description>
         <p>
-          This is an early stable release.
+          This is a stable release.
         </p>
         <ul>
           <li>New graphing widget</li>
