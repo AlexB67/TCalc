@@ -40,11 +40,9 @@ if compile_schemas.found()
   )
 endif
 
-# more icons to create, for now just use one
-
-foreach s: ['48', '256', '512']
+foreach s: ['32', '48', '64', '128', '256', '512']
   icon_destdir = join_paths(get_option('datadir'), 'icons', 'hicolor', '@0@x@0@'.format(s), 'apps')
-  install_data('tcalc.png', install_dir: icon_destdir)
+  install_data(join_paths('icons', '@0@x@0@'.format(s), 'tcalc.png'), install_dir: icon_destdir)
 endforeach
 
 configure_file(input: 'tcalc.png', output: 'tcalc.png', copy: true)

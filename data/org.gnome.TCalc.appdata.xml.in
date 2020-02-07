@@ -8,7 +8,7 @@
    <url type="homepage">https://github.com/AlexB67/TCalc/</url>
 	<description>
 	<p>
-	An Astronomy tool for telescopes and eyepieces.
+	An Astronomy tool for telescopes and eyepieces
 	</p>
 	<p>
 	Calculate various properties related to telescopes and eyepieces. Includes an ocular viewer and interactive graphs.
@@ -18,11 +18,11 @@
 	<screenshots>
     <screenshot type="default">
       <caption>Main application window</caption>
-      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/TCalc-window.png</image>
+      <image type="source">https://raw.githubusercontent.com/AlexB67/TCalc/master/data/screenshots/TCalc-window.png</image>
     </screenshot>
      <screenshot>
        <caption>Graphs window</caption>
-      <image type="source">https://github.com/AlexB67/TCalc/tree/master/data/screenshots/graphs-window.png</image>
+      <image type="source">https://raw.githubusercontent.com/AlexB67/TCalc/master/data/screenshots/graphs-window.png</image>
     </screenshot>
 	</screenshots>
   <releases>
