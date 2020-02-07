@@ -1,8 +1,6 @@
 
 #pragma once
 #include "telescopebox.hpp"
-#include "graphswindow.hpp"
-#include "ocularwindow.hpp"
 #include <gtkmm/sizegroup.h>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/separator.h>

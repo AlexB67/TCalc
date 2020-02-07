@@ -1,6 +1,7 @@
 #include "eyepieceboxedit.hpp"
 #include "appglobals.hpp"
 #include "fileio.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "glibmmcustomutils.hpp"
 #include <fstream>
 

@@ -1,7 +1,5 @@
 #pragma once
 #include "eyepiecebox.hpp"
-#include "graphswindow.hpp"
-#include "ocularwindow.hpp"
 #include "gtkmmcustomutils.hpp"
 #include <gtkmm/sizegroup.h>
 #include <gtkmm/messagedialog.h>

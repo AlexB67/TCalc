@@ -1,4 +1,5 @@
 #include "telescopeboxedit.hpp"
+#include "astrocalclib/astrocalc.hpp"
 #include "appglobals.hpp"
 #include "fileio.hpp"
 #include <fstream>
