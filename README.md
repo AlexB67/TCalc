@@ -29,7 +29,7 @@ Note: this is a vscode project but works equally well in gnome-builder, just poi
 
 Neither are required to build or install the project. To be build as an rpm package in future. 
 
-The following packages are required to build the software natively.\
+The following packages are required to build the software natively.
 git\
 gettext\
 appstream-util\
@@ -38,3 +38,4 @@ meson\
 ninja build system\
 
 Consult/search your distribution for the above packages and install them if required. Flatpak builds will download the relevant packages automatically.
+
