@@ -114,7 +114,7 @@ void TcalcWindow::create_menu_and_shortcuts()
    });
 
    add_action("fstop", [this]() {
-      optionsbox->m_uselinearmethod->activate();
+      optionsbox->m_usefstop->activate();
    });
 
    add_action("dsomode", [this]() {
