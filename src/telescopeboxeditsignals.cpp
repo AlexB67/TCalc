@@ -10,7 +10,7 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
 
     m_smodel->signal_changed().connect([this]() {
 
-        Gtk::TreeModel::iterator iter = m_smodel->get_active();
+        const Gtk::TreeModel::iterator iter = m_smodel->get_active();
         if (iter)
         {
             const auto row = *iter;

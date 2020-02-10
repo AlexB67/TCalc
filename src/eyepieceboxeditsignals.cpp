@@ -12,7 +12,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
     m_button_moveup.signal_clicked().connect(sigc::mem_fun(*this, &EditEyepieces::swap_rows));
 
     m_emodel->signal_changed().connect([this]() {
-        Gtk::TreeModel::iterator iter = m_emodel->get_active();
+        const Gtk::TreeModel::iterator iter = m_emodel->get_active();
         if (iter)
         {
             auto row = *iter;

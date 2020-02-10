@@ -59,7 +59,6 @@ namespace ResultsBox
         void clear(bool reset = false) const;
         void get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset) const;
         void get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox>& scopebox, const int resultsset) const;
-        Glib::RefPtr<Gtk::ListStore> get_results_model() const { return m_resultsModel;}
 
     private:
         Gtk::ScrolledWindow m_scrollwin;

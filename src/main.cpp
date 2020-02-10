@@ -47,12 +47,5 @@ int main (int argc, char *argv[])
 	returncode = tcalcapp->run(argc, argv);
 
 	delete tcalcwindow;
-
-	if (0 == returncode)
-		AppGlobals::app_notify(_("Clear skies!"), tcalcapp);
-	else
-		AppGlobals::app_notify(_("TCalc exited abnormally. Exit code : ") + 
-								Glib::ustring::format(returncode), tcalcapp);
-	
 	return returncode;
 }

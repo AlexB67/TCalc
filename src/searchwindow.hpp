@@ -19,7 +19,7 @@ public:
     SearchWindow(const SearchWindow&) = delete;
     SearchWindow(SearchWindow&& ) = delete;
     SearchWindow& operator=(const SearchWindow& other) = delete;
-    SearchWindow& operator=(SearchWindow&& other) = delete;    
+    SearchWindow& operator=(SearchWindow&& other) = delete;   
 
 private:
     Gtk::Grid         grid;

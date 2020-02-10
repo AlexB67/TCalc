@@ -59,7 +59,6 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    AppGlobals::LOGFLAG = true;
 
    logbox->setlogtext(AppGlobals::LOGFLAG, LogView::tINFO, _("TCalc ready."));
-   AppGlobals::app_notify(_("TCalc ready."), m_app);
 }
 
 void TcalcWindow::create_menu_and_shortcuts()

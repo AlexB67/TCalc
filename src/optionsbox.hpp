@@ -17,7 +17,7 @@ namespace OptionsBox
     Optionsbox& operator=(const Optionsbox& other) = delete;
     Gtk::Frame &create_options_grid();
     void set_default_values();
-    void show_wavelength(bool show);
+    void show_wavelength(const bool show);
     Gtk::Switch         *m_usefstop;
     Gtk::Switch         *m_uselinearmethod;
     Ui::SpinEntry		    m_wavelength;

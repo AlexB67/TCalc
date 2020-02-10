@@ -9,8 +9,8 @@ SearchWindow::SearchWindow( const std::shared_ptr<EpBox::Eyepiecebox>& epbox,
 {    
     set_resizable(false);
     set_title("Search");
-    epsearch.set_width_chars(40);
-    scopesearch.set_width_chars(40);
+    epsearch.set_width_chars(50);
+    scopesearch.set_width_chars(50);
     epsearchlabel.set_text(_("Eyepiece search: "));
     scopesearchlabel.set_text(_("Telescope search: "));
     casesensitivelabel.set_text(_("Match case: "));

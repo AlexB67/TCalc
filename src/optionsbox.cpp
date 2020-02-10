@@ -50,7 +50,7 @@ void OptionsBox::Optionsbox::set_default_values()
     m_wavelength.set_spin_entry(550.0, 400.0, 700.0, 1.0, 2, true);
 }
 
-void OptionsBox::Optionsbox::show_wavelength(bool show)
+void OptionsBox::Optionsbox::show_wavelength(const bool show)
 {
     if (true == show)
     {

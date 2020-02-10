@@ -63,11 +63,11 @@ void GraphsWindow::plot_data_changed()
 void GraphsWindow::search()
 {
     if (!searchwindow)
-		{
-			searchwindow = std::make_unique<SearchWindow>(epbox, scopebox);
-			searchwindow->set_transient_for(*this);
-			searchwindow->set_modal(true);
-		}
-		
-	searchwindow->present();
+    {
+        searchwindow = std::make_unique<SearchWindow>(epbox, scopebox);
+        searchwindow->set_transient_for(*this);
+        searchwindow->set_modal(true);
+    }
+
+    searchwindow->present();
 }
