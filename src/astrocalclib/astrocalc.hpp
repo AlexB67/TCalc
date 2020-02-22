@@ -93,7 +93,7 @@ public:
     static constexpr double ETRANSORTHODEFAULT = 98.0;
     static constexpr double SCOPEREFLECTDEFAULT = 88.0;
     static constexpr double SCOPETRANSDEFAULT = 99.0;
-    static constexpr double OBSTRUCTSIZEDEFAULT = 20.0;
+    static constexpr double OBSTRUCTSIZEDEFAULT = 25.0;
     static constexpr double OBSTRUCTSIZESCTDEFAULT = 33.0;
 
     // for users wanting to override the defaults above you can acces the following parameters

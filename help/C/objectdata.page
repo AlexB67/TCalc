@@ -46,7 +46,7 @@ or far left for beginners a bias is applied.</p>
 </item>
 
 <item>
-<p>NELM: Naked eye limiting magnitude. The faintest star that can be seen near zenith using averted vision. For furhter details see <link href="https://en.wikipedia.org/wiki/Limiting_magnitude"> limiting magnitude</link>. </p>  
+<p>NELM: Naked eye limiting magnitude. The faintest star that can be seen near zenith using averted vision. For further details see <link href="https://en.wikipedia.org/wiki/Limiting_magnitude"> limiting magnitude</link>. </p>  
 </item>
 
 <item>
@@ -107,7 +107,7 @@ In effect the calculation is limited to a lower bound of NELM 5. </p>
 </item>
 
 <item>
-<p>SB sky: A measure of sky background Brightness, this can be deduced from the NELM value. Note that the values produced here from naked eye limiting magnitudes are different compared to those produced by the "star object" mode sky quality value. 
+<p>SB sky: A measure of sky background brightness, this can be deduced from the NELM value. Note that the values produced here from naked eye limiting magnitudes are different compared to those produced by the "star object" mode sky quality value. 
 As such a sky quality meter is not a direct measure of genuine sky background darkness, but a combined glow of stars and sky.
 </p>  
 </item>
