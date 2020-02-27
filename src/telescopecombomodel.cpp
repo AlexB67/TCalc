@@ -16,6 +16,7 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
     Gtk::TreeModel::iterator previousiter;
     Gtk::TreeModel::iterator parentiter;
 
+    bool found = false;
     
     for(parentiter = m_scopetreemodel->children().begin(); parentiter != m_scopetreemodel->children().end(); ++parentiter)
         if ((*parentiter)[m_scopecols.m_sbrand] == _("User")) break;
@@ -26,8 +27,10 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         {
             previousiter = iter;
             iter--;
-            break;
+            found = true;
         }
+
+        if(found) break;
     }
 
     const Gtk::TreeRow prow = *previousiter;
@@ -136,8 +139,9 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
             if (iter->get_value(m_scopecols.m_sbrand) == _("User")) 
             {
                 found = true;
-                break;
             }
+
+            if(found) break;
         }
     }
     
@@ -187,26 +191,32 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &scopename) co
     for (iter = m_scopetreemodel->children().begin(); iter != m_scopetreemodel->children().end(); ++iter)
         if (iter->get_value(m_scopecols.m_sbrand) == _("User")) break;
 
+    bool deleted = false;
     for (auto iter2 : iter->children())
     {
         if (scopename == (*iter2)->get_value(m_scopecols.m_smodel))
         {
             if(iter2) m_scopetreemodel->erase(iter2);
-            break;
+            deleted = true;
         }
+
+        if(deleted) break;
     }
 
     // If there are no more user eyepieces left delete the User category (parent)
     if (0 == iter->children().size()) m_scopetreemodel->erase(iter);
 
     // remove from completion list
+    deleted = false;
     for (auto &i : m_scopelistmodel->children())
     {
         if (scopename == i->get_value(m_scopecompletioncols.m_smodel))
         {
             m_scopelistmodel->erase(i);
-            break;
+            deleted = true;
         }
+
+        if(deleted) break;
     }
 }
 
@@ -249,14 +259,18 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
     }
 
     // Update completion model
+    bool updated = false;
+
     for (auto &i : m_scopelistmodel->children())
     {
         if (oldname == (*i)->get_value(m_scopecompletioncols.m_smodel))
         {
             const auto row = *i;
             row[m_scopecompletioncols.m_smodel] =  std::get<1>(scopedata);
-            break;
+            updated = true;
         }
+
+        if(updated) break;
     }
 }
 
@@ -314,14 +328,17 @@ bool ScopeCombomodel::on_scope_selected(const Gtk::TreeModel::iterator& iter)
         {
              if ((*it)[m_scopecols.m_sbrand] == row[m_scopecompletioncols.m_sbrand]) break;
         }
-           
+        
+        bool found = false;
         for(Gtk::TreeModel::iterator it2 = it->children().begin(); it2 != it->children().end(); ++it2)
         {
             if (row[m_scopecompletioncols.m_smodel] == it2->get_value(m_scopecols.m_smodel)) 
             {
+                found = true;
                 m_scopecombo->set_active(*it2);
-                break;
             }
+
+            if (found) break;
         }
 
         return true;

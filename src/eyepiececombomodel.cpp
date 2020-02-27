@@ -20,14 +20,18 @@ void EpCombomodel::swap_ep_rows(const Glib::ustring& epname) const
     for(parentiter = m_eptreemodel->children().begin(); parentiter != m_eptreemodel->children().end(); ++parentiter)
         if ((*parentiter)[m_epcols.m_epbrand] == _("User")) break;
 
+    bool found = false;
+
     for (iter = parentiter->children().begin(); iter != parentiter->children().end(); ++iter)
     {
         if (epname == iter->get_value(m_epcols.m_epmodel))
         {
             previousiter = iter;
             iter--;
-            break;
+            found = true;
         }
+
+        if(found) break;
     }
 
     const Gtk::TreeRow prow = *previousiter;
@@ -125,8 +129,9 @@ void EpCombomodel::add_ep_to_model(const std::tuple<Glib::ustring, Glib::ustring
             if (iter->get_value(m_epcols.m_epbrand) == _("User")) 
             {
                 found = true;
-                break;
             }
+
+            if(found) break;
         }
     }
     
@@ -173,26 +178,32 @@ void EpCombomodel::remove_ep_from_model(const Glib::ustring &epname) const
     for (iter = m_eptreemodel->children().begin(); iter !=m_eptreemodel->children().end(); ++iter)
         if (iter->get_value(m_epcols.m_epbrand) == _("User")) break;
 
+    bool deleted = false;
     for (auto iter2 : iter->children())
     {
         if (epname == (*iter2)->get_value(m_epcols.m_epmodel))
         {
             if(iter2) m_eptreemodel->erase(iter2);
-            break;
+            deleted = true;
         }
+
+        if(deleted) break;
     }
 
     // If there are no more user eyepieces left delete the User category (parent)
     if (0 == iter->children().size()) m_eptreemodel->erase(iter);
 
      // remove from completion list
+    deleted = false;
     for (auto &i : m_eplistmodel->children())
     {
         if (epname == i->get_value(m_epcompletioncols.m_epmodel))
         {
             m_eplistmodel->erase(i);
-            break;
+            deleted = true;
         }
+
+        if(deleted) break;
     }
 }
 
@@ -232,14 +243,18 @@ void EpCombomodel::update_ep_model(const std::tuple<Glib::ustring, Glib::ustring
     }
 
     // Update completion model
+    bool updated = false;
+
     for (auto &i : m_eplistmodel->children())
     {
         if (oldname == (*i)->get_value(m_epcompletioncols.m_epmodel))
         {
             const auto row = *i;
             row[m_epcompletioncols.m_epmodel] =  std::get<1>(epdata);
-            break;
+            updated = true;
         }
+        
+        if(updated) break;
     }
 }
 
@@ -297,14 +312,17 @@ bool EpCombomodel::on_ep_selected(const Gtk::TreeModel::iterator &iter)
         {
              if ((*it)[m_epcols.m_epbrand] == row[m_epcompletioncols.m_epbrand]) break;
         }
-           
+        
+        bool found = false;
         for(Gtk::TreeModel::iterator it2 = it->children().begin(); it2 != it->children().end(); ++it2)
         {
             if (row[m_epcompletioncols.m_epmodel] == it2->get_value(m_epcols.m_epmodel)) 
             {
+                found = true;
                 m_epcombo->set_active(*it2);
-                break;
             }
+            
+            if (found) break;
         }
 
         return true;
