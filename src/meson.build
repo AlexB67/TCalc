@@ -65,7 +65,7 @@ tcalc_sources += gnome.compile_resources(
 executable('tcalc', tcalc_sources,
   dependencies: tcalc_deps, include_directories : configuration_inc,
   override_options : ['cpp_std=c++17'],
-  cpp_args : '-Wl, -Wall, -Wextra -Wshadow',
+  cpp_args : ['-Wall', '-Wextra', '-pedantic'],
   install: true,
 )
 

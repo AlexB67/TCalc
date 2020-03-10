@@ -40,10 +40,10 @@ void fileIO::dbfileIO::load_scope_data(	Gtk::ComboBox& scopecombobox,
 	if (true == std::filesystem::exists(path.c_str()))
 		scopecombomodel.create_scope_model();
 
-	read_scope_file(scopecombobox, pathuser, scopecombomodel);
+	read_scope_file(pathuser, scopecombomodel);
 
 	if (false == userdataonly) 
-		read_scope_file(scopecombobox, path, scopecombomodel);
+		read_scope_file(path, scopecombomodel);
 
 	scopecombomodel.setup_scope_combo_model(scopecombobox);
 }
@@ -61,10 +61,10 @@ void fileIO::dbfileIO::load_ep_data(Gtk::ComboBox& epcombobox,
  	if (true == std::filesystem::exists(path.c_str()))
 		epcombomodel.create_ep_model();
 
-	read_ep_file(epcombobox, pathuser, epcombomodel);
+	read_ep_file(pathuser, epcombomodel);
 
 	if (false == userdataonly) 
-		read_ep_file(epcombobox, path, epcombomodel);
+		read_ep_file(path, epcombomodel);
 
 	epcombomodel.setup_ep_combo_model(epcombobox);
 }
@@ -127,9 +127,7 @@ void fileIO::dbfileIO::load_dso_data(Gtk::ComboBox &dsocombobox, DSOCombomodel &
 	file.close();
 }
 
-void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox, 
-                            			const Glib::ustring &path, 
-                            			ScopeCombo::ScopeCombomodel &scopecombomodel)
+void fileIO::dbfileIO::read_scope_file(const Glib::ustring &path, ScopeCombo::ScopeCombomodel &scopecombomodel)
 {
 	std::ifstream file(path.c_str(), std::ifstream::in);
 
@@ -197,9 +195,7 @@ void fileIO::dbfileIO::read_scope_file( const Gtk::ComboBox& scopecombobox,
     file.close();
 }
 
-void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox, 
-									const Glib::ustring &path, 
-									EpCombo::EpCombomodel &epcombomodel)
+void fileIO::dbfileIO::read_ep_file(const Glib::ustring &path, EpCombo::EpCombomodel &epcombomodel)
 {
 	std::ifstream file(path.c_str(), std::ifstream::in);
 
@@ -261,7 +257,7 @@ void fileIO::dbfileIO::read_ep_file(const Gtk::ComboBox& epcombobox,
 	current_brand.clear();
 
 	file.close();
-};
+}
 
 
 void fileIO::dbfileIO::write_ep_user_data(	const Gtk::ComboBox& epcombobox, 

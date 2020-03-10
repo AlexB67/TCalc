@@ -195,4 +195,4 @@ void EpBox::EditEyepieces::swap_rows()
     fileIO::dbfileIO db;
     db.write_ep_user_data(*m_emodel, m_ecombomodel);
     AppGlobals::app_notify(_("User eyepieces updated."), m_app, "tcalc_edit");
-};
+}

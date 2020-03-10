@@ -25,13 +25,8 @@ namespace fileIO
 
   private:
     Glib::ustring current_brand = "";
-    void read_ep_file(const Gtk::ComboBox &epcombobox,
-                      const Glib::ustring &path,
-                      EpCombo::EpCombomodel &epcombomodel);
-
-    void read_scope_file(const Gtk::ComboBox &scopecombobox,
-                         const Glib::ustring &path,
-                         ScopeCombo::ScopeCombomodel &scopecombomodel);
+    void read_ep_file(const Glib::ustring &path, EpCombo::EpCombomodel &epcombomodel);
+    void read_scope_file(const Glib::ustring &path, ScopeCombo::ScopeCombomodel &scopecombomodel);
   };
 
   void set_app_data();

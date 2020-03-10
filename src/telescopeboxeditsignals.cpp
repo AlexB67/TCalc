@@ -236,4 +236,4 @@ void ScopeBox::EditTelescopes::swap_rows()
     fileIO::dbfileIO db;
     db.write_scope_user_data(*m_smodel, m_scombomodel);
     AppGlobals::app_notify(_("User telescopes updated."), m_app, "tcalc_edit");
-};
+}
