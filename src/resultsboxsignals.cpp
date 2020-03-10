@@ -1,7 +1,7 @@
 #include "resultsbox.hpp"
 #include "appglobals.hpp"
 
-bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, bool keyboard_tooltip, 
+bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, [[maybe_unused]] bool keyboard_tooltip, 
                                                      const Glib::RefPtr<Gtk::Tooltip>& tooltip)
 {
     Gtk::TreeModel::Path path;
@@ -95,7 +95,7 @@ bool ResultsBox::Resultsbox::set_results_row_tooltip(int x, int y, bool keyboard
     return true;
 }
 
-bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_tooltip, 
+bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]] bool keyboard_tooltip, 
                                                      const Glib::RefPtr<Gtk::Tooltip>& tooltip)
 {
     Gtk::TreeModel::Path path;
@@ -336,7 +336,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, bool keyboard_t
     return true;
 }
 
-bool ResultsBox::Resultsbox::set_ep_row_tooltip(int x, int y, bool keyboard_tooltip, 
+bool ResultsBox::Resultsbox::set_ep_row_tooltip(int x, int y, [[maybe_unused]] bool keyboard_tooltip, 
                                                     const Glib::RefPtr<Gtk::Tooltip>& tooltip)
 {
     Gtk::TreeModel::Path path;
