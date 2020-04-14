@@ -468,8 +468,7 @@ double astrocalc::calc_nelm_threshold_method(const double surfacebrightness) con
 
 double astrocalc::calc_contrast_index(const double background_brightness, const double object_brightness) const noexcept
 {
-    // rounded to return (-0.40* (object_brightness - background_brightness));
-    return (-0.3981 * (object_brightness - background_brightness));
+    return (-0.4 * (object_brightness - background_brightness));
 }
 
 double astrocalc::calc_ortho_eyerelief(const double e_flen) const noexcept
