@@ -1,5 +1,6 @@
 #pragma once
 #include <gtkmm/applicationwindow.h>
+#include <gtkmm/scrolledwindow.h>
 #include <gtkmm/shortcutswindow.h>
 #include <gtkmm/menubutton.h>
 #include <gtkmm/menu.h>
@@ -35,6 +36,7 @@ public:
 
 private:
   Glib::RefPtr<Gtk::Application> m_app;
+  Gtk::ScrolledWindow mainwin;
   std::unique_ptr<PrefsWindow> prefswindow;
   std::unique_ptr<SearchWindow> searchwindow;
   std::unique_ptr<EquipWindow> equipwindow;

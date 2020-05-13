@@ -1,5 +1,6 @@
 #pragma once
 #include <gtkmm/window.h>
+#include <gtkmm/scrolledwindow.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/frame.h>
 #include <gtkmm/aspectframe.h>
@@ -30,6 +31,7 @@ public:
     OcularWindow &operator=(OcularWindow &&other) = delete;
 
 private:
+    Gtk::ScrolledWindow mainwin;
     Gtk::HeaderBar headerbar;
     Gtk::Button searchbutton;
     Gtk::Grid windowgrid;

@@ -67,17 +67,23 @@ GraphsWindow::GraphsWindow()
   controlsgrid2.attach(magbox->create_mag_grid(), 0, 0);
   controlsgrid2.attach(optionsbox->create_options_grid(), 0, 1);
 
-  windowgrid.attach(plotframe, 0, 0, 6, 6);
-  windowgrid.attach(controlsgrid, 6, 0);
-  windowgrid.attach(controlsgrid2, 7, 0);
-
   Uidefs::set_ui_spacing<Gtk::Grid>(plotgrid);
   Uidefs::set_ui_spacing<Gtk::Grid>(controlsgrid);
   Uidefs::set_ui_spacing<Gtk::Grid>(controlsgrid2);
 
+  windowgrid.attach(plotframe, 0, 0, 6, 6);
+  windowgrid.attach(controlsgrid, 6, 0);
+  windowgrid.attach(controlsgrid2, 7, 0);
+
+  windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+  mainwin.add(windowgrid);
+  mainwin.set_propagate_natural_height(true);
+  mainwin.set_propagate_natural_width(true);
+
+
   init_plot();
 
-  add(windowgrid);
+  add(mainwin);
   set_signal_handlers();
   show_all_children();
   get_config();

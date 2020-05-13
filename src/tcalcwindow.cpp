@@ -43,7 +43,13 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    windowgrid.attach(gridleft, 0, 0);
    windowgrid.attach(gridright, 1, 0);
 
-   add(windowgrid);
+   windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+   mainwin.add(windowgrid);
+   mainwin.set_propagate_natural_height(true);
+   mainwin.set_propagate_natural_width(true);
+   add(mainwin);
+
+   //add(windowgrid);
 
    set_headerbar();
    create_menu_and_shortcuts();

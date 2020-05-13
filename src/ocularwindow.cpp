@@ -62,17 +62,22 @@ OcularWindow::OcularWindow()
   oculargrid.set_hexpand(true);
   oculargrid.set_vexpand(true);
 
-  windowgrid.attach(ocularboxframe, 0, 0);
-  windowgrid.attach(controlsgrid, 1, 0);
-  windowgrid.attach(controlsgrid2, 2, 0);
-
   Uidefs::set_ui_spacing<Gtk::Grid>(oculargrid);
   Uidefs::set_ui_spacing<Gtk::Grid>(controlsgrid);
   Uidefs::set_ui_spacing<Gtk::Grid>(controlsgrid2);
 
+  windowgrid.attach(ocularboxframe, 0, 0);
+  windowgrid.attach(controlsgrid, 1, 0);
+  windowgrid.attach(controlsgrid2, 2, 0);
+
+  windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+  mainwin.add(windowgrid);
+  mainwin.set_propagate_natural_height(true);
+  mainwin.set_propagate_natural_width(true);
+  add(mainwin);
+
   ocularbox.m_efov = epbox->m_efov.get_value();
 
-  add(windowgrid);
   set_signal_handlers();
   optionsbox->show_wavelength(false);
   

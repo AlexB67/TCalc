@@ -1,5 +1,6 @@
 #pragma once
 #include <gtkmm/window.h>
+#include <gtkmm/scrolledwindow.h>
 #include <gtkmm/headerbar.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/frame.h>
@@ -29,6 +30,7 @@ public:
     void set_plot_theme(const Glib::ustring& themename);
     
 private:
+    Gtk::ScrolledWindow mainwin;
     Gtk::HeaderBar  headerbar;
     Gtk::Button searchbutton;
     Gtk::Switch *showgraphlegend;
