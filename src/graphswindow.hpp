@@ -30,7 +30,7 @@ public:
     void set_plot_theme(const Glib::ustring& themename);
     
 private:
-    Gtk::ScrolledWindow mainwin;
+    // Gtk::ScrolledWindow mainwin;
     Gtk::HeaderBar  headerbar;
     Gtk::Button searchbutton;
     Gtk::Switch *showgraphlegend;

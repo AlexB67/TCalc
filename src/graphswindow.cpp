@@ -75,15 +75,14 @@ GraphsWindow::GraphsWindow()
   windowgrid.attach(controlsgrid, 6, 0);
   windowgrid.attach(controlsgrid2, 7, 0);
 
-  windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
-  mainwin.add(windowgrid);
-  mainwin.set_propagate_natural_height(true);
-  mainwin.set_propagate_natural_width(true);
-
+ // windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+  //add(windowgrid);
+  // mainwin.set_propagate_natural_height(true);
+  // mainwin.set_propagate_natural_width(true);
 
   init_plot();
 
-  add(mainwin);
+  add(windowgrid);
   set_signal_handlers();
   show_all_children();
   get_config();
