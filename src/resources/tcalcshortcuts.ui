@@ -188,49 +188,42 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;g</property>
+                <property name="accelerator">&lt;ctrl&gt;g</property>
                 <property name="title" translatable="yes">Open the interactive graphs window</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;o</property>
+                <property name="accelerator">&lt;ctrl&gt;o</property>
                 <property name="title" translatable="yes">Open the ocular window</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;p</property>
+                <property name="accelerator">&lt;ctrl&gt;p</property>
                 <property name="title" translatable="yes">Open the preferences window</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;a</property>
-                <property name="title" translatable="yes">Open the about window</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;e</property>
+                <property name="accelerator">&lt;ctrl&gt;e</property>
                 <property name="title" translatable="yes">Open the equipment editor</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;k</property>
+                <property name="accelerator">&lt;ctrl&gt;k</property>
                 <property name="title" translatable="yes">Open the shortcuts window</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;q</property>
+                <property name="accelerator">&lt;ctrl&gt;q</property>
                 <property name="title" translatable="yes">Exit the application</property>
               </object>
             </child>
