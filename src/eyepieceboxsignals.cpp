@@ -65,8 +65,6 @@ void EpBox::Eyepiecebox::ep_changed()
         if (row)
         {
             log_msg.emit(flag, LogView::tINFO, row[m_ecombomodel.m_epcols.m_epmodel] + _(" selected."));
-            auto *entry = m_emodel->get_entry();
-            entry->set_text(row[m_ecombomodel.m_epcols.m_epmodel]);
             m_efov.set_value(row[m_ecombomodel.m_epcols.m_epfov]);
             m_eflen.set_value(row[m_ecombomodel.m_epcols.m_epflen]);
             m_etype.set_active(get_eyepiece_type(row));
@@ -138,13 +136,13 @@ void EpBox::Eyepiecebox::ep_changed()
 
 int EpBox::Eyepiecebox::get_eyepiece_type(const Gtk::TreeModel::Row& row) const
 {
-    if ( _("Plossl") == row[m_ecombomodel.m_epcols.m_eptype])
+    if ( _("Plossl") == row.get_value(m_ecombomodel.m_epcols.m_eptype))
         return 0;
-    else if ( _("Ortho") == row[m_ecombomodel.m_epcols.m_eptype])
+    else if ( _("Ortho") == row.get_value(m_ecombomodel.m_epcols.m_eptype))
         return 1;
-    else if ( _("Multi Other") == row[m_ecombomodel.m_epcols.m_eptype])
+    else if ( _("Multi Other") == row.get_value(m_ecombomodel.m_epcols.m_eptype))
         return 2;
-    else if (true == static_cast<Glib::ustring>(row[m_ecombomodel.m_epcols.m_eptype]).empty()) 
+    else if (true == row.get_value(m_ecombomodel.m_epcols.m_eptype).empty()) 
         return 2;
     
     return 2;

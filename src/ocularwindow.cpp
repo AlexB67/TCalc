@@ -1,26 +1,27 @@
-#include <iostream>
-#include <cairommconfig.h>
-#include <fstream>
-#include <filesystem>
 #include "ocularwindow.hpp"
 #include "gtkmmcustomutils.hpp"
 #include "fileio.hpp"
 #include "astrocalclib/astrocalc.hpp"
 #include "appglobals.hpp"
+#include <cairommconfig.h>
+#include <fstream>
+#include <filesystem>
 
 OcularWindow::OcularWindow()
 {
-  searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+  set_hide_on_close(true);
+  searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::IconSize::INHERIT, true);
   searchbutton.set_tooltip_text(_("Search for an eyepiece or telescope model."));
-  headerbar.set_title(_("Ocular viewer"));
-  headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
-  headerbar.set_show_close_button();
-  nightmode = Gtk::make_managed<Gtk::Switch>();
-  nightmode->set_active(false);
-  nightmode->set_valign(Gtk::ALIGN_CENTER);
-  nightmode->set_halign(Gtk::ALIGN_CENTER);
-  nightmode->set_tooltip_text(_("Switch to dark mode."));
-  headerbar.pack_end(*nightmode);
+  headerbar.set_show_title_buttons(true);
+  headerlabel.set_markup(_("<b>Ocular viewer</b>\n<sub>An astronomy tool for telescopes and eyepieces.</sub>"));
+  headerbar.set_title_widget(headerlabel);
+  // nightmode = Gtk::make_managed<Gtk::Switch>();
+  // nightmode->set_active(false);
+  // nightmode->set_valign(Gtk::Align::CENTER);
+  // nightmode->set_halign(Gtk::Align::CENTER);
+  // nightmode->set_tooltip_text(_("Switch to dark mode."));
+ // headerbar.pack_end(*nightmode); // nightmode.css not working in gtk4,
+ //so disable for now 
   headerbar.pack_start(searchbutton);
   set_titlebar(headerbar);
 
@@ -38,26 +39,26 @@ OcularWindow::OcularWindow()
 
   ocularboxframe.set_label_widget(ocularboxframelabel);
   ocularboxframelabel.set_markup(_("<b>Ocular View</b>"));
-  ocularboxframe.set_label_align(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER);
+  ocularboxframe.set_label_align(Gtk::Align::CENTER);
   ocularboxframe.set_hexpand(true);
   ocularboxframe.set_vexpand(true);
-  ocularboxframe.set_border_width(Uidefs::BORDER_WIDTH);
-  AppGlobals::get_keyfile_config(ocularboxframe);
-  AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(ocularboxframe, type);});
+  ocularboxframe.set_margin(Uidefs::BORDER_WIDTH);
+  // AppGlobals::get_keyfile_config(ocularboxframe);
+  // AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(ocularboxframe);});
 
-  ocularframe.set_shadow_type(Gtk::SHADOW_NONE); // frame to maintain aspect ratio for the ocular
-  ocularframe.set_halign(Gtk::ALIGN_FILL);
-  ocularframe.set_valign(Gtk::ALIGN_FILL);
+  ocularframe.set_opacity(1.0); // frame to maintain aspect ratio for the ocular
+  ocularframe.set_halign(Gtk::Align::FILL);
+  ocularframe.set_valign(Gtk::Align::FILL);
   ocularframe.set_hexpand(true);
   ocularframe.set_vexpand(true);
 
-  ocularframe.add(ocularbox);
+  ocularframe.set_child(ocularbox);
   create_ocular_info_box();
 
   ocularboxgrid.attach(ocularframe, 0, 0);
   ocularboxgrid.attach(ocularinfogrid, 0, 1);
 
-  ocularboxframe.add(ocularboxgrid);
+  ocularboxframe.set_child(ocularboxgrid);
   
   oculargrid.set_hexpand(true);
   oculargrid.set_vexpand(true);
@@ -70,18 +71,16 @@ OcularWindow::OcularWindow()
   windowgrid.attach(controlsgrid, 1, 0);
   windowgrid.attach(controlsgrid2, 2, 0);
 
-  windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
-  mainwin.add(windowgrid);
+  windowgrid.set_margin(Uidefs::BORDER_WIDTH_SMALL);
+  mainwin.set_child(windowgrid);
   mainwin.set_propagate_natural_height(true);
   mainwin.set_propagate_natural_width(true);
-  add(mainwin);
+  set_child(mainwin);
 
   ocularbox.m_efov = epbox->m_efov.get_value();
 
   set_signal_handlers();
   optionsbox->show_wavelength(false);
-  
-  show_all_children();
 
   epbox->init();
   scopebox->init();
@@ -113,7 +112,7 @@ void OcularWindow::create_ocular_info_box()
   obscontrastlabel.set_markup(_("log(<i>C</i>/<i>C</i><sub>o</sub>)"));
 
   Uidefs::set_ui_spacing(ocularinfogrid);
-  ocularinfogrid.set_halign(Gtk::ALIGN_CENTER);
+  ocularinfogrid.set_halign(Gtk::Align::CENTER);
 
   ocularinfogrid.attach(ocularfovlabel, 0, 0);
   ocularinfogrid.attach(ocularfov, 1, 0);
@@ -126,34 +125,34 @@ void OcularWindow::create_ocular_info_box()
 
 }
 
-bool OcularWindow::on_key_press_event(GdkEventKey *key_event)
-{
+// bool OcularWindow::on_key_press_event(GdkEventKey *key_event)
+// {
 
-  if (key_event->keyval == GDK_KEY_Escape)
-  {
-    hide();
-    return true;
-  }
-  else if (key_event->keyval == GDK_KEY_F11)
-  {
-    (get_screen()->get_height() == get_height()) ? unfullscreen() :  fullscreen();
+//   if (key_event->keyval == GDK_KEY_Escape)
+//   {
+//     hide();
+//     return true;
+//   }
+//   else if (key_event->keyval == GDK_KEY_F11)
+//   {
+//     (get_screen()->get_height() == get_height()) ? unfullscreen() :  fullscreen();
     
-    return true;
-  }
-  else if ((key_event->keyval == GDK_KEY_F10))
-  {
-    if (false == nightmode->get_active()) nightmode->set_active(true); else nightmode->set_active(false);
-    return true;
-  }
-  else if ((key_event->keyval == GDK_KEY_f) && (key_event->state & GDK_CONTROL_MASK))
-  {
-    search();
-    return true;
-  }
+//     return true;
+//   }
+//   else if ((key_event->keyval == GDK_KEY_F10))
+//   {
+//     if (false == nightmode->get_active()) nightmode->set_active(true); else nightmode->set_active(false);
+//     return true;
+//   }
+//   else if ((key_event->keyval == GDK_KEY_f) && (key_event->state & GDK_CONTROL_MASK))
+//   {
+//     search();
+//     return true;
+//   }
 
 
-  return Gtk::Window::on_key_press_event(key_event);
-}
+//   return Gtk::Window::on_key_press_event(key_event);
+// }
 
 OcularWindow::~OcularWindow()
 {

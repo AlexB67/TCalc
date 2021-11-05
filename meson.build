@@ -1,6 +1,6 @@
 project('tcalc', ['cpp', 'c'], 
-        version: '0.0.8',
-  meson_version: '>= 0.47.0',
+        version: '0.0.9',
+  meson_version: '>= 0.50.0',
   default_options : ['buildtype=release']
 )
 
@@ -15,4 +15,3 @@ subdir('po')
 
 
 meson.add_install_script('build-aux/meson/postinstall.py')
-

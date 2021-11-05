@@ -1,3 +1,4 @@
+New Plotting library - depedency on plplot and gtk-plplot is no longer required.
 5 / 12 / 2019 0.0.5
 
 New Plotting library - depedency on plplot and gtk-plplot is no longer required.
@@ -11,3 +12,7 @@ Fixes, enhancements and help documentation added. Flatpak build support from gno
 24 / 01 / 2020 0.0.8
 
 Enhancements. Over a 1000 eyepieces, broken into categories by brand. gtk-webkit is no longer required.
+
+6 / 11 / 2021 0.0.9
+
+Migration to gtkmm4 from gtkmm3.

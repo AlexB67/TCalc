@@ -3,32 +3,33 @@
 #include "glibmmcustomutils.hpp"
 #include "appglobals.hpp"
 #include <gtkmm/settings.h>
+//#include <gtkmm/conte
 
 void OcularWindow::set_signal_handlers()
 {
   searchbutton.signal_clicked().connect(sigc::mem_fun(*this, &OcularWindow::search));
+  // need a better csss, disabled for now for gtk4
+  // nightmode->property_active().signal_changed().connect([this]() {
+  //   if (true == nightmode->get_active())
+  //   {
+  //     provider->load_from_resource("/org/gnome/TCalc/resources/nightmode.css");
+  //     context = get_style_context();
+  //     context->add_provider(provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
 
-  nightmode->property_active().signal_changed().connect([this]() {
-    if (true == nightmode->get_active())
-    {
-      provider->load_from_resource("/org/gnome/TCalc/resources/nightmode.css");
-      context = get_style_context();
-      context->add_provider_for_screen(Gdk::Screen::get_default(),
-                                       provider, GTK_STYLE_PROVIDER_PRIORITY_USER);
-      auto settings = Gtk::Settings::get_default();
-      preferdarktheme = settings->property_gtk_application_prefer_dark_theme().get_value();
-      currenttheme = settings->property_gtk_theme_name().get_value();
-      settings->property_gtk_application_prefer_dark_theme().set_value(true);
-      settings->property_gtk_theme_name().set_value(_("Adwaita-dark"));
-    }
-    else
-    {
-      context->remove_provider_for_screen(Gdk::Screen::get_default(), provider);
-      auto settings = Gtk::Settings::get_default();
-      settings->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme);
-      settings->property_gtk_theme_name().set_value(currenttheme);
-    }
-  });
+  //     auto settings = Gtk::Settings::get_default();
+  //     preferdarktheme = settings->property_gtk_application_prefer_dark_theme().get_value();
+  //     currenttheme = settings->property_gtk_theme_name().get_value();
+  //     settings->property_gtk_application_prefer_dark_theme().set_value(true);
+  //     settings->property_gtk_theme_name().set_value(_("Adwaita-dark"));
+  //   }
+  //   else
+  //   {
+  //     context->remove_provider(provider);
+  //     auto settings = Gtk::Settings::get_default();
+  //     settings->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme);
+  //     settings->property_gtk_theme_name().set_value(currenttheme);
+  //   }
+  // });
 
   magbox->m_dsocombo.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::dso_changed));
 
@@ -61,7 +62,8 @@ void OcularWindow::set_signal_handlers()
     epbox->m_efstop.set_sensitive(optionsbox->m_usefstop->get_active());
   });
 
-  magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_info));
+ // magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_info));
+  magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 }
 
 void OcularWindow::ocular_changed()
@@ -84,9 +86,9 @@ void OcularWindow::dso_changed()
       ocularbox.m_imagefile = static_cast<std::string>(row[magbox->m_dsocombomodel.m_dsocols.m_DSOimagefile]);
       ocularbox.m_efov = epbox->m_efov.get_value();
       ocularbox.m_imagesize = row[magbox->m_dsocombomodel.m_dsocols.m_DSOimagesize];
-      ocularbox.queue_draw();
       set_ocular_info();
       set_contrast_info();
+      ocularbox.queue_draw();
     }
   }
 }
@@ -96,17 +98,21 @@ void OcularWindow::set_contrast_info()
   Astrocalc::astrocalc m_calc;
 
   double threshold =
-      m_calc.calc_dso_contrast_in_scope(ocularbox.magnification, scopebox->m_stype.get_active_row_number(), scopebox->m_saperture.get_value(),
+      m_calc.calc_dso_contrast_in_scope(ocularbox.magnification, scopebox->m_stype.get_active_row_number(), 
+                                        scopebox->m_saperture.get_value(),
                                         scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0,
-                                        epbox->m_etrans.get_value() / 100.0, magbox->get_optical_dirt_level(), magbox->m_pupilsize.get_value(),
+                                        epbox->m_etrans.get_value() / 100.0, magbox->get_optical_dirt_level(), 
+                                        magbox->m_pupilsize.get_value(),
                                         magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(),
                                         magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).first;
 
   obscontrast.set_text(GlibUtils::dtostr<double>(threshold, 4));
   ocularbox.obscontrast = threshold;
-  ocularbox.skyscopebrightness = m_calc.calc_bgsky_in_scope(ocularbox.magnification, scopebox->m_stype.get_active_row_number(), scopebox->m_saperture.get_value(),
+  ocularbox.skyscopebrightness = m_calc.calc_bgsky_in_scope(ocularbox.magnification, scopebox->m_stype.get_active_row_number(), 
+                                        scopebox->m_saperture.get_value(),
                                         scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0,
-                                        epbox->m_etrans.get_value() / 100.0, magbox->get_optical_dirt_level(), magbox->m_pupilsize.get_value(),
+                                        epbox->m_etrans.get_value() / 100.0, magbox->get_optical_dirt_level(), 
+                                        magbox->m_pupilsize.get_value(),
                                         magbox->m_nelm1.get_value());
 }
 
@@ -157,5 +163,5 @@ void OcularWindow::search()
     searchwindow->set_modal(true);
   }
 
-  searchwindow->present();
+  searchwindow->show();
 }

@@ -8,7 +8,7 @@
             "name": "debug project",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/meson-out/tcalc",
+            "program": "${workspaceFolder}/build/src/tcalc",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

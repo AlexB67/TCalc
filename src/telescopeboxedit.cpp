@@ -2,22 +2,17 @@
 #include "astrocalclib/astrocalc.hpp"
 #include <gtkmm/messagedialog.h>
 
-ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &app) : Telescopebox(true), m_app(app)
+ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &app, Gtk::Window *parent) 
+: Telescopebox(true), m_app(app), m_parent(parent)
 {
     m_frame.set_label("");
-    m_frame.set_shadow_type(Gtk::SHADOW_NONE);
-    m_button_del.set_image_from_icon_name("edit-delete-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_del.set_always_show_image(true);
-    m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_save.set_always_show_image(true);
-    m_button_moveup.set_image_from_icon_name("go-up-symbolic.symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_moveup.set_always_show_image(true);
-    m_button_new.set_image_from_icon_name("document-new-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_new.set_always_show_image(true);
-    m_button_cancel.set_image_from_icon_name("document-revert-symbolic-rtl.symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_cancel.set_always_show_image(true);
-    m_button_edit.set_image_from_icon_name("document-edit-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_edit.set_always_show_image(true);
+    //m_frame.set_shadow_type(Gtk::SHADOW_NONE);
+    m_button_del.set_image_from_icon_name("edit-delete-symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_moveup.set_image_from_icon_name("go-up-symbolic.symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_new.set_image_from_icon_name("document-new-symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_cancel.set_image_from_icon_name("document-revert-symbolic-rtl.symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_edit.set_image_from_icon_name("document-edit-symbolic", Gtk::IconSize::INHERIT, true);
 
     m_button_moveup.set_tooltip_text(_("Move the selected model up the list by one row"));
     m_button_save.set_tooltip_text(_("save telescope model information."));
@@ -37,7 +32,9 @@ ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &a
     m_sfocuser_type.set_tooltip_text(_("Focuser model details"));
     m_sfinder_type.set_tooltip_text(_("The type of finder, for example, red dot finder, finder scope, etc."));
 
-    sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
+    m_button_new.get_style_context()->add_class("suggested-action");
+
+    sizegroup = Gtk::SizeGroup::create(Gtk::SizeGroup::Mode::HORIZONTAL);
     sizegroup->add_widget(*m_smodel);
     sizegroup->add_widget(m_smodelentry);
 
@@ -145,7 +142,7 @@ void ScopeBox::EditTelescopes::enable_widgets(const bool enable)
 void ScopeBox::EditTelescopes::init()
 {
     m_smodelentry.set_visible(false);
-    m_smodel->get_entry()->set_can_focus(false);
+   // m_smodel->get_entry()->set_can_focus(false);
     m_smodel->set_visible(true);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
@@ -206,7 +203,7 @@ void ScopeBox::EditTelescopes::set_default_values()
     m_stype.set_active(0);
 }
 
-bool ScopeBox::EditTelescopes::validate_scope_data() const
+bool ScopeBox::EditTelescopes::validate_scope_data()
 {
     bool flag = true;
     Glib::ustring title = _("The following errors were encountered. Please correct the following: \r\n");
@@ -271,9 +268,23 @@ bool ScopeBox::EditTelescopes::validate_scope_data() const
 
     if (false == flag)
     {
-        Gtk::MessageDialog message_dialog(title, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_CLOSE, true);
-        message_dialog.set_secondary_text(message);
-        message_dialog.run();
+        validate_dialog.reset(new Gtk::MessageDialog(message, false, Gtk::MessageType::ERROR, Gtk::ButtonsType::OK, true));
+        validate_dialog->set_hide_on_close(true);
+        validate_dialog->set_transient_for(*m_parent);
+        validate_dialog->show();
+
+        validate_dialog->signal_response().connect([this](int retcode) 
+        {
+            validate_dialog->hide();
+            switch (retcode)
+            {
+                case Gtk::ResponseType::OK:
+                {
+                   // validate_dialog->hide();
+                    break;
+                }
+            }
+        });
     }
 
     return flag;

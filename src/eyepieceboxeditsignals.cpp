@@ -11,7 +11,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
 {
     m_button_moveup.signal_clicked().connect(sigc::mem_fun(*this, &EditEyepieces::swap_rows));
 
-    m_emodel->signal_changed().connect([this]() {
+    m_emodel->signal_changed().connect([this]() 
+    {
         const Gtk::TreeModel::iterator iter = m_emodel->get_active();
         if (iter)
         {
@@ -46,7 +47,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
             m_button_moveup.set_sensitive(true);
     });
 
-    m_button_new.signal_clicked().connect([this]() {
+    m_button_new.signal_clicked().connect([this]() 
+    {
         enable_widgets(true);
         set_default_values();
         m_button_save.set_sensitive(true);
@@ -62,7 +64,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
         updatemode = false;
     });
 
-    m_button_edit.signal_clicked().connect([this]() {
+    m_button_edit.signal_clicked().connect([this]() 
+    {
         enable_widgets(true);
         m_button_save.set_sensitive(true);
         m_button_cancel.set_sensitive(true);
@@ -81,7 +84,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
         updatemode = true;
     });
 
-    m_button_cancel.signal_clicked().connect([this]() {
+    m_button_cancel.signal_clicked().connect([this]() 
+    {
         enable_widgets(false);
         init();
         m_emodellabel.set_label(_("Select eyepiece"));
@@ -90,7 +94,8 @@ void EpBox::EditEyepieces::set_signal_handlers()
         ep_changed();
     });
 
-    m_button_save.signal_clicked().connect([this]() {
+    m_button_save.signal_clicked().connect([this]() 
+    {
 
         m_emodellabel.set_label(_("Select eyepiece"));
 
@@ -147,39 +152,53 @@ void EpBox::EditEyepieces::set_signal_handlers()
         AppGlobals::app_notify("User eyepieces updated.", m_app, "tcalc-edit");
     });
 
-    m_button_del.signal_clicked().connect([this]() {
+    m_button_del.signal_clicked().connect([this]() 
+    {
 
         Glib::ustring message ( _("You are about to delete:\n") + 
                                 m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel) +
                                 _("\nCick Yes to proceed No to cancel."));
 
 
-        Gtk::MessageDialog  message_dialog(message, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_YES_NO, true);
-        int retcode = message_dialog.run();
+        delete_dialog.reset(new Gtk::MessageDialog(message, false, Gtk::MessageType::ERROR, Gtk::ButtonsType::YES_NO, true));
+        delete_dialog->set_hide_on_close(true);
+        delete_dialog->set_transient_for(*m_parent);
+        delete_dialog->show();
+
         m_emodellabel.set_label(_("Select eyepiece"));
 
-        if (retcode != Gtk::RESPONSE_YES)
+        delete_dialog->signal_response().connect([this](int retcode) 
         {
-            init();
-            return;
-        }
+            delete_dialog->hide();
 
-        Glib::ustring epmodelname = 
-        static_cast<Glib::ustring>(m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel));
-        
-        auto model = m_emodel->get_model();
-        m_emodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
-        m_ecombomodel.remove_ep_from_model(epmodelname);
-        m_emodel->set_model(model);
+            switch (retcode)
+            {
+                case Gtk::ResponseType::NO:
+                {
+                    init();
+                    break;
+                }
+                case Gtk::ResponseType::YES:
+                {
+                    Glib::ustring epmodelname = 
+                    static_cast<Glib::ustring>(m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel));
+                    
+                    auto model = m_emodel->get_model();
+                    m_emodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
+                    m_ecombomodel.remove_ep_from_model(epmodelname);
+                    m_emodel->set_model(model);
 
-        AppGlobals::del_ep_data.emit(epmodelname);
+                    AppGlobals::del_ep_data.emit(epmodelname);
 
-        fileIO::dbfileIO db;
-        db.write_ep_user_data(*m_emodel, m_ecombomodel);
+                    fileIO::dbfileIO db;
+                    db.write_ep_user_data(*m_emodel, m_ecombomodel);
 
-        init();
-        enable_widgets(false);
-        AppGlobals::app_notify(_("User eyepieces updated."), m_app);
+                    init();
+                    enable_widgets(false);
+                    AppGlobals::app_notify(_("User eyepieces updated."), m_app);
+                }
+            }
+        });
     });
 }
 

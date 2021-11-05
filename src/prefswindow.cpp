@@ -1,23 +1,25 @@
-#include <glibmm/i18n.h>
-#include <gtkmm/settings.h>
-#include <glibmm.h>
-#include <gtkmm/messagedialog.h>
-#include <iostream>
-#include <filesystem>
 #include "appglobals.hpp"
 #include "prefswindow.hpp"
 #include "gtkmmcustomutils.hpp"
 #include "astrocalclib/astrocalc.hpp"
+#include <glibmm/keyfile.h>
+#include <glibmm/i18n.h>
+#include <gtkmm/settings.h>
+#include <gtkmm/eventcontrollerkey.h>
+#include <glibmm.h>
+#include <iostream>
+#include <filesystem>
 
 using AppGlobals::log_msg;
 
 PrefsWindow::PrefsWindow()
 {
     set_title(_("Preferences"));
-    stack.set_transition_type(Gtk::StackTransitionType::STACK_TRANSITION_TYPE_SLIDE_DOWN);
+    set_hide_on_close(true);
+    stack.set_transition_type(Gtk::StackTransitionType::SLIDE_DOWN);
     stack.set_transition_duration(500);
 
-    sidebar.set_hexpand(false);
+    sidebar.set_hexpand(true);
     stack.set_vexpand(true);
     stack.set_hexpand(true);
     sidebar.set_stack(stack);
@@ -33,7 +35,7 @@ PrefsWindow::PrefsWindow()
     stack.add(scopegrid, _("Telescope optical defaults"), _("Telescope optical defaults"));
     stack.add(epgrid, _("Eyepiece optical defaults"), _("Eyepiece optical defaults"));
 
-    add(grid);
+    set_child(grid);
 
     get_keyfile_settings();
 
@@ -45,33 +47,38 @@ PrefsWindow::PrefsWindow()
         preferdarkthemelabel.set_tooltip_text(preferdarktheme->get_tooltip_text());
     }
 
+    auto controller = Gtk::EventControllerKey::create();
+    controller->set_propagation_phase(Gtk::PropagationPhase::CAPTURE);
+    controller->signal_key_pressed().connect(
+    sigc::bind(sigc::mem_fun(*this, &PrefsWindow::on_key_press_event), "capture"), false);
+    add_controller(controller);
+
     signal_hide().connect(sigc::mem_fun(*this, &PrefsWindow::save_key_settings));
-    show_all_children();
 }
 
 void PrefsWindow::create_appearance_page()
 {
     showtime = Gtk::make_managed<Gtk::Switch>();
-    showtime->set_halign(Gtk::ALIGN_END);
-    showtime->set_valign(Gtk::ALIGN_CENTER);
+    showtime->set_halign(Gtk::Align::END);
+    showtime->set_valign(Gtk::Align::CENTER);
    
     showcolour = Gtk::make_managed<Gtk::Switch>();
-    showcolour->set_halign(Gtk::ALIGN_END);
-    showcolour->set_valign(Gtk::ALIGN_CENTER);
+    showcolour->set_halign(Gtk::Align::END);
+    showcolour->set_valign(Gtk::Align::CENTER);
 
     preferdarktheme = Gtk::make_managed<Gtk::Switch>();
-    preferdarktheme->set_halign(Gtk::ALIGN_END);
-    preferdarktheme->set_valign(Gtk::ALIGN_CENTER);
+    preferdarktheme->set_halign(Gtk::Align::END);
+    preferdarktheme->set_valign(Gtk::Align::CENTER);
    
     usemonospace = Gtk::make_managed<Gtk::Switch>();
-    usemonospace->set_halign(Gtk::ALIGN_END);
-    usemonospace->set_valign(Gtk::ALIGN_CENTER);
+    usemonospace->set_halign(Gtk::Align::END);
+    usemonospace->set_valign(Gtk::Align::CENTER);
 
     drawframes = Gtk::make_managed<Gtk::Switch>();
-    drawframes->set_halign(Gtk::ALIGN_END);
-    drawframes->set_valign(Gtk::ALIGN_CENTER);
+    drawframes->set_halign(Gtk::Align::END);
+    drawframes->set_valign(Gtk::Align::CENTER);
    
-    appearancedefaults.set_halign(Gtk::ALIGN_END);
+    appearancedefaults.set_halign(Gtk::Align::END);
     appearancedefaults.set_label(_("Defaults"));
     appearancedefaults.set_tooltip_text(_("Restore factory settings."));
 
@@ -138,8 +145,8 @@ void PrefsWindow::create_appearance_page()
     });
 
     drawframes->property_active().signal_changed().connect([this](){
-            (true == drawframes->get_active())  ? AppGlobals::frame_style.emit(Gtk::SHADOW_ETCHED_IN)
-                                                : AppGlobals::frame_style.emit(Gtk::SHADOW_NONE);
+            (true == drawframes->get_active())  ? AppGlobals::frame_style.emit(1.0)
+                                                : AppGlobals::frame_style.emit(0.0);
 
 	});
 
@@ -157,11 +164,12 @@ void PrefsWindow::create_appearance_page()
 
 void PrefsWindow::create_telescope_page()
 {
-    sobstruct.set_halign(Gtk::ALIGN_END);
-    sobstructsct.set_halign(Gtk::ALIGN_END);
-    strans.set_halign(Gtk::ALIGN_END);
-    sreflect.set_halign(Gtk::ALIGN_END);
-    scopedefaults.set_halign(Gtk::ALIGN_END);
+    sobstruct.set_max_width_chars(6); // gtk4 behaving strange .. again! but this solves it, was fine in gtk3
+    sobstruct.set_halign(Gtk::Align::FILL);
+    sobstructsct.set_halign(Gtk::Align::FILL);
+    strans.set_halign(Gtk::Align::FILL);
+    sreflect.set_halign(Gtk::Align::FILL);
+    scopedefaults.set_halign(Gtk::Align::FILL);
     scopedefaults.set_label(_("Defaults"));
     scopedefaults.set_tooltip_text(_("Restore factory settings."));
 
@@ -171,7 +179,6 @@ void PrefsWindow::create_telescope_page()
     strans.set_spin_entry(99.0, 0.0, 100.0, 0.1, 2, true);
 
     Uidefs::set_ui_spacing(scopegrid);
-
     scopegrid.attach(sreflectlabel, 0, 0);
     scopegrid.attach(sreflect, 1, 0);
     scopegrid.attach(stranslabel, 0, 1);
@@ -194,10 +201,11 @@ void PrefsWindow::create_eyepiece_page()
 {
     Uidefs::set_ui_spacing(epgrid);
 
-    etransmulti.set_halign(Gtk::ALIGN_END);
-    etransplossl.set_halign(Gtk::ALIGN_END);
-    etransortho.set_halign(Gtk::ALIGN_END);
-    epdefaults.set_halign(Gtk::ALIGN_END);
+    etransmulti.set_max_width_chars(6); // gtk4 behaving strange .. again! but this solves it, was fine in gtk3
+    etransmulti.set_halign(Gtk::Align::FILL);
+    etransplossl.set_halign(Gtk::Align::FILL);
+    etransortho.set_halign(Gtk::Align::FILL);
+    epdefaults.set_halign(Gtk::Align::FILL);
     epdefaults.set_label(_("Defaults"));
     epdefaults.set_tooltip_text(_("Restore factory settings."));
 
@@ -225,23 +233,24 @@ void PrefsWindow::get_keyfile_settings()
     if (false == std::filesystem::exists(AppGlobals::configpath.c_str()))
         save_key_settings();
 
-    keyfile.load_from_file(AppGlobals::configpath);
+    Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
+    keyfile->load_from_file(AppGlobals::configpath);
 
-    std::vector<bool> appearance = keyfile.get_boolean_list("Appearance", "settings");
+    std::vector<bool> appearance = keyfile->get_boolean_list("Appearance", "settings");
     preferdarktheme->set_active(appearance[0]);
     showtime->set_active(appearance[1]);
     showcolour->set_active(appearance[2]);
     usemonospace->set_active(appearance[3]);
     drawframes->set_active(appearance[4]);
-    graphthemes.set_active(keyfile.get_integer("Appearance", "graphtheme"));
+    graphthemes.set_active(keyfile->get_integer("Appearance", "graphtheme"));
 
-    std::vector<double> sdefaults = keyfile.get_double_list("Telescope optical defaults", "telescopes");
+    std::vector<double> sdefaults = keyfile->get_double_list("Telescope optical defaults", "telescopes");
     sreflect.set_value(sdefaults[0]);
     strans.set_value(sdefaults[1]);
     sobstruct.set_value(sdefaults[2]);
     sobstructsct.set_value(sdefaults[3]);
 
-    std::vector<double> edefaults = keyfile.get_double_list("Eyepiece optical defaults", "eyepieces");
+    std::vector<double> edefaults = keyfile->get_double_list("Eyepiece optical defaults", "eyepieces");
     etransmulti.set_value(edefaults[0]);
     etransplossl.set_value(edefaults[1]);
     etransortho.set_value(edefaults[2]);
@@ -256,10 +265,11 @@ void PrefsWindow::save_key_settings()
     std::vector<double> sdefaults = {sreflect.get_value(), strans.get_value(), sobstruct.get_value(), sobstructsct.get_value()};
     std::vector<double> edefaults = {etransmulti.get_value(), etransplossl.get_value(), etransortho.get_value()};
 
-    keyfile.set_boolean_list("Appearance", "settings", appearance);
-    keyfile.set_integer("Appearance", "graphtheme", graphthemes.get_active_row_number());
-    keyfile.set_double_list("Telescope optical defaults", "telescopes", sdefaults);
-    keyfile.set_double_list("Eyepiece optical defaults", "eyepieces", edefaults);
+    Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
+    keyfile->set_boolean_list("Appearance", "settings", appearance);
+    keyfile->set_integer("Appearance", "graphtheme", graphthemes.get_active_row_number());
+    keyfile->set_double_list("Telescope optical defaults", "telescopes", sdefaults);
+    keyfile->set_double_list("Eyepiece optical defaults", "eyepieces", edefaults);
 
     Astrocalc::astrocalc::ETRANSPLOSSL = etransplossl.get_value();
     Astrocalc::astrocalc::ETRANSORTHO = etransortho.get_value();
@@ -271,7 +281,7 @@ void PrefsWindow::save_key_settings()
 
     try
     {
-        keyfile.save_to_file(AppGlobals::configpath);
+        keyfile->save_to_file(AppGlobals::configpath);
     }
     catch (const Glib::Error &ex)
     {
@@ -280,15 +290,10 @@ void PrefsWindow::save_key_settings()
     }
 }
 
-bool PrefsWindow::on_key_press_event(GdkEventKey *key_event)
+bool PrefsWindow::on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring&)
 {
-
-    if (key_event->keyval == GDK_KEY_Escape)
-    {
-        hide();
-        return true;
-    }
-
-    return Gtk::Window::on_key_press_event(key_event);
+    if (keyval == GDK_KEY_Escape) hide();
+    
+    return false;
 }
 

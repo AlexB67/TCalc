@@ -11,7 +11,7 @@ namespace ScopeBox
     class EditTelescopes : public Telescopebox
     {  
          public:
-            explicit EditTelescopes(const Glib::RefPtr<Gtk::Application>& app);
+            explicit EditTelescopes(const Glib::RefPtr<Gtk::Application>& app, Gtk::Window *parent);
 
             EditTelescopes(const EditTelescopes&) = delete;
             EditTelescopes& operator=(const EditTelescopes& other) = delete;
@@ -20,19 +20,20 @@ namespace ScopeBox
             void set_default_values() override;
 
         private:
+            Glib::RefPtr<Gtk::Application> m_app;
+            Gtk::Window *m_parent;
             Glib::ustring old_model_name;
             Gtk::Entry m_smodelentry;
-            Glib::RefPtr<Gtk::Application> m_app;
-            Gtk::Label m_smirrorcoatinglabel{_("Mirror coating"), Gtk::ALIGN_START};
-            Gtk::Label m_smirrormateriallabel{_("Mirror material"), Gtk::ALIGN_START};
-            Gtk::Label m_slenscoatinglabel{_("Lens coating"), Gtk::ALIGN_START};
-            Gtk::Label m_slensmateriallabel{_("Lens material"), Gtk::ALIGN_START};
-            Gtk::Label m_ssthrellabel{_("Strehl ratio"), Gtk::ALIGN_START};
-            Gtk::Label m_sweightlabel{_("Total Weight/kg"), Gtk::ALIGN_START};
-            Gtk::Label m_stube_weight_label{_("Tube weight/kg"), Gtk::ALIGN_START};
-            Gtk::Label m_smount_type_label{_("Mount type"), Gtk::ALIGN_START};
-            Gtk::Label m_sfocuser_type_label{_("Focuser details"), Gtk::ALIGN_START};
-            Gtk::Label m_sfinder_type_label{_("Finder type"), Gtk::ALIGN_START};
+            Gtk::Label m_smirrorcoatinglabel{_("Mirror coating"), Gtk::Align::START};
+            Gtk::Label m_smirrormateriallabel{_("Mirror material"), Gtk::Align::START};
+            Gtk::Label m_slenscoatinglabel{_("Lens coating"), Gtk::Align::START};
+            Gtk::Label m_slensmateriallabel{_("Lens material"), Gtk::Align::START};
+            Gtk::Label m_ssthrellabel{_("Strehl ratio"), Gtk::Align::START};
+            Gtk::Label m_sweightlabel{_("Total Weight/kg"), Gtk::Align::START};
+            Gtk::Label m_stube_weight_label{_("Tube weight/kg"), Gtk::Align::START};
+            Gtk::Label m_smount_type_label{_("Mount type"), Gtk::Align::START};
+            Gtk::Label m_sfocuser_type_label{_("Focuser details"), Gtk::Align::START};
+            Gtk::Label m_sfinder_type_label{_("Finder type"), Gtk::Align::START};
             Gtk::Button m_button_new{_("New")};
             Gtk::Button m_button_edit{_("Edit")};
             Gtk::Button m_button_del{_("Delete")};
@@ -51,10 +52,12 @@ namespace ScopeBox
             Ui::SpinEntry   m_stube_weight;
             Gtk::Separator m_sep;
             Glib::RefPtr<Gtk::SizeGroup> sizegroup;
+            std::unique_ptr<Gtk::MessageDialog> delete_dialog;
+            std::unique_ptr<Gtk::MessageDialog> validate_dialog;
             bool updatemode = false;
             void set_signal_handlers();
             void enable_widgets(const bool enable = true);
-            bool validate_scope_data() const;
+            bool validate_scope_data();
             void swap_rows();
             void create_scopemodel_connection() override {}
     };

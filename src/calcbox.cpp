@@ -9,7 +9,7 @@ CalcBox::Calcbox::Calcbox()
     m_calcframe.set_vexpand(false);
     m_calcframelabel.set_markup(_("<b>Calculate</b>"));
     m_calcframe.set_label_widget(m_calcframelabel);
-    m_calcframe.set_label_align( Gtk::ALIGN_CENTER,  Gtk::ALIGN_CENTER);
+    m_calcframe.set_label_align( Gtk::Align::CENTER);
 
     m_interactive = Gtk::make_managed<Gtk::Switch>();
     m_logswitch = Gtk::make_managed<Gtk::Switch>();
@@ -21,12 +21,12 @@ CalcBox::Calcbox::Calcbox()
     m_logswitch->set_tooltip_text(_("Enable or disable logging."));
     m_interactive->set_active(false);
     
-    m_loglabel.set_halign(Gtk::ALIGN_CENTER);
-    m_loglabel.set_valign(Gtk::ALIGN_CENTER);
-    m_logswitch->set_halign(Gtk::ALIGN_CENTER);
-    m_logswitch->set_valign(Gtk::ALIGN_CENTER);
-    m_interactive->set_halign(Gtk::ALIGN_CENTER);
-    m_interactive->set_valign(Gtk::ALIGN_CENTER);
+    m_loglabel.set_halign(Gtk::Align::CENTER);
+    m_loglabel.set_valign(Gtk::Align::CENTER);
+    m_logswitch->set_halign(Gtk::Align::CENTER);
+    m_logswitch->set_valign(Gtk::Align::CENTER);
+    m_interactive->set_halign(Gtk::Align::CENTER);
+    m_interactive->set_valign(Gtk::Align::CENTER);
     
     m_calcbutton.set_hexpand(true);
     m_clearbutton.set_hexpand(true);
@@ -45,7 +45,7 @@ CalcBox::Calcbox::Calcbox()
 Gtk::Frame &CalcBox::Calcbox::create_calc_grid()
 {
     
-    m_sizegroup =  Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
+    m_sizegroup =  Gtk::SizeGroup::create(Gtk::SizeGroup::Mode::HORIZONTAL);
     m_sizegroup->add_widget(m_calcbutton);
     m_sizegroup->add_widget(m_clearbutton);
 
@@ -59,7 +59,7 @@ Gtk::Frame &CalcBox::Calcbox::create_calc_grid()
     m_calcgrid.attach(m_interactivelabel, 7, 0);
     m_calcgrid.attach(*m_interactive, 8, 0);
     
-    m_calcframe.add(m_calcgrid);
+    m_calcframe.set_child(m_calcgrid);
     
     m_interactive->property_active().signal_changed().connect([this]()
     {
@@ -77,6 +77,6 @@ Gtk::Frame &CalcBox::Calcbox::create_calc_grid()
     });
     
     AppGlobals::get_keyfile_config(m_calcframe);
-    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_calcframe, type);});
+    //AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_calcframe);});
     return m_calcframe;
 }

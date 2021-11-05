@@ -33,12 +33,13 @@ private:
     // Gtk::ScrolledWindow mainwin;
     Gtk::HeaderBar  headerbar;
     Gtk::Button searchbutton;
-    Gtk::Switch *showgraphlegend;
+    Gtk::Switch *showgraphlegend; // switches seg fault unless we make manage.
     Gtk::Grid windowgrid;
     Gtk::Grid plotgrid;
     Gtk::Grid controlsgrid;
     Gtk::Grid controlsgrid2;
     Gtk::Frame plotframe{_("Graph")};
+    Gtk::Label headerlabel;
     Gtk::Label plotframe_label{};
     Gtk::Label plotlabel{_("Select graph :")};
     Glib::ustring graphtheme = "Default";
@@ -77,7 +78,7 @@ private:
 
     void init_plot();
     void set_signal_handlers();
-    bool on_key_press_event(GdkEventKey* event) override;
+    //bool on_key_press_event(GdkEventKey* event) override;
     void plot_data_changed();
     void search();
 };

@@ -42,7 +42,7 @@ int main (int argc, char *argv[])
 	argc = 1; // command line args not supported yet.
 	int returncode;
 
-	auto tcalcapp = Gtk::Application::create("org.gnome.TCalc", Gio::APPLICATION_FLAGS_NONE);
+	auto tcalcapp = Gtk::Application::create("org.gnome.TCalc", Gio::Application::Flags::NONE);
 	tcalcapp->signal_activate().connect(sigc::bind(&on_activate, tcalcapp));
 	returncode = tcalcapp->run(argc, argv);
 

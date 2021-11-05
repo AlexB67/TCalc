@@ -10,10 +10,10 @@ using AppGlobals::log_msg;
 
 Gtk::Frame &Resultsbox::create_results_grid()
 {
-    m_resultsframe.set_label_align( Gtk::ALIGN_CENTER,  Gtk::ALIGN_CENTER);
+    m_resultsframe.set_label_align( Gtk::Align::CENTER);
     m_resultsframe.set_label_widget(m_resultsframelabel);
     m_resultsframelabel.set_markup(_("<b>Results</b>"));
-    m_resultsframe.add(m_resultsgrid);
+    m_resultsframe.set_child(m_resultsgrid);
     Uidefs::set_ui_spacing(m_resultsgrid);
     m_resultsframe.set_hexpand(true);
 
@@ -21,32 +21,31 @@ Gtk::Frame &Resultsbox::create_results_grid()
     create_model_view(_("Eyepiece data"), m_epview, m_epModel, m_epCols, false);
     create_model_view(_("Telescope data"), m_scopeview, m_scopeModel, m_scopeCols, false);
 
-    m_scrollwin.set_policy(Gtk::PolicyType::POLICY_NEVER, Gtk::PolicyType::POLICY_ALWAYS);
+    m_scrollwin.set_policy(Gtk::PolicyType::NEVER, Gtk::PolicyType::ALWAYS);
     m_scrollwin.set_can_focus(false);
-    m_scrollwin.add(m_resultsviewgrid);
+    m_scrollwin.set_child(m_resultsviewgrid);
 
-    m_resultsviewframe.add(m_scrollwin);
+    m_resultsviewframe.set_child(m_scrollwin);
   
     m_resultsviewgrid.set_row_spacing(2);
     m_resultsviewgrid.attach(m_resultsview, 0, 0);
     m_resultsviewgrid.attach(m_epview, 0, 1);
     m_resultsviewgrid.attach(m_scopeview, 0, 2);
 
-    m_buttonleft.set_image_from_icon_name("go-previous-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+    m_buttonleft.set_image_from_icon_name("go-previous-symbolic", Gtk::IconSize::INHERIT, true);
     m_buttonleft.set_sensitive(false);
     m_buttonleft.set_tooltip_text(_("The column to use for calculation results, set 1. Useful for comparison purposes."));
-    m_buttonright.set_image_from_icon_name("go-next-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+    m_buttonright.set_image_from_icon_name("go-next-symbolic", Gtk::IconSize::INHERIT, true);
     m_buttonright.set_tooltip_text(_("The column to use for calculation results, set 2. Useful for comparison purposes."));
 
-    m_buttonbox.set_layout(Gtk::BUTTONBOX_EXPAND);
-    m_buttonbox.set_orientation(Gtk::ORIENTATION_HORIZONTAL);
-    m_buttonbox.add(m_buttonleft);
-    m_buttonbox.add(m_buttonright);
-   
-    m_resultsgrid.attach(m_resultsviewframe, 0, 0, 3, 1);
-    m_resultsgrid.attach(m_selectset1,  0, 1);
-    m_resultsgrid.attach(m_buttonbox, 1, 1);
-    m_resultsgrid.attach(m_selectset2, 2, 1);
+    m_buttonbox.set_orientation(Gtk::Orientation::HORIZONTAL);
+    m_buttonbox.append(m_buttonleft);
+    m_buttonbox.append(m_buttonright);
+    m_buttonbox.set_halign(Gtk::Align::CENTER);
+    m_resultsgrid.attach(m_resultsviewframe, 0, 0, 7, 1);
+    m_resultsgrid.attach(m_selectset1, 4, 1);
+    m_resultsgrid.attach(m_buttonbox, 5, 1);
+    m_resultsgrid.attach(m_selectset2, 6, 1);
 
     m_resultsview.signal_query_tooltip().connect(sigc::mem_fun(*this, &Resultsbox::set_results_row_tooltip), true);
     m_scopeview.signal_query_tooltip().connect(sigc::mem_fun(*this, &Resultsbox::set_scope_row_tooltip), true);
@@ -70,8 +69,8 @@ Gtk::Frame &Resultsbox::create_results_grid()
 
     init_property_names();
 
-    AppGlobals::get_keyfile_config(m_resultsframe);
-    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_resultsframe, type);});
+    // AppGlobals::get_keyfile_config(m_resultsframe);
+    // AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_resultsframe);});
 
     return m_resultsframe;
 }
@@ -81,10 +80,10 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
 {
     model = Gtk::ListStore::create(cols);
     view.set_model(model);
-    view.get_selection()->set_mode(Gtk::SELECTION_NONE);
+    view.get_selection()->set_mode(Gtk::SelectionMode::NONE);
     view.set_hexpand(true);
     view.set_vexpand(true);
-    view.set_grid_lines(Gtk::TREE_VIEW_GRID_LINES_BOTH);
+    view.set_grid_lines(Gtk::TreeView::GridLines::BOTH);
     view.set_has_tooltip(true);
 
     view.set_property("has-tooltip", true);
@@ -115,7 +114,7 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
     view.get_column(2)->set_expand(true);
 
     m_renderertext.set_padding(10, 5);
-    m_renderertext2.property_ellipsize() = Pango::ELLIPSIZE_END;
+    m_renderertext2.property_ellipsize() = Pango::EllipsizeMode::END;
 }
 
 void Resultsbox::append_row(const Glib::ustring &propertyname, const double value, 
@@ -161,20 +160,20 @@ void Resultsbox::clear(bool reset) const
     {
         for (auto &iter : m_resultsModel->children())
         {
-            iter->set_value<Glib::ustring>(1, "");
-            iter->set_value<Glib::ustring>(2, ""); 
+            iter.set_value<Glib::ustring>(1, "");
+            iter.set_value<Glib::ustring>(2, ""); 
         }
 
         for (auto &iter : m_epModel->children())
         {
-            iter->set_value<Glib::ustring>(1, "");
-            iter->set_value<Glib::ustring>(2, ""); 
+            iter.set_value<Glib::ustring>(1, "");
+            iter.set_value<Glib::ustring>(2, ""); 
         }
 
         for (auto &iter : m_scopeModel->children())
         {
-            iter->set_value<Glib::ustring>(1, "");
-            iter->set_value<Glib::ustring>(2, ""); 
+            iter.set_value<Glib::ustring>(1, "");
+            iter.set_value<Glib::ustring>(2, ""); 
         }
     }
 }
@@ -217,19 +216,19 @@ void Resultsbox::init_property_names()
 
     for (auto& iter: m_proplistnames)
     {
-        const auto row = *(m_resultsModel->append()); 
+        auto row = *(m_resultsModel->append()); 
         row[m_resultCols.m_results_property] = iter; 
     }
 
     for (auto& iter: m_eplistnames)
     {
-        const auto row = *(m_epModel->append()); 
+        auto row = *(m_epModel->append()); 
         row[m_epCols.m_results_property] = iter; 
     }
 
     for (auto& iter: m_scopelistnames)
     {
-        const auto row = *(m_scopeModel->append()); 
+        auto row = *(m_scopeModel->append()); 
         row[m_scopeCols.m_results_property] = iter; 
     }
 }
@@ -237,10 +236,9 @@ void Resultsbox::init_property_names()
 void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset) const
 {
     const Gtk::TreeModel::iterator iter = epbox->m_emodel->get_active();
-
     if(!iter) return;
 
-    const auto row = *iter;
+    Gtk::TreeModel::Row row = *iter;
 
     auto set_row = [this](const Glib::ustring& str, const Glib::ustring& unit, const int row, const int resultsset)
     {
@@ -249,7 +247,7 @@ void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, c
         m_epModel->children()[row].set_value<Glib::ustring>(resultsset, _("unknown"));
     };
 
-    Glib::ustring stmp = static_cast<Glib::ustring>(row[epbox->m_ecombomodel.m_epcols.m_epmodel]);
+    Glib::ustring stmp = row.get_value(epbox->m_ecombomodel.m_epcols.m_epmodel);
     m_epModel->children()[0].set_value<Glib::ustring>(resultsset, stmp);
 
     stmp = dtostr<double>(epbox->m_efov.get_value(), 2);
@@ -385,7 +383,7 @@ size_t Resultsbox::get_index(const Glib::ustring &propertyname, const Glib::RefP
     size_t index = 0;
     for(auto &i : liststore->children())
     {
-        if (i->get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
+        if (i.get_value(m_resultCols.m_results_property) == "<i>" + propertyname + "</i> :") break;
         ++index;
     }
 

@@ -25,7 +25,7 @@ namespace Uidefs
   void set_ui_spacing(T &obj) // could be used for grid, or any widget that accepts these
   {
     obj.set_row_spacing(Uidefs::ROW_PADDING);
-    obj.set_border_width(Uidefs::BORDER_WIDTH);
+    obj.set_margin(Uidefs::BORDER_WIDTH);
     obj.set_column_spacing(Uidefs::COLUMN_PADDING);
   }
 
@@ -33,7 +33,7 @@ namespace Uidefs
   void set_ui_spacing_small(T &obj) // could be used for grid, or any widget that accepts these
   {
     obj.set_row_spacing(Uidefs::BORDER_WIDTH_SMALL);
-    obj.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+    obj.set_margin(Uidefs::BORDER_WIDTH_SMALL);
     obj.set_column_spacing(Uidefs::BORDER_WIDTH_SMALL);
   }
 }

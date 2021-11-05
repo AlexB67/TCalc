@@ -26,15 +26,13 @@
     </screenshot>
 	</screenshots>
   <releases>
-	  <release version="0.0.8" date="2020-02-04" type="release">
+	  <release version="0.0.9" date="2021-11-06" type="release">
       <description>
         <p>
           This is a stable release.
         </p>
         <ul>
-          <li>New graphing widget</li>
-          <li>Bug  fixes</li>
-          <li>Flatpak support</li>
+          <li>Migration to gtkmm4 from gtkmm3.</li>
         </ul>
     </description>
     </release>

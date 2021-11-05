@@ -101,8 +101,6 @@ void ScopeBox::Telescopebox::scope_changed()
     if(row)
     {  
       log_msg.emit(flag, LogView::tINFO, row[m_scombomodel.m_scopecols.m_smodel] + _(" selected."));
-      auto *entry = m_smodel->get_entry();
-      entry->set_text(row[m_scombomodel.m_scopecols.m_smodel]);
       m_saperture.set_value(row[m_scombomodel.m_scopecols.m_saperture]); 
       m_sflen.set_value(row[m_scombomodel.m_scopecols.m_sflen]);
       m_stype.set_active(row[m_scombomodel.m_scopecols.m_stype]);

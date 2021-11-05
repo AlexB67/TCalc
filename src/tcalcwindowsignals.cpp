@@ -3,7 +3,6 @@
 #include "glibmmcustomutils.hpp"
 #include "astrocalclib/astrocalc.hpp"
 #include <iostream>
-#include <gtkmm/aboutdialog.h>
 #include <glibmm/i18n.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/stylecontext.h>
@@ -170,7 +169,7 @@ void TcalcWindow::create_results()
 	resultsbox->append_row(_("Opt max mag"), dtmp, 2, _("x"), set);
 
 	dtmp = m_astrocalc.calc_optimal_min_flen(scopebox->m_saperture.get_value(), scopebox->m_sflen.get_value());
-	resultsbox->append_row("Opt min focal length", dtmp, 2, "mm", set);
+	resultsbox->append_row(_("Opt min focal length"), dtmp, 2, "mm", set);
 
 	dtmp = m_astrocalc.calc_optimal_max_flen(scopebox->m_saperture.get_value(), scopebox->m_sflen.get_value());
 	resultsbox->append_row(_("Opt max focal length"), dtmp, 2, "mm", set);
@@ -254,16 +253,20 @@ void TcalcWindow::create_results()
 
 	Gtk::TreeModel::iterator iter = scopebox->m_smodel->get_active();
 	auto row = *iter;
-	double strehl = row[scopebox->m_scombomodel.m_scopecols.m_sstrehl];
-	
-	if ( strehl > Astrocalc::astrocalc::tSMALL && Astrocalc::astrocalc::REFRACTOR != scopebox->m_stype.get_active_row_number()) 
+
+	if(iter)
 	{
-		dtmp = m_astrocalc.calc_pv_from_strehl(strehl);
-		resultsbox->append_row(_("PV from Strehl"), dtmp, 3, "", set);
-	}
-	else
-	{
-		resultsbox->append_row(_("PV from Strehl"), "", set);
+		double strehl = row[scopebox->m_scombomodel.m_scopecols.m_sstrehl];
+		
+		if ( strehl > Astrocalc::astrocalc::tSMALL && Astrocalc::astrocalc::REFRACTOR != scopebox->m_stype.get_active_row_number()) 
+		{
+			dtmp = m_astrocalc.calc_pv_from_strehl(strehl);
+			resultsbox->append_row(_("PV from Strehl"), dtmp, 3, "", set);
+		}
+		else
+		{
+			resultsbox->append_row(_("PV from Strehl"), "", set);
+		}
 	}
 
 	dtmp = m_astrocalc.calc_lunar_res(scopebox->m_saperture.get_value());
@@ -280,7 +283,6 @@ void TcalcWindow::create_results()
 	resultsbox->append_row(_("Ocular list"), oculars + _("mm"), set);
 
 	logbox->setlogtext(flag, LogView::tINFO, _("Calculation completed:"));
-
 	resultsbox->get_ep_data(epbox, set);
 	resultsbox->get_scope_data(scopebox, set);
 }
@@ -318,7 +320,7 @@ void TcalcWindow::search()
 		searchwindow->set_modal(true);
 	}
 
-	searchwindow->present();
+	searchwindow->show();
 }
 
 void TcalcWindow::equipment()
@@ -330,41 +332,35 @@ void TcalcWindow::equipment()
 		equipwindow->set_modal(true);
 	}
 
-	equipwindow->present();
+	equipwindow->show();
 }
 
 void TcalcWindow::about()
 {
-	Gtk::AboutDialog aboutdialog;
-	aboutdialog.set_transient_for(*this);
-
-	aboutdialog.set_logo(Gdk::Pixbuf::create_from_resource("/org/gnome/TCalc/resources/tcalc.png", 128, 128, true));
-	aboutdialog.set_program_name(_("GNOME TCalc"));
-	aboutdialog.set_version("0.0.8");
-	aboutdialog.set_copyright("Alexander Borro");
-	aboutdialog.set_comments(_("An astronomy tool for telescopes and eyepieces for Gnome. " 
-								"\nThe brother of the Qt version TCalc."));
-	aboutdialog.set_license("GPL v3.0    http://www.gnu.org/licenses");
-	aboutdialog.set_website("http://www.gtkmm.org");
-	aboutdialog.set_website_label("gtkmm website");
-
-	std::vector<Glib::ustring> list_authors;
-	list_authors.push_back("Alexander Borro");
-	aboutdialog.set_authors(list_authors);
-	int id = aboutdialog.run();
-	aboutdialog.present();
-
-	switch (id)
+	if (aboutdialog == nullptr)
 	{
-	case Gtk::RESPONSE_OK:
-	case Gtk::RESPONSE_CLOSE:
-	case Gtk::RESPONSE_CANCEL:
-	case Gtk::RESPONSE_DELETE_EVENT:
-		aboutdialog.hide();
-		break;
-	default:
-		break;
+		aboutdialog = std::make_unique<Gtk::AboutDialog>();
+		aboutdialog->set_transient_for(*this);
+		aboutdialog->set_modal(true);
+		aboutdialog->set_hide_on_close(true);
+
+		aboutdialog->set_logo(Gdk::Texture::create_for_pixbuf(
+			Gdk::Pixbuf::create_from_resource("/org/gnome/TCalc/resources/tcalc.png", 128, 128, true)));
+		aboutdialog->set_program_name(_("GNOME TCalc"));
+		aboutdialog->set_version("0.0.9");
+		aboutdialog->set_copyright("Alexander Borro");
+		aboutdialog->set_comments(_("An astronomy tool for telescopes and eyepieces for Gnome. " 
+									"\nThe brother of the Qt version TCalc."));
+		aboutdialog->set_license("GPL v3.0    http://www.gnu.org/licenses");
+		aboutdialog->set_website("http://www.gtkmm.org");
+		aboutdialog->set_website_label("gtkmm website");
+
+		std::vector<Glib::ustring> list_authors;
+		list_authors.push_back("Alexander Borro");
+		aboutdialog->set_authors(list_authors);
 	}
+
+	aboutdialog->present();
 }
 
 void TcalcWindow::shortcuts()
@@ -373,12 +369,13 @@ void TcalcWindow::shortcuts()
 		{
 			auto builder = Gtk::Builder::create();
 			builder->add_from_resource("/org/gnome/TCalc/resources/tcalcshortcuts.ui");
-        	builder->get_widget<Gtk::ShortcutsWindow>("shortcuts-tcalc", shortcutswindow);
+			shortcutswindow = builder->get_widget<Gtk::ShortcutsWindow>("shortcuts-tcalc");
         	shortcutswindow->set_transient_for(*this);
-    		shortcutswindow->set_position(Gtk::WIN_POS_CENTER_ALWAYS);
+			shortcutswindow->set_modal(true);
+			shortcutswindow->set_hide_on_close(true);
 		}
 
-		shortcutswindow->present();
+		shortcutswindow->show();
 }
 
 void TcalcWindow::close()

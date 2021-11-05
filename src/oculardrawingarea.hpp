@@ -18,5 +18,5 @@ class Ocular : public Gtk::DrawingArea
         double skyscopebrightness;
         
     protected:
-        bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
+        void on_draw(const Cairo::RefPtr<Cairo::Context>& cr, int, int);
 };

@@ -2,7 +2,7 @@
 #include <gtkmm/window.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/label.h>
-#include <gtkmm/searchentry.h>
+#include <gtkmm/entry.h>
 #include <gtkmm/switch.h>
 #include <gtkmm/entrycompletion.h>
 #include "loggerbox.hpp"
@@ -22,15 +22,14 @@ public:
     SearchWindow& operator=(SearchWindow&& other) = delete;   
 
 private:
-    Gtk::Grid         grid;
-    Gtk::SearchEntry  epsearch;
-    Gtk::SearchEntry  scopesearch;
+    Gtk::Grid   grid;
+    Gtk::Entry  epsearch;
+    Gtk::Entry  scopesearch;
     Gtk::Label  epsearchlabel;
     Gtk::Label  scopesearchlabel;
     Gtk::Label  casesensitivelabel;
     Gtk::Switch *casesensitive;
     std::shared_ptr<EpBox::Eyepiecebox>  m_epbox;
     std::shared_ptr<ScopeBox::Telescopebox> m_scopebox;
-
-    bool on_key_press_event(GdkEventKey* event) override;
+    bool on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring& phase);
 };

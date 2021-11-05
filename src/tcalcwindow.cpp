@@ -12,7 +12,7 @@
 TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
     : Glib::ObjectBase("TcalcWindow"), Gtk::ApplicationWindow(), m_app(app)
 {
-   set_border_width(Uidefs::BORDER_WIDTH);
+   set_margin(Uidefs::BORDER_WIDTH);
    fileIO::set_app_data();
 
    // Create separate grids to avoid expansion / layout issues
@@ -43,19 +43,16 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    windowgrid.attach(gridleft, 0, 0);
    windowgrid.attach(gridright, 1, 0);
 
-   windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
-   mainwin.add(windowgrid);
+   windowgrid.set_margin(Uidefs::BORDER_WIDTH_SMALL);
+   mainwin.set_child(windowgrid);
    mainwin.set_propagate_natural_height(true);
    mainwin.set_propagate_natural_width(true);
-   add(mainwin);
-
-   //add(windowgrid);
+   set_child(mainwin);
 
    set_headerbar();
    create_menu_and_shortcuts();
    set_signal_handlers();
    get_keyfile_settings();
-   show_all_children();
 
    epbox->init();
    scopebox->init();
@@ -77,13 +74,14 @@ void TcalcWindow::create_menu_and_shortcuts()
    add_action("graphs", [this]() {
       if (!graphswindow)
          graphswindow = std::make_unique<GraphsWindow>();
-      graphswindow->present();
+   
+      graphswindow->show();
    });
 
    add_action("ocular", [this]() {
       if (!ocularwindow)
          ocularwindow = std::make_unique<OcularWindow>();
-      ocularwindow->present();
+      ocularwindow->show();
    });
 
    add_action("help", [this]() {
@@ -131,7 +129,7 @@ void TcalcWindow::create_menu_and_shortcuts()
    });
 
    add_action("equipment", sigc::mem_fun(*this, &TcalcWindow::equipment));
-   add_action("menu", [this]() { menubutton.set_active(true); });
+   //add_action("menu", [this]() { menubutton.set_active(true); });
    add_action("search", sigc::mem_fun(*this, &TcalcWindow::search));
 
    winmenu = Gio::Menu::create();
@@ -149,6 +147,7 @@ void TcalcWindow::create_menu_and_shortcuts()
 
    winmenu->insert_section(3, winmenusection);
    menubutton.set_menu_model(winmenu);
+   menubutton.set_icon_name("open-menu-symbolic");
 
    m_app->set_accel_for_action("win.quit", "<Ctrl>q");
    m_app->set_accel_for_action("win.menu", "<Alt>m");
@@ -173,13 +172,15 @@ void TcalcWindow::create_menu_and_shortcuts()
 
 void TcalcWindow::set_headerbar()
 {
-   menubutton.set_image_from_icon_name("open-menu-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+   //menubutton.set_image_from_icon_name("open-menu-symbolic", Gtk::IconSize::NORMAL, true);
    menubutton.set_tooltip_text(_("Opens the menu."));
-   searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+   searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::IconSize::NORMAL, true);
    searchbutton.set_tooltip_text(_("Search for an eyepiece or telescope model."));
-   headerbar.set_title(_("GNOME TCalc"));
-   headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
-   headerbar.set_show_close_button();
+   //headerbar.set_title(_("GNOME TCalc"));
+   //headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
+   headerbar.set_show_title_buttons(true);
+   title_label.set_markup(_("<b>GNOME TCalc</b>\n<sub>An astronomy tool for telescopes and eyepieces.</sub>"));
+   headerbar.set_title_widget(title_label);
    headerbar.pack_start(searchbutton);
    headerbar.pack_start(magbox->get_switcher_ref());
    headerbar.pack_end(menubutton);
@@ -197,11 +198,11 @@ void TcalcWindow::get_keyfile_settings()
       return;
    }
 
-   Glib::KeyFile keyfile;
+   Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
 
    try
    {
-      keyfile.load_from_file(AppGlobals::configpath);
+      keyfile->load_from_file(AppGlobals::configpath);
    }
    catch (const Glib::Error &ex)
    {
@@ -209,7 +210,7 @@ void TcalcWindow::get_keyfile_settings()
       return;
    }
 
-   std::vector<bool> appearance = keyfile.get_boolean_list("Appearance", "settings");
+   std::vector<bool> appearance = keyfile->get_boolean_list("Appearance", "settings");
    auto preferdarktheme = Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme();
 
    preferdarktheme.set_value(appearance[0]);
@@ -218,14 +219,14 @@ void TcalcWindow::get_keyfile_settings()
    logbox->set_use_monospace(appearance[3]);
    appearance.clear();
 
-   std::vector<double> sdefaults = keyfile.get_double_list("Telescope optical defaults", "telescopes");
+   std::vector<double> sdefaults = keyfile->get_double_list("Telescope optical defaults", "telescopes");
    astrocalc::SCOPEREFLECT = sdefaults[0];
    astrocalc::SCOPETRANS = sdefaults[1];
    astrocalc::OBSTRUCTSIZE = sdefaults[2];
    astrocalc::OBSTRUCTSIZESCT = sdefaults[3];
    sdefaults.clear();
 
-   std::vector<double> edefaults = keyfile.get_double_list("Eyepiece optical defaults", "eyepieces");
+   std::vector<double> edefaults = keyfile->get_double_list("Eyepiece optical defaults", "eyepieces");
    astrocalc::ETRANS = edefaults[0];
    astrocalc::ETRANSPLOSSL = edefaults[1];
    astrocalc::ETRANSORTHO = edefaults[2];

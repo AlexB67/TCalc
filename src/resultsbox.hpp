@@ -5,7 +5,7 @@
 #include <gtkmm/button.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/frame.h>
-#include <gtkmm/buttonbox.h>
+#include <gtkmm/box.h>
 #include <gtkmm/treeview.h>
 #include <gtkmm/liststore.h>
 #include <gtkmm/treemodel.h>
@@ -13,7 +13,7 @@
 #include <glibmm/i18n.h>
 #include <gtkmm/progressbar.h>
 #include <gtkmm/combobox.h>
-#include <gtkmm/menu.h>
+//#include <gtkmm/menu.h>
 #include "loggerbox.hpp"
 #include "eyepiecebox.hpp"
 #include "telescopebox.hpp"
@@ -44,7 +44,7 @@ namespace ResultsBox
         Resultsbox &operator=(const Resultsbox &other) = delete;
         Resultsbox &operator=(Resultsbox &&) = delete;
 
-        Gtk::ButtonBox      m_buttonbox;
+        Gtk::Box            m_buttonbox;
         Gtk::Button         m_buttonleft;
         Gtk::Button         m_buttonright;
         
@@ -76,8 +76,8 @@ namespace ResultsBox
         Glib::RefPtr<Gtk::ListStore>    m_epModel;
         Glib::RefPtr<Gtk::ListStore>    m_scopeModel;
         Gtk::Label  m_resultsframelabel;
-        Gtk::Label  m_selectset1{_("Set 1"), Gtk::ALIGN_END};
-        Gtk::Label  m_selectset2{_("Set 2"), Gtk::ALIGN_START};
+        Gtk::Label  m_selectset1{_("Set 1"), Gtk::Align::CENTER};
+        Gtk::Label  m_selectset2{_("Set 2"), Gtk::Align::CENTER};
         Gtk::CellRendererText           m_renderertext;
         Gtk::CellRendererText           m_renderertext2; // useful for wrapping
         std::vector<Glib::ustring>      m_proplistnames;

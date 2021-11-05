@@ -5,7 +5,7 @@ MagBox::Magbox::Magbox()
 {
     m_frame.set_label_widget(m_framelabel);
     m_framelabel.set_markup(_("<b>Object visibility</b>"));
-    m_frame.set_label_align(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER);
+    m_frame.set_label_align(Gtk::Align::CENTER);
 
     Uidefs::set_ui_spacing<Gtk::Grid>(m_grid);
     Uidefs::set_ui_spacing<Gtk::Grid>(m_dsogrid);
@@ -17,55 +17,55 @@ MagBox::Magbox::Magbox()
 
     m_sep.set_margin_top(Uidefs::ROW_PADDING);
 
-    m_sitetypelabel.set_halign(Gtk::ALIGN_CENTER);
+    m_sitetypelabel.set_halign(Gtk::Align::CENTER);
     m_sitetypelabel.set_label(_("Select site"));
     m_sitetypelabel1.set_label(m_sitetypelabel.get_label());
-    m_sitetypelabel1.set_halign(Gtk::ALIGN_CENTER);
-    m_explevellabel.set_halign(Gtk::ALIGN_START);
+    m_sitetypelabel1.set_halign(Gtk::Align::CENTER);
+    m_explevellabel.set_halign(Gtk::Align::START);
     m_explevellabel.set_label(_("Experience level"));
-    m_agelabel.set_halign(Gtk::ALIGN_START);
+    m_agelabel.set_halign(Gtk::Align::START);
     m_agelabel.set_label(_("Age/years"));
-    m_pupillabel.set_halign(Gtk::ALIGN_START);
+    m_pupillabel.set_halign(Gtk::Align::START);
     m_pupillabel.set_label(_("pupil size/mm"));
-    m_dirtlevellabel.set_halign(Gtk::ALIGN_START);
+    m_dirtlevellabel.set_halign(Gtk::Align::START);
     m_dirtlevellabel.set_label(_("Optical cleanliness"));
-    m_sqmlabel.set_halign(Gtk::ALIGN_START);
+    m_sqmlabel.set_halign(Gtk::Align::START);
     m_sqmlabel.set_use_markup(true);
     m_sqmlabel.set_label(_("SQM/mag arcsec<sup>-2</sup>"));
-    m_nelmlabel.set_halign(Gtk::ALIGN_START);
+    m_nelmlabel.set_halign(Gtk::Align::START);
     m_nelmlabel.set_label(_("NELM"));
-    m_nelmlabel1.set_halign(Gtk::ALIGN_START);
+    m_nelmlabel1.set_halign(Gtk::Align::START);
     m_nelmlabel1.set_label(_("NELM"));
-    m_zenithlabel.set_halign(Gtk::ALIGN_START);
+    m_zenithlabel.set_halign(Gtk::Align::START);
     m_zenithlabel.set_label(_("Zenith angle/degrees"));
-    m_colourlabel.set_halign(Gtk::ALIGN_START);
+    m_colourlabel.set_halign(Gtk::Align::START);
     m_colourlabel.set_label(_("CI (B-V)"));
     m_extinctionlabel.set_use_markup(true);
-    m_extinctionlabel.set_halign(Gtk::ALIGN_START);
+    m_extinctionlabel.set_halign(Gtk::Align::START);
     m_extinctionlabel.set_label(_("Extinction/mag atm<sup>-1</sup>"));
-    m_colouradjustlabel.set_halign(Gtk::ALIGN_START);
+    m_colouradjustlabel.set_halign(Gtk::Align::START);
     m_colouradjustlabel.set_label(_("Customise CI"));
-    m_seeinglabel.set_halign(Gtk::ALIGN_START);
-    m_minoraxislabel.set_halign(Gtk::ALIGN_START);
+    m_seeinglabel.set_halign(Gtk::Align::START);
+    m_minoraxislabel.set_halign(Gtk::Align::START);
     m_minoraxislabel.set_label(_("Minor axis / arcmin"));
-    m_majoraxislabel.set_halign(Gtk::ALIGN_START);
+    m_majoraxislabel.set_halign(Gtk::Align::START);
     m_majoraxislabel.set_label(_("Major axis / arcmin"));
-    m_vmaglabel.set_halign(Gtk::ALIGN_START);
+    m_vmaglabel.set_halign(Gtk::Align::START);
     m_vmaglabel.set_label(_("DSO magnitude"));
-    m_bgskylabel.set_halign(Gtk::ALIGN_START);
+    m_bgskylabel.set_halign(Gtk::Align::START);
     m_bgskylabel.set_markup(_("SB<sub>sky</sub>/mag arcsec<sup>-2</sup>"));
-    m_dsocontrastlabel.set_halign(Gtk::ALIGN_START);
+    m_dsocontrastlabel.set_halign(Gtk::Align::START);
     m_dsocontrastlabel.set_label(_("Contrast index"));
-    m_selectdsolabel.set_halign(Gtk::ALIGN_START);
+    m_selectdsolabel.set_halign(Gtk::Align::START);
     m_selectdsolabel.set_label(_("Select DSO"));
-    m_dsotypelabel.set_halign(Gtk::ALIGN_START);
+    m_dsotypelabel.set_halign(Gtk::Align::START);
     m_dsotypelabel.set_label(_("DSO type"));
     m_dsotype.set_width_chars(12);
     m_dsotype.set_can_focus(false);
     m_dsotype.set_tooltip_text(("Short desciption for the selected DSO."));
-    m_dsocontrastindexlabel.set_halign(Gtk::ALIGN_START);
+    m_dsocontrastindexlabel.set_halign(Gtk::Align::START);
     m_dsocontrastindexlabel.set_label(_("Contrast index"));
-    m_dsobrightnesslabel.set_halign(Gtk::ALIGN_START);
+    m_dsobrightnesslabel.set_halign(Gtk::Align::START);
     m_dsobrightnesslabel.set_markup(_("SB<sub>DSO</sub> / mag arcsec<sup>-2</sup>"));
     m_seeinglabel.set_label(_("Seeing disk/arcsec"));
     m_dirtlevel.set_tooltip_text(_("Dirt level of the optical elements."));
@@ -191,12 +191,12 @@ Gtk::Frame &MagBox::Magbox::create_mag_grid()
     set_signal_handlers();
 
     AppGlobals::get_keyfile_config(m_frame);
-    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
-    m_frame.add(m_maingrid);
+    //AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_frame);});
+    m_frame.set_child(m_maingrid);
 
     m_dsocombo.signal_changed().connect(sigc::mem_fun(*this, &Magbox::dso_changed));
 
-    m_stack.set_transition_type(Gtk::StackTransitionType::STACK_TRANSITION_TYPE_SLIDE_LEFT_RIGHT);
+    m_stack.set_transition_type(Gtk::StackTransitionType::SLIDE_LEFT_RIGHT);
     m_stack.add(m_stargrid, _("Star objects"), _("Star objects"));
     m_stack.add(m_dsogrid, _("DSO objects mode"), _("DSO objects"));
 

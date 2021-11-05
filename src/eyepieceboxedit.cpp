@@ -1,23 +1,19 @@
 #include "eyepieceboxedit.hpp"
 #include "astrocalclib/astrocalc.hpp"
 
-EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) : Eyepiecebox(true), m_app(app)
+EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app, Gtk::Window *parent) 
+: Eyepiecebox(true), m_app(app), m_parent(parent)
 {
     m_frame.set_label("");
-    m_frame.set_shadow_type(Gtk::SHADOW_NONE);
+    //m_frame.set_shadow_type(Gtk::SHADOW_NONE);
+    //m_frame.set_opacity(0.0);
 
-    m_button_del.set_image_from_icon_name("edit-delete-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_del.set_always_show_image(true);
-    m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_save.set_always_show_image(true);
-    m_button_moveup.set_image_from_icon_name("go-up-symbolic.symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_moveup.set_always_show_image(true);
-    m_button_new.set_image_from_icon_name("document-new-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_new.set_always_show_image(true);
-    m_button_cancel.set_image_from_icon_name("document-revert-symbolic-rtl.symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_cancel.set_always_show_image(true);
-    m_button_edit.set_image_from_icon_name("document-edit-symbolic", Gtk::ICON_SIZE_BUTTON, true);
-    m_button_edit.set_always_show_image(true);
+    m_button_del.set_image_from_icon_name("edit-delete-symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_moveup.set_image_from_icon_name("go-up-symbolic.symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_new.set_image_from_icon_name("document-new-symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_cancel.set_image_from_icon_name("document-revert-symbolic-rtl.symbolic", Gtk::IconSize::INHERIT, true);
+    m_button_edit.set_image_from_icon_name("document-edit-symbolic", Gtk::IconSize::INHERIT, true);
 
     m_button_moveup.set_tooltip_text(_("Move the selected model up the list by one row. Useful or reordering."));
     m_button_save.set_tooltip_text(_("save eyepiece model information."));
@@ -34,7 +30,9 @@ EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app) :
     m_egroups.set_tooltip_text(_("The number of optical groups. Leave at 0 if unknown."));
     m_elements.set_tooltip_text(_("The total number of optical elements. Leave at zero if unknown."));
 
-    sizegroup = Gtk::SizeGroup::create(Gtk::SIZE_GROUP_HORIZONTAL);
+    m_button_new.get_style_context()->add_class("suggested-action");
+
+    sizegroup = Gtk::SizeGroup::create(Gtk::SizeGroup::Mode::HORIZONTAL);
     sizegroup->add_widget(*m_emodel);
     sizegroup->add_widget(m_emodelentry);
 
@@ -105,7 +103,7 @@ void EpBox::EditEyepieces::init()
 
     m_emodelentry.set_visible(false);
     m_emodel->set_visible(true);
-    m_emodel->get_entry()->set_can_focus(false);
+    //m_emodel->get_entry()->set_can_focus(false);
     m_button_cancel.set_sensitive(false);
     m_button_moveup.set_sensitive(false);
     m_button_save.set_sensitive(false);
@@ -165,7 +163,7 @@ void EpBox::EditEyepieces::set_default_values()
     m_ematerial.set_active(3);
 }
 
-bool EpBox::EditEyepieces::validate_ep_data() const
+bool EpBox::EditEyepieces::validate_ep_data()
 {
     bool flag = true;
     Glib::ustring title = _("The following errors were encountered. Please correct the following: \r\n");
@@ -224,9 +222,23 @@ bool EpBox::EditEyepieces::validate_ep_data() const
 
     if (false == flag)
     {
-        Gtk::MessageDialog message_dialog(title, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_CLOSE, true);
-        message_dialog.set_secondary_text(message);
-        message_dialog.run();
+        validate_dialog.reset(new Gtk::MessageDialog(message, false, Gtk::MessageType::ERROR, Gtk::ButtonsType::OK, true));
+        validate_dialog->set_hide_on_close(true);
+        validate_dialog->set_transient_for(*m_parent);
+        validate_dialog->show();
+
+        validate_dialog->signal_response().connect([this](int retcode) 
+        {
+            validate_dialog->hide();
+            switch (retcode)
+            {
+                case Gtk::ResponseType::OK:
+                {
+                   // validate_dialog->hide();
+                    break;
+                }
+            }
+        });
     }
 
     return flag;

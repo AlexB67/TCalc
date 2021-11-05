@@ -1,7 +1,7 @@
 {
     "app-id" : "org.gnome.TCalc",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.38",
+    "runtime-version" : "40.1",
     "sdk" : "org.gnome.Sdk",
     "command" : "tcalc",
     "tags": ["devel", "development", "nightly"],

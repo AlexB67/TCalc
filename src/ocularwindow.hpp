@@ -41,6 +41,7 @@ private:
     Gtk::Grid dsoobjgrid;
     Gtk::Grid ocularinfogrid;
     Gtk::Grid ocularboxgrid;
+    Gtk::Label headerlabel;
     Gtk::Label dsocontrastlabel;
     Gtk::Label ocularfovlabel;
     Gtk::Label ocularexitpupillabel;
@@ -70,7 +71,7 @@ private:
     Ocular ocularbox;
     void create_sky_objects_box();
     void create_ocular_info_box();
-    bool on_key_press_event(GdkEventKey *event) override;
+    //bool on_key_press_event(GdkEventKey *event) override;
     void set_signal_handlers();
     void set_ocular_info();
     void dso_changed();

@@ -23,9 +23,9 @@ namespace OptionsBox
     Ui::SpinEntry		    m_wavelength;
     
   private:
-    Gtk::Label			    m_usefstoplabel{_("Use fieldstop"), Gtk::ALIGN_START};
-    Gtk::Label          m_uselinearmethodlabel{_("Linear method"), Gtk::ALIGN_START};
-    Gtk::Label          m_wavelengthlabel{_("Wavelength/nm"), Gtk::ALIGN_START};
+    Gtk::Label			    m_usefstoplabel{_("Use fieldstop"), Gtk::Align::START};
+    Gtk::Label          m_uselinearmethodlabel{_("Linear method"), Gtk::Align::START};
+    Gtk::Label          m_wavelengthlabel{_("Wavelength/nm"), Gtk::Align::START};
     Gtk::Label          m_framelabel;
 	  Gtk::Grid    		    m_grid;
     Gtk::Frame          m_frame;

@@ -5,12 +5,12 @@
 
 EpBox::Eyepiecebox::Eyepiecebox(const bool userdataonly) : m_userdataonly(userdataonly)
 {
-	m_emodel = Gtk::make_managed<Gtk::ComboBox>(true);
+	m_emodel = Gtk::make_managed<Gtk::ComboBox>();
 	m_frame.set_hexpand(false);
 	m_frame.set_vexpand(false);
     m_framelabel.set_markup(_("<b>Eyepiece properties</b>"));
     m_frame.set_label_widget(m_framelabel);
-    m_frame.set_label_align(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER);
+    m_frame.set_label_align(Gtk::Align::CENTER);
     
     Uidefs::set_ui_spacing<Gtk::Grid>(m_grid);
 	m_emodel->set_tooltip_text(_("Select an eyepiece from the list of preset models, " 
@@ -57,9 +57,9 @@ Gtk::Frame &EpBox::Eyepiecebox::create_eyepiece_grid()
 
 	create_epmodel_connection();
 
-	AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
+	//AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_frame, 0.0);});
     AppGlobals::get_keyfile_config(m_frame);
-	m_frame.add(m_grid);
+	m_frame.set_child(m_grid);
 
 	return m_frame;
 }

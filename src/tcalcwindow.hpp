@@ -3,12 +3,11 @@
 #include <gtkmm/scrolledwindow.h>
 #include <gtkmm/shortcutswindow.h>
 #include <gtkmm/menubutton.h>
-#include <gtkmm/menu.h>
-#include <gtkmm/menuitem.h>
 #include <gtkmm/frame.h>
 #include <gtkmm/textview.h>
 #include <gtkmm/headerbar.h>
 #include <gtkmm/button.h>
+#include <gtkmm/aboutdialog.h>
 #include <memory.h>
 #include "telescopebox.hpp"
 #include "eyepiecebox.hpp"
@@ -49,7 +48,9 @@ private:
   std::unique_ptr<MagBox::Magbox> magbox;
   std::unique_ptr<OptionsBox::Optionsbox> optionsbox;
   std::unique_ptr<ResultsBox::Resultsbox> resultsbox;
-  Gtk::ShortcutsWindow *shortcutswindow = nullptr;
+  std::unique_ptr<Gtk::AboutDialog> aboutdialog;
+  Gtk::ShortcutsWindow *shortcutswindow;
+  Gtk::Label  title_label;
   Gtk::Grid   windowgrid;
   Gtk::Grid   gridright;
   Gtk::Grid   gridleft;

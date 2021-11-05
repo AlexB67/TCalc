@@ -11,29 +11,29 @@
 
 namespace CalcBox
 {
-  class Calcbox
-  {
-  public:
-    explicit Calcbox();
-    Calcbox(const Calcbox&) = delete;
-    Calcbox& operator=(const Calcbox& other) = delete;
-    Gtk::Frame &create_calc_grid();
-    void set_default_values();
-    
-    Gtk::Button         m_clearbutton{_("Clear")};
-    Gtk::Button         m_calcbutton{_("Calculate")};
-    Gtk::Switch         *m_logswitch;
-    Gtk::Switch         *m_interactive;
+    class Calcbox
+    {
+    public:
+        explicit Calcbox();
+        Calcbox(const Calcbox &) = delete;
+        Calcbox &operator=(const Calcbox &other) = delete;
+        Gtk::Frame &create_calc_grid();
+        void set_default_values();
 
-  private:     
-    Gtk::Label			m_loglabel{_("Logging"), Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER};
-    Gtk::Label          m_interactivelabel{_("Interactive"), Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER};
-    Gtk::Label          m_calcframelabel;    
-	Gtk::Grid    		m_calcgrid;
-    Gtk::Frame          m_calcframe;
-    Gtk::Separator      m_separator;
-    Gtk::Separator      m_separator2;
-    Gtk::Separator      m_separator3;
-    Glib::RefPtr<Gtk::SizeGroup>  m_sizegroup;
-  };
+        Gtk::Button m_clearbutton{_("Clear")};
+        Gtk::Button m_calcbutton{_("Calculate")};
+        Gtk::Switch *m_logswitch;
+        Gtk::Switch *m_interactive;
+
+    private:
+        Gtk::Label m_loglabel{_("Logging"), Gtk::Align::CENTER, Gtk::Align::CENTER};
+        Gtk::Label m_interactivelabel{_("Interactive"), Gtk::Align::CENTER, Gtk::Align::CENTER};
+        Gtk::Label m_calcframelabel;
+        Gtk::Grid m_calcgrid;
+        Gtk::Frame m_calcframe;
+        Gtk::Separator m_separator;
+        Gtk::Separator m_separator2;
+        Gtk::Separator m_separator3;
+        Glib::RefPtr<Gtk::SizeGroup> m_sizegroup;
+    };
 }

@@ -5,7 +5,7 @@ OptionsBox::Optionsbox::Optionsbox()
 {
     m_frame.set_label_widget(m_framelabel);
     m_framelabel.set_markup(_("<b>Options</b>"));
-    m_frame.set_label_align(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER);
+    m_frame.set_label_align(Gtk::Align::CENTER);
     m_frame.set_vexpand(true);
 
     m_usefstop = Gtk::make_managed<Gtk::Switch>();
@@ -14,10 +14,10 @@ OptionsBox::Optionsbox::Optionsbox()
     Uidefs::set_ui_spacing(m_grid);
 
     m_grid.set_column_homogeneous(true);
-    m_uselinearmethod->set_halign(Gtk::ALIGN_END);
-    m_uselinearmethod->set_valign(Gtk::ALIGN_CENTER);
-    m_usefstop->set_halign(Gtk::ALIGN_END);
-    m_usefstop->set_valign(Gtk::ALIGN_CENTER);
+    m_uselinearmethod->set_halign(Gtk::Align::END);
+    m_uselinearmethod->set_valign(Gtk::Align::CENTER);
+    m_usefstop->set_halign(Gtk::Align::END);
+    m_usefstop->set_valign(Gtk::Align::CENTER);
     m_usefstop->set_tooltip_text(_("Use field stop data to calculate the field of view."));
     m_uselinearmethod->set_tooltip_markup(_("When enabled, the commonly used linear approximation is used to calculate the field of view. "
                                             "The default uses the more accurate formula: "
@@ -35,10 +35,10 @@ Gtk::Frame &OptionsBox::Optionsbox::create_options_grid()
     m_grid.attach(m_wavelength, 1, 2);
 
     set_default_values();
-    m_frame.add(m_grid);
+    m_frame.set_child(m_grid);
 
     AppGlobals::get_keyfile_config(m_frame);
-    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
+    //AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_frame);});
 
     return m_frame;
 }

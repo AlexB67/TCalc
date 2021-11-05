@@ -4,12 +4,12 @@
 
 ScopeBox::Telescopebox::Telescopebox(const bool userdataonly) : m_userdataonly(userdataonly)
 {
-	m_smodel = Gtk::make_managed<Gtk::ComboBox>(true);
+	m_smodel = Gtk::make_managed<Gtk::ComboBox>();
 	m_frame.set_hexpand(false);
 	m_frame.set_vexpand(false);
     m_frame.set_label_widget(m_framelabel);
 	m_framelabel.set_markup(_("<b>Telescope properties</b>"));
-    m_frame.set_label_align( Gtk::ALIGN_CENTER,  Gtk::ALIGN_CENTER);
+    m_frame.set_label_align( Gtk::Align::CENTER);
    
     Uidefs::set_ui_spacing<Gtk::Grid>(m_grid);
     
@@ -58,7 +58,7 @@ Gtk::Frame &ScopeBox::Telescopebox::create_telescope_grid()
 
 	create_scopemodel_connection();
 
-	AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_frame, type);});
+	//AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_frame);});
 	AppGlobals::get_keyfile_config(m_frame);
 						
 	m_sflen.signal_value_changed().connect( sigc::mem_fun(*this, &Telescopebox::update_sfratio));
@@ -67,7 +67,7 @@ Gtk::Frame &ScopeBox::Telescopebox::create_telescope_grid()
 	m_smodel->signal_changed().connect(sigc::mem_fun(*this, &Telescopebox::scope_changed));
 	m_stype.signal_changed().connect(sigc::mem_fun(*this, &Telescopebox::scope_type_changed));	
 
-	m_frame.add(m_grid);
+	m_frame.set_child(m_grid);
 	return m_frame;
 	
 }

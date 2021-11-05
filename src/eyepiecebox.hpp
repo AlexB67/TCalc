@@ -38,12 +38,12 @@ public:
   Ui::SpinEntry m_etrans;
 
 private:
-  Gtk::Label m_efovlabel{_("FOV/degrees"), Gtk::ALIGN_START};
-  Gtk::Label m_eflenlabel{_("Focal length/mm"), Gtk::ALIGN_START};
-  Gtk::Label m_efstoplabel{_("Field stop/mm"), Gtk::ALIGN_START};
-  Gtk::Label m_erelieflabel{_("Eye relief/mm"), Gtk::ALIGN_START};
-  Gtk::Label m_etranslabel{_("Transmission/%"), Gtk::ALIGN_START};
-  Gtk::Label m_etypelabel{_("Eyepiece type"), Gtk::ALIGN_START};
+  Gtk::Label m_efovlabel{_("FOV/degrees"), Gtk::Align::START};
+  Gtk::Label m_eflenlabel{_("Focal length/mm"), Gtk::Align::START};
+  Gtk::Label m_efstoplabel{_("Field stop/mm"), Gtk::Align::START};
+  Gtk::Label m_erelieflabel{_("Eye relief/mm"), Gtk::Align::START};
+  Gtk::Label m_etranslabel{_("Transmission/%"), Gtk::Align::START};
+  Gtk::Label m_etypelabel{_("Eyepiece type"), Gtk::Align::START};
   int get_eyepiece_type(const Gtk::TreeModel::Row &row) const;
   bool m_userdataonly;
 
@@ -51,7 +51,7 @@ protected:
   Gtk::Grid m_grid;
   Gtk::Frame  m_frame;
   Gtk::Label  m_framelabel;
-  Gtk::Label  m_emodellabel{_("Select eyepiece"), Gtk::ALIGN_CENTER};
+  Gtk::Label  m_emodellabel{_("Select eyepiece"), Gtk::Align::CENTER};
   void ep_changed();
   virtual void create_epmodel_connection();
 };

@@ -7,11 +7,9 @@
 #include <gtkmm/switch.h>
 #include <gtkmm/button.h>
 #include <gtkmm/frame.h>
-#include <glibmm/keyfile.h>
 #include <giomm/settings.h>
 #include "gtkmmcustomutils.hpp"
 #include "loggerbox.hpp"
-#include <iostream>
 
 class PrefsWindow : public Gtk::Window
 {
@@ -37,19 +35,19 @@ private:
     Gtk::Switch         *showcolour;
     Gtk::Switch         *usemonospace;
     Gtk::Switch         *drawframes;
-    Gtk::Label          preferdarkthemelabel{_("Prefer dark theme variant:"), Gtk::ALIGN_START};
-    Gtk::Label          showtimelabel{_("Enable date and time stamp:"), Gtk::ALIGN_START};
-    Gtk::Label          showcolourlabel{_("Enable colour for warnings:"), Gtk::ALIGN_START};
-    Gtk::Label          usemonospacelabel{_("Use monospace font:"), Gtk::ALIGN_START};
-    Gtk::Label          sreflectlabel{_("Reflectivity/%:"), Gtk::ALIGN_START};
-    Gtk::Label          stranslabel{_("Transmission/%:"), Gtk::ALIGN_START};
-    Gtk::Label          sobstructlabel{_("Reflector obstruction size/%:"), Gtk::ALIGN_START};
-    Gtk::Label          sobstructlabelsct{_("Mak/SCT obstruction size/%:"), Gtk::ALIGN_START};
-    Gtk::Label          etransortholabel{_("Orthoscopic transmission/%:"), Gtk::ALIGN_START};
-    Gtk::Label          etransplossllabel{_("Plossl transmission/%:"), Gtk::ALIGN_START};
-    Gtk::Label          etransmultilabel{_("Multi element transmission/%:"), Gtk::ALIGN_START};
-    Gtk::Label          graphthemeslabel{_("Custom graph theme:"), Gtk::ALIGN_START};
-    Gtk::Label          drawframeslabel{_("Show frames:"), Gtk::ALIGN_START};
+    Gtk::Label          preferdarkthemelabel{_("Prefer dark theme variant"), Gtk::Align::START};
+    Gtk::Label          showtimelabel{_("Enable date and time stamp"), Gtk::Align::START};
+    Gtk::Label          showcolourlabel{_("Enable colour for warnings"), Gtk::Align::START};
+    Gtk::Label          usemonospacelabel{_("Use monospace font"), Gtk::Align::START};
+    Gtk::Label          sreflectlabel{_("Reflectivity/%:"), Gtk::Align::START};
+    Gtk::Label          stranslabel{_("Transmission/%:"), Gtk::Align::START};
+    Gtk::Label          sobstructlabel{_("Reflector obstruction size/%"), Gtk::Align::START};
+    Gtk::Label          sobstructlabelsct{_("Mak/SCT obstruction size/%"), Gtk::Align::START};
+    Gtk::Label          etransortholabel{_("Orthoscopic transmission/%"), Gtk::Align::START};
+    Gtk::Label          etransplossllabel{_("Plossl transmission/%"), Gtk::Align::START};
+    Gtk::Label          etransmultilabel{_("Multi element transmission/%"), Gtk::Align::START};
+    Gtk::Label          graphthemeslabel{_("Custom graph theme"), Gtk::Align::START};
+    Gtk::Label          drawframeslabel{_("Show frames"), Gtk::Align::START};
     Ui::SpinEntry       sreflect;
     Ui::SpinEntry       sobstruct;
     Ui::SpinEntry       sobstructsct;
@@ -61,7 +59,6 @@ private:
     Gtk::Button         epdefaults;
     Gtk::Button         appearancedefaults;
     Gtk::ComboBoxText   graphthemes;
-    Glib::KeyFile       keyfile;
     Glib::ustring       path;
     Glib::RefPtr<Gtk::StyleContext> context;
 
@@ -69,7 +66,7 @@ private:
     void create_telescope_page();
     void create_eyepiece_page();
     void get_keyfile_settings();
-    bool on_key_press_event(GdkEventKey* event) override;
+    bool on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring& phase);
 
 protected:
     void save_key_settings();

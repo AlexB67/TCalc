@@ -33,8 +33,8 @@ void ScopeCombomodel::swap_scope_rows(const Glib::ustring& scopename) const
         if(found) break;
     }
 
-    const Gtk::TreeRow prow = *previousiter;
-    const Gtk::TreeRow row = *iter;
+    Gtk::TreeRow prow = *previousiter;
+    Gtk::TreeRow row = *iter;
 
     std::tuple<double, double, double, double, int, Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
             Glib::ustring, Glib::ustring, Glib::ustring> scopedata =  
@@ -91,7 +91,7 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
 {
     if (true == ischild)
     {
-        const auto childrow = *(m_scopetreemodel->append(parent_row.children()));
+        auto childrow = *(m_scopetreemodel->append(parent_row.children()));
        // brand is omitted for children row, 
         childrow[m_scopecols.m_smodel] = std::get<1>(scopedata);;
         childrow[m_scopecols.m_saperture] = std::get<2>(scopedata);
@@ -111,7 +111,7 @@ void ScopeCombomodel::append_scope_to_model(const std::tuple<Glib::ustring, Glib
         childrow[m_scopecols.m_sfinder_type] = std::get<16>(scopedata); 
 
         // used by search completion
-        const auto listrow = *(m_scopelistmodel->append());
+        auto listrow = *(m_scopelistmodel->append());
         listrow[m_scopecompletioncols.m_sbrand] = std::get<0>(scopedata);
         listrow[m_scopecompletioncols.m_smodel] = std::get<1>(scopedata);
     }
@@ -147,7 +147,7 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
     
     if (false == found) // No user eyeieces were aded yet so add the "User" category
     {
-        const Gtk::TreeRow row = *(m_scopetreemodel->prepend());
+        Gtk::TreeRow row = *(m_scopetreemodel->prepend());
         row[m_scopecols.m_sbrand] = _("User");
         row[m_scopecols.m_smodel] = ""; // stops text != NULL warnings
     }
@@ -156,7 +156,7 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
     
     if (iter)
     {
-        const Gtk::TreeRow row = *(m_scopetreemodel->append(iter->children()));
+        Gtk::TreeRow row = *(m_scopetreemodel->append(iter->children()));
         row[m_scopecols.m_smodel] = std::get<1>(scopedata);
         row[m_scopecols.m_saperture] = std::get<2>(scopedata);
         row[m_scopecols.m_sflen] = std::get<3>(scopedata);
@@ -176,7 +176,7 @@ void ScopeCombomodel::add_scope_to_model(const std::tuple<Glib::ustring, Glib::u
     }
 
      // Update completion list
-    const auto listrow = *(m_scopelistmodel->append());
+    auto listrow = *(m_scopelistmodel->append());
     listrow[m_scopecompletioncols.m_sbrand] = _("User");
     listrow[m_scopecompletioncols.m_smodel] = std::get<1>(scopedata);
     
@@ -194,9 +194,9 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &scopename) co
     bool deleted = false;
     for (auto iter2 : iter->children())
     {
-        if (scopename == (*iter2)->get_value(m_scopecols.m_smodel))
+        if (scopename == iter2.get_value(m_scopecols.m_smodel))
         {
-            if(iter2) m_scopetreemodel->erase(iter2);
+            if(iter2) m_scopetreemodel->erase(iter2.get_iter());
             deleted = true;
         }
 
@@ -210,9 +210,9 @@ void ScopeCombomodel::remove_scope_from_model(const Glib::ustring &scopename) co
     deleted = false;
     for (auto &i : m_scopelistmodel->children())
     {
-        if (scopename == i->get_value(m_scopecompletioncols.m_smodel))
+        if (scopename == i.get_value(m_scopecompletioncols.m_smodel))
         {
-            m_scopelistmodel->erase(i);
+            m_scopelistmodel->erase(i.get_iter());
             deleted = true;
         }
 
@@ -236,7 +236,7 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
 
     if (iter2)
     {
-        const auto row = *iter2;
+        auto row = *iter2;
         if (row)
         {
             row[m_scopecols.m_smodel] = std::get<1>(scopedata);
@@ -263,9 +263,9 @@ void ScopeCombomodel::update_scope_model(const std::tuple<Glib::ustring, Glib::u
 
     for (auto &i : m_scopelistmodel->children())
     {
-        if (oldname == (*i)->get_value(m_scopecompletioncols.m_smodel))
+        if (oldname == i.get_value(m_scopecompletioncols.m_smodel))
         {
-            const auto row = *i;
+            auto row = i;
             row[m_scopecompletioncols.m_smodel] =  std::get<1>(scopedata);
             updated = true;
         }
@@ -278,17 +278,17 @@ void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
 {
     m_scopecombo = &scopecombo;
     m_scopecombo->set_model(m_scopetreemodel);
-    m_scopecombo->pack_start(m_scopecols.m_sbrand);
-    m_scopecombo->set_entry_text_column(1);
+    m_scopecombo->set_id_column(1);
+    m_cell.property_ellipsize() =  Pango::EllipsizeMode::END;
+    m_cell.property_max_width_chars() = 38;
+    m_scopecombo->set_button_sensitivity(Gtk::SensitivityType::ON);
+    m_scopecombo->pack_start(m_cell);
     m_scopecombo->set_popup_fixed_width(false);
-    m_scopecombo->set_wrap_width(1);
-    auto *entry = static_cast<Gtk::Entry *>(m_scopecombo->get_entry());
-    entry->property_width_chars() = 32;
-    entry->property_editable() = false;
-    entry->set_placeholder_text("Select model");
     m_scopecombo->set_active(0);
+    
+    // set the first eyepiece we find;
 
-     // set the first telescope we find;
+    m_scopecombo->set_cell_data_func(m_cell, sigc::mem_fun(*this, &ScopeCombomodel::on_cell_data_changed));
     if (m_scopetreemodel->children().size() > 0)
     {
 
@@ -301,9 +301,10 @@ void ScopeCombomodel::setup_scope_combo_model(Gtk::ComboBox& scopecombo)
     }
 }
 
-void ScopeCombomodel::set_scope_completion_model(Gtk::SearchEntry& scopesearch)
+void ScopeCombomodel::set_scope_completion_model(Gtk::Entry& scopesearch)
 {
     m_scopesearch = &scopesearch;
+    m_scopesearch->set_icon_from_icon_name("edit-find-symbolic");
     scopeentrycompletion = Gtk::EntryCompletion::create();
     scopeentrycompletion->set_model(m_scopelistmodel);
     scopeentrycompletion->set_text_column(m_scopecols.m_smodel);
@@ -319,23 +320,23 @@ bool ScopeCombomodel::on_scope_selected(const Gtk::TreeModel::iterator& iter)
 
     if (iter)
     {
-        const auto row = *iter;
+        auto row = *iter;
         m_scopesearch->set_text(row[m_scopecompletioncols.m_smodel]);
 
         Gtk::TreeModel::iterator it;
 
         for(it = m_scopetreemodel->children().begin(); it != m_scopetreemodel->children().end(); ++it)
         {
-             if ((*it)[m_scopecols.m_sbrand] == row[m_scopecompletioncols.m_sbrand]) break;
+             if ((*it).get_value(m_scopecols.m_sbrand)  == row.get_value(m_scopecompletioncols.m_sbrand)) break;
         }
         
         bool found = false;
         for(Gtk::TreeModel::iterator it2 = it->children().begin(); it2 != it->children().end(); ++it2)
         {
-            if (row[m_scopecompletioncols.m_smodel] == it2->get_value(m_scopecols.m_smodel)) 
+            if (row.get_value(m_scopecompletioncols.m_smodel) == (*it2).get_value(m_scopecols.m_smodel)) 
             {
                 found = true;
-                m_scopecombo->set_active(*it2);
+                m_scopecombo->set_active(it2);
             }
 
             if (found) break;
@@ -353,7 +354,7 @@ void ScopeCombomodel::set_case_sensitive(const bool case_sensitive)
     m_case_sensitive = case_sensitive;
 }
 
-bool ScopeCombomodel::on_scope_completion_match(const Glib::ustring& key, const Gtk::TreeModel::iterator& iter)
+bool ScopeCombomodel::on_scope_completion_match(const Glib::ustring& key, const Gtk::TreeModel::const_iterator& iter)
 {
     if (iter)
     {
@@ -370,4 +371,17 @@ bool ScopeCombomodel::on_scope_completion_match(const Glib::ustring& key, const 
     }
 
     return false;
+}
+
+void ScopeCombomodel::on_cell_data_changed(const Gtk::TreeModel::const_iterator& iter)
+{
+    if(!iter) m_cell.property_text() = "Select";
+    
+    auto row = *iter;
+    const Glib::ustring txt = row[m_scopecols.m_smodel];
+
+     if (txt.empty())
+        m_cell.property_text() = row[m_scopecols.m_sbrand];
+     else
+        m_cell.property_text() = txt;
 }

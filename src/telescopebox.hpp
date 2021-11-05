@@ -43,19 +43,19 @@ public:
   Ui::SpinEntry m_sobstruct;
 
 private:
-  Gtk::Label m_sflenlabel{_("Focal length/mm"), Gtk::ALIGN_START};
-  Gtk::Label m_saperturelabel{_("Aperture/mm"), Gtk::ALIGN_START};
-  Gtk::Label m_sfratiolabel{_("Focal ratio"), Gtk::ALIGN_START};
-  Gtk::Label m_sreflectlabel{_("Reflectivity/%"), Gtk::ALIGN_START};
-  Gtk::Label m_sobstructlabel{_("Obstruction/%"), Gtk::ALIGN_START};
-  Gtk::Label m_stypelabel{_("Telescope type"), Gtk::ALIGN_START};
+  Gtk::Label m_sflenlabel{_("Focal length/mm"), Gtk::Align::START};
+  Gtk::Label m_saperturelabel{_("Aperture/mm"), Gtk::Align::START};
+  Gtk::Label m_sfratiolabel{_("Focal ratio"), Gtk::Align::START};
+  Gtk::Label m_sreflectlabel{_("Reflectivity/%"), Gtk::Align::START};
+  Gtk::Label m_sobstructlabel{_("Obstruction/%"), Gtk::Align::START};
+  Gtk::Label m_stypelabel{_("Telescope type"), Gtk::Align::START};
   bool m_userdataonly;
 
 protected:
   Gtk::Grid m_grid;
   Gtk::Frame m_frame;
   Gtk::Label m_framelabel;
-  Gtk::Label m_smodellabel{_("Select telescope"), Gtk::ALIGN_CENTER};
+  Gtk::Label m_smodellabel{_("Select telescope"), Gtk::Align::CENTER};
   void update_sfratio();
   void set_sflen();
   void scope_changed();

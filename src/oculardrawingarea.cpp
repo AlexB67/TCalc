@@ -8,13 +8,11 @@ constexpr T pi() { return std::acos(-1); }
 Ocular::Ocular() 
 {
     set_size_request(64, 64); // give it something to being with
-    set_margin_left(Uidefs::BORDER_WIDTH);
-    set_margin_right(Uidefs::BORDER_WIDTH);
-    set_margin_top(Uidefs::BORDER_WIDTH);
-    set_margin_bottom(Uidefs::BORDER_WIDTH);
+    set_margin(Uidefs::BORDER_WIDTH);
+    set_draw_func(sigc::mem_fun(*this, &Ocular::on_draw));
 }
 
-bool Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
+void Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr, int, int)
 {
   Gtk::Allocation allocation = get_allocation();
   const int w = allocation.get_width();
@@ -23,7 +21,7 @@ bool Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
   auto m_image = Gdk::Pixbuf::create_from_file(m_imagefile);
 
   if (!m_image)
-    return false;
+    return;
 
   m_image->saturate_and_pixelate(m_image, 0.01, false);
 
@@ -54,6 +52,4 @@ bool Ocular::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
   cr->set_source_rgba(0.082, 0.325, 0.619, 0.5);
   // cr->set_source_rgba(0.619, 0.082, 0.125, 0.40);
   cr->stroke();
-
-  return true;
 }

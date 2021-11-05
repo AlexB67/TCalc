@@ -2,6 +2,7 @@
 #include <gtkmm/textview.h>
 #include <gtkmm/scrolledwindow.h>
 #include <gtkmm/frame.h>
+#include <gtkmm/label.h>
 #include <gtkmm/grid.h>
 #include <glibmm/ustring.h>
 #include <glibmm/datetime.h>

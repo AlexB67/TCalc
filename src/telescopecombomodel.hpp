@@ -4,8 +4,9 @@
 #include <gtkmm/liststore.h>
 #include <gtkmm/treestore.h>
 #include <gtkmm/entry.h>
-#include <gtkmm/searchentry.h>
+#include <gtkmm/entry.h>
 #include <gtkmm/entrycompletion.h>
+#include <gtkmm/cellrenderertext.h>
 
 
 namespace ScopeCombo
@@ -86,7 +87,7 @@ namespace ScopeCombo
       void remove_scope_from_model(const Glib::ustring &scopename) const;
       void swap_scope_rows(const Glib::ustring& scopename) const;
       void setup_scope_combo_model(Gtk::ComboBox& scopecombo);
-      void set_scope_completion_model(Gtk::SearchEntry &scopesearch);
+      void set_scope_completion_model(Gtk::Entry &scopesearch);
       void set_case_sensitive(const bool case_sensitive);
       const Glib::RefPtr<Gtk::TreeStore>& get_scopemodel() const { return m_scopetreemodel;}
     
@@ -96,12 +97,14 @@ namespace ScopeCombo
       Glib::RefPtr<Gtk::ListStore>        m_scopelistmodel;
       Glib::RefPtr<Gtk::EntryCompletion>  scopeentrycompletion;
       Gtk::ComboBox     *m_scopecombo   = nullptr;
-      Gtk::SearchEntry  *m_scopesearch  = nullptr;
+      Gtk::CellRendererText  m_cell;
+      Gtk::Entry        *m_scopesearch  = nullptr;
       bool m_case_sensitive             = false;
     
     protected:
       bool on_scope_selected(const Gtk::TreeModel::iterator& iter);
       bool on_scope_completion_match(const Glib::ustring& key, const Gtk::TreeModel::const_iterator& iter);
+      void on_cell_data_changed(const Gtk::TreeModel::const_iterator& iter);
   };
 }
 

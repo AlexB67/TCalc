@@ -197,31 +197,45 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
                                 m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel) +
                                 _("\nCick Yes to proceed or No to cancel."));
 
-        Gtk::MessageDialog  message_dialog(message, false, Gtk::MESSAGE_ERROR, Gtk::BUTTONS_YES_NO, true);
-        int retcode = message_dialog.run();
-        m_smodellabel.set_label(_("Select Telescope"));
+        delete_dialog.reset(new Gtk::MessageDialog(message, false, Gtk::MessageType::ERROR, Gtk::ButtonsType::YES_NO, true));
+        delete_dialog->set_hide_on_close(true);
+        delete_dialog->set_transient_for(*m_parent);
+        delete_dialog->show();
 
-        if (retcode != Gtk::RESPONSE_YES)
+        m_smodellabel.set_label(_("Select telescope"));
+
+        delete_dialog->signal_response().connect([this](int retcode) 
         {
-            init();
-            return;
-        }
-        Glib::ustring scopemodelname = 
-        static_cast<Glib::ustring>(m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel));
-        
-        auto model = m_smodel->get_model();
-        m_smodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
-        m_scombomodel.remove_scope_from_model(scopemodelname);
-        m_smodel->set_model(model);
+            delete_dialog->hide();
 
-        AppGlobals::del_scope_data.emit(scopemodelname);
+            switch (retcode)
+            {
+                case Gtk::ResponseType::NO:
+                {
+                    init();
+                    break;
+                }
+                case Gtk::ResponseType::YES:
+                {
+                    Glib::ustring scopemodelname = 
+                    static_cast<Glib::ustring>(m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel));
+                    
+                    auto model = m_smodel->get_model();
+                    m_smodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
+                    m_scombomodel.remove_scope_from_model(scopemodelname);
+                    m_smodel->set_model(model);
 
-        fileIO::dbfileIO db;
-        db.write_scope_user_data(*m_smodel, m_scombomodel);
+                    AppGlobals::del_scope_data.emit(scopemodelname);
 
-        init();
-        enable_widgets(false);
-        AppGlobals::app_notify(_("User telescopes updated."), m_app);
+                    fileIO::dbfileIO db;
+                    db.write_scope_user_data(*m_smodel, m_scombomodel);
+
+                    init();
+                    enable_widgets(false);
+                    AppGlobals::app_notify(_("User telescopes updated."), m_app);
+                }
+            }
+        });
     });
 }
 

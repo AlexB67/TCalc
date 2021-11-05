@@ -11,7 +11,7 @@ namespace EpBox
 class EditEyepieces : public Eyepiecebox
 {
 public:
-    explicit EditEyepieces(const Glib::RefPtr<Gtk::Application> &app);
+    explicit EditEyepieces(const Glib::RefPtr<Gtk::Application> &app, Gtk::Window *parent);
     EditEyepieces(const Eyepiecebox &) = delete;
     EditEyepieces &operator=(const Eyepiecebox &other) = delete;
     ~EditEyepieces() {}
@@ -19,15 +19,16 @@ public:
     void set_default_values() override;
 
 private:
+    Glib::RefPtr<Gtk::Application> m_app;
+    Gtk::Window *m_parent;
     Glib::ustring old_model_name;
     Gtk::Entry m_emodelentry;
-    Glib::RefPtr<Gtk::Application> m_app;
-    Gtk::Label m_ebarrelsizelabel{_("Barrel size/inches"), Gtk::ALIGN_START};
-    Gtk::Label m_egroupslabel{_("Group #"), Gtk::ALIGN_START};
-    Gtk::Label m_elementslabel{_("Element #"), Gtk::ALIGN_START};
-    Gtk::Label m_eweightlabel{_("Weight/grams"), Gtk::ALIGN_START};
-    Gtk::Label m_ecoatingslabel{_("Optical coating"), Gtk::ALIGN_START};
-    Gtk::Label m_emateriallabel{_("Optical material"), Gtk::ALIGN_START};
+    Gtk::Label m_ebarrelsizelabel{_("Barrel size/inches"), Gtk::Align::START};
+    Gtk::Label m_egroupslabel{_("Group #"), Gtk::Align::START};
+    Gtk::Label m_elementslabel{_("Element #"), Gtk::Align::START};
+    Gtk::Label m_eweightlabel{_("Weight/grams"), Gtk::Align::START};
+    Gtk::Label m_ecoatingslabel{_("Optical coating"), Gtk::Align::START};
+    Gtk::Label m_emateriallabel{_("Optical material"), Gtk::Align::START};
     Gtk::Label dummy1, dummy2, dummy3; // to act as spacers
     Ui::SpinEntry m_ebarrelsize;
     Ui::SpinEntry m_egroups;
@@ -45,10 +46,12 @@ private:
     Gtk::Button m_button_moveup{_("Move up")};
     Gtk::Separator m_sep;
     Glib::RefPtr<Gtk::SizeGroup> sizegroup;
+    std::unique_ptr<Gtk::MessageDialog> delete_dialog;
+    std::unique_ptr<Gtk::MessageDialog> validate_dialog;
     bool updatemode = false;
     void set_signal_handlers();
     void enable_widgets(const bool enable = true);
-    bool validate_ep_data() const;
+    bool validate_ep_data();
     void swap_rows();
     void create_epmodel_connection() override {}
 };

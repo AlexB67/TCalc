@@ -270,21 +270,21 @@ void fileIO::dbfileIO::write_ep_user_data(	const Gtk::ComboBox& epcombobox,
 
         for (auto& iter : epcombobox.get_model()->children())
         {
-			for(auto &iter2 : iter->children())
-            outfile << iter->get_value(epcombomodel.m_epcols.m_epbrand)  << sep
-					<< iter2->get_value(epcombomodel.m_epcols.m_epmodel)  << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_epfov)    << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_epflen)   << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_epfstop)  << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_eprelief) << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_eptrans)  << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_epbarrel) << sep
-                    << iter2->get_value(epcombomodel.m_epcols.m_eptype)   << sep
-					<< iter2->get_value(epcombomodel.m_epcols.m_epgroups) << sep
-					<< iter2->get_value(epcombomodel.m_epcols.m_epelements) << sep
-					<< iter2->get_value(epcombomodel.m_epcols.m_epweight)   << sep
-					<< iter2->get_value(epcombomodel.m_epcols.m_epcoating)  << sep
-					<< iter2->get_value(epcombomodel.m_epcols.m_epmaterial) << sep << '\n';
+			for(auto &iter2 : iter.children())
+            outfile << iter.get_value(epcombomodel.m_epcols.m_epbrand)  << sep
+					<< iter2.get_value(epcombomodel.m_epcols.m_epmodel)  << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_epfov)    << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_epflen)   << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_epfstop)  << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_eprelief) << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_eptrans)  << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_epbarrel) << sep
+                    << iter2.get_value(epcombomodel.m_epcols.m_eptype)   << sep
+					<< iter2.get_value(epcombomodel.m_epcols.m_epgroups) << sep
+					<< iter2.get_value(epcombomodel.m_epcols.m_epelements) << sep
+					<< iter2.get_value(epcombomodel.m_epcols.m_epweight)   << sep
+					<< iter2.get_value(epcombomodel.m_epcols.m_epcoating)  << sep
+					<< iter2.get_value(epcombomodel.m_epcols.m_epmaterial) << sep << '\n';
         }
 
         outfile.close();
@@ -301,24 +301,24 @@ void fileIO::dbfileIO::write_scope_user_data(const Gtk::ComboBox& scopecombobox,
 
         for (auto& iter : scopecombobox.get_model()->children())
         {
-			for(auto &iter2 : iter->children())
-            outfile << iter->get_value(scopecombomodel.m_scopecols.m_sbrand)  	<< sep
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_smodel)  	<< sep
-                    << iter2->get_value(scopecombomodel.m_scopecols.m_saperture)	<< sep
-                    << iter2->get_value(scopecombomodel.m_scopecols.m_sflen)   	<< sep
-                    << iter2->get_value(scopecombomodel.m_scopecols.m_sobstruct)	<< sep
-                    << iter2->get_value(scopecombomodel.m_scopecols.m_sreflect) 	<< sep
-                    << iter2->get_value(scopecombomodel.m_scopecols.m_stype)   	<< sep
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_smirrorcoating)  << sep
-    				<< iter2->get_value(scopecombomodel.m_scopecols.m_smirrormaterial) << sep
-    				<< iter2->get_value(scopecombomodel.m_scopecols.m_slenscoating)  << sep
-    				<< iter2->get_value(scopecombomodel.m_scopecols.m_slensmaterial) << sep
-    				<< iter2->get_value(scopecombomodel.m_scopecols.m_sstrehl) << sep
-    				<< iter2->get_value(scopecombomodel.m_scopecols.m_sweight) << sep 
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_stube_weight) << sep
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_smount_type) << sep
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_sfocuser_type) << sep
-					<< iter2->get_value(scopecombomodel.m_scopecols.m_sfinder_type) << sep << '\n';
+			for(auto &iter2 : iter.children())
+            outfile << iter.get_value(scopecombomodel.m_scopecols.m_sbrand)  	<< sep
+					<< iter2.get_value(scopecombomodel.m_scopecols.m_smodel)  	<< sep
+                    << iter2.get_value(scopecombomodel.m_scopecols.m_saperture)	<< sep
+                    << iter2.get_value(scopecombomodel.m_scopecols.m_sflen)   	<< sep
+                    << iter2.get_value(scopecombomodel.m_scopecols.m_sobstruct)	<< sep
+                    << iter2.get_value(scopecombomodel.m_scopecols.m_sreflect) 	<< sep
+                    << iter2.get_value(scopecombomodel.m_scopecols.m_stype)   	<< sep
+					<< iter2.get_value(scopecombomodel.m_scopecols.m_smirrorcoating)  << sep
+    				<< iter2.get_value(scopecombomodel.m_scopecols.m_smirrormaterial) << sep
+    				<< iter2.get_value(scopecombomodel.m_scopecols.m_slenscoating)  << sep
+    				<< iter2.get_value(scopecombomodel.m_scopecols.m_slensmaterial) << sep
+    				<< iter2.get_value(scopecombomodel.m_scopecols.m_sstrehl) << sep
+    				<< iter2.get_value(scopecombomodel.m_scopecols.m_sweight) << sep 
+					<< iter2.get_value(scopecombomodel.m_scopecols.m_stube_weight) << sep
+					<< iter2.get_value(scopecombomodel.m_scopecols.m_smount_type) << sep
+					<< iter2.get_value(scopecombomodel.m_scopecols.m_sfocuser_type) << sep
+					<< iter2.get_value(scopecombomodel.m_scopecols.m_sfinder_type) << sep << '\n';
         }
 
         outfile.close();

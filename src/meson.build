@@ -53,7 +53,7 @@ tcalc_sources = [
 ]
 
 tcalc_deps = [
-  dependency('gtkmm-3.0', version: '>= 3.24'),
+  dependency('gtkmm-4.0', version: '>= 4.00'),
 ]
 
 tcalc_sources += gnome.compile_resources(

@@ -8,31 +8,31 @@ LogView::LoggerView::LoggerView()
 {
     m_loggerframe.set_label_widget(m_loggerframelabel);
     m_loggerframelabel.set_markup(_("<b>Information log</b>"));
-    m_loggerframe.set_label_align( Gtk::ALIGN_CENTER,  Gtk::ALIGN_CENTER);
+    m_loggerframe.set_label_align( Gtk::Align::CENTER);
     set_editable(false);
     set_vexpand(true);
     set_hexpand(false);
-    set_halign(Gtk::ALIGN_FILL);
-    set_valign(Gtk::ALIGN_FILL);
+    set_halign(Gtk::Align::FILL);
+    set_valign(Gtk::Align::FILL);
     m_loggerframe.set_hexpand(false);
     m_loggerinnerframe.set_hexpand(false);
     m_loggerframe.set_vexpand(true);
     m_loggerinnerframe.set_vexpand(true);
-    m_loggerinnerframe.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
-    set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+    m_loggerinnerframe.set_margin(Uidefs::BORDER_WIDTH_SMALL);
+    set_margin(Uidefs::BORDER_WIDTH_SMALL);
 }
 
 Gtk::Frame &LogView::LoggerView::create_logger()
 {
-    m_loggerframe.add(m_loggerinnerframe);
-    m_loggerinnerframe.add(m_scrollwin);
-    m_scrollwin.add(*this);
+    m_loggerframe.set_child(m_loggerinnerframe);
+    m_loggerinnerframe.set_child(m_scrollwin);
+    m_scrollwin.set_child(*this);
 
     create_text_buffer();
 
     AppGlobals::log_msg.connect(sigc::mem_fun(*this, &LogView::LoggerView::setlogtext));
-    AppGlobals::get_keyfile_config(m_loggerframe);
-    AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(m_loggerframe, type);});
+  //  AppGlobals::get_keyfile_config(m_loggerframe);
+  //  AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_loggerframe);});
 
     return m_loggerframe;
 }
@@ -66,7 +66,7 @@ void LogView::LoggerView::create_text_buffer()
 {
     tag = Gtk::TextBuffer::Tag::create();
     tag->property_style_set().set_value(true);
-    tag->property_style().set_value(Pango::STYLE_ITALIC);
+    tag->property_style().set_value(Pango::Style::ITALIC);
     tagtable = Gtk::TextBuffer::TagTable::create();
     tagtable->add(tag);
     m_logtext = Gtk::TextBuffer::create(tagtable);

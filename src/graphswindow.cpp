@@ -7,11 +7,13 @@
 
 GraphsWindow::GraphsWindow()
 {
-  searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::ICON_SIZE_BUTTON, true);
+  set_hide_on_close(true);
+  searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::IconSize::INHERIT, true);
   searchbutton.set_tooltip_text(_("Search for an eyepiece or telescope model."));
-  headerbar.set_title(_("Interactive graphs"));
-  headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
-  headerbar.set_show_close_button();
+  headerbar.set_show_title_buttons(true);
+  headerlabel.set_markup(_("<b>Interactive graphs</b>\n<sub>An astronomy tool for telescopes and eyepieces.</sub>"));
+  headerbar.set_title_widget(headerlabel);
+
   showgraphlegend = Gtk::make_managed<Gtk::Switch>();
   showgraphlegend->set_active(true);
   showgraphlegend->set_tooltip_text(_("Show the graph legend."));
@@ -28,10 +30,10 @@ GraphsWindow::GraphsWindow()
 
   plotframe.set_label_widget(plotframe_label);
   plotframe_label.set_markup(_("<b>Graph</b>"));
-  plotframe.set_label_align(Gtk::ALIGN_CENTER, Gtk::ALIGN_CENTER);
-  plotframe.set_border_width(Uidefs::BORDER_WIDTH);
-  AppGlobals::get_keyfile_config(plotframe);
-  AppGlobals::frame_style.connect([this](Gtk::ShadowType type){ AppGlobals::set_frame_style(plotframe, type);});
+  plotframe.set_label_align(Gtk::Align::CENTER);
+  plotframe.set_margin(Uidefs::BORDER_WIDTH);
+  // AppGlobals::get_keyfile_config(plotframe);
+  // AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(plotframe);});
 
   plotlist.insert(0, _("Magnitude limit versus magnification"));
   plotlist.insert(1, _("Magnitude limit versus zenith angle"));
@@ -45,8 +47,8 @@ GraphsWindow::GraphsWindow()
   plotlist.set_active(0);
   plotlist.set_hexpand(true);
 
-  showgraphlegend->set_halign(Gtk::ALIGN_CENTER);
-  showgraphlegend->set_valign(Gtk::ALIGN_CENTER);
+  showgraphlegend->set_halign(Gtk::Align::CENTER);
+  showgraphlegend->set_valign(Gtk::Align::CENTER);
   
   graphbox->get_cursor_grid().set_column_spacing(Uidefs::COLUMN_PADDING);
   graphbox->set_vexpand(true);
@@ -59,7 +61,7 @@ GraphsWindow::GraphsWindow()
   plotgrid.attach(plotlist, 1, 1);
   plotgrid.attach(graphbox->get_motion_tracker(), 2, 1);
 
-  plotframe.add(plotgrid);
+  plotframe.set_child(plotgrid);
 
   controlsgrid.attach(epbox->create_eyepiece_grid(), 0, 0);
   controlsgrid.attach(scopebox->create_telescope_grid(), 0, 1);
@@ -82,9 +84,8 @@ GraphsWindow::GraphsWindow()
 
   init_plot();
 
-  add(windowgrid);
+  set_child(windowgrid);
   set_signal_handlers();
-  show_all_children();
   get_config();
   epbox->init();
   scopebox->init();
@@ -96,10 +97,10 @@ void  GraphsWindow::get_config()
 { 
   if (false == std::filesystem::exists(AppGlobals::configpath.c_str())) return;
 
-  Glib::KeyFile keyfile;
-  keyfile.load_from_file(AppGlobals::configpath);
+  Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
+  keyfile->load_from_file(AppGlobals::configpath);
 
-  int index = keyfile.get_integer("Appearance", "graphtheme");
+  int index = keyfile->get_integer("Appearance", "graphtheme");
 
   std::vector<Glib::ustring> themes
   {
@@ -125,7 +126,7 @@ void GraphsWindow::init_plot()
     Gdk::RGBA linecolour; linecolour.set_rgba(0.0, 1.0, 1.0, 1.0);
     graphbox->add_series(x, y, linecolour, CairoGraphLineStyle::SOLID_LINE);
   }
-  catch(const Glib::Exception& e)
+  catch(const Glib::Error& e)
   {
     std::cerr << "Plotlib error encountered: " << e.what() << '\n';
   }
@@ -138,25 +139,25 @@ void::GraphsWindow::set_plot_theme(const Glib::ustring &themename)
   plot_data_changed();
 }
 
-bool GraphsWindow::on_key_press_event(GdkEventKey* key_event)
-{
+// bool GraphsWindow::on_key_press_event(GdkEventKey* key_event)
+// {
   
-  if(key_event->keyval == GDK_KEY_Escape)
-  {
-    hide();
-    return true;
-  }
-  else if ((key_event->keyval == GDK_KEY_f) && (key_event->state & GDK_CONTROL_MASK))
-  {
-    search();
-    return true;
-  }
-  else if ((key_event->keyval == GDK_KEY_z) && (key_event->state & GDK_CONTROL_MASK))
-  {
-    plot_data_changed();
-    return true;
-  }
+//   if(key_event->keyval == GDK_KEY_Escape)
+//   {
+//     hide();
+//     return true;
+//   }
+//   else if ((key_event->keyval == GDK_KEY_f) && (key_event->state & GDK_CONTROL_MASK))
+//   {
+//     search();
+//     return true;
+//   }
+//   else if ((key_event->keyval == GDK_KEY_z) && (key_event->state & GDK_CONTROL_MASK))
+//   {
+//     plot_data_changed();
+//     return true;
+//   }
 
   
-  return Gtk::Window::on_key_press_event(key_event);
-}
+//   return Gtk::Window::on_key_press_event(key_event);
+// }
