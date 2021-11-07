@@ -1,7 +1,7 @@
 
 ### GNOME TCalc - An astronomy tool for telescopes and eyepieces 
 
-Written in gtkmm and C++ for the linux desktop. The software is intended as a learning tool for amateur astronomers, with an interest in visual astronomy. Help Documentation is included.
+Written in gtkmm4 and C++ for the linux desktop. The software is intended as a learning tool for amateur astronomers, with an interest in visual astronomy. TCalc offers a number of computaions, a graphical view, and an ocular viewer. Help Documentation is included.
 
 <img src="data/screenshots/tcalc-gtkmm4.png">
 
