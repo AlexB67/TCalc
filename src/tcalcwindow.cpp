@@ -25,8 +25,8 @@ TcalcWindow::TcalcWindow(const Glib::RefPtr<Gtk::Application>& app)
    gridright.set_row_spacing(Uidefs::ROW_PADDING);
 
    logbox = std::make_unique<LogView::LoggerView>();
-   scopebox = std::make_shared<ScopeBox::Telescopebox>();
-   epbox = std::make_shared<EpBox::Eyepiecebox>();
+   scopebox = std::make_shared<ScopeBox::Telescopebox>(true);
+   epbox = std::make_shared<EpBox::Eyepiecebox>(true);
    calcbox = std::make_unique<CalcBox::Calcbox>();
    magbox = std::make_unique<MagBox::Magbox>();
    optionsbox = std::make_unique<OptionsBox::Optionsbox>();
@@ -74,7 +74,6 @@ void TcalcWindow::create_menu_and_shortcuts()
    add_action("graphs", [this]() {
       if (!graphswindow)
          graphswindow = std::make_unique<GraphsWindow>();
-   
       graphswindow->show();
    });
 
@@ -130,7 +129,6 @@ void TcalcWindow::create_menu_and_shortcuts()
 
    add_action("equipment", sigc::mem_fun(*this, &TcalcWindow::equipment));
    //add_action("menu", [this]() { menubutton.set_active(true); });
-   add_action("search", sigc::mem_fun(*this, &TcalcWindow::search));
 
    winmenu = Gio::Menu::create();
    winmenusection = Gio::Menu::create();
@@ -151,7 +149,6 @@ void TcalcWindow::create_menu_and_shortcuts()
 
    m_app->set_accel_for_action("win.quit", "<Ctrl>q");
    m_app->set_accel_for_action("win.menu", "<Alt>m");
-   m_app->set_accel_for_action("win.search", "<Ctrl>f");
    m_app->set_accel_for_action("win.graphs", "<Ctrl>g");
    m_app->set_accel_for_action("win.ocular", "<Ctrl>o");
    m_app->set_accel_for_action("win.equipment", "<Ctrl>e");
@@ -174,14 +171,11 @@ void TcalcWindow::set_headerbar()
 {
    //menubutton.set_image_from_icon_name("open-menu-symbolic", Gtk::IconSize::NORMAL, true);
    menubutton.set_tooltip_text(_("Opens the menu."));
-   searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::IconSize::NORMAL, true);
-   searchbutton.set_tooltip_text(_("Search for an eyepiece or telescope model."));
    //headerbar.set_title(_("GNOME TCalc"));
    //headerbar.set_subtitle(_("An astronomy tool for telescopes and eyepieces."));
    headerbar.set_show_title_buttons(true);
    title_label.set_markup(_("<b>GNOME TCalc</b>\n<sub>An astronomy tool for telescopes and eyepieces.</sub>"));
    headerbar.set_title_widget(title_label);
-   headerbar.pack_start(searchbutton);
    headerbar.pack_start(magbox->get_switcher_ref());
    headerbar.pack_end(menubutton);
    set_titlebar(headerbar);

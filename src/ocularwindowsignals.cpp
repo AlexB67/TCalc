@@ -7,7 +7,6 @@
 
 void OcularWindow::set_signal_handlers()
 {
-  searchbutton.signal_clicked().connect(sigc::mem_fun(*this, &OcularWindow::search));
   // need a better csss, disabled for now for gtk4
   // nightmode->property_active().signal_changed().connect([this]() {
   //   if (true == nightmode->get_active())
@@ -44,9 +43,10 @@ void OcularWindow::set_signal_handlers()
   for (auto &iter : objlist)
     iter.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 
-  epbox->m_emodel->signal_changed().connect([this]() {
-    ocular_changed();
-  });
+  if (!epbox->get_use_entry()) 
+    epbox->m_emodel->signal_changed().connect([this]() { ocular_changed();});
+  else
+    epbox->m_emodelentry.signal_editing_done().connect([this]() { ocular_changed();});
 
   scopebox->m_smodel->signal_changed().connect([this]() {
     ocular_changed();
@@ -151,17 +151,7 @@ void OcularWindow::set_ocular_info()
   ocularbox.m_tfov = dtmp;
   // dtmp /= astrocalc::DEGTOARCMIN;
 
-  ocularfov.set_text(GlibUtils::dtostr<double>(dtmp, 2) + _("' (") + GlibUtils::dtostr<double>(dtmp / astrocalc::DEGTOARCMIN, 4) + _("°)"));
+  ocularfov.set_text(GlibUtils::dtostr<double>(dtmp, 2) + _("' (") 
+                   + GlibUtils::dtostr<double>(dtmp / astrocalc::DEGTOARCMIN, 4) + _("°)"));
 }
 
-void OcularWindow::search()
-{
-  if (!searchwindow)
-  {
-    searchwindow = std::make_unique<SearchWindow>(epbox, scopebox);
-    searchwindow->set_transient_for(*this);
-    searchwindow->set_modal(true);
-  }
-
-  searchwindow->show();
-}

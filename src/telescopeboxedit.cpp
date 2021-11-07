@@ -3,7 +3,7 @@
 #include <gtkmm/messagedialog.h>
 
 ScopeBox::EditTelescopes::EditTelescopes(const Glib::RefPtr<Gtk::Application> &app, Gtk::Window *parent) 
-: Telescopebox(true), m_app(app), m_parent(parent)
+: Telescopebox(false, true), m_app(app), m_parent(parent)
 {
     m_frame.set_label("");
     //m_frame.set_shadow_type(Gtk::SHADOW_NONE);

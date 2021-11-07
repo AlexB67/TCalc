@@ -37,9 +37,6 @@ Gtk::Frame &OptionsBox::Optionsbox::create_options_grid()
     set_default_values();
     m_frame.set_child(m_grid);
 
-    AppGlobals::get_keyfile_config(m_frame);
-    //AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_frame);});
-
     return m_frame;
 }
 

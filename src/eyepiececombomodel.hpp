@@ -5,7 +5,6 @@
 #include <gtkmm/treestore.h>
 #include <gtkmm/searchentry.h>
 #include <gtkmm/entrycompletion.h>
-#include <gtkmm/cellrenderertext.h>
 #include <tuple>
 
 namespace EpCombo
@@ -78,25 +77,13 @@ namespace EpCombo
       
       void remove_ep_from_model(const Glib::ustring& epname) const;
       void swap_ep_rows(const Glib::ustring& epname) const;
-      void setup_ep_combo_model(Gtk::ComboBox &epcombo);
-      void set_ep_completion_model(Gtk::Entry& epsearch);
-      void set_case_sensitive(const bool case_sensitive);
+
       const Glib::RefPtr<Gtk::TreeStore>& get_epmodel() const { return m_eptreemodel;}
+      const Glib::RefPtr<Gtk::ListStore>& get_ep_list_model() const { return  m_eplistmodel;}
 
     private:
       Glib::RefPtr<Gtk::TreeStore> m_eptreemodel;
       Glib::RefPtr<Gtk::ListStore> m_eplistmodel;
-      Glib::RefPtr<Gtk::EntryCompletion> epentrycompletion;
       Gtk::TreeModel::Row parent_row;
-      Gtk::ComboBox*    m_epcombo   = nullptr;
-      Gtk::CellRendererText m_cell;
-      Gtk::Entry* m_epsearch  = nullptr;
-      bool m_case_sensitive = false;
-
-    protected:
-      bool on_ep_selected(const Gtk::TreeModel::iterator& iter);
-      bool on_ep_completion_match(const Glib::ustring& key, const Gtk::TreeModel::const_iterator& iter);
-      void on_cell_data_changed(const Gtk::TreeModel::const_iterator& iter);
-
   };
 }

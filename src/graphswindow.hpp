@@ -15,7 +15,6 @@
 #include "starmagbox.hpp"
 #include "loggerbox.hpp"
 #include "optionsbox.hpp"
-#include "searchwindow.hpp"
 
 
 class GraphsWindow : public Gtk::Window
@@ -32,7 +31,6 @@ public:
 private:
     // Gtk::ScrolledWindow mainwin;
     Gtk::HeaderBar  headerbar;
-    Gtk::Button searchbutton;
     Gtk::Switch *showgraphlegend; // switches seg fault unless we make manage.
     Gtk::Grid windowgrid;
     Gtk::Grid plotgrid;
@@ -50,7 +48,7 @@ private:
     std::unique_ptr<MagBox::Magbox>         magbox;
     std::unique_ptr<OptionsBox::Optionsbox> optionsbox;
     std::shared_ptr<LogView::LoggerView>    logbox;
-    std::unique_ptr<SearchWindow> searchwindow;
+
     void get_config();
     
     const std::vector<std::function<void(GraphsWindow &)> > graphlist = 
@@ -80,5 +78,5 @@ private:
     void set_signal_handlers();
     //bool on_key_press_event(GdkEventKey* event) override;
     void plot_data_changed();
-    void search();
+    bool on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring& phase);
 };

@@ -18,7 +18,6 @@
 #include "starmagbox.hpp"
 #include "oculardrawingarea.hpp"
 #include "dsocombomodel.hpp"
-#include "searchwindow.hpp"
 
 class OcularWindow : public Gtk::Window
 {
@@ -33,7 +32,6 @@ public:
 private:
     Gtk::ScrolledWindow mainwin;
     Gtk::HeaderBar headerbar;
-    Gtk::Button searchbutton;
     Gtk::Grid windowgrid;
     Gtk::Grid oculargrid;
     Gtk::Grid controlsgrid;
@@ -63,7 +61,6 @@ private:
     std::shared_ptr<ScopeBox::Telescopebox> scopebox;
     std::unique_ptr<OptionsBox::Optionsbox> optionsbox;
     std::unique_ptr<MagBox::Magbox> magbox;
-    std::unique_ptr<SearchWindow> searchwindow;
     Glib::RefPtr<Gtk::CssProvider> provider;
     Glib::RefPtr<Gtk::StyleContext> context;
     bool preferdarktheme;
@@ -77,5 +74,4 @@ private:
     void dso_changed();
     void set_contrast_info();
     void ocular_changed();
-    void search();
 };

@@ -8,6 +8,7 @@
 #include <gtkmm/button.h>
 #include <gtkmm/frame.h>
 #include <giomm/settings.h>
+#include <glibmm/keyfile.h>
 #include "gtkmmcustomutils.hpp"
 #include "loggerbox.hpp"
 
@@ -34,7 +35,6 @@ private:
     Gtk::Switch         *showtime;
     Gtk::Switch         *showcolour;
     Gtk::Switch         *usemonospace;
-    Gtk::Switch         *drawframes;
     Gtk::Label          preferdarkthemelabel{_("Prefer dark theme variant"), Gtk::Align::START};
     Gtk::Label          showtimelabel{_("Enable date and time stamp"), Gtk::Align::START};
     Gtk::Label          showcolourlabel{_("Enable colour for warnings"), Gtk::Align::START};
@@ -47,7 +47,6 @@ private:
     Gtk::Label          etransplossllabel{_("Plossl transmission/%"), Gtk::Align::START};
     Gtk::Label          etransmultilabel{_("Multi element transmission/%"), Gtk::Align::START};
     Gtk::Label          graphthemeslabel{_("Custom graph theme"), Gtk::Align::START};
-    Gtk::Label          drawframeslabel{_("Show frames"), Gtk::Align::START};
     Ui::SpinEntry       sreflect;
     Ui::SpinEntry       sobstruct;
     Ui::SpinEntry       sobstructsct;
@@ -61,6 +60,7 @@ private:
     Gtk::ComboBoxText   graphthemes;
     Glib::ustring       path;
     Glib::RefPtr<Gtk::StyleContext> context;
+    Glib::RefPtr<Glib::KeyFile> keyfile;
 
     void create_appearance_page();
     void create_telescope_page();

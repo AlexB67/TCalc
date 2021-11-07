@@ -38,7 +38,6 @@ tcalc_sources = [
   'oculardrawingarea.cpp',
   'ocularwindow.cpp',
   'ocularwindowsignals.cpp',
-  'searchwindow.cpp',
   'equipwindow.cpp',
   'dsocombomodel.cpp',
   'plotlib/plotter.cpp',

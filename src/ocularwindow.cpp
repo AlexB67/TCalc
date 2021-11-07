@@ -10,8 +10,6 @@
 OcularWindow::OcularWindow()
 {
   set_hide_on_close(true);
-  searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::IconSize::INHERIT, true);
-  searchbutton.set_tooltip_text(_("Search for an eyepiece or telescope model."));
   headerbar.set_show_title_buttons(true);
   headerlabel.set_markup(_("<b>Ocular viewer</b>\n<sub>An astronomy tool for telescopes and eyepieces.</sub>"));
   headerbar.set_title_widget(headerlabel);
@@ -22,12 +20,11 @@ OcularWindow::OcularWindow()
   // nightmode->set_tooltip_text(_("Switch to dark mode."));
  // headerbar.pack_end(*nightmode); // nightmode.css not working in gtk4,
  //so disable for now 
-  headerbar.pack_start(searchbutton);
   set_titlebar(headerbar);
 
   provider = Gtk::CssProvider::create();
-  epbox = std::make_shared<EpBox::Eyepiecebox>();
-  scopebox = std::make_shared<ScopeBox::Telescopebox>();
+  epbox = std::make_shared<EpBox::Eyepiecebox>(true);
+  scopebox = std::make_shared<ScopeBox::Telescopebox>(true);
   optionsbox = std::make_unique<OptionsBox::Optionsbox>();
   magbox = std::make_unique<MagBox::Magbox>();
   scopebox->frame_can_expand(true);
@@ -43,10 +40,8 @@ OcularWindow::OcularWindow()
   ocularboxframe.set_hexpand(true);
   ocularboxframe.set_vexpand(true);
   ocularboxframe.set_margin(Uidefs::BORDER_WIDTH);
-  // AppGlobals::get_keyfile_config(ocularboxframe);
-  // AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(ocularboxframe);});
 
-  ocularframe.set_opacity(1.0); // frame to maintain aspect ratio for the ocular
+  //ocularframe.set_opacity(1.0); // frame to maintain aspect ratio for the ocular
   ocularframe.set_halign(Gtk::Align::FILL);
   ocularframe.set_valign(Gtk::Align::FILL);
   ocularframe.set_hexpand(true);
@@ -82,7 +77,7 @@ OcularWindow::OcularWindow()
   set_signal_handlers();
   optionsbox->show_wavelength(false);
 
-  epbox->init();
+  if (!epbox->get_use_entry()) epbox->init();
   scopebox->init();
   magbox->set_dso_mode(true);
   magbox->set_ocular_mode();
@@ -156,9 +151,5 @@ void OcularWindow::create_ocular_info_box()
 
 OcularWindow::~OcularWindow()
 {
-  if (searchwindow)
-  {
-    searchwindow->hide();
-  }
-  hide();
+
 }

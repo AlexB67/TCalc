@@ -218,13 +218,11 @@ void ScopeBox::EditTelescopes::set_signal_handlers()
                 case Gtk::ResponseType::YES:
                 {
                     Glib::ustring scopemodelname = 
-                    static_cast<Glib::ustring>(m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel));
-                    
+                    m_smodel->get_active()->get_value(m_scombomodel.m_scopecols.m_smodel);
                     auto model = m_smodel->get_model();
                     m_smodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;
                     m_scombomodel.remove_scope_from_model(scopemodelname);
                     m_smodel->set_model(model);
-
                     AppGlobals::del_scope_data.emit(scopemodelname);
 
                     fileIO::dbfileIO db;

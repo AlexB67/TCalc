@@ -4,9 +4,6 @@
 
 void GraphsWindow::set_signal_handlers()
 {
-
-    searchbutton.signal_clicked().connect(sigc::mem_fun(*this, &GraphsWindow::search));
-
     showgraphlegend->property_active().signal_changed().connect([this]()
     {;
         graphbox->show_legend(showgraphlegend->get_active());
@@ -60,14 +57,3 @@ void GraphsWindow::plot_data_changed()
     std::invoke(plotfunc, *this);
 }
 
-void GraphsWindow::search()
-{
-    if (!searchwindow)
-    {
-        searchwindow = std::make_unique<SearchWindow>(epbox, scopebox);
-        searchwindow->set_transient_for(*this);
-        searchwindow->set_modal(true);
-    }
-
-    searchwindow->present();
-}

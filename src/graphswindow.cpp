@@ -3,13 +3,12 @@
 #include "astrocalclib/astrocalc.hpp"
 #include "appglobals.hpp"
 #include <glibmm/i18n.h>
+#include <gtkmm/eventcontrollerkey.h>
 #include <filesystem>
 
 GraphsWindow::GraphsWindow()
 {
   set_hide_on_close(true);
-  searchbutton.set_image_from_icon_name("edit-find-symbolic", Gtk::IconSize::INHERIT, true);
-  searchbutton.set_tooltip_text(_("Search for an eyepiece or telescope model."));
   headerbar.set_show_title_buttons(true);
   headerlabel.set_markup(_("<b>Interactive graphs</b>\n<sub>An astronomy tool for telescopes and eyepieces.</sub>"));
   headerbar.set_title_widget(headerlabel);
@@ -18,11 +17,10 @@ GraphsWindow::GraphsWindow()
   showgraphlegend->set_active(true);
   showgraphlegend->set_tooltip_text(_("Show the graph legend."));
   headerbar.pack_end(*showgraphlegend);
-  headerbar.pack_start(searchbutton);
   set_titlebar(headerbar);
   
-  epbox = std::make_shared<EpBox::Eyepiecebox>();
-  scopebox = std::make_shared<ScopeBox::Telescopebox>();
+  epbox = std::make_shared<EpBox::Eyepiecebox>(true);
+  scopebox = std::make_shared<ScopeBox::Telescopebox>(true);
   magbox = std::make_unique<MagBox::Magbox>();
   optionsbox = std::make_unique<OptionsBox::Optionsbox>();
   graphbox = std::make_unique<CGraph::CairoGraph>();
@@ -77,9 +75,9 @@ GraphsWindow::GraphsWindow()
   windowgrid.attach(controlsgrid, 6, 0);
   windowgrid.attach(controlsgrid2, 7, 0);
 
- // windowgrid.set_border_width(Uidefs::BORDER_WIDTH_SMALL);
+  windowgrid.set_margin(Uidefs::BORDER_WIDTH_SMALL);
   //add(windowgrid);
-  // mainwin.set_propagate_natural_height(true);
+  // amainwin.set_propagate_natural_height(true);
   // mainwin.set_propagate_natural_width(true);
 
   init_plot();
@@ -87,10 +85,16 @@ GraphsWindow::GraphsWindow()
   set_child(windowgrid);
   set_signal_handlers();
   get_config();
-  epbox->init();
-  scopebox->init();
+
   magbox->set_default_mode();
   magbox->set_stack_transition_time(0);
+
+  auto controller = Gtk::EventControllerKey::create();
+  controller->set_propagation_phase(Gtk::PropagationPhase::CAPTURE);
+  controller->signal_key_pressed().connect(
+  sigc::bind(sigc::mem_fun(*this, &GraphsWindow::on_key_press_event), "capture"), false);
+  add_controller(controller);
+  plot_data_changed();
 }
 
 void  GraphsWindow::get_config()
@@ -137,6 +141,18 @@ void::GraphsWindow::set_plot_theme(const Glib::ustring &themename)
   graphtheme = themename;
   graphbox->set_theme(themename);
   plot_data_changed();
+}
+
+bool GraphsWindow::on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring&)
+{
+    if (keyval == GDK_KEY_Escape) hide();
+    // else if ((keyval == GDK_KEY_z) && (keycode & GDK_CONTROL_MASK))
+    // {
+    //    plot_data_changed();
+    //    return true;
+    // }
+    
+    return false;
 }
 
 // bool GraphsWindow::on_key_press_event(GdkEventKey* key_event)

@@ -2,7 +2,6 @@
 #include "prefswindow.hpp"
 #include "gtkmmcustomutils.hpp"
 #include "astrocalclib/astrocalc.hpp"
-#include <glibmm/keyfile.h>
 #include <glibmm/i18n.h>
 #include <gtkmm/settings.h>
 #include <gtkmm/eventcontrollerkey.h>
@@ -37,6 +36,7 @@ PrefsWindow::PrefsWindow()
 
     set_child(grid);
 
+    keyfile = Glib::KeyFile::create();
     get_keyfile_settings();
 
     if ("cinnamon" == Glib::getenv("XDG_SESSION_DESKTOP"))
@@ -73,10 +73,6 @@ void PrefsWindow::create_appearance_page()
     usemonospace = Gtk::make_managed<Gtk::Switch>();
     usemonospace->set_halign(Gtk::Align::END);
     usemonospace->set_valign(Gtk::Align::CENTER);
-
-    drawframes = Gtk::make_managed<Gtk::Switch>();
-    drawframes->set_halign(Gtk::Align::END);
-    drawframes->set_valign(Gtk::Align::CENTER);
    
     appearancedefaults.set_halign(Gtk::Align::END);
     appearancedefaults.set_label(_("Defaults"));
@@ -92,15 +88,12 @@ void PrefsWindow::create_appearance_page()
     usemonospace->set_tooltip_text(usemonospacelabel.get_tooltip_text());
     graphthemes.set_tooltip_text(_("Graphswindow: Changes the appearance of graphs."));
     graphthemeslabel.set_tooltip_text(graphthemes.get_tooltip_text());
-    drawframes->set_tooltip_text(_("General appearance: Determines whether frames are visible."));
-    drawframeslabel.set_tooltip_text(drawframes->get_tooltip_text());
 
     // defaults to be overriden by key settings, first time user without a keyfile will have the default values below
     preferdarktheme->set_active(true);
     showtime->set_active(true);
     showcolour->set_active(false);
     usemonospace->set_active(false);
-    drawframes->set_active(true);
 
     Uidefs::set_ui_spacing<Gtk::Grid>(appearancegrid);
 
@@ -123,8 +116,6 @@ void PrefsWindow::create_appearance_page()
     appearancegrid.attach(*showcolour, 1, 2);
     appearancegrid.attach(usemonospacelabel, 0, 3);
     appearancegrid.attach(*usemonospace, 1, 3);
-    appearancegrid.attach(drawframeslabel, 0, 4);
-    appearancegrid.attach(*drawframes, 1, 4);
     appearancegrid.attach(graphthemeslabel, 0, 5);
     appearancegrid.attach(graphthemes, 1, 5);
     appearancegrid.attach(appearancedefaults, 1, 6);
@@ -144,21 +135,12 @@ void PrefsWindow::create_appearance_page()
         Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme->get_active());
     });
 
-    drawframes->property_active().signal_changed().connect([this](){
-            (true == drawframes->get_active())  ? AppGlobals::frame_style.emit(1.0)
-                                                : AppGlobals::frame_style.emit(0.0);
-
-	});
-
-
-
     appearancedefaults.signal_clicked().connect([this]() {
         showtime->set_active(true);
         usemonospace->set_active(false);
         preferdarktheme->set_active(true);
         showcolour->set_active(false);
         graphthemes.set_active(1); // black graph theme
-        drawframes->set_active(true);
     });
 }
 
@@ -233,7 +215,6 @@ void PrefsWindow::get_keyfile_settings()
     if (false == std::filesystem::exists(AppGlobals::configpath.c_str()))
         save_key_settings();
 
-    Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
     keyfile->load_from_file(AppGlobals::configpath);
 
     std::vector<bool> appearance = keyfile->get_boolean_list("Appearance", "settings");
@@ -241,7 +222,6 @@ void PrefsWindow::get_keyfile_settings()
     showtime->set_active(appearance[1]);
     showcolour->set_active(appearance[2]);
     usemonospace->set_active(appearance[3]);
-    drawframes->set_active(appearance[4]);
     graphthemes.set_active(keyfile->get_integer("Appearance", "graphtheme"));
 
     std::vector<double> sdefaults = keyfile->get_double_list("Telescope optical defaults", "telescopes");
@@ -261,11 +241,10 @@ void PrefsWindow::get_keyfile_settings()
 void PrefsWindow::save_key_settings()
 {
     std::vector<bool> appearance = {preferdarktheme->get_active(), showtime->get_active(),
-                                    showcolour->get_active(), usemonospace->get_active(), drawframes->get_active()};
+                                    showcolour->get_active(), usemonospace->get_active()};
     std::vector<double> sdefaults = {sreflect.get_value(), strans.get_value(), sobstruct.get_value(), sobstructsct.get_value()};
     std::vector<double> edefaults = {etransmulti.get_value(), etransplossl.get_value(), etransortho.get_value()};
 
-    Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
     keyfile->set_boolean_list("Appearance", "settings", appearance);
     keyfile->set_integer("Appearance", "graphtheme", graphthemes.get_active_row_number());
     keyfile->set_double_list("Telescope optical defaults", "telescopes", sdefaults);

@@ -2,11 +2,9 @@
 #include "astrocalclib/astrocalc.hpp"
 
 EpBox::EditEyepieces::EditEyepieces(const Glib::RefPtr<Gtk::Application> &app, Gtk::Window *parent) 
-: Eyepiecebox(true), m_app(app), m_parent(parent)
+: Eyepiecebox(false, true), m_app(app), m_parent(parent)
 {
     m_frame.set_label("");
-    //m_frame.set_shadow_type(Gtk::SHADOW_NONE);
-    //m_frame.set_opacity(0.0);
 
     m_button_del.set_image_from_icon_name("edit-delete-symbolic", Gtk::IconSize::INHERIT, true);
     m_button_save.set_image_from_icon_name("document-save-symbolic", Gtk::IconSize::INHERIT, true);

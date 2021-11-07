@@ -91,8 +91,8 @@ public:
     static constexpr double ETRANSDEFAULT = 96.0;
     static constexpr double ETRANSPLOSSLDEFAULT = 98.0;
     static constexpr double ETRANSORTHODEFAULT = 98.0;
-    static constexpr double SCOPEREFLECTDEFAULT = 88.0;
-    static constexpr double SCOPETRANSDEFAULT = 99.0;
+    static constexpr double SCOPEREFLECTDEFAULT = 90.0;
+    static constexpr double SCOPETRANSDEFAULT = 98.0;
     static constexpr double OBSTRUCTSIZEDEFAULT = 25.0;
     static constexpr double OBSTRUCTSIZESCTDEFAULT = 33.0;
 

@@ -27,9 +27,7 @@ void fileIO::set_app_data()
 	file->make_directory();
 }
 
-void fileIO::dbfileIO::load_scope_data(	Gtk::ComboBox& scopecombobox, 
-										ScopeCombo::ScopeCombomodel &scopecombomodel,
-										const bool userdataonly)
+void fileIO::dbfileIO::load_scope_data(ScopeCombo::ScopeCombomodel &scopecombomodel, const bool userdataonly)
 {   
 	Glib::ustring path = AppGlobals::telescopesfilename;
 	Glib::ustring pathuser = AppGlobals::telescopesfilenameuser;
@@ -44,13 +42,9 @@ void fileIO::dbfileIO::load_scope_data(	Gtk::ComboBox& scopecombobox,
 
 	if (false == userdataonly) 
 		read_scope_file(path, scopecombomodel);
-
-	scopecombomodel.setup_scope_combo_model(scopecombobox);
 }
 
-void fileIO::dbfileIO::load_ep_data(Gtk::ComboBox& epcombobox, 
-									EpCombo::EpCombomodel &epcombomodel, 
-									const bool userdataonly)
+void fileIO::dbfileIO::load_ep_data(EpCombo::EpCombomodel &epcombomodel, const bool userdataonly)
 {   
 	Glib::ustring path = AppGlobals::eyepiecesfilename;
 	Glib::ustring pathuser = AppGlobals::eyepiecesfilenameuser;
@@ -65,8 +59,6 @@ void fileIO::dbfileIO::load_ep_data(Gtk::ComboBox& epcombobox,
 
 	if (false == userdataonly) 
 		read_ep_file(path, epcombomodel);
-
-	epcombomodel.setup_ep_combo_model(epcombobox);
 }
 
 void fileIO::dbfileIO::load_dso_data(Gtk::ComboBox &dsocombobox, DSOCombomodel &dsocombomodel) const

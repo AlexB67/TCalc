@@ -39,6 +39,7 @@ namespace ResultsBox
     {
     public:
         Resultsbox(){}
+        ~Resultsbox() {}
         Resultsbox(const Resultsbox &) = delete;
         Resultsbox(Resultsbox &&) = delete;
         Resultsbox &operator=(const Resultsbox &other) = delete;

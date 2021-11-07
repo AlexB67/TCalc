@@ -37,8 +37,6 @@ void TcalcWindow::set_signal_handlers()
 
 	calcbox->m_calcbutton.signal_clicked().connect(sigc::mem_fun(*this, &TcalcWindow::create_results));
 
-	searchbutton.signal_clicked().connect(sigc::mem_fun(*this, &TcalcWindow::search));
-
 	auto objlist = std::vector{
 		scopebox->m_saperture.property_value(),
 		scopebox->m_sflen.property_value(),
@@ -281,8 +279,7 @@ void TcalcWindow::create_results()
 				GlibUtils::dtostr<double>(std::get<2>(ocularlist), 1);
 	
 	resultsbox->append_row(_("Ocular list"), oculars + _("mm"), set);
-
-	logbox->setlogtext(flag, LogView::tINFO, _("Calculation completed:"));
+	
 	resultsbox->get_ep_data(epbox, set);
 	resultsbox->get_scope_data(scopebox, set);
 }
@@ -311,18 +308,6 @@ void TcalcWindow::prefs()
 	prefswindow->present();
 }
 
-void TcalcWindow::search()
-{
-	if (!searchwindow)
-	{
-		searchwindow = std::make_unique<SearchWindow>(epbox, scopebox);
-		searchwindow->set_transient_for(*this);
-		searchwindow->set_modal(true);
-	}
-
-	searchwindow->show();
-}
-
 void TcalcWindow::equipment()
 {
 	if (!equipwindow)
@@ -349,7 +334,7 @@ void TcalcWindow::about()
 		aboutdialog->set_program_name(_("GNOME TCalc"));
 		aboutdialog->set_version("0.0.9");
 		aboutdialog->set_copyright("Alexander Borro");
-		aboutdialog->set_comments(_("An astronomy tool for telescopes and eyepieces for Gnome. " 
+		aboutdialog->set_comments(_("An astronomy tool for telescopes and eyepieces for the GNOME desktop. " 
 									"\nThe brother of the Qt version TCalc."));
 		aboutdialog->set_license("GPL v3.0    http://www.gnu.org/licenses");
 		aboutdialog->set_website("http://www.gtkmm.org");
@@ -396,9 +381,6 @@ void TcalcWindow::close()
 
 	if (equipwindow)
 		equipwindow->hide();
-
-	if (searchwindow)
-		searchwindow->hide();
 
 	if (prefswindow)
 		prefswindow->hide();

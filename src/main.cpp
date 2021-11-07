@@ -18,34 +18,9 @@
 
 #include <glibmm/i18n.h>
 #include "tcalcwindow.hpp"
-#include "appglobals.hpp"
-#include <iostream>
-
-Gtk::Window  *tcalcwindow;
-
-static void on_activate (Glib::RefPtr<Gtk::Application>& tcalcapp)
-{
-	tcalcwindow = tcalcapp->get_active_window();
-
-	if (!tcalcwindow)
-	{
-			tcalcwindow = new TcalcWindow(tcalcapp); 
-			tcalcwindow->property_application() = tcalcapp;
-			tcalcapp->add_window(*tcalcwindow);
-	}
-
-	tcalcwindow->present();
-}
-
+// app->add_action("quit", sigc::ptr_fun<void>(&close));
 int main (int argc, char *argv[])
 {
-	argc = 1; // command line args not supported yet.
-	int returncode;
-
-	auto tcalcapp = Gtk::Application::create("org.gnome.TCalc", Gio::Application::Flags::NONE);
-	tcalcapp->signal_activate().connect(sigc::bind(&on_activate, tcalcapp));
-	returncode = tcalcapp->run(argc, argv);
-
-	delete tcalcwindow;
-	return returncode;
+	auto app = Gtk::Application::create("org.gnome.TCalc");
+	return app->make_window_and_run<TcalcWindow>(argc, argv, app);
 }

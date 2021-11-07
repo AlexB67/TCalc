@@ -33,7 +33,6 @@ void EpBox::EditEyepieces::set_signal_handlers()
                 tmp = static_cast<Glib::ustring>(row[m_ecombomodel.m_epcols.m_epmaterial]);
                 (false == tmp.empty()) ? m_ematerial.set_active_text(tmp) : 
                                          m_ematerial.set_active_text(_("unknown"));
-
             }
         }
 
@@ -181,7 +180,7 @@ void EpBox::EditEyepieces::set_signal_handlers()
                 case Gtk::ResponseType::YES:
                 {
                     Glib::ustring epmodelname = 
-                    static_cast<Glib::ustring>(m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel));
+                    m_emodel->get_active()->get_value(m_ecombomodel.m_epcols.m_epmodel);
                     
                     auto model = m_emodel->get_model();
                     m_emodel->unset_model(); // otherwise delete iterator fails in remove_ep_from_model;

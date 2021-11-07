@@ -31,21 +31,6 @@ namespace AppGlobals
     inline Glib::ustring eyepiecesfilename      = datadir + "eyepieces.TCalc";  
     inline Glib::ustring eyepiecesfilenameuser  = userconfigdir + "eyepiecesuser.TCalc";
 
-    inline void get_keyfile_config(Gtk::Frame &frame)
-    {   
-       // we can add more when needed, just for frame style for now
-       
-       if (false == std::filesystem::exists(AppGlobals::configpath.c_str()))
-            return;
-
-        Glib::RefPtr<Glib::KeyFile> keyfile = Glib::KeyFile::create();
-        keyfile->load_from_file(AppGlobals::configpath);
-        std::vector<bool> appearance = keyfile->get_boolean_list("Appearance", "settings");
-
-        if (false == appearance[4])
-            frame.set_opacity(1); //set_shadow_type(Gtk::Frame::property_opacity);
-    }
-
     inline void app_notify(const Glib::ustring &message, const Glib::RefPtr<Gtk::Application> &app,
                            const Glib::ustring messageid = _("tcalc-notify"))
     {
@@ -57,12 +42,6 @@ namespace AppGlobals
         app->send_notification(messageid, note);
     }
 
-    inline void set_frame_style(Gtk::Frame &frame, double opacity)
-    {
-        frame.set_opacity(opacity);
-    }
-
-    
     inline sigc::signal<void(const bool, const int, const Glib::ustring&)> log_msg;
     inline sigc::signal<void(const double)> frame_style;
 

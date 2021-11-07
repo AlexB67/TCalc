@@ -31,7 +31,7 @@ SearchWindow::SearchWindow(const std::shared_ptr<EpBox::Eyepiecebox> &epbox,
     grid.attach(casesensitivelabel, 0, 2);
     grid.attach(*casesensitive, 1, 2);
 
-    m_epbox->m_ecombomodel.set_ep_completion_model(epsearch);
+  //  m_epbox->m_ecombomodel.set_ep_completion_model(epsearch, epbox->m_emodelentry);
     m_scopebox->m_scombomodel.set_scope_completion_model(scopesearch);
 
     casesensitive->property_active().signal_changed().connect([this]()

@@ -23,7 +23,6 @@ namespace ScopeBox
             Glib::RefPtr<Gtk::Application> m_app;
             Gtk::Window *m_parent;
             Glib::ustring old_model_name;
-            Gtk::Entry m_smodelentry;
             Gtk::Label m_smirrorcoatinglabel{_("Mirror coating"), Gtk::Align::START};
             Gtk::Label m_smirrormateriallabel{_("Mirror material"), Gtk::Align::START};
             Gtk::Label m_slenscoatinglabel{_("Lens coating"), Gtk::Align::START};

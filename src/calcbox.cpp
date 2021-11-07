@@ -16,9 +16,11 @@ CalcBox::Calcbox::Calcbox()
   
     m_calcbutton.set_tooltip_text(_("Calculate results based on current values."));
     m_clearbutton.set_tooltip_text(_("Clear all the output fields."));
-    m_interactive->set_tooltip_text(_("Compute results immediately when any input value changes."));
+    m_interactive->set_tooltip_text
+    (_("Compute results on the fly when any input value changes (The calculate button is redundant in this mode.)"));
     m_logswitch->set_active(true);
-    m_logswitch->set_tooltip_text(_("Enable or disable logging."));
+    m_logswitch->set_tooltip_text
+    (_("Enable or disable logging. Provides useful information about computations and user inputs."));
     m_interactive->set_active(false);
     
     m_loglabel.set_halign(Gtk::Align::CENTER);
@@ -76,7 +78,5 @@ Gtk::Frame &CalcBox::Calcbox::create_calc_grid()
         AppGlobals::LOGFLAG = m_logswitch->get_active();
     });
     
-    AppGlobals::get_keyfile_config(m_calcframe);
-    //AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_calcframe);});
     return m_calcframe;
 }

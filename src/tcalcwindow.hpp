@@ -20,7 +20,6 @@
 #include "graphswindow.hpp"
 #include "ocularwindow.hpp"
 #include "equipwindow.hpp"
-#include "searchwindow.hpp"
 
 class TcalcWindow : public Gtk::ApplicationWindow
 {
@@ -30,14 +29,13 @@ public:
   TcalcWindow(TcalcWindow&& ) = delete;
   TcalcWindow& operator=(const TcalcWindow& other) = delete;
   TcalcWindow& operator=(TcalcWindow&& other) = delete;
-  virtual ~TcalcWindow(){}
+  virtual ~TcalcWindow(){ /*close(); */}
 
 
 private:
   Glib::RefPtr<Gtk::Application> m_app;
   Gtk::ScrolledWindow mainwin;
   std::unique_ptr<PrefsWindow> prefswindow;
-  std::unique_ptr<SearchWindow> searchwindow;
   std::unique_ptr<EquipWindow> equipwindow;
   std::unique_ptr<GraphsWindow> graphswindow;
   std::unique_ptr<OcularWindow> ocularwindow;
@@ -49,14 +47,13 @@ private:
   std::unique_ptr<OptionsBox::Optionsbox> optionsbox;
   std::unique_ptr<ResultsBox::Resultsbox> resultsbox;
   std::unique_ptr<Gtk::AboutDialog> aboutdialog;
-  Gtk::ShortcutsWindow *shortcutswindow;
+  Gtk::ShortcutsWindow *shortcutswindow = nullptr;
   Gtk::Label  title_label;
   Gtk::Grid   windowgrid;
   Gtk::Grid   gridright;
   Gtk::Grid   gridleft;
   Gtk::HeaderBar  headerbar;
   Gtk::MenuButton menubutton;
-  Gtk::Button searchbutton;
   Glib::RefPtr<Gio::Menu> winmenu;
   Glib::RefPtr<Gio::Menu> winmenusection;
   Gtk::Settings *settheme;
@@ -72,7 +69,6 @@ protected:
   void about();
   void prefs();
   void equipment();
-  void search();
   void shortcuts();
   void close();
   

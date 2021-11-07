@@ -22,7 +22,6 @@ private:
     Glib::RefPtr<Gtk::Application> m_app;
     Gtk::Window *m_parent;
     Glib::ustring old_model_name;
-    Gtk::Entry m_emodelentry;
     Gtk::Label m_ebarrelsizelabel{_("Barrel size/inches"), Gtk::Align::START};
     Gtk::Label m_egroupslabel{_("Group #"), Gtk::Align::START};
     Gtk::Label m_elementslabel{_("Element #"), Gtk::Align::START};

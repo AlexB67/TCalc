@@ -7,13 +7,11 @@ namespace fileIO
   class dbfileIO
   {
   public:
-    void load_ep_data(Gtk::ComboBox &epcombobox,
-                      EpCombo::EpCombomodel &epcombomodel,
+    void load_ep_data(EpCombo::EpCombomodel &epcombomodel,
                       const bool userdataonly = false);
 
-    void load_scope_data(Gtk::ComboBox &scopecombobox,
-                        ScopeCombo::ScopeCombomodel &scopecombomodel,
-                        const bool userdataonly = false);
+    void load_scope_data(ScopeCombo::ScopeCombomodel &scopecombomodel,
+                         const bool userdataonly = false);
 
     void load_dso_data(Gtk::ComboBox &dsocombobox, DSOCombomodel &dsocombomodel) const;
 

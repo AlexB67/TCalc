@@ -69,9 +69,6 @@ Gtk::Frame &Resultsbox::create_results_grid()
 
     init_property_names();
 
-    // AppGlobals::get_keyfile_config(m_resultsframe);
-    // AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_resultsframe);});
-
     return m_resultsframe;
 }
 
@@ -85,7 +82,6 @@ void Resultsbox::create_model_view( const Glib::ustring& header, Gtk::TreeView& 
     view.set_vexpand(true);
     view.set_grid_lines(Gtk::TreeView::GridLines::BOTH);
     view.set_has_tooltip(true);
-
     view.set_property("has-tooltip", true);
     view.append_column(header, m_renderertext);
     view.get_column(0)->add_attribute(m_renderertext.property_markup(), m_resultCols.m_results_property);
@@ -197,7 +193,7 @@ void Resultsbox::init_property_names()
 
     m_eplistnames = 
     {
-        _("<i>Model</i> :"), _("<i>Field of view</i> :"), _("<i>Focal length</i> :"),
+        _("<i>Brand</i> :"), _("<i>Model</i> :"), _("<i>Field of view</i> :"), _("<i>Focal length</i> :"),
         _("<i>field stop</i> :"), _("<i>Eye relief</i> :"), _("<i>Transmission</i> :"),
         _("<i>Barrel size</i> :"), _("<i>Type</i> :"), _("<i>Group #</i> :"),
         _("<i>Element #</i> :"), _("<i>Weight</i> :"), _("<i>Coating</i> :"),
@@ -206,12 +202,12 @@ void Resultsbox::init_property_names()
 
     m_scopelistnames = 
     {
-        _("<i>Model</i> :"), _("<i>Aperture</i> :"), _("<i>Focal length</i> :"),
+        _("<i>Brand</i> :"), _("<i>Model</i> :"), _("<i>Aperture</i> :"), _("<i>Focal length</i> :"),
         _("<i>Reflectivity</i> :"), _("<i>Obstruction size</i> :"), 
         _("<i>Type</i> :"), _("<i>Mirror coating</i> :"), _("<i>Mirror material</i> :"),
         _("<i>Lens coating</i> :"), _("<i>Lens material</i> :"), _("<i>Strehl</i> :"), 
         _("<i>Total weight</i> :"), _("<i>Tube weight</i> :"), _("<i>Mount type</i> :"), 
-        _("<i>Focuser details</i> :"), _("<i>Finder details</i> :") 
+        _("<i>Focuser details</i> :"), _("<i>Finder details</i> :")
     };
 
     for (auto& iter: m_proplistnames)
@@ -235,10 +231,56 @@ void Resultsbox::init_property_names()
 
 void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, const int resultsset) const
 {
-    const Gtk::TreeModel::iterator iter = epbox->m_emodel->get_active();
-    if(!iter) return;
+    bool flag = AppGlobals::LOGFLAG;
+    Gtk::TreeModel::Row row;
+    
+    if (epbox->get_use_entry())
+    {
+        row = epbox->get_current_row(); // retrieve the current iterator row from model
 
-    Gtk::TreeModel::Row row = *iter;
+        if(!row || (row && (epbox->m_emodelentry.get_text() 
+                        != row.get_value(epbox->m_ecombomodel.m_epcols.m_epmodel)))) 
+        {
+            log_msg.emit(flag, LogView::tINFO, _("No Eyepiece selected for computation."));
+            log_msg.emit(flag, LogView::tINFO, _("Using custom or default values."));
+
+            m_epModel->children()[0].set_value<Glib::ustring>(resultsset, _("Not specified."));
+            m_epModel->children()[1].set_value<Glib::ustring>(resultsset, _("Not specified."));
+            
+            Glib::ustring tmp;
+            tmp = dtostr<double>(epbox->m_efov.get_value(), 2);
+            m_epModel->children()[2].set_value<Glib::ustring>(resultsset, tmp + "<sup>o</sup>");
+
+            tmp = dtostr<double>(epbox->m_eflen.get_value(), 2);
+            m_epModel->children()[3].set_value<Glib::ustring>(resultsset, tmp + "mm");
+
+            tmp = dtostr<double>(epbox->m_efstop.get_value(), 2);
+            (epbox->m_efstop.get_value() < Astrocalc::astrocalc::tSMALL) ?
+            m_epModel->children()[4].set_value<Glib::ustring>(resultsset, _("unknown")) :
+            m_epModel->children()[4].set_value<Glib::ustring>(resultsset, tmp + _("mm"));
+
+
+            tmp = dtostr<double>(epbox->m_erelief.get_value(), 2);
+            (epbox->m_erelief.get_value() < Astrocalc::astrocalc::tSMALL) ?
+            m_epModel->children()[5].set_value<Glib::ustring>(resultsset, _("unknown")) :
+            m_epModel->children()[5].set_value<Glib::ustring>(resultsset, tmp + _("mm"));
+
+            tmp = dtostr<double>(epbox->m_etrans.get_value(), 2);
+            m_epModel->children()[6].set_value<Glib::ustring>(resultsset, tmp + "%");
+
+            for (int i = 7; i < 14; ++i)
+                 m_epModel->children()[i].set_value<Glib::ustring>(resultsset,  _("unknown"));
+            
+            return;
+        }
+    }
+    else
+    {
+        const Gtk::TreeModel::iterator iter = epbox->m_emodel->get_active();
+        if(!iter) return;
+
+        row = *iter;
+    }
 
     auto set_row = [this](const Glib::ustring& str, const Glib::ustring& unit, const int row, const int resultsset)
     {
@@ -247,61 +289,114 @@ void Resultsbox::get_ep_data(const std::shared_ptr<EpBox::Eyepiecebox>& epbox, c
         m_epModel->children()[row].set_value<Glib::ustring>(resultsset, _("unknown"));
     };
 
-    Glib::ustring stmp = row.get_value(epbox->m_ecombomodel.m_epcols.m_epmodel);
+    const auto& parent_iter = row.parent();
+    parent_iter->get_value(epbox->m_ecombomodel.m_epcols.m_epbrand);
+
+    Glib::ustring stmp = parent_iter->get_value(epbox->m_ecombomodel.m_epcols.m_epbrand);
     m_epModel->children()[0].set_value<Glib::ustring>(resultsset, stmp);
 
+    stmp = row.get_value(epbox->m_ecombomodel.m_epcols.m_epmodel);
+    m_epModel->children()[1].set_value<Glib::ustring>(resultsset, stmp);
+
     stmp = dtostr<double>(epbox->m_efov.get_value(), 2);
-    m_epModel->children()[1].set_value<Glib::ustring>(resultsset, stmp + "<sup>o</sup>");
+    m_epModel->children()[2].set_value<Glib::ustring>(resultsset, stmp + "<sup>o</sup>");
 
     stmp = dtostr<double>(epbox->m_eflen.get_value(), 2);
-    m_epModel->children()[2].set_value<Glib::ustring>(resultsset, stmp + "mm");
+    m_epModel->children()[3].set_value<Glib::ustring>(resultsset, stmp + "mm");
 
     stmp = dtostr<double>(epbox->m_efstop.get_value(), 2);
     (epbox->m_efstop.get_value() < Astrocalc::astrocalc::tSMALL) ?
-    m_epModel->children()[3].set_value<Glib::ustring>(resultsset, _("unknown")) :
-    m_epModel->children()[3].set_value<Glib::ustring>(resultsset, stmp + _("mm"));
+    m_epModel->children()[4].set_value<Glib::ustring>(resultsset, _("unknown")) :
+    m_epModel->children()[4].set_value<Glib::ustring>(resultsset, stmp + _("mm"));
 
 
     stmp = dtostr<double>(epbox->m_erelief.get_value(), 2);
     (epbox->m_erelief.get_value() < Astrocalc::astrocalc::tSMALL) ?
-    m_epModel->children()[4].set_value<Glib::ustring>(resultsset, _("unknown")) :
-    m_epModel->children()[4].set_value<Glib::ustring>(resultsset, stmp + _("mm"));
+    m_epModel->children()[5].set_value<Glib::ustring>(resultsset, _("unknown")) :
+    m_epModel->children()[5].set_value<Glib::ustring>(resultsset, stmp + _("mm"));
 
     stmp = dtostr<double>(epbox->m_etrans.get_value(), 2);
-    m_epModel->children()[5].set_value<Glib::ustring>(resultsset, stmp + "%");
+    m_epModel->children()[6].set_value<Glib::ustring>(resultsset, stmp + "%");
 
     stmp = dtostr<double>(row[epbox->m_ecombomodel.m_epcols.m_epbarrel], 2);
-    m_epModel->children()[6].set_value<Glib::ustring>(resultsset, stmp + "<i>\"</i>");
+    m_epModel->children()[7].set_value<Glib::ustring>(resultsset, stmp + "<i>\"</i>");
 
 
     stmp = epbox->m_etype.get_active_text();
-    set_row(stmp, "", 7, resultsset);
-
-    stmp = dtostr<int>(row[epbox->m_ecombomodel.m_epcols.m_epgroups], 0);
     set_row(stmp, "", 8, resultsset);
 
-    stmp = dtostr<int>(row[epbox->m_ecombomodel.m_epcols.m_epelements], 0);
+    stmp = dtostr<int>(row[epbox->m_ecombomodel.m_epcols.m_epgroups], 0);
     set_row(stmp, "", 9, resultsset);
+
+    stmp = dtostr<int>(row[epbox->m_ecombomodel.m_epcols.m_epelements], 0);
+    set_row(stmp, "", 10, resultsset);
 
     stmp = dtostr<double>(row[epbox->m_ecombomodel.m_epcols.m_epweight], 2);
     (row[epbox->m_ecombomodel.m_epcols.m_epweight] < Astrocalc::astrocalc::tSMALL) ?
-    m_epModel->children()[10].set_value<Glib::ustring>(resultsset, _("unknown")) :
-    m_epModel->children()[10].set_value<Glib::ustring>(resultsset, stmp + _("g"));
+    m_epModel->children()[11].set_value<Glib::ustring>(resultsset, _("unknown")) :
+    m_epModel->children()[11].set_value<Glib::ustring>(resultsset, stmp + _("g"));
 
     stmp = row[epbox->m_ecombomodel.m_epcols.m_epcoating];
-    set_row(stmp, "", 11, resultsset);
+    set_row(stmp, "", 12, resultsset);
 
     stmp = row[epbox->m_ecombomodel.m_epcols.m_epmaterial];
-    set_row(stmp, "", 12, resultsset);
+    set_row(stmp, "", 13, resultsset);
 }
 
 void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &scopebox, const int resultsset) const
 {
-    const auto iter = scopebox->m_smodel->get_active();
-
-    if(!iter) return;
+    bool flag = AppGlobals::LOGFLAG;
+    Gtk::TreeModel::Row row;
     
-    const auto row = *iter;
+    if (scopebox->get_use_entry())
+    {
+        row = scopebox->get_current_row(); // retrieve the current iterator row from model
+
+        if(!row || (row && (scopebox->m_smodelentry.get_text() 
+                        != row.get_value(scopebox->m_scombomodel.m_scopecols.m_smodel)))) 
+        {
+            log_msg.emit(flag, LogView::tINFO, _("No Telescope selected for computation."));
+            log_msg.emit(flag, LogView::tINFO, _("Using custom or default values."));
+
+            m_scopeModel->children()[0].set_value<Glib::ustring>(resultsset, _("Not specified."));
+            m_scopeModel->children()[1].set_value<Glib::ustring>(resultsset, _("Not specified."));
+
+            Glib::ustring tmp;
+            tmp = dtostr<double>(scopebox->m_saperture.get_value(), 2);
+            m_scopeModel->children()[2].set_value<Glib::ustring>(resultsset, tmp + "mm");
+
+            tmp = dtostr<double>(scopebox->m_sflen.get_value(), 2);
+            m_scopeModel->children()[3].set_value<Glib::ustring>(resultsset, tmp + "mm");
+
+            if (_("Reflector") == scopebox->m_stype.get_active_text())
+                m_scopeModel->children()[4].set_value<Glib::ustring>(0, _("<i>Reflectivity</i> :"));
+            else if (_("Refractor") == scopebox->m_stype.get_active_text())
+                m_scopeModel->children()[4].set_value<Glib::ustring>(0, _("<i>Transmission</i> :"));
+            else if (_("SCT/Mak") == scopebox->m_stype.get_active_text())
+                m_scopeModel->children()[4].set_value<Glib::ustring>(0, _("<i>Trans/Reflect</i> :"));
+            
+            tmp = dtostr<double>(scopebox->m_sreflect.get_value(), 2);
+            m_scopeModel->children()[4].set_value<Glib::ustring>(resultsset, tmp + "%");
+
+            tmp = dtostr<double>(scopebox->m_sobstruct.get_value(), 2);
+            m_scopeModel->children()[5].set_value<Glib::ustring>(resultsset, tmp + "%");
+
+            m_scopeModel->children()[6].set_value<Glib::ustring>(resultsset, scopebox->m_stype.get_active_text());
+
+            for (int i = 7; i < 17; ++i)
+                 m_scopeModel->children()[i].set_value<Glib::ustring>(resultsset,  _("unknown"));
+            
+            log_msg.emit(flag, LogView::tINFO, _("Calculation completed:"));
+            return;
+        }
+    }
+    else
+    {
+        const Gtk::TreeModel::iterator iter = scopebox->m_smodel->get_active();
+        if(!iter) return;
+
+        row = *iter;
+    }
 
     auto set_row = [this](const Glib::ustring& str, const Glib::ustring& unit, const int row, const int resultsset)
     {
@@ -309,73 +404,79 @@ void Resultsbox::get_scope_data(const std::shared_ptr<ScopeBox::Telescopebox> &s
         m_scopeModel->children()[row].set_value<Glib::ustring>(resultsset, str + unit) :
         m_scopeModel->children()[row].set_value<Glib::ustring>(resultsset, _("unknown"));
     };
-
-    Glib::ustring stmp = static_cast<Glib::ustring>(row[scopebox->m_scombomodel.m_scopecols.m_smodel]);
+    
+    const auto& parent_iter = row.parent();
+    Glib::ustring stmp = parent_iter->get_value(scopebox->m_scombomodel.m_scopecols.m_sbrand);
     m_scopeModel->children()[0].set_value<Glib::ustring>(resultsset, stmp);
+    
+    stmp = static_cast<Glib::ustring>(row[scopebox->m_scombomodel.m_scopecols.m_smodel]);
+    m_scopeModel->children()[1].set_value<Glib::ustring>(resultsset, stmp);
 
     stmp = dtostr<double>(scopebox->m_saperture.get_value(), 2);
-    m_scopeModel->children()[1].set_value<Glib::ustring>(resultsset, stmp + "mm");
+    m_scopeModel->children()[2].set_value<Glib::ustring>(resultsset, stmp + "mm");
 
     stmp = dtostr<double>(scopebox->m_sflen.get_value(), 2);
-    m_scopeModel->children()[2].set_value<Glib::ustring>(resultsset, stmp + "mm");
+    m_scopeModel->children()[3].set_value<Glib::ustring>(resultsset, stmp + "mm");
 
     
     if (_("Reflector") == scopebox->m_stype.get_active_text()) 
-        m_scopeModel->children()[3].set_value<Glib::ustring>(0,  _("<i>Reflectivity</i> :"));
+        m_scopeModel->children()[4].set_value<Glib::ustring>(0,  _("<i>Reflectivity</i> :"));
     else if (_("Refractor") == scopebox->m_stype.get_active_text()) 
-        m_scopeModel->children()[3].set_value<Glib::ustring>(0, _("<i>Transmission</i> :"));
+        m_scopeModel->children()[4].set_value<Glib::ustring>(0, _("<i>Transmission</i> :"));
     else if (_("SCT/Mak") == scopebox->m_stype.get_active_text()) 
-        m_scopeModel->children()[3].set_value<Glib::ustring>(0, _("<i>Trans/Reflect</i> :"));
+        m_scopeModel->children()[4].set_value<Glib::ustring>(0, _("<i>Trans/Reflect</i> :"));
 
     stmp = dtostr<double>(scopebox->m_sreflect.get_value(), 2);
-    m_scopeModel->children()[3].set_value<Glib::ustring>(resultsset, stmp + "%");
-
-    stmp = dtostr<double>(scopebox->m_sobstruct.get_value(), 2);
     m_scopeModel->children()[4].set_value<Glib::ustring>(resultsset, stmp + "%");
 
-    m_scopeModel->children()[5].set_value<Glib::ustring>(resultsset, scopebox->m_stype.get_active_text());
+    stmp = dtostr<double>(scopebox->m_sobstruct.get_value(), 2);
+    m_scopeModel->children()[5].set_value<Glib::ustring>(resultsset, stmp + "%");
+
+    m_scopeModel->children()[6].set_value<Glib::ustring>(resultsset, scopebox->m_stype.get_active_text());
 
     if(scopebox->m_stype.get_active_row_number() != Astrocalc::astrocalc::REFRACTOR) 
     {
         stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrorcoating];
-        set_row(stmp, "", 6, resultsset);
+        set_row(stmp, "", 7, resultsset);
 
         stmp = row[scopebox->m_scombomodel.m_scopecols.m_smirrormaterial];
-        set_row(stmp, "", 7, resultsset);
+        set_row(stmp, "", 8, resultsset);
     }
 
     if(scopebox->m_stype.get_active_row_number() != Astrocalc::astrocalc::REFLECTOR) 
     {
         stmp = row[scopebox->m_scombomodel.m_scopecols.m_slenscoating];
-        set_row(stmp, "", 8, resultsset);
+        set_row(stmp, "", 9, resultsset);
 
          stmp = row[scopebox->m_scombomodel.m_scopecols.m_slensmaterial];
-        set_row(stmp, "", 9, resultsset);
+        set_row(stmp, "", 10, resultsset);
     }
 
     stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_sstrehl], 2);
     (row[scopebox->m_scombomodel.m_scopecols.m_sstrehl] < Astrocalc::astrocalc::tSMALL) ?
-    m_scopeModel->children()[10].set_value<Glib::ustring>(resultsset, _("unknown")) :
-    m_scopeModel->children()[10].set_value<Glib::ustring>(resultsset, stmp + "");
+    m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, _("unknown")) :
+    m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, stmp + "");
 
     stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_sweight], 2);
     (row[scopebox->m_scombomodel.m_scopecols.m_sweight] < Astrocalc::astrocalc::tSMALL) ?
-    m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, _("unknown")) :
-    m_scopeModel->children()[11].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
-
-    stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_stube_weight], 2);
-    (row[scopebox->m_scombomodel.m_scopecols.m_stube_weight] < Astrocalc::astrocalc::tSMALL) ?
     m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, _("unknown")) :
     m_scopeModel->children()[12].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_smount_type];
-    set_row(stmp, "", 13, resultsset);
+    stmp = dtostr<double>(row[scopebox->m_scombomodel.m_scopecols.m_stube_weight], 2);
+    (row[scopebox->m_scombomodel.m_scopecols.m_stube_weight] < Astrocalc::astrocalc::tSMALL) ?
+    m_scopeModel->children()[13].set_value<Glib::ustring>(resultsset, _("unknown")) :
+    m_scopeModel->children()[13].set_value<Glib::ustring>(resultsset, stmp + _("kg"));
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfocuser_type];
+    stmp = row[scopebox->m_scombomodel.m_scopecols.m_smount_type];
     set_row(stmp, "", 14, resultsset);
 
-    stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfinder_type];
+    stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfocuser_type];
     set_row(stmp, "", 15, resultsset);
+
+    stmp = row[scopebox->m_scombomodel.m_scopecols.m_sfinder_type];
+    set_row(stmp, "", 16, resultsset);
+
+    log_msg.emit(flag, LogView::tINFO, _("Calculation completed:"));
 }
 
 size_t Resultsbox::get_index(const Glib::ustring &propertyname, const Glib::RefPtr<Gtk::ListStore>& liststore) const

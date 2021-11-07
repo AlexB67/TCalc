@@ -115,7 +115,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
 
     const auto row = iter;
 
-    if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[0])
+    if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[1])
     {
        Glib::ustring tip = _("The telescope model name");
 
@@ -140,19 +140,21 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
        }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[1])
-        tooltip->set_markup(_("The aperture of the telescope in mm"));
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[0])
+        tooltip->set_markup(_("The telescope brand or manufacturer."));
     else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[2])
-        tooltip->set_markup(_("The Focal length of the telescope in mm"));
+        tooltip->set_markup(_("The aperture of the telescope in mm"));
     else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[3])
+        tooltip->set_markup(_("The Focal length of the telescope in mm"));
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[4])
         tooltip->set_markup(_("The Reflectifity of a reflector, or transmission for a refractor " 
 	                              "as a percentage. A combination of both for Maksutov/SCT types."));
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[4])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[5])
         tooltip->set_markup(_("The obtruction size as a percentage of the aperture diameter." 
 							" Reflectors and SCT/Maksutov types only."));
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[5])
-        tooltip->set_markup(_("The type of telescope. Reflector, refractor or SCT/Mak."));
     else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[6])
+        tooltip->set_markup(_("The type of telescope. Reflector, refractor or SCT/Mak."));
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[7])
     {
         Glib::ustring tip = _("The coating used on mirrors");
         if (column->get_title() == _("Telescope data"))
@@ -176,7 +178,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
         }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[7])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[8])
     {
         Glib::ustring tip = _("The material used for mirror construction");
         if (column->get_title() == _("Telescope data"))
@@ -200,7 +202,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
         }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[8])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[9])
     {
         Glib::ustring tip = _("The type of lens coating");
         if (column->get_title() == _("Telescope data"))
@@ -224,7 +226,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
         }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[9])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[10])
        {
         Glib::ustring tip = _("The material (or glass) used for construction of lenses");
         if (column->get_title() == _("Telescope data"))
@@ -248,14 +250,14 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
         }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[10])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[11])
         tooltip->set_markup(_("A measure of the quality of telescope optics, the theoretical maximum value is 1, " 
                               "typically 0.80 - 0.98"));
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[11])
-        tooltip->set_markup(_("The weight of the telescope in kilograms (including mount)."));
     else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[12])
-        tooltip->set_markup(_("The weight of the mount in kilograms."));
+        tooltip->set_markup(_("The weight of the telescope in kilograms (including mount)."));
     else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[13])
+        tooltip->set_markup(_("The weight of the tube in kilograms."));
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[14])
     {
         Glib::ustring tip = _("The type of mount. Dobsonian, EQ, alt-azimuth, etc");
         if (column->get_title() == _("Telescope data"))
@@ -279,7 +281,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
         }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[14])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[15])
     {
         Glib::ustring tip = _("Details of the focuser model");
         if (column->get_title() == _("Telescope data"))
@@ -303,7 +305,7 @@ bool ResultsBox::Resultsbox::set_scope_row_tooltip(int x, int y, [[maybe_unused]
             return true;
         }
     }
-    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[15])
+    else if (row->get_value(m_scopeCols.m_results_property) == m_scopelistnames[16])
     {
         Glib::ustring tip = _("Details of the finder");
         if (column->get_title() == _("Telescope data"))
@@ -355,10 +357,10 @@ bool ResultsBox::Resultsbox::set_ep_row_tooltip(int x, int y, [[maybe_unused]] b
         return false;
 
     const auto row = *iter;
-
-    if (row.get_value(m_epCols.m_results_property) == m_eplistnames[0])
+    // if available we fill the model name in a tooltip, otherwise use the default tooltip.
+    if (row.get_value(m_epCols.m_results_property) == m_eplistnames[1])
     {
-       Glib::ustring tip = _("The eyepiece Model name");
+       Glib::ustring tip = _("The eyepiece Model name"); 
 
        if (column->get_title() == _("Eyepiece data"))
        {
@@ -381,31 +383,33 @@ bool ResultsBox::Resultsbox::set_ep_row_tooltip(int x, int y, [[maybe_unused]] b
             return true;
        }
     }
-    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[1])
-        tooltip->set_markup(_("The field of view of the eyepiece in degrees."));
+    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[0])
+        tooltip->set_markup(_("The eyepiece brand or manufacturer."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[2])
-        tooltip->set_markup(_("The focal length of the eyepiece in mm."));
+        tooltip->set_markup(_("The field of view of the eyepiece in degrees."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[3])
-        tooltip->set_markup(_("The field stop diameter of the eyepiece in mm."));
+        tooltip->set_markup(_("The focal length of the eyepiece in mm."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[4])
-        tooltip->set_markup(_("The eye relief of the eyepiece in mm."));
+        tooltip->set_markup(_("The field stop diameter of the eyepiece in mm."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[5])
-        tooltip->set_markup(_("The transmission of the eyepiece as a percentage."));
+        tooltip->set_markup(_("The eye relief of the eyepiece in mm."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[6])
-        tooltip->set_markup(_("The barrel size of the eyepiece in inches."));
+        tooltip->set_markup(_("The transmission of the eyepiece as a percentage."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[7])
+        tooltip->set_markup(_("The barrel size of the eyepiece in inches."));
+    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[8])
         tooltip->set_markup(_("The optical design. Plossl, ortho, " 
                                 "or other types specified as multi other."));
-    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[8])
-        tooltip->set_markup(_("The number of groups in the eyepiece, a group is made up of one or more lenses."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[9])
-        tooltip->set_markup(_("The total number of lenses or elements in the eyepiece."));
+        tooltip->set_markup(_("The number of groups in the eyepiece, a group is made up of one or more lenses."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[10])
-        tooltip->set_markup(_("The weight in grams of the eyepiece."));
+        tooltip->set_markup(_("The total number of lenses or elements in the eyepiece."));
     else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[11])
+        tooltip->set_markup(_("The weight in grams of the eyepiece."));
+    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[12])
         tooltip->set_markup(_("The type of coating used on optical elements. " 
         "FMC is fully multi coated. FMC-BE is fully multicoated with blackened edges, MC Multi coated, SC single coat etc."));
-    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[12])
+    else if (row.get_value(m_epCols.m_results_property) == m_eplistnames[13])
         tooltip->set_markup(_("The type of glass used for lens construction."));
     else
         tooltip->set_markup(_("No tooltip available."));
