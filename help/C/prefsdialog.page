@@ -5,7 +5,7 @@
 
   <info>
     <link type="guide" xref="index" group="#first"/>
-    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
+    <revision pkgversion="0.0.6" date="2021-11-08" status="review"/>
 
     <credit type="author">
       <name>Alexander Borro</name>
@@ -43,10 +43,6 @@ Application defaults can be set here. Click the mouse on a tab or use the tab ke
 
   <item>
   <p>Use monospace font:  Use a fixed-width font style in the information log.</p>
-  </item>
-
-  <item>
-  <p>Show frames:  Disabling this feature make frames surrounding property boxes invisible, resulting in a less cluttered interface.</p>
   </item>
 
   <item>

@@ -6,12 +6,12 @@
     <title type="link">GNOME TCalc</title>
     <title type="text">GNOME TCalc</title>
     <desc>The GNOME TCalc help guide.</desc>
-    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
+    <revision pkgversion="0.0.9" date="2021-11-08" status="review"/>
 
     <credit type="author">
       <name>Alexander Borro</name>
       <email its:translate="no">alexander.borro@gmail.com</email>
-      <years>2019</years>
+      <years>2021</years>
     </credit>
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   </info>

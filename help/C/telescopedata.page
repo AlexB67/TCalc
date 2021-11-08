@@ -5,7 +5,7 @@
 
   <info>
     <link type="guide" xref="index" group="#first"/>
-    <revision pkgversion="0.0.6" date="2019-12-12" status="review"/>
+    <revision pkgversion="0.0.6" date="2021-11-8" status="review"/>
 
     <credit type="author">
       <name>Alexander Borro</name>
@@ -27,9 +27,8 @@ The input parameters for telescopes are as follows:</p>
 <list>
 <item>
 <p>
-Select model: Using the combo box the user can select a model from the available presets. 
-Models can also be searched for by  pressing the search button on the top left of the header bar ( denoted by the hour glass icon).  
-Upon selection the telescope properties will be populated.
+Select telescope: Use search to select a model from the available presets. Suggested matches will be shown as you type.  
+Upon selection the eyepiece properties will be populated.
 </p>
 </item>
 

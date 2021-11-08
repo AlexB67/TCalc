@@ -28,8 +28,7 @@ The input parameters for eyepieces are as follows:
 <list>
 <item>
 <p>
-Select model:  Using the combo box the user can select a model from the available presets. 
-Models can also be searched for by  pressing the search button on the top left of the header bar ( denoted by the hour glass icon).  
+Select eyepiece:  Use search to select a model from the available presets. Suggested matches will be shown as you type.  
 Upon selection the eyepiece properties will be populated.
 </p>
 </item>
