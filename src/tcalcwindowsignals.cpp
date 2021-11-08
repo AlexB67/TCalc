@@ -249,23 +249,35 @@ void TcalcWindow::create_results()
 
 	resultsbox->append_row(_("Airy disk diam"), 1000.0 * dtmp, 3, _("&#x03BC;m"), set);
 
-	Gtk::TreeModel::iterator iter = scopebox->m_smodel->get_active();
-	auto row = *iter;
-
-	if(iter)
+	auto set_strehl = [&](const Gtk::TreeRow& row)
 	{
-		double strehl = row[scopebox->m_scombomodel.m_scopecols.m_sstrehl];
-		
-		if ( strehl > Astrocalc::astrocalc::tSMALL && Astrocalc::astrocalc::REFRACTOR != scopebox->m_stype.get_active_row_number()) 
+		const double strehl = row[scopebox->m_scombomodel.m_scopecols.m_sstrehl];
+		if (strehl > Astrocalc::astrocalc::tSMALL && Astrocalc::astrocalc::REFRACTOR !=
+			scopebox->m_stype.get_active_row_number())
 		{
 			dtmp = m_astrocalc.calc_pv_from_strehl(strehl);
 			resultsbox->append_row(_("PV from Strehl"), dtmp, 3, "", set);
 		}
 		else
-		{
 			resultsbox->append_row(_("PV from Strehl"), "", set);
+	};
+
+	if (!scopebox->get_use_entry())
+	{
+		const auto& iter = scopebox->m_smodel->get_active();
+		if (iter)
+		{
+			const auto row = *iter;
+			set_strehl(row);
 		}
 	}
+	else
+	{
+		const auto row = scopebox->get_current_row();
+		if (row && scopebox->m_smodelentry.get_text() != _("custom"))
+			set_strehl(row);
+	}
+
 
 	dtmp = m_astrocalc.calc_lunar_res(scopebox->m_saperture.get_value());
 
