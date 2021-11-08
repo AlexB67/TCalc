@@ -258,5 +258,9 @@ void EpBox::Eyepiecebox::set_custom_ep()
 
 void EpBox::Eyepiecebox::clear_emodel_entry(Gtk::Entry::IconPosition pos)
 {
-    if (pos == Gtk::Entry::IconPosition::SECONDARY) m_emodelentry.set_text("");
+    if (pos == Gtk::Entry::IconPosition::SECONDARY) 
+    {
+        m_emodelentry.set_text("");
+        m_emodelentry.grab_focus();
+    }
 }

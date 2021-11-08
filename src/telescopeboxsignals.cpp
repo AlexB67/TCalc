@@ -279,5 +279,9 @@ void ScopeBox::Telescopebox::set_custom_scope()
 
 void ScopeBox::Telescopebox::clear_smodel_entry(Gtk::Entry::IconPosition pos)
 {
-    if (pos == Gtk::Entry::IconPosition::SECONDARY) m_smodelentry.set_text("");
+    if (pos == Gtk::Entry::IconPosition::SECONDARY)
+    {
+        m_smodelentry.set_text("");
+        m_smodelentry.grab_focus();
+    }
 }
