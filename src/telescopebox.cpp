@@ -6,13 +6,13 @@ ScopeBox::Telescopebox::Telescopebox(bool with_entry, bool userdataonly)
 : m_with_entry(with_entry),
   m_userdataonly(userdataonly)
 {
-	//if (!m_with_entry)
-	///{
+	if (!m_with_entry)
+	{
 		m_smodel = Gtk::make_managed<Gtk::ComboBox>(); // only if using the combo
 		m_smodel->set_tooltip_text(_("Select a telescope from the list of preset models, "\
 								     " or use the values below to customise settings."));
-	//}
-	//else
+	}
+	else
 		m_smodelentry.set_tooltip_text(_("Search for a telescope "\
 								         "or use the values below to customise settings."));
 										 
@@ -24,8 +24,6 @@ ScopeBox::Telescopebox::Telescopebox(bool with_entry, bool userdataonly)
    
     Uidefs::set_ui_spacing<Gtk::Grid>(m_grid);
     
-	m_smodel->set_tooltip_text(_("Select a telescope from the list of preset models," 
-								" or use the values below to customise settings."));
 	m_sflen.set_tooltip_text(_("The focal length of the eyepiece in mm."));
 	m_sfratio.set_tooltip_markup(_("The speed of the telescope. Expressed as <i>f</i>/# ." 
 								   "The focal length devided by the aperture."));
@@ -112,11 +110,14 @@ void ScopeBox::Telescopebox::set_default_values()
 
 void ScopeBox::Telescopebox::create_scope_entry_model()
 {
-	m_smodelentry.set_max_width_chars(30);
-	m_smodelentry.set_icon_from_icon_name("edit-find-symbolic");
+	m_smodelentry.set_max_width_chars(28);
+	m_smodelentry.set_icon_from_icon_name("edit-find-symbolic", Gtk::Entry::IconPosition::PRIMARY);
+	m_smodelentry.set_icon_activatable(false, Gtk::Entry::IconPosition::PRIMARY);
+	m_smodelentry.set_icon_from_icon_name("edit-delete-symbolic", Gtk::Entry::IconPosition::SECONDARY);
+	m_smodelentry.signal_icon_press().connect( sigc::mem_fun(*this, &Telescopebox::clear_smodel_entry));
 	scopeentrycompletion = Gtk::EntryCompletion::create();
 
-	auto scopelistcompletion_model = m_scombomodel.get_scope_list_model();
+	auto& scopelistcompletion_model = m_scombomodel.get_scope_list_model();
     scopeentrycompletion->set_model(scopelistcompletion_model);
     scopeentrycompletion->set_text_column(m_scombomodel.m_scopecompletioncols.m_smodel);
     scopeentrycompletion->set_minimum_key_length(3);

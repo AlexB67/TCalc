@@ -30,67 +30,67 @@ void OcularWindow::set_signal_handlers()
   //   }
   // });
 
-  magbox->m_dsocombo.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::dso_changed));
+    magbox->m_dsocombo.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::dso_changed));
 
-  auto objlist = std::vector{
-      scopebox->m_saperture.property_value(),
-      scopebox->m_sflen.property_value(),
-      epbox->m_eflen.property_value(),
-      epbox->m_efov.property_value(),
-      epbox->m_efstop.property_value(),
-  };
+    auto objlist = std::vector{
+        scopebox->m_saperture.property_value(),
+        scopebox->m_sflen.property_value(),
+        epbox->m_eflen.property_value(),
+        epbox->m_efov.property_value(),
+        epbox->m_efstop.property_value(),
+    };
 
-  for (auto &iter : objlist)
-    iter.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
+    for (auto &iter : objlist)
+        iter.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 
-  if (!epbox->get_use_entry()) 
-    epbox->m_emodel->signal_changed().connect([this]() { ocular_changed();});
-  else
-    epbox->m_emodelentry.signal_editing_done().connect([this]() { ocular_changed();});
+    if (!epbox->get_use_entry())
+        epbox->m_emodel->signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
+    else
+        epbox->m_emodelentry.signal_editing_done().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 
-  scopebox->m_smodel->signal_changed().connect([this]() {
-    ocular_changed();
-  });
+    if (!scopebox->get_use_entry())
+        scopebox->m_smodel->signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
+    else
+        scopebox->m_smodelentry.signal_editing_done().connect([this]() { ocular_changed(); });
 
-  optionsbox->m_uselinearmethod->property_active().signal_changed().connect([this]() {
-    ocular_changed();
-  });
+    optionsbox->m_uselinearmethod->
+    property_active().signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 
-  optionsbox->m_usefstop->property_active().signal_changed().connect([this]() {
-    if (epbox->m_efstop.get_value() > Astrocalc::astrocalc::tSMALL)
-      ocular_changed();
-    epbox->m_efstop.set_sensitive(optionsbox->m_usefstop->get_active());
-  });
+    optionsbox->m_usefstop->property_active().signal_changed().connect([this]()
+    {
+        if (epbox->m_efstop.get_value() > Astrocalc::astrocalc::tSMALL) ocular_changed();
+        epbox->m_efstop.set_sensitive(optionsbox->m_usefstop->get_active());
+    });
 
- // magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_info));
+  // magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_info));
   magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 }
 
 void OcularWindow::ocular_changed()
 {
-  ocularbox.m_efov = epbox->m_efov.get_value();
-  set_ocular_info();
-  set_contrast_info();
-  ocularbox.queue_draw();
+    ocularbox.m_efov = epbox->m_efov.get_value();
+    set_ocular_info();
+    set_contrast_info();
+    ocularbox.queue_draw();
 }
 
 void OcularWindow::dso_changed()
 {
-  Gtk::TreeModel::iterator iter = magbox->m_dsocombo.get_active();
+    Gtk::TreeModel::iterator iter = magbox->m_dsocombo.get_active();
 
-  if (iter)
-  {
-    Gtk::TreeModel::Row row = *iter;
-    if (row)
+    if (iter)
     {
-      ocularbox.m_imagefile = static_cast<std::string>(row[magbox->m_dsocombomodel.m_dsocols.m_DSOimagefile]);
-      ocularbox.m_efov = epbox->m_efov.get_value();
-      ocularbox.m_imagesize = row[magbox->m_dsocombomodel.m_dsocols.m_DSOimagesize];
-      set_ocular_info();
-      set_contrast_info();
-      ocularbox.queue_draw();
+        Gtk::TreeModel::Row row = *iter;
+        if (row)
+        {
+            ocularbox.m_imagefile = static_cast<std::string>(row[magbox->m_dsocombomodel.m_dsocols.m_DSOimagefile]);
+            ocularbox.m_efov = epbox->m_efov.get_value();
+            ocularbox.m_imagesize = row[magbox->m_dsocombomodel.m_dsocols.m_DSOimagesize];
+            set_ocular_info();
+            set_contrast_info();
+            ocularbox.queue_draw();
+        }
     }
-  }
 }
 
 void OcularWindow::set_contrast_info()

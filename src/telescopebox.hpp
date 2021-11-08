@@ -79,5 +79,6 @@ protected:
   bool on_scope_completion_match(const Glib::ustring& key, const Gtk::TreeModel::const_iterator& iter);
   void set_custom_scope();
   void reset_smodel_entry();
+  void clear_smodel_entry(Gtk::Entry::IconPosition pos);
 };
 } // namespace ScopeBox

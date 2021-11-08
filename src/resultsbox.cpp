@@ -21,7 +21,7 @@ Gtk::Frame &Resultsbox::create_results_grid()
     create_model_view(_("Eyepiece data"), m_epview, m_epModel, m_epCols, false);
     create_model_view(_("Telescope data"), m_scopeview, m_scopeModel, m_scopeCols, false);
 
-    m_scrollwin.set_policy(Gtk::PolicyType::NEVER, Gtk::PolicyType::ALWAYS);
+    m_scrollwin.set_policy(Gtk::PolicyType::NEVER, Gtk::PolicyType::AUTOMATIC);
     m_scrollwin.set_can_focus(false);
     m_scrollwin.set_child(m_resultsviewgrid);
 

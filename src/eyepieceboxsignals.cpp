@@ -134,7 +134,7 @@ bool EpBox::Eyepiecebox::on_ep_selected(const Gtk::TreeModel::iterator &iter)
 
 bool EpBox::Eyepiecebox::on_ep_completion_match(const Glib::ustring& key, const Gtk::TreeModel::const_iterator& iter)
 {
-    bool m_case_sensitive = false;
+    bool m_case_sensitive = false; // okay we we are not using this anymore but might make it an option somewhere
 
     if (iter)
     {
@@ -254,4 +254,9 @@ void EpBox::Eyepiecebox::ep_type_changed()
 void EpBox::Eyepiecebox::set_custom_ep()
 {
     m_emodelentry.set_text(_("Custom"));
+}
+
+void EpBox::Eyepiecebox::clear_emodel_entry(Gtk::Entry::IconPosition pos)
+{
+    if (pos == Gtk::Entry::IconPosition::SECONDARY) m_emodelentry.set_text("");
 }

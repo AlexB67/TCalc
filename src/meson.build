@@ -32,6 +32,7 @@ tcalc_sources = [
   'resultsbox.cpp',
   'resultsboxsignals.cpp',
   'prefswindow.cpp',
+  'equipmentwindow.cpp',
   'graphswindow.cpp',
   'graphswindowsignals.cpp',
   'plots.cpp',

@@ -388,6 +388,10 @@ void TcalcWindow::close()
 		graphswindow->hide();
 	}
 
+	if (equipbrowserwindow){
+		equipbrowserwindow->hide();
+	}
+
 	if (ocularwindow)
 		ocularwindow->hide();
 

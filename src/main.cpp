@@ -18,7 +18,7 @@
 
 #include <glibmm/i18n.h>
 #include "tcalcwindow.hpp"
-// app->add_action("quit", sigc::ptr_fun<void>(&close));
+
 int main (int argc, char *argv[])
 {
 	auto app = Gtk::Application::create("org.gnome.TCalc");

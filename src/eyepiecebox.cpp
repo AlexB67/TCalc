@@ -103,11 +103,14 @@ void EpBox::Eyepiecebox::set_default_values()
 
 void EpBox::Eyepiecebox::create_ep_entry_model()
 {
-	m_emodelentry.set_max_width_chars(30);
-	m_emodelentry.set_icon_from_icon_name("edit-find-symbolic");	
+	m_emodelentry.set_max_width_chars(28);
+	m_emodelentry.set_icon_from_icon_name("edit-find-symbolic", Gtk::Entry::IconPosition::PRIMARY);
+	m_emodelentry.set_icon_activatable(false, Gtk::Entry::IconPosition::PRIMARY); //gtk  bug doesn't do anything
+	m_emodelentry.set_icon_from_icon_name("edit-delete-symbolic", Gtk::Entry::IconPosition::SECONDARY);
+	m_emodelentry.signal_icon_press().connect( sigc::mem_fun(*this, &Eyepiecebox::clear_emodel_entry));
 	epentrycompletion = Gtk::EntryCompletion::create();
 
-	auto eplistcompletion_model = m_ecombomodel.get_ep_list_model();
+	auto& eplistcompletion_model = m_ecombomodel.get_ep_list_model();
     epentrycompletion->set_model(eplistcompletion_model);
     epentrycompletion->set_text_column(m_ecombomodel.m_epcompletioncols.m_epmodel);
     epentrycompletion->set_minimum_key_length(3);

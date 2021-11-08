@@ -20,6 +20,7 @@
 #include "graphswindow.hpp"
 #include "ocularwindow.hpp"
 #include "equipwindow.hpp"
+#include "equipmentwindow.hpp"
 
 class TcalcWindow : public Gtk::ApplicationWindow
 {
@@ -39,6 +40,7 @@ private:
   std::unique_ptr<EquipWindow> equipwindow;
   std::unique_ptr<GraphsWindow> graphswindow;
   std::unique_ptr<OcularWindow> ocularwindow;
+  std::unique_ptr<BrowserWindow> equipbrowserwindow;
   std::shared_ptr<ScopeBox::Telescopebox> scopebox;
   std::shared_ptr<EpBox::Eyepiecebox> epbox;
   std::unique_ptr<LogView::LoggerView> logbox;

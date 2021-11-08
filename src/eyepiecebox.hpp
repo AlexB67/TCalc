@@ -77,5 +77,6 @@ protected:
   void set_values_from_model(const Gtk::TreeRow& row);
   void set_custom_ep();
   void reset_emodel_entry();
+  void clear_emodel_entry(Gtk::Entry::IconPosition pos);
 };
 } // namespace EpBox

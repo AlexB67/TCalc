@@ -83,6 +83,13 @@ void TcalcWindow::create_menu_and_shortcuts()
       ocularwindow->show();
    });
 
+   add_action("browser", [this]() {
+    if (!equipbrowserwindow)
+         equipbrowserwindow = 
+         std::make_unique<BrowserWindow>(epbox->m_ecombomodel.get_epmodel(), epbox->m_ecombomodel);
+      equipbrowserwindow->show();
+   });   
+
    add_action("help", [this]() {
       Gio::AppInfo::launch_default_for_uri("help:tcalc");
    });
@@ -136,6 +143,7 @@ void TcalcWindow::create_menu_and_shortcuts()
    winmenu->append(_("_Interactive graphs"), "win.graphs");
    winmenu->append(_("_Ocular viewer"), "win.ocular");
    winmenu->append(_("_Edit equipment"), "win.equipment");
+   winmenu->append(_("_Browse equipment"), "win.browser");
 
    winmenusection->append(_("_Preferences"), "win.preferences");
    winmenusection->append(_("_Keyboard shortcuts"), "win.shortcuts");
@@ -143,7 +151,7 @@ void TcalcWindow::create_menu_and_shortcuts()
    winmenusection->append(_("_About TCalc"), "win.about");
    winmenusection->append(_("_Quit"), "win.quit");
 
-   winmenu->insert_section(3, winmenusection);
+   winmenu->insert_section(4, winmenusection);
    menubutton.set_menu_model(winmenu);
    menubutton.set_icon_name("open-menu-symbolic");
 
@@ -152,6 +160,7 @@ void TcalcWindow::create_menu_and_shortcuts()
    m_app->set_accel_for_action("win.graphs", "<Ctrl>g");
    m_app->set_accel_for_action("win.ocular", "<Ctrl>o");
    m_app->set_accel_for_action("win.equipment", "<Ctrl>e");
+   m_app->set_accel_for_action("win.browser", "<Ctrl>b");
    m_app->set_accel_for_action("win.preferences", "<Ctrl>p");
    m_app->set_accel_for_action("win.help", "F1");
    m_app->set_accel_for_action("win.shortcuts", "<Ctrl>k");

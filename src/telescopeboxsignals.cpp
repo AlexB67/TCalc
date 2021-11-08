@@ -253,7 +253,7 @@ void ScopeBox::Telescopebox::on_cell_data_changed(const Gtk::TreeModel::const_it
 
 bool ScopeBox::Telescopebox::on_scope_completion_match(const Glib::ustring& key, const Gtk::TreeModel::const_iterator& iter)
 {
-    bool m_case_sensitive = false;
+    bool m_case_sensitive = false;// okay we we are not using this anymore but might make it an option somewhere
 
     if (iter)
     {
@@ -275,4 +275,9 @@ bool ScopeBox::Telescopebox::on_scope_completion_match(const Glib::ustring& key,
 void ScopeBox::Telescopebox::set_custom_scope()
 {
     m_smodelentry.set_text(_("Custom"));
+}
+
+void ScopeBox::Telescopebox::clear_smodel_entry(Gtk::Entry::IconPosition pos)
+{
+    if (pos == Gtk::Entry::IconPosition::SECONDARY) m_smodelentry.set_text("");
 }
