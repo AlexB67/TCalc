@@ -231,13 +231,13 @@ bool ScopeBox::EditTelescopes::validate_scope_data()
 
     if (m_sflen.get_value() != std::clamp<double>(m_sflen.get_value(), 10.0, 4000.0))
     {
-        message += _("Focal length out of range, allowed range 2mm to a 100mm.\n\n");
+        message += _("Focal length out of range, allowed range 10 mm to a 4000mm.\n\n");
         flag = false;
     }
 
     if (m_saperture.get_value() != std::clamp<double>(m_saperture.get_value(), 10.0, 1000.0))
     {
-        message += _("Aperture out of range, allowed range: 0mm to 100mm. Set 0 if unknown.\n\n");
+        message += _("Aperture out of range, allowed range: 10mm to 1000mm. Set 0 if unknown.\n\n");
         flag = false;
     }
 
