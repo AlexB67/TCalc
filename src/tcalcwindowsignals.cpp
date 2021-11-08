@@ -274,7 +274,7 @@ void TcalcWindow::create_results()
 	else
 	{
 		const auto row = scopebox->get_current_row();
-		if (row && scopebox->m_smodelentry.get_text() != _("custom"))
+		if (row && scopebox->m_smodelentry.get_text() != _("Custom"))
 			set_strehl(row);
 	}
 
