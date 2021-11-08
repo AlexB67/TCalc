@@ -113,7 +113,7 @@ void ScopeBox::Telescopebox::create_scope_entry_model()
 	m_smodelentry.set_max_width_chars(28);
 	m_smodelentry.set_icon_from_icon_name("edit-find-symbolic", Gtk::Entry::IconPosition::PRIMARY);
 	m_smodelentry.set_icon_activatable(false, Gtk::Entry::IconPosition::PRIMARY);
-	m_smodelentry.set_icon_from_icon_name("edit-delete-symbolic", Gtk::Entry::IconPosition::SECONDARY);
+	m_smodelentry.set_icon_from_icon_name("edit-clear-symbolic", Gtk::Entry::IconPosition::SECONDARY);
 	m_smodelentry.signal_icon_press().connect( sigc::mem_fun(*this, &Telescopebox::clear_smodel_entry));
 	scopeentrycompletion = Gtk::EntryCompletion::create();
 

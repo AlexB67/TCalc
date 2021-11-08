@@ -106,7 +106,7 @@ void EpBox::Eyepiecebox::create_ep_entry_model()
 	m_emodelentry.set_max_width_chars(28);
 	m_emodelentry.set_icon_from_icon_name("edit-find-symbolic", Gtk::Entry::IconPosition::PRIMARY);
 	m_emodelentry.set_icon_activatable(false, Gtk::Entry::IconPosition::PRIMARY); //gtk  bug doesn't do anything
-	m_emodelentry.set_icon_from_icon_name("edit-delete-symbolic", Gtk::Entry::IconPosition::SECONDARY);
+	m_emodelentry.set_icon_from_icon_name("edit-clear-symbolic", Gtk::Entry::IconPosition::SECONDARY);
 	m_emodelentry.signal_icon_press().connect( sigc::mem_fun(*this, &Eyepiecebox::clear_emodel_entry));
 	epentrycompletion = Gtk::EntryCompletion::create();
 
