@@ -32,12 +32,12 @@ Orion (UK)|Orion UK VX14 14" Dob|350|1600|21.42|97|0|Hilux|Schott Borosilicate S
 Orion (UK)|Orion UK VX16 16" Dob|400|1600|20.5|97|0|Hilux|Schott Borosilicate Suprax|||0|0|29|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
 Orion (UK)|Orion UK VX20 20" Dob|500|2000|20.0|97|0|Hilux|Schott Borosilicate Suprax|||0|0|40|Dobsonian|ACU-* 2" with reduction gearing|8x50 finder|
 Skywatcher|Skyhawk 114P Parabolic Newt|114|500|0|0|0|||||0|0|0|EQ1|||
-Skywatcher|Skyliner 150P 6" Parabolic Dob|153|1200|22.54|92|0|Pyrex|Silicon dioxide|||0|0|5.78|Dobsonian|R and P 2"/1.25"|6x30 finder|
-Skywatcher|Skyliner 200P 8" Parabolic Dob|203|1200|23.15|92|0|Pyrex|Silicin dioxide|||0|0|11.0|Dobsonian|Crayord 2"/1,25"|9x50 finder|
-Skywatcher|Skyliner 250PX 10" Parabolic Dob|254|1200|22.83|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|Crayord 2"/1,25"|9x50 finder|
-Skywatcher|Skyliner 300PX 12" Parabolic Dob|305|1500|17.05|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|||
-Skywatcher|Skyliner 350P 14" Flextube Dob|355|1600|0|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|||
-Skywatcher|Skyliner 400P 16" Flextube Dob|406|1800|0|92|0|Pyrex|Silicon dioxide|||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 150P 6" Parabolic Dob|153|1200|22.54|92|0|Silicon dioxide|Pyrex|||0|0|5.78|Dobsonian|R and P 2"/1.25"|6x30 finder|
+Skywatcher|Skyliner 200P 8" Parabolic Dob|203|1200|23.15|92|0|Silicon dioxide|Pyrex|||0|0|11.0|Dobsonian|Crayord 2"/1,25"|9x50 finder|
+Skywatcher|Skyliner 250PX 10" Parabolic Dob|254|1200|22.83|92|0|Silicon dioxide|Pyrex|||0|0|0|Dobsonian|Crayord 2"/1,25"|9x50 finder|
+Skywatcher|Skyliner 300PX 12" Parabolic Dob|305|1500|17.05|92|0|Silicon dioxide|Pyrex|||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 350P 14" Flextube Dob|355|1600|0|92|0|Silicon dioxide|Pyrex|||0|0|0|Dobsonian|||
+Skywatcher|Skyliner 400P 16" Flextube Dob|406|1800|0|92|0|Silicon dioxide|Pyrex|||0|0|0|Dobsonian|||
 Skywatcher|Skywatcher Evostar-120 achromat|120|1000|0|0|1|||Multi coated||0|0|0|EQ3-2|Dual-Fit 1.25"/2"|6x30 finder scope|
 Skywatcher|Skywatcher Evostar-150 achromat|150|1200|0|0|1|||||0|0|0|||| 
 Skywatcher|SkyWatcher Explorer 130P Supra AUTO|130|650|27|92|0|||||0|0|0||||
@@ -48,7 +48,7 @@ Skywatcher|SkyWatcher Explorer 200P Newt|200|1000|0|90|0|||||0|0|0||||
 Skywatcher|SkyWatcher Explorer 200PDS Newt|200|1000|28.57|90|0|||||0|0|0||||
 Skywatcher|SkyWatcher Explorer 250P Newt|254|1200|0|90|0|||||0|0|0||||
 Skywatcher|Skywatcher Heritage 76 3" Mini Dob|76|300|0|92|0|||||0|0|1.75|Dobsonian|R and P 1.25"|5x24 finderscope|
-Skywatcher|Skywatcher Heritage 130P Flex Dob|130|650|26.54|90|0|Pyrex|Silicon dioxide|||0|7.4|0|Dobsonian|1.25" build-in|Red dot|
+Skywatcher|Skywatcher Heritage 130P Flex Dob|130|650|26.54|90|0|Silicon dioxide|Pyrex|||0|7.4|0|Dobsonian|1.25" build-in|Red dot|
 Skywatcher|SkyWatcher Startravel 80|80|400|0|0|1|||||0|0|0||||
 Skywatcher|SkyWatcher Startravel 120T|120|600|0|0|1|||||0|0|0||||
 Skywatcher|SkyWatcher Startravel 150|150|750|0|0|1|||||0|0|0||||
