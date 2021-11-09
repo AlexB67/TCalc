@@ -86,7 +86,7 @@ void TcalcWindow::create_menu_and_shortcuts()
    add_action("browser", [this]() {
     if (!equipbrowserwindow)
          equipbrowserwindow = 
-         std::make_unique<BrowserWindow>(epbox->m_ecombomodel.get_epmodel(), epbox->m_ecombomodel);
+         std::make_unique<BrowserWindow>(epbox->m_ecombomodel,  scopebox->m_scombomodel);
       equipbrowserwindow->show();
    });   
 

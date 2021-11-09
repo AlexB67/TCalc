@@ -20,7 +20,7 @@
 #include "graphswindow.hpp"
 #include "ocularwindow.hpp"
 #include "equipwindow.hpp"
-#include "equipmentwindow.hpp"
+#include "browse_equipwindow.hpp"
 
 class TcalcWindow : public Gtk::ApplicationWindow
 {
