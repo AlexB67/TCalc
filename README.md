@@ -2,9 +2,8 @@ Note: This is the old GTKMM3 version. A never version using GTKMM4 is available 
 
 ```
 git checkout tcalc-gtkmm3
-```    
+``` 
 ##GNOME TCalc 
-
 An astronomy tool for telescopes and eyepieces written in gtkmm and C++) for the linux desktop. The software is intended as a learning tool for amateur astronomers, with an interest in visual astronomy. Help Documentation is included.
 
 <img src="data/screenshots/graphs-window.png">
