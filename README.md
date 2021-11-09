@@ -1,6 +1,4 @@
-###Note: 
-
-This is the old GTKMM3 version. A never version using GTKMM4 is available in master. If you still want to install this version then checkout the grttkmm3 branch with
+Note: This is the old GTKMM3 version. A never version using GTKMM4 is available in master. If you still want to install this version then checkout the grttkmm3 branch with
 
 ```
 git checkout tcalc-gtkmm3
