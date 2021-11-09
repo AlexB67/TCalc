@@ -1,4 +1,11 @@
 #pragma once
+#include "eyepiecebox.hpp"
+#include "telescopebox.hpp"
+#include "loggerbox.hpp"
+#include "optionsbox.hpp"
+#include "starmagbox.hpp"
+#include "oculardrawingarea.hpp"
+#include "dsocombomodel.hpp"
 #include <gtkmm/window.h>
 #include <gtkmm/scrolledwindow.h>
 #include <gtkmm/grid.h>
@@ -11,13 +18,6 @@
 #include <gtkmm/entry.h>
 #include <gtkmm/headerbar.h>
 #include <gtkmm/cssprovider.h>
-#include "eyepiecebox.hpp"
-#include "telescopebox.hpp"
-#include "loggerbox.hpp"
-#include "optionsbox.hpp"
-#include "starmagbox.hpp"
-#include "oculardrawingarea.hpp"
-#include "dsocombomodel.hpp"
 
 class OcularWindow : public Gtk::Window
 {
@@ -68,10 +68,10 @@ private:
     Ocular ocularbox;
     void create_sky_objects_box();
     void create_ocular_info_box();
-    //bool on_key_press_event(GdkEventKey *event) override;
     void set_signal_handlers();
     void set_ocular_info();
     void dso_changed();
     void set_contrast_info();
     void ocular_changed();
+    bool on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring& phase);
 };

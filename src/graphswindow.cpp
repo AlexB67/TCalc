@@ -145,35 +145,9 @@ void::GraphsWindow::set_plot_theme(const Glib::ustring &themename)
 
 bool GraphsWindow::on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring&)
 {
-    if (keyval == GDK_KEY_Escape) hide();
-    // else if ((keyval == GDK_KEY_z) && (keycode & GDK_CONTROL_MASK))
-    // {
-    //    plot_data_changed();
-    //    return true;
-    // }
+  if (keyval == GDK_KEY_Escape) hide();
+
     
-    return false;
+  return false;
 }
 
-// bool GraphsWindow::on_key_press_event(GdkEventKey* key_event)
-// {
-  
-//   if(key_event->keyval == GDK_KEY_Escape)
-//   {
-//     hide();
-//     return true;
-//   }
-//   else if ((key_event->keyval == GDK_KEY_f) && (key_event->state & GDK_CONTROL_MASK))
-//   {
-//     search();
-//     return true;
-//   }
-//   else if ((key_event->keyval == GDK_KEY_z) && (key_event->state & GDK_CONTROL_MASK))
-//   {
-//     plot_data_changed();
-//     return true;
-//   }
-
-  
-//   return Gtk::Window::on_key_press_event(key_event);
-// }
