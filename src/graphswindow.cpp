@@ -30,8 +30,6 @@ GraphsWindow::GraphsWindow()
   plotframe_label.set_markup(_("<b>Graph</b>"));
   plotframe.set_label_align(Gtk::Align::CENTER);
   plotframe.set_margin(Uidefs::BORDER_WIDTH);
-  // AppGlobals::get_keyfile_config(plotframe);
-  // AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(plotframe);});
 
   plotlist.insert(0, _("Magnitude limit versus magnification"));
   plotlist.insert(1, _("Magnitude limit versus zenith angle"));

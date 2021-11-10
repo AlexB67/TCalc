@@ -34,11 +34,11 @@ SearchWindow::SearchWindow(const std::shared_ptr<EpBox::Eyepiecebox> &epbox,
   //  m_epbox->m_ecombomodel.set_ep_completion_model(epsearch, epbox->m_emodelentry);
     m_scopebox->m_scombomodel.set_scope_completion_model(scopesearch);
 
-    casesensitive->property_active().signal_changed().connect([this]()
-    { m_epbox->m_ecombomodel.set_case_sensitive(casesensitive->get_active()); });
+    casesensitive->property_active().signal_changed().connect((sigc::track_obj([this]()
+    { m_epbox->m_ecombomodel.set_case_sensitive(casesensitive->get_active()); }, *this)));
 
-    casesensitive->property_active().signal_changed().connect([this]()
-    { m_scopebox->m_scombomodel.set_case_sensitive(casesensitive->get_active()); });
+    casesensitive->property_active().signal_changed().connect((sigc::track_obj([this]()
+    { m_scopebox->m_scombomodel.set_case_sensitive(casesensitive->get_active()); }, *this)));
 
     auto controller = Gtk::EventControllerKey::create();
     controller->set_propagation_phase(Gtk::PropagationPhase::CAPTURE);

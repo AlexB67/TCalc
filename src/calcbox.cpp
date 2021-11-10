@@ -63,20 +63,20 @@ Gtk::Frame &CalcBox::Calcbox::create_calc_grid()
     
     m_calcframe.set_child(m_calcgrid);
     
-    m_interactive->property_active().signal_changed().connect([this]()
+    m_interactive->property_active().signal_changed().connect((sigc::track_obj([this]()
     {
         m_calcbutton.set_sensitive(!m_interactive->get_active());
         AppGlobals::IMODE = m_interactive->get_active();
          (true == m_interactive->get_active()) ? log_msg.emit(true, LogView::tINFO, _("Interactive mode enabled")) :
          log_msg.emit(true, LogView::tINFO, _("Interactive mode disabled"));
-    });
+    }, *this)));
     
-    m_logswitch->property_active().signal_changed().connect([this]()
+    m_logswitch->property_active().signal_changed().connect((sigc::track_obj([this]()
     {
         if (m_logswitch->get_active()) log_msg.emit(true, LogView::tINFO, _("Logging enabled"));
         else log_msg.emit(true, LogView::tINFO, _("Logging disabled"));
         AppGlobals::LOGFLAG = m_logswitch->get_active();
-    });
+    }, *this)));
     
     return m_calcframe;
 }

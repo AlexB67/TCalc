@@ -46,11 +46,11 @@ EquipWindow::EquipWindow(const Glib::RefPtr<Gtk::Application> &app)
         sigc::bind(sigc::mem_fun(*this, &EquipWindow::on_key_press_event), "capture"), false);
     add_controller(controller);
 
-    signal_hide().connect([this]()
+    signal_hide().connect((sigc::track_obj([this]()
     {
         if (true == m_previouslogstate)
             AppGlobals::LOGFLAG = true;
-    });
+    }, *this)));
 }
 
 bool EquipWindow::on_key_press_event(guint keyval, guint, Gdk::ModifierType, const Glib::ustring &)

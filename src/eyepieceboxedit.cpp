@@ -224,8 +224,7 @@ bool EpBox::EditEyepieces::validate_ep_data()
         validate_dialog->set_hide_on_close(true);
         validate_dialog->set_transient_for(*m_parent);
         validate_dialog->show();
-
-        validate_dialog->signal_response().connect([this](int retcode) 
+        validate_dialog->signal_response().connect((sigc::track_obj([this](int retcode) 
         {
             validate_dialog->hide();
             switch (retcode)
@@ -236,7 +235,7 @@ bool EpBox::EditEyepieces::validate_ep_data()
                     break;
                 }
             }
-        });
+        }, *this)));
     }
 
     return flag;

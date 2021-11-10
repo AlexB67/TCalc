@@ -31,8 +31,6 @@ Gtk::Frame &LogView::LoggerView::create_logger()
     create_text_buffer();
 
     AppGlobals::log_msg.connect(sigc::mem_fun(*this, &LogView::LoggerView::setlogtext));
-  //  AppGlobals::get_keyfile_config(m_loggerframe);
-  //  AppGlobals::frame_style.connect([this](){ AppGlobals::set_frame_style(m_loggerframe);});
 
     return m_loggerframe;
 }

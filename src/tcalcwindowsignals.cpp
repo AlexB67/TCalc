@@ -14,26 +14,26 @@ void TcalcWindow::set_signal_handlers()
 {
 	using namespace AppGlobals;
 
-	calcbox->m_clearbutton.signal_clicked().connect([this]() {
+	calcbox->m_clearbutton.signal_clicked().connect((sigc::track_obj([this]() {
 		logbox->clear_log();
 		resultsbox->clear(true);
-	});
+	}, *this)));
 
-	optionsbox->m_usefstop->property_active().signal_changed().connect([this]() {
+	optionsbox->m_usefstop->property_active().signal_changed().connect((sigc::track_obj([this]() {
 		epbox->enable_fstop(optionsbox->m_usefstop->get_active());
 
 		if (true == optionsbox->m_usefstop->get_active())
 			logbox->setlogtext(LOGFLAG, LogView::tINFO, _("Eyepiece field stop data enabled for calculations."));
 		else
 			logbox->setlogtext(LOGFLAG, LogView::tINFO, _("Eyepiece field stop data disabled for calculations."));
-	});
+	}, *this)));
 
-	optionsbox->m_uselinearmethod->property_active().signal_changed().connect([this]() {
+	optionsbox->m_uselinearmethod->property_active().signal_changed().connect((sigc::track_obj([this]() {
 		if (true == optionsbox->m_uselinearmethod->get_active())
 			logbox->setlogtext(LOGFLAG, LogView::tINFO, _("Linear method enabled for FOV calculations."));
 		else
 			logbox->setlogtext(LOGFLAG, LogView::tINFO, _("Linear method disabled for FOV calculations."));
-	});
+	}, *this)));
 
 	calcbox->m_calcbutton.signal_clicked().connect(sigc::mem_fun(*this, &TcalcWindow::create_results));
 
@@ -55,10 +55,13 @@ void TcalcWindow::set_signal_handlers()
 		optionsbox->m_wavelength.property_value()};
 
 	for (auto &iter : objlist)
-		iter.signal_changed().connect([this]() { if (true == AppGlobals::IMODE) create_results(); });
+		iter.signal_changed().connect((sigc::track_obj([this]() 
+		{ if (true == AppGlobals::IMODE) create_results(); }, *this)));
 
-	magbox->m_dirtlevel.signal_changed().connect([this]() {if (true == AppGlobals::IMODE) create_results();});
-	magbox->m_explevel.signal_value_changed().connect([this]() {if (true == AppGlobals::IMODE) create_results();});
+	magbox->m_dirtlevel.signal_changed().connect((sigc::track_obj([this]() 
+	{if (true == AppGlobals::IMODE) create_results();}, *this)));
+	magbox->m_explevel.signal_value_changed().connect((sigc::track_obj([this]() 
+	{if (true == AppGlobals::IMODE) create_results();}, *this)));
 }
 
 void TcalcWindow::create_results()
@@ -178,7 +181,8 @@ void TcalcWindow::create_results()
 	dtmp = m_astrocalc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
 	resultsbox->append_row(_("Low mag limit"), dtmp, 2, _("x"), set);
 
-	dtmp = scopebox->m_sflen.get_value() / m_astrocalc.calc_minmag(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value());
+	dtmp = scopebox->m_sflen.get_value() / m_astrocalc.calc_minmag(scopebox->m_saperture.get_value(), 
+	                                       magbox->m_pupilsize.get_value());
 	resultsbox->append_row(_("Max focal length"), dtmp, 2, _("mm"), set);
 
 	dtmp = scopebox->m_sflen.get_value() / m_astrocalc.calc_maxmag(scopebox->m_saperture.get_value());
@@ -192,7 +196,9 @@ void TcalcWindow::create_results()
 	resultsbox->append_row(_("Light grasp"), dtmp, 1, "", set);
 
 	dtmp = m_astrocalc.calc_light_effective_grasp(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(),
-												  scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0);
+												  scopebox->m_sobstruct.get_value() / 100.0, 
+												  scopebox->m_sreflect.get_value() / 100.0);
+
 	resultsbox->append_row(_("Light grasp effective"), dtmp, 1, "", set);
 
 	dtmp = m_astrocalc.calc_brightness_factor(scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(),
@@ -220,16 +226,21 @@ void TcalcWindow::create_results()
 	double dirt = magbox->get_optical_dirt_level();
 
 	dtmp = m_astrocalc.calc_lmag_scope(static_cast<int>(magbox->m_explevel.get_value()), magbox->m_colour.get_value(),
-									   magbox->m_seeing.get_value(), dirt, epbox->m_etrans.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0,
-									   scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(), magbox->m_nelm.get_value(),
+									   magbox->m_seeing.get_value(), dirt, epbox->m_etrans.get_value() / 100.0, 
+									   scopebox->m_sreflect.get_value() / 100.0,
+									   scopebox->m_saperture.get_value(), magbox->m_pupilsize.get_value(), 
+									   magbox->m_nelm.get_value(),
 									   magbox->m_zenith.get_value(), magbox->m_extinction.get_value(), dmag,
-									   scopebox->m_sobstruct.get_value() / 100.0, static_cast<short>(scopebox->m_stype.get_active_row_number()));
+									   scopebox->m_sobstruct.get_value() / 100.0, 
+									   static_cast<short>(scopebox->m_stype.get_active_row_number()));
 
 	resultsbox->append_row(_("Limiting magnitude"), dtmp, 2, "", set);
 
 	
-	dtmp =  m_astrocalc.calc_dso_contrast_in_scope(dmag, scopebox->m_stype.get_active_row_number(), scopebox->m_saperture.get_value(), 
-			scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0, epbox->m_etrans.get_value() / 100.0,
+	dtmp =  m_astrocalc.calc_dso_contrast_in_scope(dmag, scopebox->m_stype.get_active_row_number(), 
+	        scopebox->m_saperture.get_value(), 
+			scopebox->m_sobstruct.get_value() / 100.0, scopebox->m_sreflect.get_value() / 100.0, 
+			epbox->m_etrans.get_value() / 100.0,
 			dirt, magbox->m_pupilsize.get_value(), magbox->m_nelm1.get_value(), magbox->m_vmag.get_value(), 
 			magbox->m_minoraxis.get_value(), magbox->m_majoraxis.get_value()).first;
 
@@ -304,17 +315,17 @@ void TcalcWindow::prefs()
 		prefswindow->set_transient_for(*this);
 		prefswindow->set_modal(true);
 
-		prefswindow->showtime_ref().property_active().signal_changed().connect([this](){
+		prefswindow->showtime_ref().property_active().signal_changed().connect((sigc::track_obj([this](){
         logbox->set_log_timestamp(prefswindow->showtime_ref().get_active());
-        });
+        }, *this)));
 
-        prefswindow->showcolour_ref().property_active().signal_changed().connect([this](){
+        prefswindow->showcolour_ref().property_active().signal_changed().connect((sigc::track_obj([this](){
         logbox->set_log_colour(prefswindow->showcolour_ref().get_active());
-        });
+        }, *this)));
 
-        prefswindow->usemonospace_ref().property_active().signal_changed().connect([this](){
+        prefswindow->usemonospace_ref().property_active().signal_changed().connect((sigc::track_obj([this](){
         logbox->set_use_monospace(prefswindow->usemonospace_ref().get_active());
-        });
+        }, *this)));
 	}
 
 	prefswindow->present();

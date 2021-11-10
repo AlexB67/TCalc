@@ -10,7 +10,7 @@ namespace ScopeBox
 {
     class EditTelescopes : public Telescopebox
     {  
-         public:
+        public:
             explicit EditTelescopes(const Glib::RefPtr<Gtk::Application>& app, Gtk::Window *parent);
 
             EditTelescopes(const EditTelescopes&) = delete;
@@ -56,8 +56,14 @@ namespace ScopeBox
             bool updatemode = false;
             void set_signal_handlers();
             void enable_widgets(const bool enable = true);
+            void create_scopemodel_connection() override {}
             bool validate_scope_data();
             void swap_rows();
-            void create_scopemodel_connection() override {}
+            void on_smodel_edit_changed();
+            void on_new_button_clicked();
+            void on_edit_button_clicked();
+            void on_cancel_button_clicked();
+            void on_save_button_clicked();
+            void on_del_button_clicked();
     };
 }

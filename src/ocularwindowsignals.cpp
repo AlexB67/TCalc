@@ -8,7 +8,7 @@
 void OcularWindow::set_signal_handlers()
 {
 //    need a better css, disabled for now for gtk4
-//    nightmode->property_active().signal_changed().connect([this]() {
+//    nightmode->property_active().signal_changed().connect((sigc::track_obj([this]() {
 //     if (true == nightmode->get_active())
 //     {
 //       provider->load_from_resource("/org/gnome/TCalc/resources/nightmode.css");
@@ -28,7 +28,7 @@ void OcularWindow::set_signal_handlers()
 //       settings->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme);
 //       settings->property_gtk_theme_name().set_value(currenttheme);
 //     }
-//   });
+//   }, *this)));
 
     magbox->m_dsocombo.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::dso_changed));
 
@@ -51,16 +51,17 @@ void OcularWindow::set_signal_handlers()
     if (!scopebox->get_use_entry())
         scopebox->m_smodel->signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
     else
-        scopebox->m_smodelentry.signal_editing_done().connect([this]() { ocular_changed(); });
+        scopebox->m_smodelentry.signal_editing_done().connect((sigc::track_obj([this]() 
+        { ocular_changed(); }, *this)));
 
     optionsbox->m_uselinearmethod->
     property_active().signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));
 
-    optionsbox->m_usefstop->property_active().signal_changed().connect([this]()
+    optionsbox->m_usefstop->property_active().signal_changed().connect((sigc::track_obj([this]()
     {
         if (epbox->m_efstop.get_value() > Astrocalc::astrocalc::tSMALL) ocular_changed();
         epbox->m_efstop.set_sensitive(optionsbox->m_usefstop->get_active());
-    });
+    }, *this)));
 
   // magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::set_contrast_info));
   magbox->m_dsocontrastindex.signal_changed().connect(sigc::mem_fun(*this, &OcularWindow::ocular_changed));

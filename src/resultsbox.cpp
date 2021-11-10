@@ -51,21 +51,21 @@ Gtk::Frame &Resultsbox::create_results_grid()
     m_scopeview.signal_query_tooltip().connect(sigc::mem_fun(*this, &Resultsbox::set_scope_row_tooltip), true);
     m_epview.signal_query_tooltip().connect(sigc::mem_fun(*this, &Resultsbox::set_ep_row_tooltip), true);
 
-    m_buttonright.signal_clicked().connect([this]()
+    m_buttonright.signal_clicked().connect((sigc::track_obj([this]()
     {
         m_buttonleft.set_sensitive(true);
         m_buttonright.set_sensitive(false);
         AppGlobals::resultsset = 2;
         log_msg.emit(AppGlobals::LOGFLAG, LogView::tINFO, _("Results set 2 selected."));
-    });
+    }, *this)));
 
-    m_buttonleft.signal_clicked().connect([this]()
+    m_buttonleft.signal_clicked().connect((sigc::track_obj([this]()
     {
         m_buttonleft.set_sensitive(false);
         m_buttonright.set_sensitive(true);
         AppGlobals::resultsset = 1;
         log_msg.emit(AppGlobals::LOGFLAG, LogView::tINFO, _("Results set 1 selected."));
-    });
+    }, *this)));
 
     init_property_names();
 

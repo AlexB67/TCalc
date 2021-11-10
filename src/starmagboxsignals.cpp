@@ -14,30 +14,31 @@ void MagBox::Magbox::set_signal_handlers()
     m_sitetype1.signal_changed().connect(sigc::mem_fun(*this, &Magbox::dso_site_type_changed));
     m_colourbyname.signal_changed().connect(sigc::mem_fun(*this, &Magbox::star_colour_changed));
 
-    m_age.signal_value_changed().connect([this]() {
+    m_age.signal_value_changed().connect((sigc::track_obj([this]() {
         m_pupilsize.set_value(m_calc.calc_eyepupil_from_age(m_age.get_value()));
-    });
+    }, *this)));
 
     m_vmag.signal_value_changed().connect(sigc::mem_fun(*this, &Magbox::dso_brightness_changhed));
     m_minoraxis.signal_value_changed().connect(sigc::mem_fun(*this, &Magbox::dso_brightness_changhed));
     m_majoraxis.signal_value_changed().connect(sigc::mem_fun(*this, &Magbox::dso_brightness_changhed));
 
-    m_dsobrightness.signal_value_changed().connect([this]() {
+    m_dsobrightness.signal_value_changed().connect((sigc::track_obj([this]() {
         m_dsocontrastindex.set_value(m_calc.calc_contrast_index(m_bgsky.get_value(), m_dsobrightness.get_value()));
-    });
+    }, *this)));
 
-    m_minoraxis.signal_value_changed().connect([this]() {
+    m_minoraxis.signal_value_changed().connect((sigc::track_obj([this]() {
        if (m_minoraxis.get_value() > m_majoraxis.get_value()) m_majoraxis.set_value(m_minoraxis.get_value());
-    });
+    }, *this)));
     
-    m_majoraxis.signal_value_changed().connect([this]() {
+    m_majoraxis.signal_value_changed().connect((sigc::track_obj([this]() {
        if (m_majoraxis.get_value() < m_minoraxis.get_value()) m_minoraxis.set_value(m_majoraxis.get_value());
-    });
+    }, *this)));
 }
 
 void MagBox::Magbox::dso_brightness_changhed()
 {
-    m_dsobrightness.set_value(m_calc.calc_dso_mag_to_brightness(m_vmag.get_value(), m_minoraxis.get_value(), m_majoraxis.get_value()));
+    m_dsobrightness.set_value(m_calc.calc_dso_mag_to_brightness(m_vmag.get_value(), 
+                                m_minoraxis.get_value(), m_majoraxis.get_value()));
 }
 
 void MagBox::Magbox::star_colour_changed()
@@ -78,7 +79,8 @@ void MagBox::Magbox::dso_site_type_changed()
 {
     m_nelm1.set_value(sitevalues[m_sitetype1.get_active_row_number()]);
     m_bgsky.set_value(m_calc.calc_nelm_brightness_threshold_method(m_nelm1.get_value()));
-    m_dsobrightness.set_value(m_calc.calc_dso_mag_to_brightness(m_vmag.get_value(), m_minoraxis.get_value(), m_majoraxis.get_value()));
+    m_dsobrightness.set_value(m_calc.calc_dso_mag_to_brightness(m_vmag.get_value(), 
+                              m_minoraxis.get_value(), m_majoraxis.get_value()));
     m_dsocontrastindex.set_value(m_calc.calc_contrast_index(m_bgsky.get_value(), m_dsobrightness.get_value()));
 }
 

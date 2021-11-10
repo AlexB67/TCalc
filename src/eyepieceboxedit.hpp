@@ -48,10 +48,16 @@ private:
     std::unique_ptr<Gtk::MessageDialog> delete_dialog;
     std::unique_ptr<Gtk::MessageDialog> validate_dialog;
     bool updatemode = false;
+    void create_epmodel_connection() override {}
     void set_signal_handlers();
     void enable_widgets(const bool enable = true);
     bool validate_ep_data();
     void swap_rows();
-    void create_epmodel_connection() override {}
+    void on_emodel_edit_changed();
+    void on_new_button_clicked();
+    void on_edit_button_clicked();
+    void on_cancel_button_clicked();
+    void on_save_button_clicked();
+    void on_del_button_clicked();
 };
 } // namespace EpBox

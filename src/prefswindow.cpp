@@ -120,7 +120,7 @@ void PrefsWindow::create_appearance_page()
     appearancegrid.attach(graphthemes, 1, 5);
     appearancegrid.attach(appearancedefaults, 1, 6);
 
-    graphthemes.signal_changed().connect([this](){
+    graphthemes.signal_changed().connect((sigc::track_obj([this](){
 
         std::vector<Glib::ustring> themes
         {
@@ -129,19 +129,19 @@ void PrefsWindow::create_appearance_page()
         };
     
         AppGlobals::update_graphthemes.emit(themes[graphthemes.get_active_row_number()]);
-    });
+    }, *this)));
 
-    preferdarktheme->property_active().signal_changed().connect([this]() { 
+    preferdarktheme->property_active().signal_changed().connect((sigc::track_obj([this]() { 
         Gtk::Settings::get_default()->property_gtk_application_prefer_dark_theme().set_value(preferdarktheme->get_active());
-    });
+    }, *this)));
 
-    appearancedefaults.signal_clicked().connect([this]() {
+    appearancedefaults.signal_clicked().connect((sigc::track_obj([this]() {
         showtime->set_active(true);
         usemonospace->set_active(false);
         preferdarktheme->set_active(true);
         showcolour->set_active(false);
         graphthemes.set_active(1); // black graph theme
-    });
+    }, *this)));
 }
 
 void PrefsWindow::create_telescope_page()
@@ -171,12 +171,12 @@ void PrefsWindow::create_telescope_page()
     scopegrid.attach(sobstructsct, 1, 3);
     scopegrid.attach(scopedefaults, 1, 4);
 
-    scopedefaults.signal_clicked().connect([this]() {
+    scopedefaults.signal_clicked().connect((sigc::track_obj([this]() {
         sreflect.set_value(Astrocalc::astrocalc::SCOPEREFLECTDEFAULT);
         strans.set_value(Astrocalc::astrocalc::SCOPETRANSDEFAULT);
         sobstruct.set_value(Astrocalc::astrocalc::OBSTRUCTSIZEDEFAULT);
         sobstructsct.set_value(Astrocalc::astrocalc::OBSTRUCTSIZESCTDEFAULT);
-    });
+    }, *this)));
 }
 
 void PrefsWindow::create_eyepiece_page()
@@ -203,11 +203,11 @@ void PrefsWindow::create_eyepiece_page()
     epgrid.attach(etransortho, 1, 2);
     epgrid.attach(epdefaults, 1, 4);
 
-    epdefaults.signal_clicked().connect([this]() {
+    epdefaults.signal_clicked().connect((sigc::track_obj([this]() {
         etransmulti.set_value(Astrocalc::astrocalc::ETRANSDEFAULT);
         etransplossl.set_value(Astrocalc::astrocalc::ETRANSPLOSSLDEFAULT);
         etransortho.set_value(Astrocalc::astrocalc::ETRANSORTHODEFAULT);
-    });
+    }, *this)));
 }
 
 void PrefsWindow::get_keyfile_settings()

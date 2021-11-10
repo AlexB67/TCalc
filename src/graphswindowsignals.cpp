@@ -4,11 +4,11 @@
 
 void GraphsWindow::set_signal_handlers()
 {
-    showgraphlegend->property_active().signal_changed().connect([this]()
+    showgraphlegend->property_active().signal_changed().connect((sigc::track_obj([this]()
     {;
         graphbox->show_legend(showgraphlegend->get_active());
         graphbox->update_graph();
-    });
+    }, *this)));
 
     AppGlobals::update_graphthemes.connect(sigc::mem_fun(*this, &GraphsWindow::set_plot_theme));
 
@@ -39,14 +39,14 @@ void GraphsWindow::set_signal_handlers()
     for (auto &iter: objlist)
         iter.signal_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
 
-    optionsbox->m_uselinearmethod->property_active().signal_changed().connect([this]() {
+    optionsbox->m_uselinearmethod->property_active().signal_changed().connect((sigc::track_obj([this]() {
         plot_data_changed();
-    });
+    }, *this)));
 
-    optionsbox->m_usefstop->property_active().signal_changed().connect([this]() {
+    optionsbox->m_usefstop->property_active().signal_changed().connect((sigc::track_obj([this]() {
         if (epbox->m_efstop.get_value() > Astrocalc::astrocalc::tSMALL) plot_data_changed();
         epbox->m_efstop.set_sensitive(optionsbox->m_usefstop->get_active());
-    });
+    }, *this)));
 
     magbox->m_dirtlevel.signal_changed().connect(sigc::mem_fun(*this, &GraphsWindow::plot_data_changed));
 }

@@ -9,24 +9,26 @@ using AppGlobals::log_msg;
 
 void ScopeBox::Telescopebox::create_scopemodel_connection()
 {
-    AppGlobals::update_scope_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
-                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, const Glib::ustring& oldname)
+    AppGlobals::update_scope_data.connect((sigc::track_obj([this]
+    (const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
+     Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+     Glib::ustring, Glib::ustring, Glib::ustring>& scopedata, const Glib::ustring& oldname)
     {
         m_scombomodel.update_scope_model(scopedata, oldname);
 
         if (!m_with_entry) scope_changed();
         else reset_smodel_entry();
-    });
+    }, *this)));
 
-    AppGlobals::new_scope_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
-                                  Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
-                                  Glib::ustring, Glib::ustring, Glib::ustring>& scopedata)
+    AppGlobals::new_scope_data.connect((sigc::track_obj([this]
+    (const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double, int, 
+     Glib::ustring, Glib::ustring, Glib::ustring, Glib::ustring, double, double, double,  
+     Glib::ustring, Glib::ustring, Glib::ustring>& scopedata)
     {
        m_scombomodel.add_scope_to_model(scopedata);
-    });
+    }, *this)));
 
-    AppGlobals::del_scope_data.connect([this](const Glib::ustring& scopemodelname)
+    AppGlobals::del_scope_data.connect((sigc::track_obj([this](const Glib::ustring& scopemodelname)
     {
 
         bool updatecombo = false;
@@ -61,11 +63,11 @@ void ScopeBox::Telescopebox::create_scopemodel_connection()
                 current_iter = it2;
             }
         }
-    });
+    }, *this)));
 
-      AppGlobals::move_scope_row_up.connect([this](const Glib::ustring& scopemodelname){
+      AppGlobals::move_scope_row_up.connect((sigc::track_obj([this](const Glib::ustring& scopemodelname){
       m_scombomodel.swap_scope_rows(scopemodelname);
-    });
+    }, *this)));
 }
 
 void ScopeBox::Telescopebox::set_values_from_model(const Gtk::TreeRow& row)

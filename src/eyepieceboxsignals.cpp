@@ -8,24 +8,26 @@ using AppGlobals::log_msg;
 
 void EpBox::Eyepiecebox::create_epmodel_connection()
 {
-    AppGlobals::update_ep_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
-                                double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                                Glib::ustring>& epdata, const Glib::ustring& oldname)
+    AppGlobals::update_ep_data.connect((sigc::track_obj([this](
+        const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
+        double, double, Glib::ustring, int, int, double, Glib::ustring, 
+        Glib::ustring>& epdata, const Glib::ustring& oldname)
     {
         m_ecombomodel.update_ep_model(epdata, oldname);
         
         if (!m_with_entry) ep_changed();
         else reset_emodel_entry();
-    });
+    }, *this)));
 
-    AppGlobals::new_ep_data.connect([this](const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
-                                double, double, Glib::ustring, int, int, double, Glib::ustring, 
-                                Glib::ustring>& epdata)
+    AppGlobals::new_ep_data.connect((sigc::track_obj([this](
+        const std::tuple<Glib::ustring, Glib::ustring, double, double, double, double,
+        double, double, Glib::ustring, int, int, double, Glib::ustring, 
+        Glib::ustring>& epdata)
     {
        m_ecombomodel.add_ep_to_model(epdata);
-    });
+    }, *this)));
 
-    AppGlobals::del_ep_data.connect([this](const Glib::ustring& model_name)
+    AppGlobals::del_ep_data.connect((sigc::track_obj([this](const Glib::ustring& model_name)
     {
         bool updatecombo = false;
 
@@ -60,10 +62,10 @@ void EpBox::Eyepiecebox::create_epmodel_connection()
                 current_iter = it2;
             }
         }
-    });
+    }, *this)));
 
-    AppGlobals::move_ep_row_up.connect([this](const Glib::ustring& model_name)
-    { m_ecombomodel.swap_ep_rows(model_name);});
+    AppGlobals::move_ep_row_up.connect((sigc::track_obj([this](const Glib::ustring& model_name)
+    { m_ecombomodel.swap_ep_rows(model_name);}, *this)));
 }
 
 void EpBox::Eyepiecebox::ep_changed()
