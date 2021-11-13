@@ -55,5 +55,7 @@ void GraphsWindow::plot_data_changed()
 {
     auto plotfunc = graphlist[plotlist.get_active_row_number()];
     std::invoke(plotfunc, *this);
+
+    epbox->m_eflen.grab_focus();
 }
 
